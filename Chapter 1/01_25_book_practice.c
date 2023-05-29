@@ -12,9 +12,11 @@
         printf("What is the radius of circle \n");
         scanf("%d", &radius);
 
-        int area;
+        float area;
         area = 3.14*radius*radius;
-        printf("Area of circle is %d\n", area);
+        printf("Area of circle is %f\n", area);
+
+        
 
         int perimeter;
         perimeter = 2*(length+breadth);

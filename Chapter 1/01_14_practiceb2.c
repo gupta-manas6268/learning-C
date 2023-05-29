@@ -2,9 +2,8 @@
 #include <stdio.h>
 
     int main(){
-        int p,n;
-        float si, r;
-        si=p*n*r/100;
+        float p, n, r;
+        float si=p*n*r/100;
 
         printf("Enter values of p,n,r\n");
         scanf("%f %f %f", &p, &n, &r);

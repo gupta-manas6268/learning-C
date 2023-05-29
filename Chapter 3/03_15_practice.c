@@ -2,20 +2,22 @@
 #include <stdio.h>
 
     int main(){
-    float a, b, c, d;
-    printf("Enter value of a\n");
-    scanf("%f", a);
+        float a, b, c, d;
+        printf("Enter the value of a, b, c and d \n");
+        scanf("%f %f %f %f", &a, &b, &c, &d);
 
-     printf("Enter value of b\n");
-    scanf("%f", b);
-
-     printf("Enter value of c\n");
-    scanf("%f", c);
-
-     printf("Enter value of d\n");
-    scanf("%f", d);
-
-    if
+        if(a>=b && a>=c && a>=d){
+            printf("a is the greatest of all \n");
+        }
+        if(b>=c && b>=d && b>=a){
+            printf("b is the greatest of all \n");
+        }
+        if(c>=a && c>=b && c>=d){
+            printf("c is the greatest of all \n");
+        }
+        if(d>=a && d>=b && d>=c){
+            printf("d is the greatest of all \n");
+        }
 
     return 0;
 }
