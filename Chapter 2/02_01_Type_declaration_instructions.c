@@ -1,8 +1,8 @@
 #include <stdio.h>
 
     int main(){
-        // int a = 4; // Type declaration instruction
-        // int a = 4, b,c; // Type declaration instruction
+        // int a, b, c; // Type declaration instruction
+        // a = 4; // Type declaration instruction
         // b = c = a;
         // printf("The value of a is %d\n", a);
         // printf("The value of b is %d\n", b);

@@ -1,16 +1,18 @@
 #include <stdio.h>
+#include <math.h>
 
     int main(){
-        int x,y;
-        printf("The value of x is \n");
-        scanf("%d", &x);
+        float x,y;
+        printf("The value of x & y is \n");
+        scanf("%f %f", &x ,&y);
 
-        printf("The value of y is \n");
-        scanf("%d", &y);
+        float r,theta;
+        r = sqrt(x*x + y*y);
+        theta = atan(y/x);
 
-        int r,$;
-        r=sqrt(x*x+y*y);
-        $=tan
+        printf("The polar coordinates of the point is %f and %f\n",r ,theta);
+
+        
     
     return 0;
 }

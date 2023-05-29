@@ -1,4 +1,4 @@
-// The else if clause is better than the if clause because it reduces the time of execution of the program.
+// The "else if" clause is better than the "if" clause because it reduces the time of execution of the program.
 #include <stdio.h>
 
     int main(){

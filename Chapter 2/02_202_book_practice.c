@@ -17,8 +17,8 @@
         printf("%d",d);
         printf("%d",c);
         printf("%d",b);
-        printf("%d",a);
+        printf("%d\n",a);
 
-    
+        printf("The reverse order of the number is %d%d%d%d%d\n", e,d,c,b,a);
     return 0;
 }

@@ -11,6 +11,8 @@
         // 24/3*2
         // 8*2
         // 16
+
+        printf("The value of 8*y / 3*x is %f \n", 8 *y / 3 *  x);
      
     return 0;
 }
