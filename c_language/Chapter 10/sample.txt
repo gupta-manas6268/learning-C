@@ -1,0 +1,5 @@
+this is sampleHarry
+
+
+// append is last word of a file.
+// Ex.-→ here "Harry" is append.
