@@ -21,4 +21,5 @@ signed main(){
 
     cout<<(is_prime ? "Prime" : "Not Prime")<<endl;       
     
+    // TC = O(sqrt(n)).
 }

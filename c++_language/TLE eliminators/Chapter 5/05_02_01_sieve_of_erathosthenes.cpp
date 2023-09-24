@@ -18,7 +18,7 @@ signed main(){
     primes[0] = primes[1] = false;
 
     for(int i=2; i<=n; i++){
-        if(primes[i]){
+        if(primes[i]){  // If 'i' is has been marked for prime  i.e. "primes[i] = true".
             for(int j=i*2; j<=n; j+=i)
                 primes[j] = false;
 

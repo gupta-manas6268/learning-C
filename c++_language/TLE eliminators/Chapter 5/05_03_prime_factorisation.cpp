@@ -21,8 +21,8 @@ signed main(){
         }
     }
 
-    if(n != 1)
-        cout<<n<<" ";
+    if(n != 1) // n = 1, only when the last prime factor occurred multiple times.
+        cout<<n<<" "; // Because, if 'n' becomes '3' then, (sqrt(3) < 2), which is not satisfied for the loop condition.
 
     cout<<endl;
 }
