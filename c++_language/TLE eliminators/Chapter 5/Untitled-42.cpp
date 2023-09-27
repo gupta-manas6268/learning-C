@@ -13,6 +13,13 @@ signed main(){
     int tc; cin >> tc;
 
     while (tc--){
-        
+        int a, b;
+        cin>>a>>b;
+
+        int x, y, z;
+        x = a*b; y = a; z = a*(b+1);
+
+        cout<<"YES"<<endl;
+        cout<< x <<" "<< y <<" "<< z <<endl;t
     }
 }

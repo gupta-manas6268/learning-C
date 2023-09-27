@@ -1,7 +1,3 @@
-// Q.1: codeforces.com/problemset/problem/71/A
-
-
-// This code shows "Compilation error."
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -17,12 +13,14 @@ signed main(){
     int tc; cin >> tc;
 
     while (tc--){
-        char *s; cin>>s;
-        int a = strlen(s);t
-        int b = a - 2;
-        
-        if(a >= 10){
-            cout<<s[0]<<a-2<<s[a-1]<<endl;
+        int n; cin>>n;
+        int ans = 0;
+
+        for(int i=2; i<=n; i++){
+            if((n % i == 0) && (i % 2 == 0)){
+                ans++;
+            }
         }
+        cout<< ans << endl;
     }
 }

@@ -1,3 +1,8 @@
+// Q.5: codeforces.com/problemset/problem/41/A
+
+
+
+
 // This code shows wrong answer.
 #include<bits/stdc++.h>
 using namespace std;
