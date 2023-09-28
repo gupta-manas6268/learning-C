@@ -13,6 +13,13 @@ signed main(){
     int tc; cin >> tc;
 
     while (tc--){
-        
+        int n; cin>>n;
+        int arr[12][30];
+
+        for(int i=0; i<12; i++){
+            while(n > 0){
+                
+            }
+        }
     }
 }

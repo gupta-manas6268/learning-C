@@ -7,20 +7,18 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-int pow(int a, int b){
-    int res = 1;
-
-    while(b > 0){
-        if(b%2 == 1){
-            (res *= a) % MOD;
-            a *= a;
-            b /= 2;
-        }
-        return res;
-    }
-}
 signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
-    
+    int tc; cin >> tc;
+
+    while (tc--){
+        int n; cin>>n;
+
+        int p[n];
+
+        for(int i=0; i<n; i++){
+            
+        }
+    }
 }
