@@ -7,22 +7,12 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-int LCM(int a, int b){
-    vector<int> vec1; vector<int> vec2;
-
-    while(a > 0){}
-}
 signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     int tc; cin >> tc;
 
     while (tc--){
-        int n; cin>>n;
-        int a[n], b[n+1];
-
-        for(int i=0; i<n; i++){ cin >> a[i];}
-
-        lcm(a, b);
+        
     }
 }
