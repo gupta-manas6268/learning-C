@@ -13,6 +13,8 @@ signed main(){
     int tc; cin >> tc;
 
     while (tc--){
-        
+        int n, x, y; cin >> n >> x >> y;
+
+        int dif = y - x;
     }
 }
