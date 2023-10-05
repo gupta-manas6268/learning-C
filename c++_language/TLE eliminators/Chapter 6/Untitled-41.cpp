@@ -16,8 +16,28 @@ signed main(){
         int n; cin >> n;
         int arr[n];
 
-        for(int i=0; i<n; i++){ cin>> arr[i];}
+        vector<int> vecEven;
+        vector<int> vecOdd;
 
-        
+        int even = 0, odd = 0;
+
+        for(int i=0; i < n; i++){
+            cin >> arr[i];
+
+            if(arr[i] % 2 == 0){ 
+                vecEven.push_back(arr[i]);
+                even++;
+            }
+            else{ 
+                vecOdd.push_back(arr[i]);
+                odd++;
+            }
+        }
+
+        vector<int> Ans;
+
+        for(int i=0; i < even; i++){
+            Ans.push_back(vecEven[i]);
+        }
     }
 }

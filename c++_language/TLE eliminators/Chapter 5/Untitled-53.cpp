@@ -1,3 +1,7 @@
+// It is red because I haven't checked it that this answer is right or wrong, because I haven't login 'Hackerrank' at that time.
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -13,6 +17,16 @@ signed main(){
     int tc; cin >> tc;
 
     while (tc--){
-        
+        int n; cin>>n;
+        int ans = 0;
+
+        for(int i=2; i <= n/2; i++){
+            if((n % i == 0) && (i % 2 == 0)){
+                ans++;
+            }
+        }
+        if(n % 2 == 0){ ans++;}
+
+        cout << ans << endl;t
     }
 }

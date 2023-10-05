@@ -16,5 +16,6 @@ signed main(){
         int n, x, y; cin >> n >> x >> y;
 
         int dif = y - x;
+        
     }
 }

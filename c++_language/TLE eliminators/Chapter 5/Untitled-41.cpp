@@ -18,9 +18,9 @@ signed main(){
     for (int i = 1; i <= n; i++){
         int a = n % 5;
 
-        for (int j = 5 - a; 1 <= j <= m; j += 5){
-            ans++;
-        }t
+        for (int j = 5 - a; j <= m; j += 5){
+            if(j > 0){ ans++;}
+        }
     }
-    cout << ans << endl;
+    cout << ans << endl;t
 }

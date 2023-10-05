@@ -17,27 +17,24 @@ int power(int n, int m){
 signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
-    int tc; cin >> tc;
+    int n; cin>>n;
+    vector<int> vec;
+    
+    int place = 0;
+    int ans1, ans2;
 
-    while (tc--){
-        int n; cin>>n;
-        vector<int> vec;
-        int place = 0;
-        int ans1, ans2;
+    while(n > 0){
+        int a; a = n % 10;
+        vec.push_back(a);
 
-        while(n > 0){
-            int a; a = n % 10;
-            vec.push_back(a);
-
-            n /= 10;
-            place++;
-        }
-        // Put all 'm = place', 'pow_mul' in for loop.
-        
-        int pow_mul = power(9, place);
-
-        ans1 = (vec[place - 1] - 1) * pow_mul;
-        ans2 = (vec[place - 1]) * ()
-
+        n /= 10;
+        place++;
     }
+    // Put all 'm = place', 'pow_mul' in for loop.
+        
+    int pow_mul = power(9, place);
+
+    ans1 = (vec[place - 1] - 1) * pow_mul;
+    ans2 = (vec[place - 1]) * ();
+
 }
