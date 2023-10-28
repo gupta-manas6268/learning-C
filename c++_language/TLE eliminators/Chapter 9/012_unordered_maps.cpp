@@ -10,10 +10,6 @@ const int INF = LLONG_MAX >> 1;
 signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
-    unordered_set<int> s;
-    s.insert(5);
-    s.insert(3);
-    s.insert(7);
+    unordered_map<int, int> mp; // "unordered_map" works similar to "unordered_set".
 
-    unordered_map<int, int> mp;
 }
