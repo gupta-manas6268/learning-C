@@ -1,4 +1,9 @@
-// This Question we have to do ourselves.
+// Quiz.2: Given N coins, print all the values you can make with
+//          some combination of coins and sum <= given K.
+
+// This Question, we have to do ourselves.
+
+
 
 
 

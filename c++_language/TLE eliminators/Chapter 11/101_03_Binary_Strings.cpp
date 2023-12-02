@@ -16,21 +16,22 @@ const int INF = LLONG_MAX >> 1;
 
 int n;
 
-void solve(string s){
+void solve(string &s){
     if(s.size() == n){
         cout << s << endl;
 
         return;
     }
 
-    solve(s + "0"); // O(N) 
-    solve(s + "1"); // O(N)
+    // s += "0";
+    s.push_back('0');
+    solve(s);
+    s.pop_back();
 
-    // string t = s + "0";
-    // string u = s + "1";
-
-    // solve(t);
-    // solve(u);
+    // s += "1";
+    s.push_back('1');
+    solve(s);
+    s.pop_back();
 
 }
 
@@ -39,5 +40,5 @@ signed main(){
 
     cin >> n;
 
-    solve("");
+    solve();
 }
