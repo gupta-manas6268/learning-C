@@ -7,25 +7,31 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-ll int pow (ll int base, ll int exp){
-    ll int res = 1;
+int pow (int base, int exp){
+    int res = 1;
 
     while(exp > 0){
-        if(exp % 2)
-            (res *= base) %= MOD;
+        if(exp % 2 == 1){
+            // (res *= base) %= MOD;
+            (res *= base) ;
 
-        (base *= base) %= MOD;
-        exp /= 2;
+            (base *= base) ;
+            exp /= 2;
+        }
+        else{
+            // (base *= base) %= MOD;
+            (base *= base) ;
+            exp /= 2;
+        }
     }
 
     return res;
-};
+}
+
 signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
-    int tc; cin >> tc;
+    int a, b; cin >> a >> b;
 
-    while (tc--){
-        
-    }
+    cout << pow(a, b);
 }
