@@ -4,7 +4,7 @@ using namespace std;
 int c = 45;
 
 int main(){
-    // *********Build in Data types********
+    // *********Built in Data types********
 
     
     int a, b, c;    

@@ -1,6 +1,8 @@
 #include <stdio.h>
 
 int main(){
+    // We use 'continue' to decrease T.C. of code.
+    
     int skip = 5, i = 0;
     while (i < 10){
         i++;
@@ -11,6 +13,7 @@ int main(){
             printf("%d \n", i);
         }
     }
+
 
     return 0;
 }

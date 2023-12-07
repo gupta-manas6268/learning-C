@@ -4,6 +4,7 @@
         int rating;
         printf("Enter your rating (1-5)\n");
         scanf("%d", &rating);
+        
         switch(rating){
             case 1:
             printf("Your rating is 1\n");
