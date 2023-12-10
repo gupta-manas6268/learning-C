@@ -10,18 +10,18 @@ int main(){
     //      C++ statements;
     // } 
 
-    int i = 1;
-    while(i<=40){
-        cout<<i<<endl;
-        i++;
-    }
-
-    // **Example of infinite while loop**
-    // int i=1;
-    // while (true){
+    // int i = 1;
+    // while(i<=40){
     //     cout<<i<<endl;
     //     i++;
     // }
+
+    // **Example of infinite while loop**
+    int i=1;
+    while (false){
+        cout<<i<<endl;
+        i++;
+    }
 
     return 0;
 }

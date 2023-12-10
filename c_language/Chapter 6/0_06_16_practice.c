@@ -26,7 +26,7 @@
 void swap(int a);
 
 int main(){
-    int x;
+    int x; scanf("%d", &x);
     printf("The value of 'x' before swap is %d\n", x);
 
     swap(x);
@@ -35,7 +35,7 @@ int main(){
 }
 void swap(int a){
     int b = 10 * a;
-    int temp;t
+    int temp;
     temp = a;
     a = b;
     b = temp;

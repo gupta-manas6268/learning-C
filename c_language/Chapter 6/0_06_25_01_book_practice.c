@@ -29,6 +29,7 @@
 
 #include <stdio.h>
 #include <math.h>
+
 void area(float a, float b, float c, float *s,float *ar){
     *s = (a + b + c) / 2;
     *ar = sqrt((*s) * (*s-a) * (*s-b) * (*s-c));

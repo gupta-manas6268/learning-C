@@ -1,3 +1,10 @@
+// See important "operator precedence" from, C++ bookmarks, "CPP Operator Precedence", like *, /, %, +, -, etc.(in Video-8)
+//  & also see "left to right" or "right to left" order.
+
+
+
+
+
 #include<iostream>
 #include<iomanip>
 
