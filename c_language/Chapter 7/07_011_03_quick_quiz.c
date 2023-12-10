@@ -1,3 +1,4 @@
+l
 # include <stdio.h>
 void show ( int ( *q )[ 4 ], int row, int col){
     int i, j ;

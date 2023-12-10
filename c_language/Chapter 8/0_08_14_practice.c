@@ -1,3 +1,4 @@
+t
 #include <stdio.h>
 void slice(char *st, int m, int n){
     int i = 0;

@@ -1,3 +1,4 @@
+l
 #include <stdio.h>
 
 void display ( int *q, int row, int col){

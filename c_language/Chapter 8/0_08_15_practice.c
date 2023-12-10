@@ -1,3 +1,4 @@
+t
 #include <stdio.h>
 
 void strcpy(char *st1, char *st2){

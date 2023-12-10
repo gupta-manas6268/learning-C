@@ -1,3 +1,4 @@
+t
 #include <stdio.h>
 
 void fibonacci(char fib[]){
