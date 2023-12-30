@@ -30,5 +30,6 @@ int main(){
     strcpy((*ptr).name, "Manas");
 
     show(e1);
+    
     return 0;
 }
