@@ -1,27 +1,32 @@
-l
 #include <stdio.h>
 
 int main(){
-    int arr[4][4];
+    int a[4][4];
+    int b[4][4];
 
     for(int i=0; i<4; i++){
         for(int j=0; j<4; j++){
-            scanf("%d", &arr[i][j]);
+            scanf("%d", &a[i][j]);
         }
     }
-    for(int i=0; i<4; i++){
-        for(int j=0; j<4; j++){
-            arr[i][j] += arr[j][i] - arr[i][j];
-        }
-    }
-    for(int i=0; i<4; i++){
-        for(int j=0; j<4; j++){
-            printf("%d ", arr[i][j]);t
 
-            if(j == 3){
-                printf("\n");
-            }
+    for(int i=0; i<4; i++){
+        for(int j=0; j<4; j++){
+            b[i][j] = a[j][i];
         }
+    }
+
+    for(int i=0; i<4; i++){
+        for(int j=0; j<4; j++){
+            a[i][j] = b[i][j];
+        }
+    }
+
+    for(int i=0; i<4; i++){
+        for(int j=0; j<4; j++){
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
     }
 
     return 0;

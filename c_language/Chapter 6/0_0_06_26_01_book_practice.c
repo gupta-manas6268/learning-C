@@ -1,3 +1,6 @@
+t
+// This code is giving me Wrong Answer.
+
 // Q.8: Write a function to compute the distance between two points and
 //       use it to develop another function that will compute the area of the
 //       triangle whose vertices are A(x1, y1), B(x2, y2), and C(x3, y3). Use

@@ -13,7 +13,7 @@ t
 
 
 
-// Complete this code. As, it is not Output answer.
+// Complete this code by using Pointers. As, it is not Output answer.
 
 
 
@@ -30,14 +30,10 @@ t
 
 int gcd(int *a, int *b){
     
-    int *c = (*a) - ((*a)/(*b)) * (*b);
+    int *c = *a - ((*a)/(*b)) * (*b);
 
-    int temp = *a;
-    *a = *b; 
-    *b = *c;
-
-    if((*b) == 0){ return (*a);}
-    else{ gcd(a, b);}
+    if((*c) == 0){ return *b;}
+    else{ gcd(&b, &c);}
 
 }
 

@@ -1,4 +1,3 @@
-t
 // Q.6: Write a C function to evaluate the series
 // 
 //       sin(x) = x - (pow(x, 3) / fact(3)) + (pow(x, 5) / fact(5)) - (pow(x, 7) / fact(7)) +....

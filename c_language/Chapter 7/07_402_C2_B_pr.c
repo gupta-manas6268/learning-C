@@ -1,22 +1,39 @@
-l
 #include <stdio.h>
 
-int max(int a, int b){
-    a > b? a: b;
-}
 int main(){
     int arr[5][5];
 
     for(int i=0; i<5; i++){
-        int max[5]
+        for(int j=0; j<5; j++){
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    int maxima[5];
+
+    for(int i=0; i<5; i++){
+        maxima[i] = arr[i][0];
 
         for(int j=0; j<5; j++){
-            scanf("%d", &arr[i][j]);t
+            if(maxima[i] >= arr[i][j]){}
 
-            if(j > 0){
-                int max[i] = max(arr[i][j], arr[i][j-1]);u
+            else{
+                maxima[i] = arr[i][j];
             }
         }
     }
+
+    int ans = maxima[0];
+
+    for(int i=0; i<5; i++){
+        if(ans >= maxima[i]){}
+
+        else{
+            ans = maxima[i];
+        }
+    }
+
+    printf("Greates Value = %d", ans);
+    
     return 0;
 }
