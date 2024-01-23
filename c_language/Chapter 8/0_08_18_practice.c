@@ -1,3 +1,28 @@
+t
+
+// Q.4: Write a program to count the occurence of a given 
+//       character in a string.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <stdio.h>
 #include <string.h>
 

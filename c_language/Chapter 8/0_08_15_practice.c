@@ -1,25 +1,52 @@
-t
+// Q.3: Write your own version of 'strcpy' function from
+//       <string.h>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <stdio.h>
+#include <string.h>
 
-void strcpy(char *st1, char *st2){
-    char *ptr_1 = st2;
-    int a = 0;
-    while(*ptr_1 != '\0'){
-        st1[a] == *ptr_1;
-        a++;
-        ptr_1++;
+int strCpy(char st1[], char st2[]){
+// void strCpy(char st1[], char st2[]){
+    
+    int i = 0;
+
+    while (st2[i] != '\0'){
+        st1[i] = st2[i];
+
+        i++;
     }
-    char *ptr_2 = st1;
-    while(*ptr_2 != '\0'){
-        printf("%c", *ptr_2);t
-    }
+
+    st1[i] = '\0';
 }
-int main(){
-    char st1[100];
-    char st2[100];
-    gets(st2);
 
-    strcpy(st1, st2);
+int main(){
+    char *st1, *st2;
+
+    gets(st1); gets(st2);
+
+    strCpy(&st1, &st2);
+
+    printf("%s", st1);
 
     return 0;
 }

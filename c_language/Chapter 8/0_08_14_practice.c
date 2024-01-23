@@ -1,19 +1,45 @@
-t
+// Q.2: Write a function slice() to slice a string. It should change
+//       the original string such that it is now the sliced string.
+//       Take 'm' and 'n' as the start and ending position for slice.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <stdio.h>
+#include <string.h>
+
 void slice(char *st, int m, int n){
     int i = 0;
-    while((m+i)<n){
+    while((m+i)<=n){
         st[i] = st[i+m];
         i++;
     }
-    st[i] = '/0';
+    st[i] = '\0';
 }
+
 int main(){
     char st[] = "Manasfdlskjalsjks";
-    slice(st, 1, 6);
+
+    int n, m; scanf("%d %d", &m, &n);
+
+    slice(st, m, n);
     printf("%s", st);
     
     return 0;
-
-    problem in the answer at "0".
 }

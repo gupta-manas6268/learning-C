@@ -1,3 +1,29 @@
+// Q.1: Write a program to take string as an input from the user
+//       using %c and %s. Confirm that the strins are equal.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <stdio.h>
 #include <string.h>
 
