@@ -1,23 +1,25 @@
-l
 #include <stdio.h>
 #include <math.h>
 
-int power(int a){
+float power(float a){
     return a*a;
 }
 int main(){
-    int x[10], y[10];
+    float x[10], y[10];
 
     for(int i=0; i<10; i++){
-        scanf("%d %d", &x[i], &y[i]);
+        scanf("%f %f", &x[i], &y[i]);
     }
-    int dis[9];
-    int ans = 0;
+
+    float dis[9];
+    float ans = 0;
+
     for(int i=1; i<10; i++){
         dis[i-1] = sqrt(power(x[i] - x[i-1]) + power(y[i] - y[i-1]));
-        ans += dis[i-1];t
+        ans += dis[i-1];
     }
-    printf("%d", ans);
+
+    printf("%f", ans);
 
     return 0;
 }
