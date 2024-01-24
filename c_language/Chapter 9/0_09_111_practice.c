@@ -1,3 +1,23 @@
+// Q.1: Create a two dimensional vector using Structures in C.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <stdio.h>
 struct vector{
     int x;

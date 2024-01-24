@@ -1,3 +1,24 @@
+// Q.2: Write a function 'sumVector' which returns the sum of two
+//       vectors passed to it. The vectors must be two-dimensional.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <stdio.h>
 struct vector{
     int x;
