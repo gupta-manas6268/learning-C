@@ -1,3 +1,24 @@
+// Q.7: Write a program that converts a string like "124" to 
+//       an integer 124.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>

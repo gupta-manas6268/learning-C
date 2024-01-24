@@ -4,19 +4,7 @@
 int main(){
     char *st; gets(st);
 
-    int occurence[255] = {0};
-
-    while(*st != '\0'){
-        int a = *st;
-
-        occurence[a]++;
-
-        st++;
-    }
-
-    for(int i=0; i<255; i++){
-        printf("%d = %c = %d", i+1, i+1, occurence[i]);
-    }
+    
 
     return 0;
 }
