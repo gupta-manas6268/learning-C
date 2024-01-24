@@ -20,9 +20,9 @@ int main(){
     struct employee *ptr;
 
     ptr = &e1;
-    // (*ptr).code = 101; // or you can also write: ptr-→code = 101;
-    ptr -> code = 101; 
-    (*ptr).code = 101;
+    
+    (*ptr).code = 101; // or you can also write: ptr->code = 101;
+    // ptr -> code = 101; 
     (*ptr).salary = 11.01;
     strcpy((*ptr).name, "Harry");
 
