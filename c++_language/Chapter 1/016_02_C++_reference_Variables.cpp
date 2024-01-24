@@ -12,6 +12,7 @@ int main(){
     cout<<"The value of a is "<<a<<" and the value of b is "<<b<<endl;
     
     // swapReferenceVar(&a, &b); // This will swap a and b using pointer reference.
+    // Above line will give error if Uncommented.
     swapReferenceVar(a, b); // This will swap a and b using reference variables.
     cout<<"The value of a is "<<a<<" and the value of b is "<<b<<endl;
 

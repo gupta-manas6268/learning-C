@@ -8,8 +8,8 @@ using namespace std;
 // int sum(int a, b); //--→ Not Acceptable
 int sum(int, int); //--→ Acceptable
 
-// void g(void); //--→ Acceptable
-void g(); //--→ Acceptable
+void g(void); //--→ Acceptable
+// void g(); //--→ Acceptable
 
 int main(){
     int num1, num2;
