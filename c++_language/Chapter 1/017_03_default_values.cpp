@@ -1,10 +1,10 @@
 #include<iostream>
 using namespace std;
 
-// float moneyReceived(float factor=1.04, int currentMoney){ // If we uncomment this line then
+// float moneyReceived(float factor=1.04, int Money){ // If we uncomment this line then
                                                              // this code will give error.
-float moneyReceived(int currentMoney, float factor=1.04){
-    return currentMoney * factor;
+float moneyReceived(int Money, float factor=1.04){
+    return Money * factor;
 }
 // So, always we have to print default arguments in extreme right .
 // & we have to print simple arguments in extreme left .

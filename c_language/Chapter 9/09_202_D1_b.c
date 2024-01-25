@@ -1,3 +1,10 @@
+t
+
+// I didn't properly check when OUTPUT in terminal.
+// So, firstly check the code, whether it is correct or not.
+
+
+
 #include <stdio.h>
 #include <string.h>
 
@@ -27,11 +34,18 @@ void withdrawal(bank Account[], int size){
     printf("Code for (deposit -> 1 & withdrawal -> 0):");
     scanf("%d", &code);
 
+    int numbering;
+
     for(int i=0; i<size; i++){
-        
+        if(Account[i].AccountNo == num){
+            numbering = num;
+            break;
+        }
     }
 
-    if((code == 0) && (Account[]))
+    if((code == 0) && (Account[numbering].Balance - amount < 100)){
+        printf("The balance is insufficient for the specified withdrawal");
+    }
 
 }
 
@@ -47,9 +61,13 @@ int main(){
 
         printf("Balance in Account: ");
         scanf("%d", &Account[i].Balance);
+
+        printf("\n");
     }
 
     function(Account, 2, 100);
+
+    withdrawal(Account, 2);
 
     return 0;
 }

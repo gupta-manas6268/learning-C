@@ -1,11 +1,8 @@
-// There is no Screenshot in this Video.
-
-
 #include<iostream>
 using namespace std;
 
-inline int product(int a, int b){ // We use 'inline functions' when functions have very 
-    return a*b;                   // little code.
+inline int product(int a, int b){ // We use 'inline functions' for faster execution, when 
+    return a*b;                   // functions have very little code.
 }                                 // As in big code inline function take very much memory
                                   // & then that code will be very much memory taking.
 int main(){
