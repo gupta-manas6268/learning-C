@@ -18,6 +18,10 @@
 
 
 
+
+
+
+
 #include <stdio.h>
 struct vector{
     int x;

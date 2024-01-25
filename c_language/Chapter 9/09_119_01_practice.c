@@ -1,3 +1,28 @@
+t
+
+
+
+// Q.5: Write a structure capable for storing data. Write
+//       a function to compare those dates.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <stdio.h>
 typedef struct date{
     int date;
