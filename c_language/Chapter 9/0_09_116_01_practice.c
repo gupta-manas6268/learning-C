@@ -1,3 +1,24 @@
+// Q.4: Create an array of 5 complex numbers with a structure representing
+//       a Complex number, & display them with the help of a display
+//       function. The values must be taken as an input from the user.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <stdio.h>
 
 typedef struct complex{
