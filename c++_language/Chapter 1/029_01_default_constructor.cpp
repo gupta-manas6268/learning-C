@@ -22,7 +22,7 @@ class Complex{
 // Complex :: Complex1(void){  // This line will give error, because of
                                // different names(which is 'Complex1').
 
-Complex :: Complex(void){  // ---> This is a default constructor as it takes 
+Complex :: Complex(void){  // ---> This is a default constructor as it accepts 
                            //       no parameters.
 
     a = 10; b = 20;
