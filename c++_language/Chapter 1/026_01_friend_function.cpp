@@ -1,3 +1,6 @@
+// There is no Screenshot notes in this Lecture.
+
+
 #include <iostream>
 using namespace std;
 

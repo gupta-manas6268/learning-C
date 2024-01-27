@@ -1,3 +1,7 @@
+// There is Screenshot notes in Lecture-20.
+
+// But there is no Screenshot notes in this Lecture-21.
+
 #include<iostream>
 using namespace std;
 
