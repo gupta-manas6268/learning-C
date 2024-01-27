@@ -1,3 +1,5 @@
-for (int i = 1; i <= 40; i++){
-    //     cout<<i<<endl;
+Number(Number &object){  // This is a Copy Constructor.
+    //     cout << "Copy constructor called!!! " << endl;
+
+    //     a = object.a;
     // }
