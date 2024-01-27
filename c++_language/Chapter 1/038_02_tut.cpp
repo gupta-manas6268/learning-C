@@ -24,7 +24,7 @@ int Base :: getData2(void){
     return data2;
 }
 
-class Derived : private Base{  // Class is being derived publically
+class Derived : private Base{  // Class is being derived privately
     int data3;
 
 public:
