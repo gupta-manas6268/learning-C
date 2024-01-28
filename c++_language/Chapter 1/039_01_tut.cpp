@@ -1,4 +1,4 @@
-// From [06:44] of this Lecture.
+// There is no Screenshot notes in this Lecture.
 
 
 #include<bits/stdc++.h>
@@ -14,15 +14,20 @@ private:
 
 // For a Protected member:
 //                         Public derivation   Private derivation   Protected derivation
-// 1. Private members
-// 2. Protected members
-// 3. Public members
+// 1. Private members       Not Inherited       Not Inherited        Not Inherited
+// 2. Protected members     Protected           Private              Protected
+// 3. Public members        Public              Private              Protected
 
 class Derived : protected Base{
 
 };
 
 int main(){
-    
+    Base b;
+    Derived d;
+
+    // cout << b.a << endl;  // These two lines of code will not work since 'a' is protected
+    // cout << d.a << endl;  // in both base as well as derived class.
+
     return 0;
 }
