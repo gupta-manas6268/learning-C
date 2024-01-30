@@ -1,10 +1,3 @@
-t
-
-// I didn't properly check when OUTPUT in terminal.
-// So, firstly check the code, whether it is correct or not.
-
-
-
 #include <stdio.h>
 #include <string.h>
 
@@ -25,7 +18,7 @@ void function(bank Account[], int size, int num){
 void withdrawal(bank Account[], int size){
     int num, amount, code;
 
-    printf("Account no.: ");
+    printf("Account no. you want to deposit or withdrawal: ");
     scanf("%d", &num);
 
     printf("Amount:");
@@ -38,7 +31,7 @@ void withdrawal(bank Account[], int size){
 
     for(int i=0; i<size; i++){
         if(Account[i].AccountNo == num){
-            numbering = num;
+            numbering = i;
             break;
         }
     }

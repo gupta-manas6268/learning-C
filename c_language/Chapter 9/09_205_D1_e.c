@@ -28,16 +28,16 @@ int main(){
     // Char 'date' to 'int' date.
     for(int i=0; i<3; i++){
         int year[4], month[2], day[2];
-        int Year = 0, Month = 0, Day = 0;
+        int Year2 = 0, Month2 = 0, Day2 = 0;
 
         // Char 'year' to 'int' year.
         for(int j=0; j<4; j++){
             year[j] = (emp[i].date[j+6] - 48);
         }
         for(int j=0; j<4; j++){
-            Year *= 10;
+            Year2 *= 10;
 
-            Year += year[j];
+            Year2 += year[j];
         }
 
         // Char 'month' to 'int' month.
@@ -45,9 +45,9 @@ int main(){
             month[j] = (emp[i].date[j+3] - 48);
         }
         for(int j=0; j<2; j++){
-            Month *= 10;
+            Month2 *= 10;
 
-            Month += month[j];
+            Month2 += month[j];
         }
 
         // Char 'day' to 'int' day.
@@ -55,9 +55,9 @@ int main(){
             day[j] = (emp[i].date[j+6] - 48);
         }
         for(int j=0; j<2; j++){
-            Day *= 10;
+            Day2 *= 10;
 
-            Day += day[j];
+            Day2 += day[j];
         }
 
         if()
