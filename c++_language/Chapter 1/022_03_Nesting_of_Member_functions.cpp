@@ -34,7 +34,7 @@ void binary :: check_binary(void){
 }
 
 void binary :: ones_compliment(void){
-    // check_binary(); // This is Nesting of member functions
+    check_binary(); // This is Nesting of member functions
 
     for(int i=0; i < s.length(); i++){  
         if(s.at(i) == '0'){

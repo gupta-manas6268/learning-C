@@ -26,7 +26,7 @@ class Employee{
 // Count is the static data member of class Employee.
 
 int Employee :: count; // By default, its value is '0'
-// int Employee :: count=10; // Check code with this line also.
+int Employee :: count=10; // Check code with this line also.
 
 int main(){
     Employee manas, rohan, elon;

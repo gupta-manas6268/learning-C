@@ -27,7 +27,7 @@ int main(){
     // manas.setId();
     // manas.getId();
 
-    Employee tesla[4];
+    Employee tesla[4];  // Array of Objects.
 
     for(int i=0; i<4; i++){
         tesla[i].setId();

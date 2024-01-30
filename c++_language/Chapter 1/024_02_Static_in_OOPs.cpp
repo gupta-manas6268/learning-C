@@ -17,7 +17,8 @@ class Employee{
             " and this is employee number " << count << endl;
         }
         static void getCount(void){
-            // cout << Id; // Gives an errror.
+            // cout << Id; // Gives an error, because a static member function doesn't
+                        // access a non-static member variable like 'Id'.
             cout << "The value of count is: " << count << endl;
         }
 };

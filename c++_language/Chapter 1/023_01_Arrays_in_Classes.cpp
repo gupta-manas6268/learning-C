@@ -1,6 +1,3 @@
-// There is no Screenshot notes in this Lecture.
-
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -28,7 +25,7 @@ void Shop :: setPrice(void){
 
 void Shop :: displayPrice(void){
     for(int i=0; i < counter; i++){
-        cout << "The Price of item with Id " << itemPrice[i] << endl;
+        cout << "The Price of item with Id-" << itemId[i] << " is: " << itemPrice[i] << endl;
     }
 }
 

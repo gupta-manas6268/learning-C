@@ -1,7 +1,3 @@
-// There is Screenshot notes in Lecture-20.
-
-// But there is no Screenshot notes in this Lecture-21.
-
 #include<iostream>
 using namespace std;
 
@@ -36,7 +32,7 @@ int main(){
     // manas.a = 134; // This line will give error, because 'a' is private variable.
 
     manas.d = 34; // Also check OUTPUT, when you comment
-    manas.e = 89; // these two lines.
+    // manas.e = 89; // these two lines.
 
     manas.setData(1, 2, 4);
     manas.getData();

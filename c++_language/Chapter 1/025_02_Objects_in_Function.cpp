@@ -24,13 +24,13 @@ public:
 int main() {
     Complex c1, c2, c3;
 
-    c1.setData(1, 2);
+    c1.setData(1, 2);  // Also, run code when you comment this line.
     c1.printNumber();
 
-    c2.setData(3, 4);
+    c2.setData(3, 4);  // Also, run code when you comment this line.
     c2.printNumber();
 
-    c3.setDataBySum(c1, c2);
+    c3.setDataBySum(c1, c2);  // This is Objects as Function arguments.
     c3.printNumber();
 
     return 0;

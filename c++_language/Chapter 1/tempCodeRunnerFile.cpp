@@ -1,5 +1,5 @@
-Number(Number &object){  // This is a Copy Constructor.
-    //     cout << "Copy constructor called!!! " << endl;
-
-    //     a = object.a;
-    // }
+dukaan.initCounter();
+    // dukaan.setPrice();
+    // dukaan.setPrice();
+    // dukaan.setPrice();
+    // dukaan.displayPrice();
