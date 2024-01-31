@@ -1,15 +1,6 @@
 {
   "files.associations": {
-    "iostream": "cpp",
-    "ostream": "cpp",
-    "complex": "cpp",
-    "functional": "cpp",
-    "array": "cpp",
-    "string": "cpp",
-    "string_view": "cpp",
-    "ranges": "cpp",
-    "span": "cpp",
-    "ratio": "cpp"
+    "random": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",

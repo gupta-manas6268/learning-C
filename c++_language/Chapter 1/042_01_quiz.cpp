@@ -1,3 +1,7 @@
+t
+// There is no Screenshot notes in this Lecture.
+
+
 // Create 2 classes:
 // 1. Simple Calculator - Takes an input of 2 numbers using a utility
 //                         function and performs +, -, *, / and displays

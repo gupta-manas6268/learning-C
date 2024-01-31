@@ -1,3 +1,5 @@
+// There is no Screenshot notes in this Lecture.
+
 #include<bits/stdc++.h>
 using namespace std;
 
