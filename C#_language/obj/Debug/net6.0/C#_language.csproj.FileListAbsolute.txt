@@ -1,0 +1,15 @@
+C:\Users\Manas\Documents\github repos\C#_language\bin\Debug\net6.0\C#_language.exe
+C:\Users\Manas\Documents\github repos\C#_language\bin\Debug\net6.0\C#_language.deps.json
+C:\Users\Manas\Documents\github repos\C#_language\bin\Debug\net6.0\C#_language.runtimeconfig.json
+C:\Users\Manas\Documents\github repos\C#_language\bin\Debug\net6.0\C#_language.dll
+C:\Users\Manas\Documents\github repos\C#_language\bin\Debug\net6.0\C#_language.pdb
+C:\Users\Manas\Documents\github repos\C#_language\obj\Debug\net6.0\C#_language.csproj.AssemblyReference.cache
+C:\Users\Manas\Documents\github repos\C#_language\obj\Debug\net6.0\C#_language.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Manas\Documents\github repos\C#_language\obj\Debug\net6.0\C#_language.AssemblyInfoInputs.cache
+C:\Users\Manas\Documents\github repos\C#_language\obj\Debug\net6.0\C#_language.AssemblyInfo.cs
+C:\Users\Manas\Documents\github repos\C#_language\obj\Debug\net6.0\C#_language.csproj.CoreCompileInputs.cache
+C:\Users\Manas\Documents\github repos\C#_language\obj\Debug\net6.0\C#_language.dll
+C:\Users\Manas\Documents\github repos\C#_language\obj\Debug\net6.0\refint\C#_language.dll
+C:\Users\Manas\Documents\github repos\C#_language\obj\Debug\net6.0\C#_language.pdb
+C:\Users\Manas\Documents\github repos\C#_language\obj\Debug\net6.0\C#_language.genruntimeconfig.cache
+C:\Users\Manas\Documents\github repos\C#_language\obj\Debug\net6.0\ref\C#_language.dll
