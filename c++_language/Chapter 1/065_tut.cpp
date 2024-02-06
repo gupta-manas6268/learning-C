@@ -1,11 +1,10 @@
-// From this Lecture.
-
 // There is no screenshot notes in this Lecture.
 
 #include<bits/stdc++.h>
 using namespace std;
 
-// template<class T1, class T2>
+// CLASS TEMPLATES WITH MULTIPLE PARAMETERS (ONE, TWO OR MORE THAN TWO)
+// template<class T1, class T2....(COMMA SEPARATED)>
 // class nameOfClass{
 //   // body
 // }
@@ -18,17 +17,23 @@ public:
     T2 data2;
 
     myClass(T1 a, T2 b){
-        data1 = 2;
-        data2 = '7';
+        data1 = a;
+        data2 = b;
     }
 
     void display(){
-        cout << this->data1 << endl this->data2 << endl;
+        cout << this->data1 << endl << this->data2 << endl;
     }
 };
 
 int main(){
-    myClass<int, char> o
+    myClass<int, char> object1(1, 'c');
+    object1.display();
+    cout << endl;
+
+    myClass<int, float> object2(1, 1.8);
+    object2.display();
+
 
     return 0;
 }

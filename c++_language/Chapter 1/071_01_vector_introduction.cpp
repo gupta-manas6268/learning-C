@@ -1,3 +1,6 @@
+// There is no screenshot notes in this Lecture.
+// There are some Bookmarks of this Lecture, in c++_language.
+
 #include<bits/stdc++.h>
 using namespace std;
 
