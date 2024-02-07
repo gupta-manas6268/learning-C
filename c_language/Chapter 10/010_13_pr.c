@@ -1,3 +1,8 @@
+t
+
+// Q.1: Write a program to read a text file character by character
+//       and write its content twice in a separate file.
+
 #include <stdio.h>
 
 int main(){
