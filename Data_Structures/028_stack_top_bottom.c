@@ -1,5 +1,3 @@
-// Go to this website https://www.codewithharry.com/videos/data-structures-and-algorithms-in-hindi-28/
-
 #include <stdio.h>
 #include <stdlib.h>
 

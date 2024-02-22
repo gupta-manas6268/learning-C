@@ -1,7 +1,3 @@
-// https://www.codewithharry.com/videos/data-structures-and-algorithms-in-hindi-30/
-
-// See 3-Screenshot notes.
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -37,7 +33,7 @@ int isFull(struct Node* top){
     }
 }
 
-struct Node* push(struct Node* top, int x){
+struct Node* push(struct Node* top, int x){ // Inserting node at top of stack
     if(isFull(top)){
         printf("Stack Overflow\n");
     }
@@ -51,7 +47,7 @@ struct Node* push(struct Node* top, int x){
     }
 }
 
-int pop(struct Node** top){
+int pop(struct Node** top){  // Pop node at top of stack
     if(isEmpty(*top)){
         printf("Stack Underflow\n");
     }

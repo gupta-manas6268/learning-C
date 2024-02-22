@@ -1,8 +1,3 @@
-// https://www.codewithharry.com/videos/data-structures-and-algorithms-in-hindi-31/
-// Go to this website.
-
-// There is Screenshot notes in this Lecture.
-
 // op -> operation.
 
 #include <stdio.h>
@@ -86,6 +81,24 @@ int peek(int position){
     }
 }
 
+int stackTop(){
+    return top->data;
+}
+
+int stackBottom(){
+    struct Node* ptr = top;
+    int bottomValue;
+
+    while(ptr != NULL){
+        if(ptr->next == NULL){
+            bottomValue = ptr->data;
+        }
+        ptr = ptr->next;
+    }
+
+    return bottomValue;
+}
+
 int main(){
     top = push(top, 28);
     top = push(top, 18);
@@ -97,6 +110,10 @@ int main(){
     for(int i=1; i <= 4; i++){
         printf("Value at position %d is: %d\n", i, peek(i));
     }
+    printf("\n");
+
+    printf("Topmost Value is: %d\n", stackTop());
+    printf("Bottom most Value is: %d\n", stackBottom());
 
     return 0;
 }
