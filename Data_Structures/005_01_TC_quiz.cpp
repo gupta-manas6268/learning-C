@@ -3,7 +3,6 @@
 //       is T(n), what is the value of T(6)?
 
 
-
 int function(int n) {
     int i;
     if (n <= 0) {
@@ -16,6 +15,9 @@ int function(int n) {
                                                   // Let, (n = 0) then (n - 1 - i = n - 1).
     }
 }
+
+
+
 
 // Ans: So, T(n) = O(n)
 //        So, T(6) = 6 unit of time.  

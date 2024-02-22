@@ -14,6 +14,7 @@ void display(list<int> &list_1){
 }
 
 int main(){
+    int n; cin >> n;
     // 6 8 9....
     list<int> list1; // List of 0 length
     list1.push_back(5);

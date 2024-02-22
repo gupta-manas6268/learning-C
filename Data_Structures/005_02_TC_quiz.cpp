@@ -11,5 +11,14 @@ int isPrime(int n) {
 isPrime(9);
 
 
+
+
+
+
+
+
+
+
+
 // Ans: TC = O(1).
 //       Because, TC doesn't depend on 'N' then TC is a constant.
