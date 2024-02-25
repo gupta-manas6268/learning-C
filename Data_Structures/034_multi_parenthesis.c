@@ -1,7 +1,3 @@
-// https://www.codewithharry.com/videos/data-structures-and-algorithms-in-hindi-34/
-
-// See 1-Screenshot notes.
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -79,7 +75,7 @@ int parenthesisMatch(char *expression){
         if((expression[i] == '(') || (expression[i] == '{') || (expression[i] == '[')){
             push(sp, expression[i]);
         }
-        else if(expression[i] == ')'){
+        else if((expression[i] == ')') || (expression[i] == '}') || (expression[i] == ']')){
             if(isEmpty(sp)){
                 return 0;
             }
@@ -104,7 +100,8 @@ int parenthesisMatch(char *expression){
 int main(){
     // char *expression = "8*(9)";
     // char *expression = "8)*(9)";
-    char *expression = "((8)(*--$$9))";
+    // char *expression = "((8)(*--$$9))";
+    char *expression = "[[4-6]((8){(9-8])})";
 
     // Check the Parenthesis of the stack.
     if(parenthesisMatch(expression)){

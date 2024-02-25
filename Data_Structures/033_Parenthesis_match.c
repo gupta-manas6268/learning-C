@@ -1,7 +1,3 @@
-// https://www.codewithharry.com/videos/data-structures-and-algorithms-in-hindi-33/
-
-// Screenshot notes.
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -65,7 +61,7 @@ int parenthesisMatch(char *expression){
         }
         else if(expression[i] == ')'){
             if(isEmpty(sp)){
-                return 0;
+                return 0; // i.e. Parenthesis is not matching.
             }
             else{
                 pop(sp);
@@ -74,10 +70,10 @@ int parenthesisMatch(char *expression){
     }
 
     if(isEmpty(sp)){
-        return 1;
+        return 1; // i.e. Parenthesis is matching.
     }
     else{
-        return 0;
+        return 0; // i.e. Parenthesis is not matching.
     }
 }
 
