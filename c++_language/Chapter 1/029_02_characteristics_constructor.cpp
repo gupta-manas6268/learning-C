@@ -6,12 +6,3 @@
 
 // 4. It can take default arguments(See default_values in page-13 of your notebook.)
 // 5. We cannot refer to their address
-
-
-#include<bits/stdc++.h>
-using namespace std;
-
-int main(){
-    
-    return 0;
-}
