@@ -3,7 +3,4 @@
 // https://en.cppreference.com/w/cpp/header in (Video-6).
 // There is no slideshare in (Video-6).
 
-
-
-
-// ******(Watch from video-21).
+// From L-27

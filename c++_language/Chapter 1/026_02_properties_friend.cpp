@@ -2,7 +2,7 @@
 // 1. Not in the scope of class
 // 2. Since it is not in the scope of the class, it cannot be called
 //     from the Object of that Class. 
-//      ( c1.sumComplex() == Invalid ) (See line-37 of Code.)
+//      ( c1.sumComplex() == Invalid ) (See line-48 of Code.)
 // 
 // 3. Can be invoked without the help of any object
 // 4. Usually contains the objects as arguments.
@@ -45,7 +45,7 @@ int main() {
 
     c1.setNumber(1, 4);
     c1.printNumber();
-    // c1.sumComplex(); // This line will give me error( See line-4.)
+    // c1.sumComplex(); // This line will give me error( See line-5.)
 
     c2.setNumber(5, 8);
     c2.printNumber();
