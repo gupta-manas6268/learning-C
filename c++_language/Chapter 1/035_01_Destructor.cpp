@@ -1,6 +1,3 @@
-// There is no Screenshot notes in this Lecture.
-
-
 // Run this code and check the OUTPUT carefully.
 
 #include<bits/stdc++.h>
