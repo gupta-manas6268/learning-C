@@ -1,6 +1,6 @@
-// https://www.codewithharry.com/videos/data-structures-and-algorithms-in-hindi-37/
+// See 2nd Bookmark of 'Data Structure' which is a Screenshot of
+//  a Operator precedence table. 
 
-// See 3-Screenshot notes.
 // (IntoPo -> Infix_to_Postfix), (Init -> Initialise)
 // (pos -> postfix), (Prec -> Precedence)
 

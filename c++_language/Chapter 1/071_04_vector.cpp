@@ -24,14 +24,14 @@ signed main(){
     display(vec1);
 
     vector<char> vec2(4); // 4-element character vector
-    // vec2.push_back('5');
-    // display(vec2);
+    vec2.push_back('5');
+    display(vec2);
 
     vector<char> vec3(vec2); // 4-element character vector from vec2
-    // display(vec3);
+    display(vec3);
 
     vector<int> vec4(6, 3); // 6-element vector of 3s
-    // display(vec4);
+    display(vec4);
 
     int element, size=5;
     
