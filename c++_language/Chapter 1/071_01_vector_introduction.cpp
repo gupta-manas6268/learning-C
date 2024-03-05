@@ -1,4 +1,3 @@
-// There is no screenshot notes in this Lecture.
 // There are some Bookmarks of this Lecture, in c++_language.
 
 #include<bits/stdc++.h>
@@ -31,5 +30,5 @@ signed main(){
         vec1.push_back(element);
     }
     vec1.pop_back(); // 'pop_back()' -→ Deletes the last element of the function.
-    
+    display(vec1);
 }

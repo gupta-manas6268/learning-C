@@ -1,4 +1,6 @@
 // Wrong
+
+// Sum of Series
 // https://www.geeksforgeeks.org/problems/sum-of-series2811/1?page=1&difficulty=School&sortBy=submissions
 
 // This code give Wrong answer at large values.

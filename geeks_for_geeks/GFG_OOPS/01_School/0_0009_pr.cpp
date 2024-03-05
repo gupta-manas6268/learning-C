@@ -1,4 +1,6 @@
 // Correct
+
+// Check for Binary
 // https://www.geeksforgeeks.org/problems/check-for-binary/1?page=1&difficulty=School&sortBy=submissions
 
 

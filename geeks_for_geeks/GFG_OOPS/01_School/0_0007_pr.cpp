@@ -1,5 +1,6 @@
-// Wrong
-// Not Solved
+// Correct.
+
+// Palindromic Array
 // https://www.geeksforgeeks.org/problems/palindromic-array-1587115620/1?page=1&difficulty=School&sortBy=submissions
 
 
@@ -29,23 +30,38 @@ using namespace std;
 /*Complete the function below*/
 
 int numToArray(int n){
-
+	int arr[15];
+	int i = 0;
+	int len = 0;
     while(n > 0){
-
+		arr[i] = (n % 10);
+		n /= 10;
+		i++;
+		len++;
     }
+
+	int ans = 1;
+	for(int i=0; i < (len/2); i++){
+		if(arr[i] != arr[len-i-1]){
+			ans = 0;
+			break;
+		}
+	}
+
+	return ans;
 }
 class Solution {
 public:
     int PalinArray(int a[], int n)
     {
-
-
-        for(int i=0; i < n/2; i++){
-            if(a[i] != a[n-i-1]){
-                return 0;
-            }
-        }
-        return 1;
+		int ans = 1;
+		for(int i=0; i<n; i++){
+			if(numToArray(a[i]) == 0){
+				ans = 0;
+				break;
+			}
+		}
+		return ans;
     	// code here
     }
 };
