@@ -1,4 +1,3 @@
-// There is no screenshot notes in this Lecture.
 // Also go to this website: https://en.cppreference.com/w/cpp/utility/functional
 // Also go to this website: https://en.cppreference.com/w/cpp/algorithm
 
