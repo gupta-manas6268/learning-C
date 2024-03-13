@@ -1,5 +1,4 @@
-// Correct but Time limit exceeded, so make this code again.
-// See line-30.
+// Correct.
 
 // Print the left element
 // https://www.geeksforgeeks.org/problems/print-the-left-element2009/1?page=1&category=Arrays&difficulty=School&sortBy=submissions

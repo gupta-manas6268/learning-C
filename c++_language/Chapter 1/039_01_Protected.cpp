@@ -1,6 +1,3 @@
-// There is no Screenshot notes in this Lecture.
-
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -26,8 +23,8 @@ int main(){
     Base b;
     Derived d;
 
-    // cout << b.a << endl;  // These two lines of code will not work since 'a' is protected
-    // cout << d.a << endl;  // in both base as well as derived class.
+    cout << b.a << endl;  // These two lines of code will not work since 'a' is protected
+    cout << d.a << endl;  // in both base as well as derived class.
 
     return 0;
 }
