@@ -55,6 +55,10 @@ int main(){
     q.front = q.rear = -1;
     q.arr = (int*) malloc(q.size*sizeof(int));
 
+    if(isEmpty(&q)){
+        printf("Queue is empty\n");
+    }
+    
     // Enqueue few elements
     enqueue(&q, 12);
     enqueue(&q, 15);
