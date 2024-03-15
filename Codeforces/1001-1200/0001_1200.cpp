@@ -1,3 +1,9 @@
+// From this Question.
+
+// D. Rudolf and the Ball Game
+// https://codeforces.com/problemset/problem/1941/D
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -22,7 +28,33 @@ signed main(){
 
         int position[i];
         for(int i=0; i<m; i++){
-            
+            if(c[i] == '0'){
+                if(i == 0){
+                    position[i] = k + r[i];
+
+                    if(position[i] > n){
+                        position[i] %= n;
+                    }
+                }
+                else{
+                    position[i] = position[i-1] + r[i];
+                }
+            }
+            else if(c[i] == '1'){
+                if(i == 0){
+                    position[i] = (k - r[i]);
+
+                    if(position[i] < 0){
+                        position[i] += n;
+                    }
+                }
+                else{
+                    position[i] = (position[i-1] - r[i]);
+                }
+            }
+            else{
+
+            }
         }
     }
 }
