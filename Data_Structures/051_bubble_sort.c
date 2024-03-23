@@ -1,6 +1,11 @@
-// https://www.codewithharry.com/videos/data-structures-and-algorithms-in-hindi-51/
-
 #include <stdio.h>
+
+void swap(int *a, int *b){
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
 
 void printArray(int* A, int n){
     for(int i=0; i<n; i++){
@@ -17,9 +22,7 @@ void bubbleSort(int *A, int n){
 
         for(int j=0; j < n-1-i; j++){  // For comparison in each pass
             if(A[j] > A[j+1]){
-                temp = A[j];
-                A[j] = A[j+1];
-                A[j+1] = temp;
+                swap(&A[j], &A[j+1]);
             }
         }
     }
@@ -35,9 +38,7 @@ void bubbleSortAdaptive(int *A, int n){
 
         for(int j=0; j < n-1-i; j++){  // For comparison in each pass
             if(A[j] > A[j+1]){
-                temp = A[j];
-                A[j] = A[j+1];
-                A[j+1] = temp;
+                swap(&A[j], &A[j+1]);
 
                 isSorted = 0;
             }
