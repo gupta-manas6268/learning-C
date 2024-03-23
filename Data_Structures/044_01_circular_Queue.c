@@ -1,7 +1,3 @@
-// https://www.codewithharry.com/videos/data-structures-and-algorithms-in-hindi-44/
-
-// See 1-Screenshot notes.
-
 #include <stdio.h>
 #include <stdlib.h>
 

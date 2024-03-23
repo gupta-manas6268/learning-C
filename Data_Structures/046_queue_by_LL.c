@@ -1,5 +1,3 @@
-// https://www.codewithharry.com/videos/data-structures-and-algorithms-in-hindi-46/
-
 // Queue using Linked List
 #include <stdio.h>
 #include <stdlib.h>
