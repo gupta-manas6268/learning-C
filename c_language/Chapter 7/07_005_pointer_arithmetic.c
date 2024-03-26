@@ -1,0 +1,36 @@
+#include <stdio.h>
+const var = 100;
+
+    int main(){
+        // int i = 34;
+        // int *ptr = &i;
+        // printf("The value of ptr is %u\n", ptr);
+        // // ptr = ptr - 1;
+        // ptr = ptr + 1;
+        // // ptr++;
+        // // ptr++;
+        // printf("The value of ptr is %u\n", ptr);
+
+        char c = 'b';
+        char *ptr = &c;
+        printf("The value of ptr is %u\n", ptr);
+        ptr = ptr - 1;
+        // ptr = ptr + 1;
+        // ptr++;
+        // ptr++;
+        printf("The value of ptr is %u\n", ptr);
+
+        // var = 100;
+        printf("var = %d\n", var);
+        
+        // float f = 3.4;
+        // float *ptr = &f;
+        // printf("The value of ptr is %u\n", ptr);
+        // // ptr = ptr - 1;
+        // // ptr = ptr + 1;
+        // ptr++;
+        // ptr++;
+        // printf("The value of ptr is %u\n", ptr);
+        
+    return 0;
+}
