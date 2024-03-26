@@ -1,5 +1,44 @@
 /* Write your code here: */
 
+/* Group */
 h1, h2{
     color: blueviolet;
+}
+
+/* Child */
+/* These 3-line works well. */
+/* .box > .done{
+    color: firebrick;
+} */
+
+/* Child */
+.box > p{
+    color: firebrick;
+}
+
+/* Descendant */
+/* These 3-line works well. */
+/* .box .list{
+    color: blue;
+} */
+
+/* Descendant */
+.box li{
+    color: blue;
+}
+
+/* Chain */
+/* These 3-line didn't work. */
+/* .box.list.done{
+    color: seagreen;
+} */
+
+/* Chain */
+li.done {
+    color: seagreen;
+}
+
+/* Combining Combiners */
+ul p.done{
+    font-size: 0.5rem;
 }
