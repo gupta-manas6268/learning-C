@@ -1,3 +1,11 @@
+// Wrong.
+
+// https://leetcode.com/problems/sum-of-all-odd-length-subarrays/
+
+
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -14,5 +22,7 @@ signed main(){
     int arr[n];
     for(int i=0; i<n; i++){ cin >> arr[i];}
 
-    
+    for(int i=1; (2*i + 1) <= n; i++){
+        int j = 2*i + 1;
+    }
 }

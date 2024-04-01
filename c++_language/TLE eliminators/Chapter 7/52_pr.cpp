@@ -1,3 +1,5 @@
+// I didn't see any 2nd and 3rd Question in Questions pdf.
+
 #include<bits/stdc++.h>
 using namespace std;
 

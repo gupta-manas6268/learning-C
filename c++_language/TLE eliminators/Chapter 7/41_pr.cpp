@@ -1,18 +1,22 @@
-#include<bits/stdc++.h>
-using namespace std;
+// From [11: 08]
 
-#define endl '\n'
-#define int long long 
+// Correct.
 
-const int MOD = 1e9 + 7;
-const int INF = LLONG_MAX >> 1;
+// https://leetcode.com/problems/missing-number/
 
-signed main(){
-    ios::sync_with_stdio(false); cin.tie(NULL);
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size();
+        int AM = (n*(n+1))/ 2;
+        int sum = 0;
 
-    int tc; cin >> tc;
+        for(int i=0; i<n; i++){
+            sum += nums[i];
+        }
 
-    while (tc--){
-        
+        int ans = AM - sum;
+
+        return ans;
     }
-}
+};
