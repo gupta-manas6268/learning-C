@@ -1,4 +1,15 @@
+// Correct.
+
+// Delete a Node
 // https://www.hackerrank.com/challenges/delete-a-node-from-a-linked-list/problem?isFullScreen=true
+
+
+
+
+
+
+
+
 
 // SinglyLinkedListNode* deleteNode(SinglyLinkedListNode* llist, int position) {
 //     int i=0, n=0;
