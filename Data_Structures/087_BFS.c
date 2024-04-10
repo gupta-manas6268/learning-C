@@ -61,10 +61,10 @@ int main(){
     int i = 0;
     // int i = 1; // Also, run code when you uncomment this line
                   //   and comment above line.
-                  
+
     int visited[7] = {0,0,0,0,0,0,0};
     int a[7][7] = {      // It is graph of Last Lecture.
-        {0,1,1,1,0,0,0}, // It is matrix from of the graph.
+        {0,1,1,1,0,0,0}, // It is Adjacency matrix form of the graph.
         {1,0,1,0,0,0,0},
         {1,1,0,1,1,0,0},
         {1,0,1,0,1,0,0},
