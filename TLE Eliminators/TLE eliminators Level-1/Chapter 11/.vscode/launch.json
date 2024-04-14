@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Manas/Documents/github repos/c++_language/TLE eliminators/Chapter 11",
-      "program": "c:/Users/Manas/Documents/github repos/c++_language/TLE eliminators/Chapter 11/build/Debug/outDebug",
+      "cwd": "c:/Users/Manas/Documents/github repos/TLE Eliminators/TLE eliminators Level-1/Chapter 11",
+      "program": "c:/Users/Manas/Documents/github repos/TLE Eliminators/TLE eliminators Level-1/Chapter 11/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
