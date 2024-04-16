@@ -1,4 +1,5 @@
-// 
+// Wrong.
+// Gives, Run-Time error.
 
 // https://codeforces.com/problemset/problem/1675/B
 

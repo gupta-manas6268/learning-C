@@ -1,5 +1,3 @@
-// From [11: 08]
-
 // Correct.
 
 // https://leetcode.com/problems/missing-number/

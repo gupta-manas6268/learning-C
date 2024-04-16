@@ -1,5 +1,6 @@
-// 
+// Correct.
 
+// D. The first missing number
 // https://codeforces.com/group/c3FDl9EUi9/contest/262795/problem/D
 
 
@@ -37,6 +38,7 @@ signed main(){
     for(int i=0; i<n; i++){
 
         if(left != a.at(i)){ cout << left << endl; break;}
+        if(left == a.at(i+1)){ left--;}
         left++;
     }
 }
