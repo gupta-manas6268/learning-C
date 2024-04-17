@@ -8,6 +8,9 @@
 
 
 
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -23,6 +26,12 @@ signed main(){
     int tc; cin >> tc;
 
     while (tc--){
-        
+        int n, m, k; cin >> n >> m >> k;
+
+        vector <int> x(k);
+        vector <int> y(k);
+        for(int i=0; i<k; i++){
+            cin >> x[i] >> y[i];
+        }
     }
 }

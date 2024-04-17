@@ -49,7 +49,7 @@ signed main(){
             j++;
         }
     }
-    sort(s11.begin(), s11.end()); // is this line lexicographically sort strings.
+    sort(s11.begin(), s11.end()); 
     sort(s12.begin(), s12.end());
 
     int name[n];
