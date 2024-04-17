@@ -40,13 +40,33 @@ signed main(){
     for(int i=0; i<n; i++){
         int j = 0;
         while(s1[i][j] != ' '){
-            s1[i][j] == s11[i][j];
+            s1[i][j] = s11[i][j];
             j++;
         }
         int k = j;
         while(s1[i][j] != '\n'){
-            s1[i][j] == s12[i][j-k];
+            s1[i][j] = s12[i][j-k];
             j++;
+        }
+    }
+    sort(s11.begin(), s11.end()); // is this line lexicographically sort strings.
+    sort(s12.begin(), s12.end());
+
+    int name[n];
+    int country[n];
+    for(int i=0; i<m; i++){
+        int left = 0, right = n-1;
+        string target = s2[i];
+
+        while(left < right){
+            int mid = (left + right)/ 2;
+
+            if(s11[mid] < target){
+                left = mid + 1;
+            }
+            else{
+                right = mid - 1;
+            }
         }
     }
 }
