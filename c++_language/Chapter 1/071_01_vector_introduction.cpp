@@ -11,7 +11,8 @@ const int INF = LLONG_MAX >> 1;
 
 void display(vector<int> &v){
     for(int i=0; i < v.size(); i++){ // 'v.size()' return size of the vector.(I see from "cplusplus" vector page in heading 'capacity'-→ size-→(return size).)
-         cout<<v[i]<<" ";
+        // TC of 'v.size()' = O(1).
+        cout<<v[i]<<" ";
     }
     cout<<endl;
 }
