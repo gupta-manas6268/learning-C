@@ -1,4 +1,4 @@
-// Ordered map.
+// Ordered Map(OM).
 
 
 
@@ -14,9 +14,9 @@ void print(map<int, string> &m){
 
 int main(){
     // Ordered map.
-    // TC of traversal of loop is = O(n).
+    // TC of traversal of loop is = O(n * log(n)).
     map<int, string> m;
-    m[1] = "abc";  // O(1).
+    m[1] = "abc";  // O(log(n)).
     m[5] = "cdc";
     m[3] = "acd";
     m.insert({4, "afg"});
@@ -24,17 +24,16 @@ int main(){
     m[7] = 4;
     m[5] = "cde";  // See line-19 and O/P of this code.
     
+    // m.erase(3);
+    auto it_1 = m.find(5);
+    m.erase(it_1);
+
+    auto it_2 = m.find(8);  // As, '8' is not in this map
+                            //  So, this gives error in O/P.
+    m.erase(it_2);
+
     print(m);
     cout << endl;
-
-    // auto it = m.find(3); // Gives string value at '3'.
-    auto it = m.find(6);   // and TC = O(1).
-    if(it == m.end()){
-        cout << "No value" << endl;
-    }
-    else{
-        cout << (*it).first << " " << (*it).second << endl;
-    }
 
     return 0;
 }
