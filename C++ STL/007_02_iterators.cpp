@@ -1,7 +1,3 @@
-// From Lecture-4 time->[10: 18].
-
-
-
 // This code is not giving me error because of line-4 & line-5.
 
 
