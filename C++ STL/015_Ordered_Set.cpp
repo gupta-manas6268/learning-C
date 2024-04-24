@@ -17,7 +17,7 @@ void print(set <string> &s){
 
 int main(){
     set <string> s;
-    s.insert("abc");  // TC of insertion & access of element of set is = log(n).
+    s.insert("abc");  // TC of insertion & access of element of set is = O(log(n)).
     s.insert("abc");  // See O/P of code carefully. & see that 'set' stores 
                       //  unique values.
     s.insert("zsdf");

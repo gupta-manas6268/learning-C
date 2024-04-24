@@ -15,6 +15,7 @@ int main(){
         s.insert(str);
     }
 
+    cout << endl;
     for(auto value : s){
         cout << value << endl;
     }
