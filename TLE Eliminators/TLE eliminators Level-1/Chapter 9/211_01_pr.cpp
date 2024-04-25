@@ -1,7 +1,23 @@
-// 
+// Wrong.
 
 // B. T-primes
 // https://codeforces.com/problemset/problem/230/B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #include<bits/stdc++.h>
@@ -27,9 +43,10 @@ vector <string> factor(vector <int> arr){
                 ans[i] = "NO";
                 break;
             }
-        }
-        if(facts[i] == 3){
-            ans[i] = "YES";
+            else if((facts[i] == 3) && ((j+1)*(j+1) > arr[i])){
+                ans[i] = "YES";
+                break;
+            }
         }
     }
 
