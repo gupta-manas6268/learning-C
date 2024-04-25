@@ -4,6 +4,22 @@
 // https://leetcode.com/problems/check-if-array-is-good/description/
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
 

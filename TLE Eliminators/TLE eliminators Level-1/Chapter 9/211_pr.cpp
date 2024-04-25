@@ -1,3 +1,5 @@
+// 
+
 // B. T-primes
 // https://codeforces.com/problemset/problem/230/B
 
@@ -11,7 +13,7 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-vector <int> factor(vector <int> arr){
+vector <string> factor(vector <int> arr){
     vector <int> facts(arr.size());
     vector <string> ans(arr.size());
     
@@ -28,7 +30,6 @@ vector <int> factor(vector <int> arr){
         }
         if(facts[i] == 3){
             ans[i] = "YES";
-            break;
         }
     }
 
@@ -44,5 +45,8 @@ signed main(){
         cin >> arr[i];
     }
 
-    factor(arr)
+    vector <string> Ans = factor(vector <int> (arr, arr + n));
+    for(int i=0; i<n; i++){
+        cout << Ans[i] << endl;
+    }
 }
