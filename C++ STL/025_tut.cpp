@@ -7,6 +7,11 @@ bool should_i_swap(int a, int b){
     return false;
 }
 
+bool should_i_swap(pair<int, int> a, pair<int, int> b){
+    if(a > b){ return true;}
+    return false;
+}
+
 int main(){
     int n; cin >> n;
 
@@ -24,7 +29,7 @@ int main(){
     }
 
     for(int i=0; i<n; i++){
-        cout << a[i] << " ";
+        cout << a[i].first << " " << a[i].second << endl;
     }
 
     // I/P:
