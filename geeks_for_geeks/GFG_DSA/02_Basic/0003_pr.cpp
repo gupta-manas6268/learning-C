@@ -1,151 +1,114 @@
-// 
+// Wrong, Solve it properly
 
-// Preorder Traversal
-// https://www.geeksforgeeks.org/problems/preorder-traversal/1?page=1&category=Tree&difficulty=Basic&sortBy=submissions
-
-
-
+// https://www.geeksforgeeks.org/problems/weak-maths0559/1?page=1&difficulty=School&sortBy=submissions
 
 
 //{ Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
 
-// Tree Node
-struct Node
-{
-    int data;
-    Node* left;
-    Node* right;
-};
-vector<int> preorder(struct Node* root);
+// } Driver Code Ends
 
-// Utility function to create a new Tree Node
-Node* newNode(int val)
-{
-    Node* temp = new Node;
-    temp->data = val;
-    temp->left = NULL;
-    temp->right = NULL;
-
-    return temp;
+int max(int a, int b){
+    if(a>=b){ return a;}
+    else{ return b;}
 }
-
-
-// Function to Build Tree
-Node* buildTree(string str)
-{
-    // Corner Case
-    if(str.length() == 0 || str[0] == 'N')
-        return NULL;
-
-    // Creating vector of strings from input
-    // string after spliting by space
-    vector<string> ip;
-
-    istringstream iss(str);
-    for(string str; iss >> str; )
-        ip.push_back(str);
-
-    // for(string i:ip)
-    //     cout<<i<<" ";
-    // cout<<endl;
-    // Create the root of the tree
-    Node* root = newNode(stoi(ip[0]));
-
-    // Push the root to the queue
-    queue<Node*> queue;
-    queue.push(root);
-
-    // Starting from the second element
-    int i = 1;
-    while(!queue.empty() && i < ip.size()) {
-
-        // Get and remove the front of the queue
-        Node* currNode = queue.front();
-        queue.pop();
-
-        // Get the current node's value from the string
-        string currVal = ip[i];
-
-        // If the left child is not null
-        if(currVal != "N") {
-
-            // Create the left child for the current node
-            currNode->left = newNode(stoi(currVal));
-
-            // Push it to the queue
-            queue.push(currNode->left);
-        }
-
-        // For the right child
-        i++;
-        if(i >= ip.size())
-            break;
-        currVal = ip[i];
-
-        // If the right child is not null
-        if(currVal != "N") {
-
-            // Create the right child for the current node
-            currNode->right = newNode(stoi(currVal));
-
-            // Push it to the queue
-            queue.push(currNode->right);
-        }
-        i++;
+int HCF(int a, int b){
+    if(a == 1){
+        return 1;
     }
+    else{
+        int arr1[30], arr2[30];
+        int index1 = 0, index2 = 0;
+ 
+        // To make Array of divisors of number = a.
+        for(int i=2; i*i <= a; i++){
+            if(a%i == 0){
+                arr1[index1] = i;
+                a /= i;
+                index1++;
+                i--;
+            }
+            if(a == 1){
+                break;
+            }
+        }
 
-    return root;
+        // To make Array of divisors of number = b.
+        for(int i=2; i*i <= b; i++){
+            if(b%i == 0){
+                arr2[index2] = i;
+                b /= i;
+                index2++;
+                i--;
+            }
+            if(b == 1){
+                break;
+            }
+        }
+
+        // To take HCF of a & b
+        int ans = 1;
+        int index = 0;
+        int boolAns = true;
+
+        for(int i=0; i < index1; i++){
+            if(boolAns == true){
+                for(int j=index; j < index2; j++){
+                    if(arr1[i] < arr2[j]){
+                        index++;
+                        break;
+                    }
+                    else if((arr1[i] == arr2[j]) && (j == index2-1)){
+                        ans *= arr1[i];
+                        boolAns = false;
+                        index++;
+                        break;
+                    }
+                    else if(arr1[i] == arr2[j]){
+                        ans *= arr1[i];
+                        index++;
+                        break;
+                    }
+                    else if((arr1[i] > arr2[j]) && (j == index2-1)){
+                        boolAns = false;
+                        break;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
 }
 
+class Solution {
+  public:
+    int getNum(int arr[] , int N) {
+        sort(arr, arr + N);
+        int min = arr[0], max = arr[N-1];
 
+
+        // code here
+    }
+};
+
+//{ Driver Code Starts.
 int main() {
     int t;
-    scanf("%d ",&t);
-    while(t--)
-    {
-        string s;
-        getline(cin,s);
-        Node* root = buildTree(s);
+    cin >> t;
+    while (t--) {
+        int N;
+        
+        cin>>N;
+        int arr[N];
+        
+        for(int i=0 ; i<N ; i++)
+            cin>>arr[i];
 
-        vector<int> res = preorder(root);
-        for (int i : res)
-            cout << i << " ";
-        cout<<endl;
+        int a = HCF(3, 6); cout << a << endl;
+        Solution ob;
+        cout << ob.getNum(arr,N) << endl;
     }
     return 0;
 }
-
 // } Driver Code Ends
-
-
-/* A binary tree node has data, pointer to left child
-   and a pointer to right child  
-
-/*
-struct Node
-{
-    int data;
-    struct Node* left;
-    struct Node* right;
-    
-    Node(int x){
-        data = x;
-        left = right = NULL;
-    }
-};
-*/
-
-//Function to return a list containing the preorder traversal of the tree.
-int i=0;
-vector<int> store;
-vector <int> preorder(Node* root)
-{
-    if(root != NULL){
-        store.at(i) = root->data;
-        i++;
-        
-    }
-  // Your code here
-}

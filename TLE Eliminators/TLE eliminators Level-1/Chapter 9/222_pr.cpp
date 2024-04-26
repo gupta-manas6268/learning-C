@@ -1,4 +1,4 @@
-// 
+// Wrong.
 
 // B. Make Them Odd
 // https://codeforces.com/contest/1277/problem/B
