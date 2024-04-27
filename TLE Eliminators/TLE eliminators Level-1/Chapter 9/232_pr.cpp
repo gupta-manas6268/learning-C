@@ -1,6 +1,7 @@
-// Don't know, because Codeforces just crashed.
+// Correct.
 
-// A. Second Order Statistics
+
+// 22A - Second Order Statistics
 // https://codeforces.com/problemset/problem/22/A?mobile=falsehttps://codeforces.com/problemset/problem/22/A?mobile=false
 
 

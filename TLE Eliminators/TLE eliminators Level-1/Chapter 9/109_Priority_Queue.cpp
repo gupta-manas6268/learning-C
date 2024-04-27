@@ -48,7 +48,7 @@ signed main(){
 
     priority_queue <int, vector<int>, greater<int>> pq_2;
 
-    pq_2.push (8);
+    pq_2.push (8);   // insertion & deletion in Priority Queue takes time of = O(log(n)).
     pq_2.push (1);
     pq_2.push (2);
     pq_2.push (7);
