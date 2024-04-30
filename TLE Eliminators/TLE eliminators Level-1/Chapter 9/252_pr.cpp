@@ -1,7 +1,22 @@
-// 
+// Correct.
 
 // B. Card Constructions
 // https://codeforces.com/problemset/problem/1345/B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #include<bits/stdc++.h>
@@ -20,5 +35,22 @@ signed main(){
 
     while (tc--){
         int n; cin >> n;
+
+        vector<int> pyramid;
+        for(int i=1; i<n; i++){
+            int ans = 2*i + 3*(i * (i-1))/ 2;
+            pyramid.push_back(ans);
+            if(ans >= n){ break;}
+        }
+
+        int ans = 0;
+        while(n > 1){
+            int a = (n/ pyramid[pyramid.size()-1]);
+            ans += a;
+            n -= (a * pyramid[pyramid.size()-1]);
+            pyramid.pop_back();
+        }
+
+        cout << ans << endl;
     }
 }
