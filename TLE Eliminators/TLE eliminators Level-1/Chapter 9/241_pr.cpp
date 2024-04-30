@@ -1,7 +1,19 @@
 // Wrong. (Time-limit exceeded.)
+// I can't find any Doubt class of this Question.
 
 // Deque-STL
 // https://www.hackerrank.com/challenges/deque-stl/problem?isFullScreen=true
+
+
+
+
+
+
+
+
+
+
+
 
 
 
