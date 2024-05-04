@@ -1,5 +1,3 @@
-// This Question we have to do ourselves.
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -12,10 +10,9 @@ const int INF = LLONG_MAX >> 1;
 signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
-    int tc; cin >> tc;
+    int n; cin >> n;
+    int arr[n];
+    for(int i=0; i<n; i++){ cin >> arr[i];}
 
-    while (tc--){
-        int n; cin >> n;
-        string s; cin >> s;
-    }
+    
 }
