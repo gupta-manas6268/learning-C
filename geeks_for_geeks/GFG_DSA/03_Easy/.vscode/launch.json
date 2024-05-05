@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Manas/Documents/github repos/geeks_for_geeks/GFG_OOPS/03_Easy",
-      "program": "c:/Users/Manas/Documents/github repos/geeks_for_geeks/GFG_OOPS/03_Easy/build/Debug/outDebug",
+      "cwd": "c:/Users/Manas/Documents/github repos/geeks_for_geeks/GFG_DSA/03_Easy",
+      "program": "c:/Users/Manas/Documents/github repos/geeks_for_geeks/GFG_DSA/03_Easy/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

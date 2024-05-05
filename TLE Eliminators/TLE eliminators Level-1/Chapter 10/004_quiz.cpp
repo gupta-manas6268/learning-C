@@ -1,5 +1,3 @@
-// This Question we have to do ourselves.
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -17,5 +15,13 @@ signed main(){
     while (tc--){
         int n; cin >> n;
         string s; cin >> s;
+        vector<int> ans;
+
+        set<int> s1;
+        set<int> s2;
+        for(int i=0; i)
+        for(int i=0; i < (n-1); i++){
+
+        }
     }
 }
