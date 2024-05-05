@@ -26,10 +26,13 @@ void solve(int i, vector<int> cur){
         return;
     }
 
+    cout << "a" << endl;
     solve(i+1, cur);
 
+    cout << "b" << endl;
     cur.push_back(a[i]);
 
+    cout << "c" << endl;
     solve(i+1, cur);
     // solve(i+1, cur+a[i]); // This line will show Error.
 
