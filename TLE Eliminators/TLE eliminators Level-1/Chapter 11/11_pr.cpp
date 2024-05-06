@@ -1,4 +1,24 @@
-// This problem shows "Time limit exceeded" in Codeforces.
+// Correct.
+
+// A. Print Recursion
+// https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11,18 +31,18 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-int func(int n){
-    if(n == 0){ }
-
+string print(int n){
+    if(n != 0){
+        // print(n-1);
+        return "I love Recursion\n" + print(n-1);
+    }
     else{
-        cout << "I love Recursion"<< endl;
-        return func(n-1);
+        return "";
     }
 }
 signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     int n; cin >> n;
-
-    func(n);
+    cout << print(n) << endl;
 }
