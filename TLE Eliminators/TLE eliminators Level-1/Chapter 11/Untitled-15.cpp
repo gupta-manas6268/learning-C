@@ -15,9 +15,9 @@ int power(int a, int b){
     return ans;
 }
 
-int recursion(int n){
+long long recursion(int n){
     int ans = 0;
-    int i = 0;
+    long long i = 0;
     while(n > 0){
         int a = (n % 2);
         ans += a * power(10, i);
@@ -35,6 +35,6 @@ signed main(){
 
     while (tc--){
         int n; cin >> n;
-        recursion(n);
+        cout << recursion(n) << endl;
     }
 }

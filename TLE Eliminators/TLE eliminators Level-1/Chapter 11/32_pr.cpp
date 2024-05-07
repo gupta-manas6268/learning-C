@@ -1,7 +1,8 @@
 // Correct.
 
-// C. Print from N to 1
-// https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/C
+// O. Fibonacci
+// https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/O
+
 
 
 
@@ -28,14 +29,16 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-// Note: (Recursion are also of 'void' data-type.)
-void print(int n){
-    if(n > 1){
-        cout << n << " ";
-        print(n-1);
+
+int fibonacci(int n){
+    if(n == 1){
+        return 0;
+    }
+    else if(n == 2){
+        return 1;
     }
     else{
-        cout << n;
+        return fibonacci(n-1) + fibonacci(n-2);
     }
 }
 
@@ -43,6 +46,5 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     int n; cin >> n;
-    print(n);
-    cout << endl;
+    cout << fibonacci(n) << endl;
 }

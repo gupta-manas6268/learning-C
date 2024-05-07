@@ -1,7 +1,8 @@
 // Correct.
 
-// B. Print from 1 to N
-// https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/B
+// Weird Algorithm
+// https://cses.fi/problemset/task/1068
+
 
 
 
@@ -28,11 +29,15 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-// Note: (Recursion are also of 'void' data-type.)
-void print(int n){
-    if(n >= 1){
-        print(n-1);
-        cout << n << endl;
+void sequence(int n){
+    cout << n << " ";
+    if(n != 1){
+        if(n%2 != 0){
+            sequence(3*n + 1);
+        }
+        else{
+            sequence(n/2);
+        }
     }
 }
 
@@ -40,5 +45,5 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     int n; cin >> n;
-    print(n);
+    sequence(n);
 }

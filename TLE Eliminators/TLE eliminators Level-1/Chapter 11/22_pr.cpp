@@ -1,7 +1,24 @@
-// 
+// Correct.
 
 // P. Log2
 // https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/P
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #include<bits/stdc++.h>
@@ -21,20 +38,21 @@ int power(int a, int b){
     return ans;
 }
 
-int ans = 0;
-int Log(int n){
+int ans = 1;
+void Log(int n){
     if(n == 1){
-        return 1;
+        if(power(2, ans) == n){
+            cout << ans << endl;
+            return;
+        }
+        else if(power(2, ans) > n){
+            cout << (ans -1) << endl;
+            return;
+        }
     }
     else{
-        return 1 + Log(n/2);
-    }
-
-    if(power(2, ans) == n){
-        return ans;
-    }
-    else{
-        return ans-1;
+        ans += 1;
+        Log(n/2);
     }
 }
 
@@ -42,5 +60,5 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     int n; cin >> n;
-    cout << Log(n) << endl;
+    Log(n);
 }
