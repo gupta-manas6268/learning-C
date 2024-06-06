@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define endl '\n'
+#define int long long 
+
+const int MOD = 1e9 + 7;
+const int INF = LLONG_MAX >> 1;
+
+void solve(){
+    queue<int> q;
+    q.push(2);
+    q.push(3);
+    q.push(4);
+    cout << q.front() << endl;
+    q.pop();
+    cout << q.front() << endl;
+    q.push(5);
+    cout << q.front() << endl;
+}
+
+signed main(){
+    ios::sync_with_stdio(false); cin.tie(NULL);
+
+    solve();
+}

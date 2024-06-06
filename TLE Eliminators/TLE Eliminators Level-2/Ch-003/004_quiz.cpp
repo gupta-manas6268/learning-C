@@ -1,7 +1,7 @@
 // 
 
-// Bitwise Equation
-// https://www.codechef.com/problems/BITEQU?tab=statement
+// The Lost Array
+// https://www.codechef.com/problems/LOSTARRAY_?tab=statement
 
 
 #include<bits/stdc++.h>
@@ -19,10 +19,6 @@ signed main(){
     int tc; cin >> tc;
 
     while (tc--){
-        int n; cin >> n;
-        long long a = 1, b = 1, c = 0;
-        long long d = n;
-
-        cout << a << " " << b << " " << c << " " << d << endl;
+        
     }
 }
