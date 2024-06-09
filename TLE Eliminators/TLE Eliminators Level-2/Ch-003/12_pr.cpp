@@ -1,5 +1,23 @@
-// A. Raising Bacteria 
+// Correct.
+
+// A. Raising Bacteria
 // https://codeforces.com/problemset/problem/579/A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #include<bits/stdc++.h>
@@ -11,15 +29,19 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
+int Sum(int a){
+    int ans = 0;
+    while(a > 0){
+        ans += (a % 2);
+        a /= 2;
+    }
+
+    return ans;
+}
+
 signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     int x; cin >> x;
-    int digit = log2(x) + 1;
-    int ans = 0;
-    for(int i=0; i<digit; i++){
-        int a = x & (1 << i);
-        ans += a;
-    }
-    cout << (ans) << endl;
+    cout << Sum(x) << endl;
 }

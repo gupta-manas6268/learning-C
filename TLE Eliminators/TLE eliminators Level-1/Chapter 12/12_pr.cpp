@@ -4,6 +4,7 @@
 // https://codeforces.com/problemset/problem/1311/B
 
 
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -25,11 +26,12 @@ signed main(){
             int b; cin >> b;
             a.push_back(b);
         }
-        int p[m];
+        vector<int> p;
         for(int i=0; i<m; i++){
-            cin >> p[i];
+            int b; cin >> b;
+            p.push_back(b);
         }
-
+        sort(p.begin(), p.end());
         
     }
 }

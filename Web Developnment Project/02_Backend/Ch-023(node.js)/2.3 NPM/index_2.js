@@ -1,4 +1,4 @@
-// var generateName = require("sillyname");
+// var generateName = require("sillyname");  // This line will not work while running.
 
 import generateName from "sillyname";
 var sillyname = generateName();

@@ -4,6 +4,7 @@
 // https://www.codechef.com/problems/BITEQU?tab=statement
 
 
+
 #include<bits/stdc++.h>
 using namespace std;
 
