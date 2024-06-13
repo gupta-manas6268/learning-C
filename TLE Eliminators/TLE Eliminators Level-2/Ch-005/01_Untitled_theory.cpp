@@ -7,7 +7,7 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-const int n = 1e7;
+const int n = 100;
 int SPF[n];     // SPF => Smallest Prime Factor.
 // We are declaring this array outside the function, because
 //  inside function such large array will give us segmentation

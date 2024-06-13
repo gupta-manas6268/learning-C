@@ -29,14 +29,22 @@ void solve(){
         }
     }
 
+    int num = n;  // Example number whose prime factors we want to find.
+
     // Prime factors of 'n'.
     vector<int> prime_factors;
     while(n > 1){
         prime_factors.push_back(SPF[n]);
-        n /= SPF[n];
+        num /= SPF[n];
     }
 
     // TC = O(log2(n)).
+
+    cout << "Prime factors of " << n << ": ";
+    for(const int& factor : prime_factors){
+        cout << factor << " ";
+    }
+    cout << endl;
 }
 
 signed main(){
