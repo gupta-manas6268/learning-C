@@ -13,12 +13,11 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     // Min Priority Queue.
-    priority_queue<int, vector<int>, greater<int>> pq;
-    // It arranges elements in a increasing-order in which
-    //  top element is the smallest element.
-    pq.push(9);
-    pq.push(5);
-    pq.push(11);
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+    // Priority is in increasing order.
+    pq.push({1,8});  // Priority - 1
+    pq.push({1,9});  // Priority - 2
+    pq.push({2,1});  // Priority - 3
     cout << pq.top() << endl;
     pq.pop();
     cout << pq.top() << endl;

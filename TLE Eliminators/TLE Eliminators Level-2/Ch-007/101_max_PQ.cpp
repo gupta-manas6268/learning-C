@@ -16,10 +16,14 @@ signed main(){
     priority_queue<int> pq;
     // It arranges elements in a decreasing-order in which
     //  top element is the largest element.
-    pq.push(9);
+
+    pq.push(9);  // O(log(n))
     pq.push(5);
     pq.push(11);
     cout << pq.top() << endl;
-    pq.pop();
+    pq.pop();    // O(log(n))
     cout << pq.top() << endl;
+
+    pq.empty();  // O(1)
+    pq.size();   // O(1)
 }
