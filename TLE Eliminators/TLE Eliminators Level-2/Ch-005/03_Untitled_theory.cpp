@@ -41,7 +41,8 @@ void solve() {
 
     // Output prime factors
     cout << "Prime factors of " << n << ": ";
-    for (const int& factor : prime_factors) {
+    // for (const int& factor : prime_factors) {   // Both lines work well.
+    for (int& factor : prime_factors) {
         cout << factor << " ";
     }
     cout << endl;
