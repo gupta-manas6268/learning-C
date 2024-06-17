@@ -30,6 +30,11 @@ bool is_prime(int n){
 }
 
 signed main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+    
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     int tc; cin >> tc;
@@ -40,6 +45,10 @@ signed main(){
 
         int Sqrt;
         for(int i=2; i*i <= n; i++){
+            if((n%i == 0) && (i*i != n)){
+                ans = false;
+                break;
+            }
             if(i*i == n){
                 ans = true; 
                 Sqrt = i;
