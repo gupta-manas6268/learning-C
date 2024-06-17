@@ -57,7 +57,14 @@ signed main(){
 
         int ans = 0;
         for(int i=1; power(i, 2) <= n; i++){
-            for(int j=1; power(j, 4) <= (n - power(i, 2)); j++){
+            int start;
+            if(i%2 != 0){  // i => odd.
+                start = 2;
+            }
+            else{         // i => even.
+                start = 1;
+            }
+            for(int j = start; power(j, 4) <= (n - power(i, 2)); j += 2){
                 int a = power(i,2) + power(j,4);
                 if((a <= n) && (is_prime(a) == true)){
                     ans++;
