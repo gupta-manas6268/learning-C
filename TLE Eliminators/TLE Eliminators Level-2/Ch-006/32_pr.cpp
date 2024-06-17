@@ -1,3 +1,10 @@
+// 
+
+// C - Factors of Factorial
+// https://atcoder.jp/contests/abc052/tasks/arc067_a
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -7,16 +14,13 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-void solve(){
-    int n; cin >> n;
-    vector<long long> arr(n);
-    for(auto &it:arr){ cin >> it;}
-
-    int temp = arr[0];
-    for(int i=1; i<n; i++){
-        temp = (temp * arr[i])/ __gcd(temp, arr[i]);
+int fact(int n){
+    int ans = 1;
+    for(int i=1; i<=n; i++){
+        ans *= i;
     }
-    cout << temp << endl;
+
+    return ans;
 }
 
 signed main(){
@@ -24,8 +28,10 @@ signed main(){
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
     #endif
-    
+
     ios::sync_with_stdio(false); cin.tie(NULL);
 
-    solve();
+    int n; cin >> n;
+    int ans = fact(n) % MOD;
+    cout << ans << endl;
 }
