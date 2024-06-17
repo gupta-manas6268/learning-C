@@ -1,7 +1,23 @@
-// Wrong.
+// Here, using official 'sqrt' function makes 
+//  TC less.
+
+// Correct.
 
 // B. T-primes
 // https://codeforces.com/problemset/problem/230/B
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -41,22 +57,12 @@ signed main(){
 
     while (tc--){
         int n; cin >> n;
+        int Sqrt = sqrt(n);
         bool ans = false;
-
-        int Sqrt;
-        for(int i=2; i*i <= n; i++){
-            if((n%i == 0) && (i*i != n)){
-                ans = false;
-                break;
-            }
-            if(i*i == n){
-                ans = true; 
-                Sqrt = i;
-                break;
-            }
+        if(n != (Sqrt * Sqrt)){
+            cout << "NO" << endl;
         }
-        
-        if(ans == true){
+        else{
             if(is_prime(Sqrt) == true){
                 cout << "YES" << endl;
             }
@@ -64,6 +70,5 @@ signed main(){
                 cout << "NO" << endl;
             }
         }
-        else{ cout << "NO" << endl;}
     }
 }
