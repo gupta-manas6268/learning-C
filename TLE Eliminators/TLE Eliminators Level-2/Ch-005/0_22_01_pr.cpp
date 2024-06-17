@@ -1,7 +1,25 @@
-// 
+// Wrong.
 
 // B. Prime Matrix
 // https://codeforces.com/contest/271/problem/B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

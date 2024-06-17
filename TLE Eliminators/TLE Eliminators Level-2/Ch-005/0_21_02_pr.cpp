@@ -1,7 +1,25 @@
-// 
+// Wrong.
 
 // HS08PAUL - A conjecture of Paul Erdős
 // https://www.spoj.com/problems/HS08PAUL/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
