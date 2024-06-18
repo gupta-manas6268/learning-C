@@ -1,7 +1,23 @@
-// 
+// Correct.
 
 // D. Buying Shovels
 // https://codeforces.com/problemset/problem/1360/D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -45,7 +61,7 @@ signed main(){
         vector<long long> vec = factor(n);
 
         long long ans;
-        for(long long i=0; i < (vec.size()-1); i++){
+        for(long long i=0; i < (vec.size()); i++){
             if(vec[i] > k){
                 break;
             }
