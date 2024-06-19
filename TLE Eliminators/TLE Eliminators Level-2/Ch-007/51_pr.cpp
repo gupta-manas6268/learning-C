@@ -30,6 +30,8 @@ signed main(){
     int max_1 = 0, max_2 = 0;
     stack<int> st;
     for(int i=0; i<n; i++){
-        
+        if(arr[i]%2 != 0){
+            st.push(arr[i]);
+        }
     }
 }
