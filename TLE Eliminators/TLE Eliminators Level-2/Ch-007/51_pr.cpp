@@ -26,12 +26,28 @@ signed main(){
     int arr[n];
     for(int i=0; i<n; i++){ cin >> arr[i];}
 
-    int depth = 0;
-    int max_1 = 0, max_2 = 0;
+    vector<int> depth ={0};
+    vector<int> max_1 = {0}, max_2 = {0};
     stack<int> st;
+
+    int Depth = 0;
+    int Max_1 = 0, Max_2 = 0;
     for(int i=0; i<n; i++){
-        if(arr[i]%2 != 0){
+        if(arr[i]%2 != 0){   // arr[i] => odd.
+            Depth++;
             st.push(arr[i]);
+
+            if((arr[i] == 1) && (arr[i+1] == 3)){
+                Max_1++;
+            }
+            else if((arr[i] == 3) && (arr[i+1] == 1)){
+                
+            }
+        }
+        else{               // arr[i] => even.
+            depth.push_back(Depth);
+            Depth--;
+            st.pop();
         }
     }
 }
