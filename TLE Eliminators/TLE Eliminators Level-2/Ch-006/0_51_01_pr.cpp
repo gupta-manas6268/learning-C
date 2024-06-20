@@ -1,7 +1,23 @@
-// 
+// Wrong (TLE)
 
 // C. Kuroni and Impossible Calculation
 // https://codeforces.com/problemset/problem/1305/C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
