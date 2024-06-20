@@ -1,7 +1,23 @@
-// 
+// Wrong (TLE => Time Limit Exceeded.)
 
 // M. Minimum LCM
 // https://codeforces.com/contest/1765/problem/M
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -14,8 +30,8 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-int LCM(int a, int b){
-    int ans = (a * b)/ __gcd(a, b);
+long long LCM(long long a, long long b){
+    long long ans = (a * b)/ __gcd(a, b);
     return ans;
 }
 
@@ -30,9 +46,9 @@ signed main(){
     int tc; cin >> tc;
 
     while (tc--){
-        int n; cin >> n;
+        long long n; cin >> n;
 
-        int a, b;
+        long long a, b;
         if(n%2 == 0){
             a = n/2; 
             b = n/2;

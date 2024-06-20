@@ -17,3 +17,11 @@ int main(){
     
     return 0;
 }
+
+
+class Solution {
+public:
+    int superPow(int a, vector<int>& b) {
+        
+    }
+};
