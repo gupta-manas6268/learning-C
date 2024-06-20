@@ -1,7 +1,24 @@
-// Wrong.
+// Time Limit Exceeded.
 
 // D - Coprime 2
 // https://atcoder.jp/contests/abc215/tasks/abc215_d
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -19,15 +36,6 @@ int gcd(int a, int b){
     return gcd(b % a, a);
 }
 
-int LCM(int *arr, int n){
-    int temp = arr[0];
-    for(int i=1; i<n; i++){
-        temp = (temp * arr[i])/ gcd(temp, arr[i]);
-    }
-
-    return temp;
-}
-
 signed main(){
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
@@ -40,19 +48,25 @@ signed main(){
     int a[n];
     for(int i=0; i<n; i++){ cin >> a[i];}
 
-    int lcm = LCM(a, n);
+    vector<int> k;
+    k.push_back(1);
+    for(int i=2; i <= m; i++){
+        bool add = true;
+        for(int j=0; j<n; j++){
+            if(gcd(a[j], i) != 1){
+                add = false;
+                break;
+            }
+        }
 
-    vector<int> ans;
-    for(int i=1; i <= m; i++){
-        if(gcd(lcm, i) == 1){
-            ans.push_back(i);
+        if(add == true){
+            k.push_back(i);
         }
     }
+    // TC = O(n * m).
 
-    // TC = O(n + m).
-
-    cout << ans.size() << endl;
-    for(int i=0; i < ans.size(); i++){
-        cout << ans[i] << endl;
+    cout << k.size() << endl;
+    for(int i=0; i < k.size(); i++){
+        cout << k[i] << endl;
     }
 }

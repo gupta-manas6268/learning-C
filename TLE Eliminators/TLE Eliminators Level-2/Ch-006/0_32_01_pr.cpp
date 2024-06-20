@@ -1,4 +1,4 @@
-// 
+// Wrong.
 
 // C - Factors of Factorial
 // https://atcoder.jp/contests/abc052/tasks/arc067_a
