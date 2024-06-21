@@ -1,7 +1,25 @@
-// 
+// Wrong.
 
 // Matched Brackets 2
 // https://www.codechef.com/practice/course/zco-inoi-problems/ZCOPRAC/problems/ZCO12003
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
