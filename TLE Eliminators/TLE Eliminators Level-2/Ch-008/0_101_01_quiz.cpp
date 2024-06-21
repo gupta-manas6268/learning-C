@@ -1,3 +1,4 @@
+// See '0_101_02_quiz.cpp' carefully.
 // Correct.
 
 // Stick Lengths
