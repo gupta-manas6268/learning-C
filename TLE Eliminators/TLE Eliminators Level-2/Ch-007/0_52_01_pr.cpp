@@ -1,7 +1,24 @@
-// 
+// Wrong.
 
 // A. Valeriy and Deque
 // https://codeforces.com/problemset/problem/1179/A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
