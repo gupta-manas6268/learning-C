@@ -22,18 +22,6 @@ int main(){
 class Solution {
 public:
     string removeDuplicateLetters(string s) {
-        set<char> ans;
-        for(int i=0; i < s.size(); i++){
-            ans.insert(s[i]);
-        }
-
-        string Final_Answer;
-        int i=0;
-        for(char it:ans){
-            Final_Answer[i] = it;
-            i++;
-        }
-
-        return Final_Answer;
+        
     }
 };
