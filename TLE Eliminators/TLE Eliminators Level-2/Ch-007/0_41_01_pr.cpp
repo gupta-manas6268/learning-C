@@ -29,14 +29,14 @@ public:
                 int a = 0;
                 bool negative = false;
                 for(int j=0; j < tokens[i].size(); j++){
-                    if(tokens[i] == "-"){
+                    if(tokens[i][j] == '-'){
                         negative = true;
                     }
                     else{
                         a = (10 * a) + (int)(tokens[i][j]);
                     }
                 }
-                if(negative == true){ a = -a; cout << a << endl;}
+                if(negative == true){ a = -a;}
                 st.push(a);
             }
             else{
