@@ -37,7 +37,7 @@ void solve(){ // O(1).
 signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
-    cin >> n;
+    cin >> n; 
 
     solve();
 
