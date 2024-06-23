@@ -15,8 +15,8 @@ const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
 vector<int> sieve(int n){
-    bool primes[400+1];
-    fill(primes, primes+n+1, true);
+    bool primes[1000+1];
+    fill(primes, primes+1000+1, true);
     vector<int> ans;
     int count = 0;
     if(n%2 != 0){
@@ -25,7 +25,7 @@ vector<int> sieve(int n){
     }
 
     primes[0] = primes[1] = false;
-    for(int i=2; i*i <= 400; i++){
+    for(int i=2; i*i <= 1000; i++){
         if(count >= n){
             break;
         }
@@ -34,7 +34,7 @@ vector<int> sieve(int n){
                 ans.push_back(i);
                 count++;
             }
-            for(int j=i*i; j <= 400; j += i){
+            for(int j=i*i; j <= 1000; j += i){
                 primes[j] = false;
             }
         }

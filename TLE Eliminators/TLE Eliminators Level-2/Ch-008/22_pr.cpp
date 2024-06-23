@@ -24,7 +24,7 @@ int mex(vector<int> a, int n){
         int temp = 0;
         for(int i=0; i<n; i++){
             if(b[i] == temp){
-                if(b[i+1] == b[i]){
+                if((i < (n-1)) && (b[i] == b[i+1])){
                     temp--;
                 }
                 temp++;
@@ -92,10 +92,10 @@ signed main(){
                             int index_2 = index[index.size()-1];
 
                             for(int i = index_1; i <= index_2; i++){
-                                a[i] = MEX_1;
                                 if(a[i] < MEX_1){
                                     doubt = true;
                                 }
+                                a[i] = MEX_1;
                             }
 
                             if(doubt == true){
