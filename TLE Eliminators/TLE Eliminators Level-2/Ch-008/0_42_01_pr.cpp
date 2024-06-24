@@ -1,7 +1,27 @@
-// 
+// Wrong.
 
 // A. Qingshan Loves Strings 2
 // https://codeforces.com/contest/1889/problem/A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
