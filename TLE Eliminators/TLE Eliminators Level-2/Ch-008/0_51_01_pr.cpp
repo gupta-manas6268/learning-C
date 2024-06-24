@@ -1,7 +1,22 @@
-// 
+// Wrong.
 
 // D - Five, Five Everywhere
 // https://atcoder.jp/contests/abc096/tasks/abc096_d
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
