@@ -1,7 +1,25 @@
-// 
+// Wrong.
 
 // A. Constructive Problem
 // https://codeforces.com/contest/1819/problem/A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -82,6 +100,10 @@ signed main(){
                             }
                         }
 
+                        if(index.size() == 0){
+                            if(b.size() > MEX_1){ ans = true;}
+                            else{ ans = false;}
+                        }
                         if(index.size() == 1){
                             ans = true;
                         }
