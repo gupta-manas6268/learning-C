@@ -81,6 +81,8 @@ void solve(){
         ans += (min(cost[i], x) * span);
     }
 
+    // TC = O(n * log(n)).
+
     cout << ans << endl;
 }
 
