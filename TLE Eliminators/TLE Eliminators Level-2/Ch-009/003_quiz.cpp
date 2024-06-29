@@ -39,10 +39,23 @@ signed main(){
         query.push_back(Temp);
     }
 
-    int arr[n][n];
+    int arr[n][n] = {0};
     for(int i=0; i<n; i++){
-        for(int i=0; i<n; i++){
-
+        for(int j=0; j<n; j++){
+            if(vec[i][j] == '*'){
+                arr[i][j]++;
+            }
         }
+    }
+
+    vector<vector<int>> prefix_Sum(n+1, vector<int> (n+1, 0));
+    for(int i=1; i<=n; i++){
+        for(int j=1; j<=n; j++){
+            prefix_Sum[i][j] = arr[i-1][j-1] + prefix_Sum[i-1][j] + prefix_Sum[i][j-1] - prefix_Sum[i-1][j-1];
+        }
+    }
+
+    for(int i=0; i<q; i++){
+        
     }
 }

@@ -35,4 +35,13 @@ signed main(){
     for(int i=0; i<n; i++){
         v[i] += difference_array[i];  // now this 'v' contains new values.
     }
+
+    // OUTPUT values.
+    for(int i=0; i<n; i++){
+        cout << difference_array[i] << endl;
+    }
+    cout << endl;
+    for(int i=0; i<n; i++){
+        cout << v[i] << endl;
+    }
 }
