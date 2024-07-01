@@ -1,12 +1,3 @@
-// Solve this Question.
-
-
-
-
-
-
-
-
 // 
 
 // AGGRCOW - Aggressive cows
@@ -41,5 +32,13 @@ signed main(){
         }
 
         sort(x.begin(), x.end());
+
+        vector<int> Cows;
+        int mini_distance;
+        if(c >= 3){
+            for(int i=1; i < (n-1); i++){
+                mini_distance = min(abs(x[i]-x[]))
+            }
+        }
     }
 }
