@@ -1,7 +1,33 @@
-// 
+// Correct.
 
 // A. Unit Array
 // https://codeforces.com/problemset/problem/1834/A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -32,7 +58,22 @@ signed main(){
             a.push_back(temp);
         }
 
-        sort(a.begin(), a.end());
-        
+        // sort(a.begin(), a.end());
+        int freq_1 = count(a.begin(), a.end(), -1);
+        int freq_2 = count(a.begin(), a.end(), 1);
+
+        int ans = 0;
+        if(freq_1 > freq_2){
+            int diff = (freq_1 - freq_2);
+            ans += (diff/2) + (diff%2);
+
+            freq_1 -= ans;
+            freq_2 += ans;
+        }
+        if((freq_1 % 2) != 0){
+            ans += 1;
+        }
+
+        cout << ans << endl;
     }
 }
