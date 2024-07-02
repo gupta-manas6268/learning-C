@@ -1,7 +1,34 @@
-// 
+// Correct.
 
 // A. Line Trip
 // https://codeforces.com/problemset/problem/1901/A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -35,14 +62,13 @@ signed main(){
                 int dis = a[i];
                 distance.push_back(dis);
             }
-            else{
-                int dis_1 = (a[i] - a[i-1]);
-                distance.push_back(dis_1);
-
-                if(i == (n-1)){
-                    int dis_2 = 2 * (x - a[i]);
-                    distance.push_back(dis_2);
-                }
+            if(i == (n-1)){
+                int dis = 2 * (x - a[i]);
+                distance.push_back(dis);
+            }
+            if(i > 0){
+                int dis = (a[i] - a[i-1]);
+                distance.push_back(dis);  
             }
         }
 
