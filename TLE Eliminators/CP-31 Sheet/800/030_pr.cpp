@@ -1,7 +1,36 @@
-// 
+// Correct.
 
 // A. Extremely Round
 // https://codeforces.com/problemset/problem/1766/A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -13,6 +42,14 @@ using namespace std;
 
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
+
+int power(int a, int b){
+    int ans = 1;
+    for(int i=1; i <= b; i++){
+        ans *= a;
+    }
+    return ans;
+}
 
 signed main(){
     #ifndef ONLINE_JUDGE
@@ -28,16 +65,11 @@ signed main(){
         int n; cin >> n;
 
         int ans = 0;
-        for(int i=1; i<=n; i++){
-            int num = i;
-            int digit = 0;
-            while(num > 0){
-                if((num%10) != 0){
-                    digit++;
-                }
-                num /= 10;
+        for(int i=0; i<7; i++){
+            if((n >= power(10,i) && (n < power(10,i+1)))){
+                ans += (9 * i);
+                ans += (n / power(10,i));
             }
-            if(digit == 1){ ans++;}            
         }
 
         cout << ans << endl;
