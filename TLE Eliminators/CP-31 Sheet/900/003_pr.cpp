@@ -25,6 +25,18 @@ signed main(){
     int tc; cin >> tc;
 
     while (tc--){
-        
+        int n, k, x; cin >> n >> k >> x;
+
+        int sum = 0;
+        bool ans;
+        for(int i=1; i <= k; i++){
+            sum += i;
+        }
+
+        if(sum > x){ ans = false;}
+        else if(sum == x){ ans = true;}
+        else{
+            
+        }
     }
 }
