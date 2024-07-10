@@ -25,7 +25,7 @@ void Sqrt(){
         double mid = (left + right) / 2;
         if(mid <= (x / mid)){
             ans = mid;
-            left = mid + precision;
+            left = mid + precision; 
         }
         else{
             right = mid - precision;
