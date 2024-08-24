@@ -1,8 +1,7 @@
+// Wrong.
 
-
-// C. Very Easy Task
-// https://codeforces.com/edu/course/2/lesson/6/2/practice/contest/283932/problem/C
-
+// D - Lazy Faith
+// https://atcoder.jp/contests/abc119/tasks/abc119_d
 
 
 
@@ -23,9 +22,5 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
-    int tc; cin >> tc;
-
-    while (tc--){
-        
-    }
+    
 }

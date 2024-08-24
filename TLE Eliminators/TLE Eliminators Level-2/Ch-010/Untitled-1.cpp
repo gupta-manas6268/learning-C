@@ -1,11 +1,3 @@
-
-
-// C. Very Easy Task
-// https://codeforces.com/edu/course/2/lesson/6/2/practice/contest/283932/problem/C
-
-
-
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -26,6 +18,7 @@ signed main(){
     int tc; cin >> tc;
 
     while (tc--){
-        
+        int n, x; cin >> n >> x;
+        int 
     }
 }
