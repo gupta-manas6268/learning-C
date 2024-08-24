@@ -1,7 +1,36 @@
-// Wrong.
+// This is Mentor's code.
+// Correct.
 
 // A. Points on Line
 // https://codeforces.com/problemset/problem/251/A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -13,19 +42,6 @@ using namespace std;
 
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
-
-long long factorial(int n){
-    int ans = 1;
-    for(int i=1; i <= n; i++){
-        ans *= i;
-    }
-    return ans;
-}
-
-long long nCr(int n, int r){
-    int ans = (factorial(n)/ (factorial(r) * factorial(n-r)));
-    return ans;
-}
 
 signed main(){
     #ifndef ONLINE_JUDGE
@@ -42,19 +58,18 @@ signed main(){
         x.push_back(temp);
     }
 
-    int ans = 0;
-    for(int i=0; i<n; i++){
-        int target = (d + x[i]);
-        int index = upper_bound(x.begin(), x.end(), target) - x.begin();
-        index--;
-
-        if((index - i) < 2){
-
-        }
-        else{
-            ans += nCr(index-i, 2);
+    // Iterating over the Rightmost point.
+    long long ans = 0;
+    for(int i=2; i < n; i++){
+        int index = lower_bound(x.begin(), x.end(), x[i]-d) - x.begin();
+        long long temp = (i - index);
+        if(temp >= 2){
+            // ans += temp_C_2;
+            ans += (temp * (temp - 1)) / 2;
         }
     }
 
     cout << ans << endl;
+
+    // TC = O(n*log(n)).
 }
