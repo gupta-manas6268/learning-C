@@ -38,6 +38,11 @@ vector<int> function(int n){
 signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+
     int tc; cin >> tc;
 
     while (tc--){

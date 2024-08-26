@@ -28,6 +28,11 @@ void sort(map <int, int> &M){
 signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+
     int n; cin >> n;
     vector<string> str;
     for(int i=0; i<n; i++){

@@ -1,9 +1,7 @@
 // 
 
-// C. Vasilije in Cacak
-// https://codeforces.com/contest/1878/problem/C
-
-
+// A. Don't Try to Count
+// https://codeforces.com/contest/1881/problem/A
 
 
 #include<bits/stdc++.h>
@@ -26,7 +24,6 @@ signed main(){
     int tc; cin >> tc;
 
     while (tc--){
-        int n, k, x; cin >> n >> k >> x;
         
     }
 }
