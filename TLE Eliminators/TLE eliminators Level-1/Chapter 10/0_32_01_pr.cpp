@@ -1,7 +1,40 @@
-// 
+// Wrong (Not Working)
 
 // B. Aleksa and Stack
 // https://codeforces.com/contest/1878/problem/B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #include<bits/stdc++.h>
@@ -13,7 +46,13 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-vector<int> function(int n){
+int power(int a, int b){
+    int ans = 1;
+    for(int i=0; i<b; i++){ ans *= a;}
+    return ans;
+}
+
+vector<int> Function(int n){
     vector<int> vec;
     for(int i=0; i<n; i++){
         if(i == 0){
@@ -23,8 +62,8 @@ vector<int> function(int n){
             vec.push_back(2);
         }
         else{
-            for(int j = vec[i-1]+vec[i-2]+1; j; j++){
-                if((3*j) % (vec[i-1]+vec[i-2]) != 0){
+            for(int j = vec[i-1]+1; j <= power(10,9); j++){
+                if(((3*j) % (vec[i-1]+vec[i-2])) != 0){
                     vec.push_back(j);
                     break;
                 }
@@ -47,10 +86,11 @@ signed main(){
 
     while (tc--){
         int n; cin >> n;
-        vector<int> ans = function(n);
+        vector<int> ans = Function(n);
 
         for(int i=0; i<n; i++){
-            ans.push_back(function(n)[i]);
+            cout << ans[i] << " ";
         }
+        cout << endl;
     }
 }

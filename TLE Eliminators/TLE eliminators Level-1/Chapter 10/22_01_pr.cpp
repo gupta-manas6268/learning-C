@@ -40,7 +40,7 @@ signed main(){
         str.push_back(a);
     }
 
-    vector<int> ans;
+    vector<int> wins;
     map <int, int > Ans;
     for(int i=0; i<n; i++){
         int a = 0;
@@ -49,7 +49,7 @@ signed main(){
                 a++;
             }
         }
-        ans.push_back(a);
+        wins.push_back(a);
         Ans[i+1] = a;
     }
 
