@@ -1,6 +1,6 @@
 // 
 
-// B - Round-Robin Tournament 
+// B - Round-Robin Tournament
 // https://atcoder.jp/contests/abc323/tasks/abc323_b
 
 

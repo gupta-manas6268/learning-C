@@ -1,7 +1,40 @@
-// 
+// Wrong.
 
 // A. Don't Try to Count
 // https://codeforces.com/contest/1881/problem/A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #include<bits/stdc++.h>
