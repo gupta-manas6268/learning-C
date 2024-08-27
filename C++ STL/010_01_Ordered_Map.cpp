@@ -11,7 +11,8 @@ int main(){
     m[1] = "abc";
     m[5] = "cdc";
     m[3] = "acd";
-    m.insert({4, "afg"});
+    // m.insert({4, "afg"});
+    m.insert({3, "afg"});
     // map<int, string> :: iterator it;
     // for(it = m.begin(); it != m.end(); it++){
     //     cout << (*it).first << " " << (*it).second << endl;
@@ -20,6 +21,7 @@ int main(){
     for(auto &Pair: m){
         cout << Pair.first << " " << Pair.second << endl;
     }
+    cout << m.size();
 
     return 0;
 }
