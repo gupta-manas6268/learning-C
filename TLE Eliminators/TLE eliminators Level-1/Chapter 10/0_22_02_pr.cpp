@@ -1,7 +1,22 @@
-// 
+// Wrong.
+
+// Solve it yourself, because Mentor didn't discuss
+//  this code.
 
 // B - Round-Robin Tournament
 // https://atcoder.jp/contests/abc323/tasks/abc323_b
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

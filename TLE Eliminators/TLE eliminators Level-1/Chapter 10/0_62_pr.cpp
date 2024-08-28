@@ -1,7 +1,21 @@
-// 
+// Wrong.
+
+// Solve it yourself, because Mentor didn't discuss
+//  this code.
 
 // C - World Tour Finals
 // https://atcoder.jp/contests/abc323/tasks/abc323_c
+
+
+
+
+
+
+
+
+
+
+
 
 
 
