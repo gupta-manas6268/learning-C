@@ -14,8 +14,19 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-int solve(int a[], int n, int i){
+bool ans = false;
+vector<int> A;
+int N, X;
+void solve(int sum, int i){
+    if(i == (N-1)){
+        if(sum == X){
+            ans = true;
+            return;
+        }
+    }
     
+    solve(sum + (A[i] + A[i+1]), i+1);
+    solve(sum + (A[i] - A[i+1]), i+1);
 }
 
 signed main(){
@@ -26,9 +37,14 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
-    int N, X; cin >> N >> X;
-    int A[N];
-    for(int i=0; i<N; i++){ cin >> A[i];}
+    cin >> N >> X;
+    for(int i=0; i<N; i++){
+        int temp; cin >> temp;
+        A.push_back(temp);
+    }
 
+    solve(0, 0);
 
+    if(ans == true){ cout << "YES" << endl;}
+    else{ cout << "NO" << endl;}
 }
