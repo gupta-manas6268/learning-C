@@ -5,6 +5,8 @@
 
 
 
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -48,15 +50,14 @@ signed main(){
             int m = 0, n = 0;
             for(int x = i; x < n; x++){
                 if(a[x] == a[i]){ m++;}
-                else{ i = (x-1); break;}
+                else{ i += m; break;}
             }
             for(int x = j; x < m; x++){
                 if(b[x] == b[j]){ n++;}
-                else{ j = (x-1); break;}
+                else{ j += n; break;}
             }
 
             ans += (n * m);
-            i++; j++;
         }
     }
 
