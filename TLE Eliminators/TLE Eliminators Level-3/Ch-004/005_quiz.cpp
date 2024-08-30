@@ -1,7 +1,13 @@
 // Correct.
 
-// Q.1: Given an array of positive integers find the length
-//       of longest subarray with sum <= K
+// Q.3: Given an array of positive integers find the length
+//       of smallest subarray with sum of elements >= K.
+
+//      (Hint: This problem is of Decreasing Technique.)
+
+
+
+
 
 
 
@@ -14,26 +20,21 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-int length_of_subarray(vector<int> a, int k){
+int shortest_subarray(vector<int> a, int k){
     int n = a.size();
 
-    int ans = 0;
-    int i = 0, j = 0;
-    // i -> left pointer, j -> right pointer.
-
+    int ans = INF;
     int sum = 0;
+    int i = 0, j = 0;
     while(j < n){
-        // include the jth element in your segment.
         sum += a[j];
+        while((i <= j) && (sum >= k)){
+            int length = (j - i + 1);
+            ans = min(ans, length);
 
-        while((i <= j) && (sum > k)){
+            // move left pointer 1-step right.
             sum -= a[i];
-            i++;  // move left pointer 1 step right.
-        }
-
-        int length = (j - i + 1); // It is length of subarray.
-        if(sum <= k){
-            ans = max(ans, (j - i + 1));
+            i++;
         }
         j++;
     }
@@ -56,6 +57,6 @@ signed main(){
         a.push_back(temp);
     }
 
-    length_of_subarray(a, k);
+    shortest_subarray(a, k);
     // TC = O(n).
 }
