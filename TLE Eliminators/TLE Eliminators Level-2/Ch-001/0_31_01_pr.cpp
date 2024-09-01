@@ -1,7 +1,41 @@
-// 
+// Wrong (Memory Limit Exceeded.)
 
 // N. Sum of a Matrix
 // https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/N
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -14,18 +48,16 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-vector<vector<int>> Ans;
-vector<int> Temporary;
 void sum(vector<vector<int>> A, vector<vector<int>> B, int row, int col, int i, int j){
-    Temporary.push_back(A[i][j] + B[i][j]);
+    int ans = A[i][j] + B[i][j];
+    cout << ans << " ";
+    
     if(j == (col - 1)){
-        Ans.push_back(Temporary);
-        Temporary.clear();
-
         if(i == (row - 1)){
             return;
         }
         else{
+            cout << endl;
             sum(A, B, row, col, i+1, 0);
         }
     }
@@ -63,10 +95,4 @@ signed main(){
 
     sum(A, B, R, C, 0, 0);
 
-    for(int i=0; i<R; i++){
-        for(int j=0; j<C; j++){
-            cout << Ans[i][j] << " ";
-        }
-        cout << endl;
-    }
 }
