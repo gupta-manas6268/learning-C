@@ -1,7 +1,40 @@
-// 
+// Wrong (Runtime error.)
 
 // V. Creating Expression1
 // https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/V
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -18,15 +51,19 @@ bool ans = false;
 vector<int> A;
 int N, X;
 void solve(int sum, int i){
+    if(i == 0){ 
+        sum += A[i];
+        solve(sum, i+1);
+    }
     if(i == (N-1)){
         if(sum == X){
             ans = true;
-            return;
         }
+        return;
     }
     
-    solve(sum + (A[i] + A[i+1]), i+1);
-    solve(sum + (A[i] - A[i+1]), i+1);
+    solve(sum + A[i+1], i+1);
+    solve(sum - A[i+1], i+1);
 }
 
 signed main(){
