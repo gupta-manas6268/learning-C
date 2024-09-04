@@ -23,27 +23,30 @@ void solve(){
             for(int j = i*i; j<n; j += i){
                 if(SPF[j] == j){
                     SPF[j] = i;
-                    break;
+                    // break;
                 }
             }
         }
     }
 
-    int num = n;  // Example number whose prime factors we want to find.
+    int num = 1e7;  // Example number whose prime factors we want to find.
 
     // Prime factors of 'n'.
     vector<int> prime_factors;
-    while(n > 1){
-        prime_factors.push_back(SPF[n]);
-        num /= SPF[n];
+    while(num > 1){
+        prime_factors.push_back(SPF[num]);
+        num /= SPF[num];
     }
 
     // TC = O(log2(n)).
 
     cout << "Prime factors of " << n << ": ";
-    for(const int& factor : prime_factors){
-        cout << factor << " ";
+    for(int i=0; i < prime_factors.size(); i++){
+        cout << prime_factors[i] << " ";
     }
+    // for(const int& factor : prime_factors){
+    //     cout << factor << " ";
+    // }
     cout << endl;
 }
 

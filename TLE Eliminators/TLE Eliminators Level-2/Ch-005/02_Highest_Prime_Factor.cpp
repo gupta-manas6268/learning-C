@@ -29,6 +29,10 @@ void solve(){
     }
 
     // TC = O(n * log(n)).
+
+    for(int i=0; i<n; i++){
+        cout << HPF[i] << " ";
+    }
 }
 
 signed main(){
