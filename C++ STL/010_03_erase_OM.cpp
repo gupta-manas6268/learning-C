@@ -13,6 +13,11 @@ void print(map<int, string> &m){
 }
 
 int main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+
     // Ordered map.
     // TC of traversal of loop is = O(n * log(n)).
     map<int, string> m;
@@ -22,7 +27,7 @@ int main(){
     m.insert({4, "afg"});
     m[6];
     m[7] = 4;
-    m[5] = "cde";  // See line-19 and O/P of this code.
+    m[5] = "cde";  // See line-24 and O/P of this code.
     
     // m.erase(3);
     auto it_1 = m.find(5);
@@ -33,7 +38,6 @@ int main(){
     m.erase(it_2);
 
     print(m);
-    cout << endl;
 
     return 0;
 }

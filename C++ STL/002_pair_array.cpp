@@ -2,6 +2,11 @@
 using namespace std;
 
 int main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+    
     int a[] = {1, 2, 3, 4};
     int b[] = {2, 3, 4, 5};
 

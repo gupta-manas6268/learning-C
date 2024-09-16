@@ -13,6 +13,11 @@ void display(vector <int> &v){
 }
 
 int main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+    
     int n1; cin >> n1;
 
     vector<vector<int>> v;  // Vector of Vector.

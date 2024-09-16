@@ -1,6 +1,6 @@
 // Ordered Map(OM).
 
-// See line-28.
+// See line-33.
 
 
 #include<bits/stdc++.h>
@@ -14,6 +14,11 @@ void print(map<int, string> &m){
 }
 
 int main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+
     // Ordered map.
     // TC of traversal of loop is = O(n * log(n)).
     map<int, string> m;
@@ -23,7 +28,7 @@ int main(){
     m.insert({4, "afg"});
     m[6];
     m[7] = 4;
-    m[5] = "cde";  // See line-19 and O/P of this code.
+    m[5] = "cde";  // See line-24 and O/P of this code.
     
     m.clear();  // It clears all elements of the map.
 

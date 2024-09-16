@@ -42,7 +42,8 @@ const int INF = LLONG_MAX >> 1;
 vector<int> sliding_window_minimum(vector<int> &a, int k){
     int n = a.size();
     vector<int> ans;
-    deque<int> deq;
+    deque<int> deq;  // This will store the index of the 
+                     //  minimum element in the vector a.
 
     for(int i=0; i<n; i++){
         while((!deq.empty()) && (a[deq.back()] >= a[i])){
@@ -73,5 +74,15 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
-    
+    int n, k; cin >> n >> k;
+    vector<int> a;
+    for(int i=0; i<n; i++){
+        int temp; cin >> temp;
+        a.push_back(temp);
+    }
+
+    vector<int> ans = sliding_window_minimum(a, k);
+    for(int i=0; i < ans.size(); i++){
+        cout << ans[i] << endl;
+    }
 }

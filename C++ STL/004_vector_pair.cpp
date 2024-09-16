@@ -13,6 +13,11 @@ void display(vector <pair<int, int>> &v){
 }
 
 int main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+    
     vector <pair<int, int>> v = {{1, 2} , {2, 3}, {3, 4}};
     display(v);
 

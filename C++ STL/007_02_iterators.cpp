@@ -6,6 +6,11 @@
 using namespace std;
 
 int main() {
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+    
     // Iterators point to pairs.
     vector<pair<int, int>> v_p = {{1, 2}, {2, 3}, {3, 4}};
     vector<pair<int, int>>::iterator it;
