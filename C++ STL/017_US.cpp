@@ -16,6 +16,11 @@ void print(unordered_set <string> &s){
 }
 
 int main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+    
     unordered_set <string> s;
     s.insert("abc");  // O(1) = TC of insertion & access of element of set.
     s.insert("abc");  // Here, Lexiographical order of set doesn't matter.

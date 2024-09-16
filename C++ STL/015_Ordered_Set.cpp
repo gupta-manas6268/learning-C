@@ -16,6 +16,11 @@ void print(set <string> &s){
 }
 
 int main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+    
     set <string> s;
     s.insert("abc");  // TC of insertion & access of element of set is = O(log(n)).
     s.insert("abc");  // See O/P of code carefully. & see that 'set' stores 

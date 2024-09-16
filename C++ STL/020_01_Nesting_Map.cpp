@@ -2,6 +2,11 @@
 using namespace std;
 
 int main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+    
     map <pair<int, int>, int> m;
 
     pair <int, int> p1, p2;

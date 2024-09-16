@@ -2,6 +2,11 @@
 using namespace std;
 
 int main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+    
     queue<string> q;
     q.push("abc");
     q.push("bcd");

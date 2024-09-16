@@ -11,6 +11,11 @@ void print(unordered_map<int, string> &m){
 }
 
 int main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+    
     // Unordered map.
     unordered_map<int, string> m;
     m[1] = "abc";  // O(1).
@@ -19,7 +24,7 @@ int main(){
     m.insert({4, "afg"});
     m[6];
     m[7] = 4;
-    m[5] = "cde";  // See line-16 and O/P of this code.
+    m[5] = "cde";  // See line-21 and O/P of this code.
     
     print(m);
     cout << endl;

@@ -4,7 +4,12 @@
 using namespace std;
 
 int main(){
-    multimap <pair<int, int>, string> m;  // Line-7 & Line - 8 are same.
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+
+    multimap <pair<int, int>, string> m;  // Line-12 & Line - 13 are same.
     map <int, vector<string>> m;     
     // People generally prefer 'map' over 'multimap'.
 

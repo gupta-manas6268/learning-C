@@ -1,6 +1,6 @@
-// Q.: Given 'N' strings, print unique strings in lexicographical
-//      order with their frequency
-//      N <= 10^5, |S| <= 100.
+// Q.: Given N strings, print unique strings in lexiographical
+//      order?
+//      N <= 10^5, |S| <= 100000. 
 
 
 #include<bits/stdc++.h>
@@ -13,21 +13,15 @@ int main(){
     #endif
 
     int n; cin >> n;
-    map<string, int> mp;
+    set<string> s;
     for(int i=0; i<n; i++){
         string temp; cin >> temp;
-        auto it = mp.find(temp);
-        if(it == mp.end()){
-            mp[temp] = 1;
-        }
-        else{
-            mp[temp]++;
-        }
+        s.insert(temp);
     }
 
-    for(auto &it:mp){
-        cout << it.first << " " << it.second << endl;
+    for(auto it:s){
+        cout << it << endl;
     }
-
+    
     return 0;
 }
