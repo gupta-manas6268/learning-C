@@ -6,8 +6,11 @@ using namespace std;
 
 void display(vector <int> &v){
     cout << "size: " << v.size() << endl;
-    for(int i=0; i < v.size(); i++){
-        cout << v[i] << " ";
+    // for(int i=0; i < v.size(); i++){
+    //     cout << v[i] << " ";
+    // }
+    for(auto &it:v){
+        cout << it << endl;
     }
     cout << endl;
 }
@@ -17,7 +20,7 @@ int main(){
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
     #endif
-    
+
     int n1; cin >> n1;
 
     vector<vector<int>> v;  // Vector of Vector.
