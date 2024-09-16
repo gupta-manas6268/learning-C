@@ -10,7 +10,7 @@ int main(){
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
     #endif
-    
+
     // Ordered map.
     map<int, string> m;
     m[1] = "abc";
@@ -26,7 +26,7 @@ int main(){
     for(auto &Pair: m){
         cout << Pair.first << " " << Pair.second << endl;
     }
-    cout << m.size();
+    cout << "Size: " <<  m.size();
 
     return 0;
 }

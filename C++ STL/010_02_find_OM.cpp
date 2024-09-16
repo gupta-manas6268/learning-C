@@ -25,6 +25,7 @@ int main(){
     m[5] = "cdc";
     m[3] = "acd";
     m.insert({4, "afg"});
+    m.insert({3, "afg"});
     m[6];
     m[7] = 4;
     m[5] = "cde";  // See line-24 and O/P of this code.
