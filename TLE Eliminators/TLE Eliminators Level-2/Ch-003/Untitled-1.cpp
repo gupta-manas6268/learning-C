@@ -1,30 +1,3 @@
-// Wrong. (Time Limit Exceeded)
-
-// Bitwise Equation
-// https://www.codechef.com/problems/BITEQU?tab=statement
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #include<bits/stdc++.h>
 using namespace std;
 

@@ -19,6 +19,7 @@ const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
 int n, m;
+// int grid[n][m];
 int grid[13][13];
 
 int max_path(int i, int j){  // return the sum from this current point

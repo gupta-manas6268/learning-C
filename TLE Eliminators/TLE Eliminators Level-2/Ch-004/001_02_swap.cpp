@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define endl '\n'
+#define int long long 
+
+const int MOD = 1e9 + 7;
+const int INF = LLONG_MAX >> 1;
+
+void Swap(){
+    int a = 5, b = 3;
+    a = (a * b)/(b = a);  // This swaps the values.
+    // (b = a) => now 'b' value of 'a'.
+    //  a = (a * b)/a;
+    //  a = b;
+    cout << a << " " << b << endl;
+}
+
+signed main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+
+    ios::sync_with_stdio(false); cin.tie(NULL);
+
+    Swap();
+}

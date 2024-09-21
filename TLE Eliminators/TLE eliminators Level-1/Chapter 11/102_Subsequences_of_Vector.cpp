@@ -26,19 +26,24 @@ void solve(int i, vector<int> cur){
         return;
     }
 
-    cout << "a" << endl;
+    // cout << "a" << endl;
     solve(i+1, cur);
 
-    cout << "b" << endl;
+    // cout << "b" << endl;
     cur.push_back(a[i]);
 
-    cout << "c" << endl;
+    // cout << "c" << endl;
     solve(i+1, cur);
     // solve(i+1, cur+a[i]); // This line will show Error.
 
 }
 
 signed main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+
     // ios::sync_with_stdio(false); cin.tie(NULL);  // I Commented this line Because i get confused when this line is not Commented.
 
     cout << "Enter the Length of the Vector: ";
