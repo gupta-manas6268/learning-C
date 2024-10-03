@@ -22,6 +22,13 @@ int main(){
 
 class Solution {
 public:
+    vector<string> ans;
+    string current;
+
+    void backtrack(string s, int a){
+        
+    }
+
     vector<string> restoreIpAddresses(string s) {
         
     }
