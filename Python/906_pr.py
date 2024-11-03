@@ -1,0 +1,17 @@
+# Q.1: Write a area & perimeter function of circle?
+
+
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return (22/7) * self.radius ** 2
+    
+    def perimeter(self):
+        return 2 * (22/7) * self.radius
+    
+c1 = Circle(21)
+print(c1.area())
+print(c1.perimeter())
