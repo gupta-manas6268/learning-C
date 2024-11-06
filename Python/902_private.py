@@ -10,6 +10,13 @@ class Account:
     def reset_pass(self):
         print(self.__acc_pass)
 
+acc1 = Account("12345", "abcde")
+print(acc1.acc_no)
+# print(acc1.__acc_pass)  # Also, run code by uncommenting this line.
+print(acc1.reset_pass())
+
+
+
 
 class Person:
     def __hello(self):  # private functions.
@@ -19,10 +26,6 @@ class Person:
         self.__hello()
 
 
-acc1 = Account("12345", "abcde")
-print(acc1.acc_no)
-# print(acc1.__acc_pass)  # Also, run code by uncommenting this line.
-print(acc1.reset_pass())
-
 p1 = Person()
 print(p1.welcome())
+# print(p1.__hello())

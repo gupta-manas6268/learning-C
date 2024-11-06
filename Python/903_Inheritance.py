@@ -21,6 +21,10 @@ class ToyotaCar(Car):
     def __init__(self, name):
         self.name = name
 
+class Model(ToyotaCar):
+    def __init__(self, name):
+        self.name
+
 car1 = ToyotaCar("fortuner")
 car2 = ToyotaCar("prius")
 

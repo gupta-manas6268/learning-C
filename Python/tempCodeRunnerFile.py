@@ -1,15 +1,11 @@
-class Student:
-    def __init__(self, phy, chem, math):
-        self.phy = phy
-        self.chem = chem
-        self.math = math
+class Person:
+    def __hello(self):  # private functions.
+        print("hello person!")
 
-    @property
-    def percentage(self):
-        return str((self.phy + self.chem + self.math) / 3) + "%"
-    
-stu1 = Student(98, 97, 99)
-print(stu1.percentage)
+    def welcome(self):
+        self.__hello()
 
-stu1.phy = 86
-print(stu1.percentage)
+
+p1 = Person()
+print(p1.welcome())
+# print(p1.__hello())

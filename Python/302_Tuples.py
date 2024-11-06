@@ -1,7 +1,7 @@
 # Tuples => create immutable sequence of values.
 tup = (2, 1, 3, 1)
 print(tup[0])
-tup[0] = 5 # this line gives error, because it is immutable.
+# tup[0] = 5 # this line gives error, because it is immutable.
 
 
 # Tuples slicing

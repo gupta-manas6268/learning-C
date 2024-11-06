@@ -25,14 +25,18 @@ Set.add(2)
 Set.add("manas")
 
 Set.remove(1)
-Set.remove(7)  # error
+# Set.remove(7)  # error
 print(Set)
 
 
 print(Set.add("hi"))
+print(Set)
 print(Set.remove(2)) # removes a particular element.
-print(Set.clear()) # empties set
+print(Set)
 print(Set.pop()) # removes a random value
+print(Set)
+print(Set.clear()) # empties set
+print(Set)
 
 # union
 Set2 = {7}
