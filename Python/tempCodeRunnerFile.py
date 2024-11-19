@@ -1,11 +1,12 @@
-class Person:
-    def __hello(self):  # private functions.
-        print("hello person!")
+dict = {
+    "key" : "value",
+    "name" : "Harry",
+    "learning" : "coding",
+    "age" : 19
+}
+# print(dict)
 
-    def welcome(self):
-        self.__hello()
-
-
-p1 = Person()
-print(p1.welcome())
-# print(p1.__hello())
+print(dict.keys())             # returns all keys
+print(dict.values())           # returns all values
+print(dict.items())            # returns all (key, val) pairs as tuples
+print("dict.get(name)) gives:", dict.get("name"))        # returns the 'name' according to value.
