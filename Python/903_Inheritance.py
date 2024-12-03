@@ -51,6 +51,7 @@ c1 = C()
 print(c1.varC) 
 print(c1.varB)
 print(c1.varA)
+print("Hi")
 
 
 # Super method:
