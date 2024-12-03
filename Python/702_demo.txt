@@ -1,2 +1,1 @@
-I am learning 
-python.
+I want to learn C++

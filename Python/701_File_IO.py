@@ -11,6 +11,7 @@ print(line_1)
 line_2 = f.readline() # reads one line at a time
 print(line_2)
 
+f = open("702_demo.txt", "w")
 f.write("I want to learn C++")
 
 f.close()
