@@ -49,11 +49,8 @@ signed main(){
 
         int a = 1, b = 2;
         int c = 3;
-        int d = (c ^ n);
-        while((a == c) || (a == d) || (b == c) || (b == d) || (c == d)){
-            c++;
-            d = (c ^ n);
-        }
+        int d = (3 ^ n);
+        
         cout << a << " " << b << " " << c << " " << d << endl;
     }
 }

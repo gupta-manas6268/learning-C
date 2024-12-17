@@ -1,4 +1,4 @@
-// 
+// Correct.
 
 // Maximum AND
 // https://www.codechef.com/problems/MAXAND18
