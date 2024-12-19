@@ -1,8 +1,43 @@
-// 
+// Correct.
 // This is Mentor's code.
 
 // G. Orray
 // https://codeforces.com/problemset/problem/1742/G
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -64,5 +99,8 @@ signed main(){
             cout << ans[i] << " ";
         }
         cout << endl;
+
+        // TC = O(30 * n)
+        // TC = O(n).
     }
 }
