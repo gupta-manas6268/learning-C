@@ -1,7 +1,42 @@
-// 
+// Wrong.
 
 // B. Johnny and His Hobbies
 // https://codeforces.com/problemset/problem/1362/B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -35,7 +70,14 @@ signed main(){
         }
 
         if(zero == true){
-            
+            sort(S.begin(), S.end());
+            int size = S.size();
+            for(int i=0; i<size; i++){
+                int temp = S[i];
+                for(int j=0; j<n; j++){
+                    if((temp^S[i]))
+                }
+            }
         }
     }
 }
