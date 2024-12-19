@@ -1,7 +1,42 @@
-// 
+// Wrong.
 
 // C. Adding Powers
 // https://codeforces.com/problemset/problem/1312/C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
