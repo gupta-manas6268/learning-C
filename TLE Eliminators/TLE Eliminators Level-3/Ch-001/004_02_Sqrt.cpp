@@ -36,6 +36,8 @@ void Sqrt(){
 
     cout << setprecision(10) << fixed;
     cout << ans << endl;
+
+    // cout << 10; // Also, check O/P when uncomment this line.
 }
 
 signed main(){
