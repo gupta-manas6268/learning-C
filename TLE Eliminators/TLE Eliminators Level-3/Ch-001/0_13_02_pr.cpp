@@ -1,7 +1,41 @@
-// 
+// Correct.
+// (This is my code with the help of Mentor.)
 
 // Multiplication Table
 // https://cses.fi/problemset/task/2422
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -24,31 +58,19 @@ signed main(){
 
     int n; cin >> n;
     
-    vector<vector<int>> a;
-    for(int i=1; i<=n; i++){
-        vector<int> temp_Vec;
-        for(int j=1; j<=n; j++){
-            int temp = (i * j);
-            temp_Vec.push_back(temp);
-        }
-    }
-
-    int left = 0, right = (n*n);
+    int left = 1, right = (n*n);
     int ans;
     while(left <= right){
         int mid = (left + right)/2;
 
-        int No_of_Values = 0;
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
-                if(a[i][j] <= mid){
-                    No_of_Values++;
-                }
-                else{ break;}
-            }
+        int total_Values = 0;
+        // 'total_Values' => It is total no. of values >= mid, 
+        //              in the given multiplication table.
+        for(int i=1; i<=n; i++){
+            total_Values += min(n, mid/i);
         }
 
-        if(No_of_Values >= ((n*n)-1)/2){
+        if(total_Values >= ((n*n + 1)/2)){
             ans = mid;
             right = mid-1;
         }
