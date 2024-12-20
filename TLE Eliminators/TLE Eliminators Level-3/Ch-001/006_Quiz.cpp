@@ -52,6 +52,8 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
+// 'checker' function => Returns 'true', if all ranges overlap,
+//                        or returns 'false'.
 bool checker(double time, vector<pair<double,double>> &people){
     pair<double,double> curr = {-1e18, 1e18};
 

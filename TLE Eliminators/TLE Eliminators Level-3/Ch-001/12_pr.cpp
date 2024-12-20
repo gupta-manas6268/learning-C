@@ -64,7 +64,7 @@ signed main(){
         k.push_back(temp);
     }
 
-    int right = 1e9;
+    int right = 1e18;
     int left = 1;
     int ans;
     while(left <= right){
@@ -75,14 +75,12 @@ signed main(){
             product += (mid / k[i]);
         }
 
-        if(product > t){
+        if(product >= t){
+            ans = mid;
             right = mid-1;
         }
-        else if(product < t){
+        else{
             left = mid+1;
-        }
-        else if(product == t){
-            ans = mid; break;
         }
     }
 
