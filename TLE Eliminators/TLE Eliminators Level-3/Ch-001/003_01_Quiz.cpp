@@ -60,6 +60,9 @@ void solve(){
         long long mid = (left + right) / 2;
         long long rows = mid / h;
         long long columns = mid / w;
+
+        // To avoid overflow in 64-bit integer, we used this condition
+        //  rather than ((rows * columns) >= n).
         if((columns > 0) && (rows >= (n + columns - 1) / columns)){
             ans = mid;
             right = mid - 1;
