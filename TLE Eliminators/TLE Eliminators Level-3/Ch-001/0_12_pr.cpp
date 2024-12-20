@@ -1,8 +1,8 @@
-// Wrong.
+// Correct.(See line-77 & Register Page-14.)
+// (We solve it with the help of ChatGPT.)
 
 // Factory Machines
 // https://cses.fi/problemset/task/1620
-
 
 
 
@@ -73,6 +73,10 @@ signed main(){
         int product = 0;
         for(int i=0; i<n; i++){
             product += (mid / k[i]);
+
+            if(product >= t){ break;}  
+            // Without above line, this code will Wrong OUTPUT.
+            //  because of integer overflow (See Register Page-14.)
         }
 
         if(product >= t){
