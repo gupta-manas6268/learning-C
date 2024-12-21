@@ -23,11 +23,28 @@ int main(){
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        int n = nums.size();
+        int n = (nums.size()-1);
         int left = 1, right = n;
-        
+        int ans;
         while(left <= right){
-            int 
+            int mid = (left + right)/2;
+
+            int no_of_numbers = 0;
+            for(int i=0; i<n; i++){
+                if(mid >= nums[i]){
+                    no_of_numbers++;
+                }
+            }
+
+            if(no_of_numbers >= (mid + 1)){
+                ans = mid;
+                right = mid-1;
+            }
+            else{
+                left = mid+1;
+            }
         }
+
+        return ans;
     }
 };

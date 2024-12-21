@@ -53,7 +53,7 @@ public:
                 int index1 = upper_bound(nums1.begin(), nums1.end(), mid) - nums1.begin(); 
                 int index2 = upper_bound(nums2.begin(), nums2.end(), mid) - nums2.begin(); 
 
-                if((index1 + index2) >= ((m + n)/2)){
+                if((index1 + index2) >= ((m + n)/2) + 1){
                     ans1 = mid;
                     right = mid-1;
                 }
@@ -68,7 +68,7 @@ public:
                 int index1 = upper_bound(nums1.begin(), nums1.end(), mid) - nums1.begin(); 
                 int index2 = upper_bound(nums2.begin(), nums2.end(), mid) - nums2.begin(); 
 
-                if((index1 + index2) >= (((m + n)/2) - 1)){
+                if((index1 + index2) >= ((m + n)/2)){
                     ans2 = mid;
                     right = mid-1;
                 }
