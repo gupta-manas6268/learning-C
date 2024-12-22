@@ -1,7 +1,40 @@
-// 
+// Wrong.
 
 // C. A Tale of Two Lands
 // https://codeforces.com/problemset/problem/1166/C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -53,7 +86,7 @@ signed main(){
 
         int index11 = upper_bound(neg.begin(), neg.end(), a) - neg.begin();
         int index12 = lower_bound(neg.begin(), neg.end(), a) - neg.begin();
-        int index1, index2;
+        int index1, index2; 
         if(index11 != index12){
             index1 = index12;
         }
