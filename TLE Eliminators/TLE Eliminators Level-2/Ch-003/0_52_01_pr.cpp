@@ -19,13 +19,13 @@ int power(int base, int exp){
 
     while(exp > 0){
         if((exp % 2) == 1){
-            (result *= base) %= MOD;
+            result *= base;
 
-            (base *= base) %= MOD;
+            base *= base;
             exp /= 2;
         }
         else{
-            (base *= base) %= MOD;
+            base *= base;
             exp /= 2;
         }
     }
@@ -64,7 +64,7 @@ signed main(){
         int ans = 0;
         for(int j=30; j>=0; j--){
             int temp = (n - Places[j]);
-            if(k > temp){
+            if(k >= temp){
                 k -= temp;
                 ans += power(2, j);
             }

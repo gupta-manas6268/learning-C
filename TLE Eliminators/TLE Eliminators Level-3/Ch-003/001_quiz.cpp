@@ -1,6 +1,39 @@
-// 
+// Correct.
 
 // Q.: Max. subarray sum of all subarrays with size k.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
