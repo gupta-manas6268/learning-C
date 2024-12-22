@@ -1,7 +1,40 @@
-// 
+// Correct.
+// I write this code with the help of Hint.
 
 // 287. Find the Duplicate Number
 // https://leetcode.com/problems/find-the-duplicate-number/description/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -30,7 +63,7 @@ public:
             int mid = (left + right)/2;
 
             int no_of_numbers = 0;
-            for(int i=0; i<n; i++){
+            for(int i=0; i < n+1; i++){
                 if(mid >= nums[i]){
                     no_of_numbers++;
                 }
