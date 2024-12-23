@@ -32,19 +32,24 @@ public:
         n = min(n, (m+n)/2 + 1);
 
         if((m+n)%2 != 0){ // odd
-            
+
             int left = 1, right = m;
+            int index;
+            int final_index = m;
             while(left <= right){
                 int mid = (left + right)/2;
-                int index = upper_bound(nums2.begin(), nums2.end(), nums1[mid-1]) - nums2.begin();
+                index = upper_bound(nums2.begin(), nums2.end(), nums1[mid-1]) - nums2.begin();
 
-                if(){
-
+                if(((index-1) + mid) >= ((m+n)/2 + 1)){
+                    final_index = mid;
+                    right = mid-1;
                 }
                 else{
-
+                    left = mid+1;
                 }
             }
+
+            
         }
         else{ // even
 

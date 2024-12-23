@@ -9,7 +9,7 @@ const int INF = LLONG_MAX >> 1;
 
 void solve(){
     int a = 924568;
-    int ans = __builtin_popcountll(a);
+    int ans = __builtin_popcount(a);
     // __builtin_popcountll(a) => It counts all the set(1)-bits
     //                             of integer.
     cout << ans << endl;
