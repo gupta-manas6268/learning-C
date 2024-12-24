@@ -22,9 +22,10 @@ signed main(){
     bitset<10> b("11");
     cout << b << endl;
     cout << b[5] << endl; // access the i'th bit.
+    cout << b[0] << endl; // access the i'th bit.
     cout << endl;
 
-    bitset<30> c(10);
+    bitset<20> c(10);
     cout << c[5] << endl;
     cout << c << endl;
     cout << c.count() << endl;
@@ -37,10 +38,11 @@ signed main(){
     cout << c.any() << endl; // return true if you have atlease one set bit.
     cout << c.all() << endl; // return true if all bits are set.
     cout << c.none() << endl; // return true if all bits are unset.
+    cout << c.to_string() << endl;
     cout << endl;
 
-    bitset<4> s1(10);
-    bitset<4> s2(11);
+    bitset<8> s1(10);
+    bitset<8> s2(9);
     cout << (s1|s2) << endl; // '|' => concatenates two bitsets.
 
 
