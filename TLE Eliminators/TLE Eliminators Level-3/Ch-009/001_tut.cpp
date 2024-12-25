@@ -1,5 +1,5 @@
-// In Slide-22 (WA => Wrong Answer.)
-// Slide-23 (B => Base, M => Modulo.) 
+// In Slide-1, Page-22 (WA => Wrong Answer.)
+// Page-23 (B => Base, M => Modulo.) 
 
 
 
