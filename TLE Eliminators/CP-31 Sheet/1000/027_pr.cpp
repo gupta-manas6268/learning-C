@@ -47,16 +47,22 @@ signed main(){
     while (tc--){
         int n; cin >> n;
 
-        bool fair = false;
-        int ans;
+        bool Break = false;
+        int ans = 0;
         int num = n;
-        while(fair == false){
+        while(Break == false){
             vector<int> Digits = digits(num);
-
-            int Size = Digits.size();
-            if(Digits[Size-1] == 0){
-
+            int size = Digits.size();
+            for(int j=0; j < size; j++){
+                int modulo = (num % Digits[j]);
+                if(modulo != 0){ break;}
+                if(j == size-1){
+                    ans = num; Break = true;
+                }
             }
+            num++;
         }
+
+        cout << ans << endl;
     }
 }
