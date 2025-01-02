@@ -46,7 +46,8 @@ vector<int> sliding_window_minimum(vector<int> &a, int k){
                      //  minimum element in the vector a.
 
     for(int i=0; i<n; i++){
-        while((!deq.empty()) && (a[deq.back()] >= a[i])){
+        // while((!deq.empty()) && (a[deq.back()] >= a[i])){
+        if((deq.empty() != true) && (a[i] <= a[deq.back()])){
             deq.pop_back();
         }
         deq.push_back(i);
@@ -83,6 +84,7 @@ signed main(){
 
     vector<int> ans = sliding_window_minimum(a, k);
     for(int i=0; i < ans.size(); i++){
-        cout << ans[i] << endl;
+        cout << ans[i] << " ";
     }
+    cout << endl;
 }

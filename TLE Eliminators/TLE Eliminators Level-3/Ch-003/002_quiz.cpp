@@ -57,12 +57,12 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     int n, k; cin >> n >> k;
-    vector<int> arr(n);
-    for(auto &i:arr){ cin >> i;}
+    vector<int> a(n);
+    for(auto &i:a){ cin >> i;}
 
     map<int,int> mp;
     for(int i=0; i < k; i++){
-        mp[arr[i]]++;
+        mp[a[i]]++;
     }
 
     cout << mp.size() << " ";
@@ -70,11 +70,11 @@ signed main(){
     //               in the map.
 
     for(int i = k; i < n; i++){
-        mp[arr[i-k]]--;
-        if(mp[arr[i-k]] == 0){
-            mp.erase(arr[i-k]);
+        mp[a[i-k]]--;
+        if(mp[a[i-k]] == 0){
+            mp.erase(a[i-k]);
         }
-        mp[arr[i]]++;
+        mp[a[i]]++;
 
         cout << mp.size() << " ";
     }

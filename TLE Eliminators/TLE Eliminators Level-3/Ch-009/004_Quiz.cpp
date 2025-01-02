@@ -6,7 +6,7 @@
 //    understanding.
 // 
 //   'Custom Unordered-Map' has its own 'Hash' table which
-//    which reduces Collision by a lot.
+//    reduces Collision by a lot.
 
 
 // This is a H.W. Question. Solve it Yourself.

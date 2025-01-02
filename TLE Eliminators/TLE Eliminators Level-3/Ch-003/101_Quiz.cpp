@@ -57,10 +57,11 @@ int main(){
 class Solution {
 public:
     vector<double> medianSlidingWindow(vector<int>& nums, int k) {
+        int n = nums.size();
         multiset<int> low, high;
         vector<double> medians;
 
-        for(int i=0; i < nums.size(); i++){
+        for(int i=0; i < n; i++){
             low.insert(nums[i]);
             high.insert(*low.rbegin());  // Largest element from Low
                                          //  to High multiset.
@@ -72,10 +73,10 @@ public:
             }
 
             if(i >= (k-1)){
-                if(k & 1){
+                if(k & 1){ // odd
                     medians.push_back(*low.rbegin());
                 }
-                else{
+                else{ // even
                     medians.push_back(((double)*low.rbegin() + (double)*high.begin())/ 2.0);
                 }
 
