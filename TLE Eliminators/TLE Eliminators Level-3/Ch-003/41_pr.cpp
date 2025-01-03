@@ -1,7 +1,41 @@
-// 
+// It is Same as '101_Quiz.cpp'.
+
+// Correct.
 
 // Sliding Window Median
 // https://cses.fi/problemset/task/1076
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -14,10 +48,10 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-vector<double> medianSlidingWindow(vector<int>& nums, int k) {
+vector<int> medianSlidingWindow(vector<int>& nums, int k) {
     int n = nums.size();
     multiset<int> low, high;
-    vector<double> medians;
+    vector<int> medians;
 
     for(int i=0; i < n; i++){
         low.insert(nums[i]);
@@ -35,7 +69,8 @@ vector<double> medianSlidingWindow(vector<int>& nums, int k) {
                 medians.push_back(*low.rbegin());
             }
             else{ // even
-                medians.push_back(((double)*low.rbegin() + (double)*high.begin())/ 2.0);
+                int temp = min(*low.rbegin(), *high.begin());
+                medians.push_back(temp);
             }
 
             if(nums[i - k + 1] <= *low.rbegin()){
@@ -59,5 +94,16 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     int n, k; cin >> n >> k;
+    vector<int> x;
+    for(int i=0; i<n; i++){
+        int temp; cin >> temp;
+        x.push_back(temp);
+    }
 
+    vector<int> ans = medianSlidingWindow(x,k);
+    int Size = ans.size();
+    for(int i=0; i<Size; i++){
+        cout << ans[i] << " ";
+    }
+    cout << endl;
 }
