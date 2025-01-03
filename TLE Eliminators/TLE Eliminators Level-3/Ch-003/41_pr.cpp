@@ -1,9 +1,7 @@
 // 
 
-// This is Home-Work Question.
-
-// Sliding Window Cost
-// https://cses.fi/problemset/task/1077
+// Sliding Window Median
+// https://cses.fi/problemset/task/1076
 
 
 
@@ -16,11 +14,10 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-vector<double> Sliding_Window_Cost(vector<int>& nums, int k) {
+vector<double> medianSlidingWindow(vector<int>& nums, int k) {
     int n = nums.size();
     multiset<int> low, high;
     vector<double> medians;
-    vector<int> ans;
 
     for(int i=0; i < n; i++){
         low.insert(nums[i]);
@@ -62,11 +59,5 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     int n, k; cin >> n >> k;
-    vector<int> a;
-    for(int i=0; i<n; i++){
-        int temp; cin >> temp;
-        a.push_back(temp);
-    }
-
 
 }
