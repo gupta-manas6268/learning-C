@@ -1,7 +1,40 @@
-// 
+// Wrong.
 
 // Sum of Three Values
 // https://cses.fi/problemset/task/1641
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -32,11 +65,13 @@ signed main(){
     sort(vec.begin(), vec.end());
 
     // O/P
+    // We use 2-pointers.
     int i = 0, j = i+1, k = n-1;
     int a, b, c;
     bool ans = false;
     bool Break = false;
     while((i < n) && (j < k)){
+        j = i+1, k = n-1;
         if(Break == true){ break;}
         int sum = (x - vec[i].first);
 
@@ -50,10 +85,22 @@ signed main(){
                 break;
             }
             else if((vec[j].first + vec[k].first) < sum){
-                break;
+                j++; k++;
             }
             k--;
         }
-        i++; j++;
+        i++;
+    }
+
+    vector<int> Ans;
+    Ans.push_back(a);
+    Ans.push_back(b);
+    Ans.push_back(c);
+    sort(Ans.begin(), Ans.end());
+    if(ans == true){
+        cout << Ans[0] << " " << Ans[1] << " " << Ans[2] << endl;
+    }
+    else{
+        cout << "IMPOSSIBLE" << endl;
     }
 }
