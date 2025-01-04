@@ -1,7 +1,40 @@
-// 
+// Wrong.
+// (Here, I solve this Problem by using 'Multiset' which is a
+//   bad approach for this Problem.)
 
 // 567. Permutation in String
 // https://leetcode.com/problems/permutation-in-string/description/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
