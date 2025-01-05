@@ -13,9 +13,9 @@ const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
 vector<int> two_pointers(vector<int> a, vector<int> b){
-    vector<int> c;
     int n = a.size();
     int m = b.size();
+    vector<int> c(n+m);
 
     int i = 0, j = 0, k = 0;
     while((i < n) && (j < m)){
@@ -61,7 +61,11 @@ signed main(){
         b.push_back(temp);
     }
 
-    two_pointers(a, b);
+    c = two_pointers(a, b);
+    for(int i=0; i < (n+m); i++){
+        cout << c[i] << " ";
+    }
+    cout << endl;
 
     // TC = O(n + m).
 }

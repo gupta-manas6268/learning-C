@@ -22,6 +22,7 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n; cin >> n;
     vector<int> a;
     for(int i=0; i<n; i++){
@@ -30,6 +31,7 @@ signed main(){
     }
     sort(a.begin(), a.end());
 
+    // O/P
     vector<int> ans;
     int val = 1;
     while(a.empty() != true){
@@ -39,7 +41,8 @@ signed main(){
         }
         else{
             ans.push_back(a[0]);
-            a.erase(a.begin(), a.begin()+1);
+            // a.erase(a.begin(), a.begin()+1);
+            a.erase(a.begin());
         }
         val++;
     }
