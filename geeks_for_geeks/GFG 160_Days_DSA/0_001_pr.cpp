@@ -1,4 +1,5 @@
 // Correct.
+// Good Question because I solved it in 2-Attempts.
 
 // Second Largest
 // https://www.geeksforgeeks.org/batch/gfg-160-problems/track/arrays-gfg-160/problem/second-largest3735
