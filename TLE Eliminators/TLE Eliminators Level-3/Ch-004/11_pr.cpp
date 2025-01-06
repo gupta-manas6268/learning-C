@@ -24,6 +24,7 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n, m; cin >> n >> m;
     vector<int> a, b;
     for(int i=0; i<n; i++){
@@ -35,6 +36,7 @@ signed main(){
         b.push_back(temp);
     }
 
+    // O/P
     int ans = 0;
     int i = 0, j = 0;
     while((i < n) && (j < m)){
@@ -51,10 +53,12 @@ signed main(){
             for(int x = i; x < n; x++){
                 if(a[x] == a[i]){ m++;}
                 else{ i += m; break;}
+                // cout << "a" << " ";
             }
             for(int x = j; x < m; x++){
                 if(b[x] == b[j]){ n++;}
                 else{ j += n; break;}
+                // cout << "b" << " ";
             }
 
             ans += (n * m);

@@ -49,8 +49,8 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     int n, m; cin >> n >> m;
-    vector<int> a(n), b(m);
-    vector<int> c(n + m);
+    vector<int> a, b;
+    vector<int> c;
 
     for(int i=0; i<n; i++){
         int temp; cin >> temp;
