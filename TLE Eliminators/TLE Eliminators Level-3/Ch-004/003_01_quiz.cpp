@@ -82,6 +82,7 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n, k; cin >> n >> k;
     vector<int> a;
     for(int i=0; i<n; i++){
@@ -89,6 +90,7 @@ signed main(){
         a.push_back(temp);
     }
 
+    // O/P
     length_of_subarray(a, k);
     // TC = O(n).
 }

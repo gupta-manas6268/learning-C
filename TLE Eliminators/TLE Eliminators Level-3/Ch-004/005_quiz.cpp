@@ -1,3 +1,30 @@
+// From Slide-1, Page-24.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Correct.
 
 // Q.3: Given an array of positive integers find the length

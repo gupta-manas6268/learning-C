@@ -77,7 +77,7 @@ const int INF = LLONG_MAX >> 1;
 
 vector<int> Inversion(vector<int> a, vector<int> b){
     int n = a.size(), m = b.size();
-    vector<int> ans;
+    vector<int> ans(n, 0);
 
     int i=0, j=0;
     while(i < n){
@@ -87,6 +87,8 @@ vector<int> Inversion(vector<int> a, vector<int> b){
         ans[i] = j;
         i++;
     }
+
+    return ans;
 }
 
 signed main(){
@@ -97,9 +99,9 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n, m; cin >> n >> m;
-    vector<int> a(n), b(m);
-    vector<int> ans(n);
+    vector<int> a, b;
 
     for(int i=0; i<n; i++){
         int temp; cin >> temp;
@@ -110,7 +112,12 @@ signed main(){
         b.push_back(temp);
     }
 
-    Inversion(a, b);
+    // O/P
+    vector<int> ans = Inversion(a, b);
+    for(int i=0; i<n; i++){
+        cout << ans[i] << " ";
+    }
+    cout << endl;
 
     // TC = O(n + m).
 }
