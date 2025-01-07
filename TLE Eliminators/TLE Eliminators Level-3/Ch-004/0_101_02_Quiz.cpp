@@ -71,14 +71,16 @@ public:
                 deq.pop_front();
             }
 
+            // For '-ve' element, we 'pop_back' that element in 'deque'.
             while((deq.empty() != true) && (prefix_Sum[i] <= prefix_Sum[deq.back()])){
                 deq.pop_back();
             }
 
-            deq.push_back(i);
+            deq.push_back(i); // 'deq' => stores index.
         }
         if(ans == n+1){ ans = -1;}
 
         return ans;
+        // TC = O(n).
     }
 };
