@@ -1,3 +1,31 @@
+// From Slide-1, Page-24.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 
 
 // C. Number of Equal

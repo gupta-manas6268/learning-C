@@ -85,4 +85,5 @@ signed main(){
     }
 
     cout << ans << endl;
+    // TC = O(n * log(k)).
 }
