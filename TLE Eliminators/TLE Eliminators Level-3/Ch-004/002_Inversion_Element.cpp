@@ -1,31 +1,3 @@
-// From Slide-01, Page-24.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Given 2 sorted arrays, for each element in 1st
 // array find number of elements smaller than that in
 // the 2nd array
