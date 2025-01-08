@@ -1,8 +1,8 @@
 // Correct.
 // This is Mentor's code.
 
-// E. Knapsack on a Segment
-// https://codeforces.com/edu/course/2/lesson/9/3/practice/contest/307094/problem/E
+// F. Card Substrings
+// https://codeforces.com/edu/course/2/lesson/9/3/practice/contest/307094/problem/F
 
 
 
@@ -55,26 +55,31 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // In Slide-02, Page-20 & Page-22 => (F => Frequency.)
+
     // I/P
-    int n, W; cin >> n >> W;
-    int weight = 0, profit = 0, ans = 0;
-    vector<int> w(n), c(n);
-    for(auto &i:w){ cin >> i;}
-    for(auto &i:c){ cin >> i;}
+    int n, m; cin >> n >> m;
+    string s, t; cin >> s >> t;
 
     // O/P
-    for(int left = 0, right = 0; right < n; right++){
-        weight += w[right];
-        profit += c[right];
+    int ans = 0;
+    vector<int> freq(26);
+    // O(m).
+    for(auto &i:t){ freq[i - 'a']++;}
 
-        while(weight > W){
-            weight -= w[left];
-            profit -= c[left];
+    // O(n)
+    for(int left = 0, right = 0; right < n; right++){
+        freq[s[right] - 'a']--;
+
+        // O(26).
+        while(*min_element(freq.begin(), freq.end()) < 0){
+            freq[s[left] - 'a']++;
             left++;
         }
 
-        ans = max(ans , profit);
+        ans += (right - left + 1);
     }
 
     cout << ans << endl;
+    // TC = O(n + m).
 }

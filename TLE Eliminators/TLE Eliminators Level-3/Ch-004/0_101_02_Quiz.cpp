@@ -71,7 +71,7 @@ public:
                 deq.pop_front();
             }
 
-            // For '-ve' element, we 'pop_back' that element in 'deque'.
+            // For '-ve' element, we 'pop_back' that element index in 'deque'.
             while((deq.empty() != true) && (prefix_Sum[i] <= prefix_Sum[deq.back()])){
                 deq.pop_back();
             }
