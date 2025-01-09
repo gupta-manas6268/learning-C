@@ -57,12 +57,12 @@ signed main(){
 
     // I/P
     int n, W; cin >> n >> W;
-    int weight = 0, profit = 0, ans = 0;
     vector<int> w(n), c(n);
     for(auto &i:w){ cin >> i;}
     for(auto &i:c){ cin >> i;}
 
     // O/P
+    int weight = 0, profit = 0, ans = 0;
     for(int left = 0, right = 0; right < n; right++){
         weight += w[right];
         profit += c[right];
