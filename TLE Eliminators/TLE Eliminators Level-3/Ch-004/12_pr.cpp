@@ -43,6 +43,10 @@ signed main(){
         mp[arr[right]]++;
         if((mp.size() > k) || (right == (n-1))){
             int length = (right - left);
+            if(right == (n-1)){
+                length = (right - left + 1);
+            }
+            
             ans += func(length);
             mp[arr[left]]--;
             if(right_prev == 0){
