@@ -1,7 +1,7 @@
 // Correct.
 
-// E. Segments with Small Set
-// https://codeforces.com/edu/course/2/lesson/9/2/practice/contest/307093/problem/E
+// C. Che city
+// https://codeforces.com/edu/course/2/lesson/9/3/practice/contest/307094/problem/C
 
 
 
@@ -56,27 +56,19 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     // I/P
-    int n, k; cin >> n >> k;
-    vector<int> arr;
+    int n, r; cin >> n >> r;
+    vector<int> dis;
     for(int i=0; i<n; i++){
         int temp; cin >> temp;
-        arr.push_back(temp);
+        dis.push_back(temp);
     }
 
     // O/P
-    map<int,int> mp;
     int ans = 0;
-    for(int left = 0, right = 0; right < n; right++){
-        mp[arr[right]]++;
-        while(mp.size() > k){
-            mp[arr[left]]--;
-            if(mp[arr[left]] == 0){
-                mp.erase(arr[left]);
-            }
+    for(int left = 0, right = 1; right < n; right++){
+        while((dis[right] - dis[left]) > r){
+            ans += (n - right);
             left++;
-        }
-        if(mp.size() <= k){
-            ans += (right - left + 1);
         }
     }
 
