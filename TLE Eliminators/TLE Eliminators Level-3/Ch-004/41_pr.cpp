@@ -34,12 +34,35 @@ signed main(){
     }
 
     // O/P
-    int ans = -1;
+    int ans = 0;
     int division = (p/total_Sum);
-    int remainder = (p % total_Sum);
+    ans += (n * division);
     p %= total_Sum;
-    if(division >= 1){
-        division--;
-        p += total_Sum;
+    
+    // Now, Solve it like "Shortest Subarray with sum atleast k."
+    // (here, p is 'k' in above line.)
+    deque<int> deq;
+    vector<long long> prefix_Sum(2*n+1, 0);
+
+    for(int i=0; i < (2*n); i++){
+        prefix_Sum[i+1] = (prefix_Sum[i] + arr[i]);
     }
+
+    int min_length = ((2*n) + 1);
+    int left = 0;
+    for(int i=0; i < (2*n); i++){
+        while((deq.empty() != true) && ((prefix_Sum[i] - prefix_Sum[deq.front()]) >= p)){
+            min_length = min(min_length, i-deq.front());
+            left = (deq.front());
+            deq.pop_front();
+        }
+        while((deq.empty() != true) && (prefix_Sum[i] <= prefix_Sum[deq.back()])){
+            deq.pop_back();
+        }
+        deq.push_back(i);
+    }
+    
+    ans += min_length;
+
+    cout << left << " " << ans << endl;
 }

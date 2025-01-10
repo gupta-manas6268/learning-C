@@ -1,7 +1,40 @@
-// 
+// Correct.
+// I write this code with the help of ChatGPT, where
+//  ChatGPT only checks a bug in my code.
 
 // F. Segments with Small Spread
 // https://codeforces.com/edu/course/2/lesson/9/2/practice/contest/307093/problem/F
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -32,8 +65,8 @@ signed main(){
 
     // O/P
     int ans = 0;
+    deque<int> Min, Max;
     for(int left = 0, right = 0; right < n; right++){
-        deque<int> Min, Max;
         while((Min.empty() != true) && (arr[right] <= arr[Min.back()])){
             Min.pop_back();
         }
@@ -59,4 +92,5 @@ signed main(){
     }
 
     cout << ans << endl;
+    // TC = O(n).
 }
