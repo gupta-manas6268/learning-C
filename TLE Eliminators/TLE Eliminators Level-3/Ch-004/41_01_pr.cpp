@@ -48,21 +48,26 @@ signed main(){
         prefix_Sum[i+1] = (prefix_Sum[i] + arr[i]);
     }
 
-    int min_length = ((2*n) + 1);
     int left = 0;
-    for(int i=0; i < (2*n); i++){
-        while((deq.empty() != true) && ((prefix_Sum[i] - prefix_Sum[deq.front()]) >= p)){
-            min_length = min(min_length, i-deq.front());
-            left = (deq.front());
-            deq.pop_front();
+    if(p != 0){
+        int min_length = ((2*n) + 1);
+        for(int i=0; i <= (2*n); i++){
+            while((deq.empty() != true) && ((prefix_Sum[i] - prefix_Sum[deq.front()]) >= p)){
+                if((i-deq.front()) < min_length){
+                    // left = (deq.front()+1);
+                    left = ((deq.front() % n) + 1);
+                }
+                min_length = min(min_length, i-deq.front());
+                deq.pop_front();
+            }
+            while((deq.empty() != true) && (prefix_Sum[i] <= prefix_Sum[deq.back()])){
+                deq.pop_back();
+            }
+            deq.push_back(i);
         }
-        while((deq.empty() != true) && (prefix_Sum[i] <= prefix_Sum[deq.back()])){
-            deq.pop_back();
-        }
-        deq.push_back(i);
+
+        ans += min_length;
     }
-    
-    ans += min_length;
 
     cout << left << " " << ans << endl;
 }
