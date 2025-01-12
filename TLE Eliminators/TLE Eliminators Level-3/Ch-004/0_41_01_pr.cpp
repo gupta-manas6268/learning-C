@@ -1,7 +1,40 @@
-// 
+// Wrong.
+// I tried to solve it in TC = O(n), but I failed.
 
 // A. Looped Playlist
 // https://codeforces.com/edu/course/2/lesson/9/3/practice/contest/307094/problem/A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
