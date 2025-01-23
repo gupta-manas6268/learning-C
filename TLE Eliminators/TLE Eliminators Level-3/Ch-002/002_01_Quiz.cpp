@@ -1,8 +1,8 @@
 // Correct.
+// This is Mentor's code.
 
 // C. Pair Selection
 // https://codeforces.com/edu/course/2/lesson/6/4/practice/contest/285069/problem/C
-
 
 
 
