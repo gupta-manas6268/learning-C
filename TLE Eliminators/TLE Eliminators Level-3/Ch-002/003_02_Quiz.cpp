@@ -1,10 +1,40 @@
 // Correct.
+// This is Mentor's code.
 
 // This is Home-Work Problem.
-// This is Mentor's code.
 
 // A. Maximum Average Segment
 // https://codeforces.com/edu/course/2/lesson/6/4/practice/contest/285069/problem/A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
