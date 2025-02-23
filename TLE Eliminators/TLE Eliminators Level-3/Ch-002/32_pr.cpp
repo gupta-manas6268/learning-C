@@ -1,4 +1,7 @@
-// Interactive Problem.
+// 
+
+// E. Interview
+// https://codeforces.com/problemset/problem/1807/E
 
 
 
@@ -19,19 +22,9 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
-    int count = 0;
+    int tc; cin >> tc;
 
-    int hidden = 46;
-    while(true){
-        int input; cin >> input;
-        if(input == hidden){
-            cout << "Yes" << endl;
-        }
-        else{
-            cout << "No" << endl;
-        }
-
-        count++;
-        if(count > 10){ break;}
+    while (tc--){
+        
     }
 }

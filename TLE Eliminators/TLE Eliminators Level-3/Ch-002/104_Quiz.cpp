@@ -22,7 +22,9 @@ struct Interactor{
 
     Interactor(long long n1){
         n = n1;
-        vector<int> arr = {10, 20, 10, 30, 10, 10, 10};
+        // vector<int> arr = {10, 20, 10, 30, 10, 10, 10};
+        // Above line didn't work, but below 'this' line works.
+        this->arr = {10, 20, 10, 30, 10, 10, 10};
         majority_Element = 10;
     }
     string queryInteractor(long long index){
@@ -40,12 +42,16 @@ bool testing = true;
 string query(long long index, Interactor &it){
     cout << "? " << index << endl;
 
+    fflush(stdout);  // These two lines 
+    cout << flush;   // flushes the O/P.
+
     // Interactor it;
     string output; 
 
     if(testing){
         output = it.queryInteractor(index);
         cout << "Interactor Output: " << output << endl;
+        cout << flush;
     }
     else{
         cin >> output;
@@ -53,7 +59,14 @@ string query(long long index, Interactor &it){
     return output;
 }
 
-void solve(){
+signed main(){
+    // #ifndef ONLINE_JUDGE
+    // freopen("input.txt", "r", stdin);
+    // freopen("output.txt", "w", stdout);
+    // #endif
+
+    // ios::sync_with_stdio(false); cin.tie(NULL);
+
     long long n; cin >> n;
 
     Interactor it = Interactor(n);
@@ -71,15 +84,4 @@ void solve(){
         }
     }
     cout << "! " << ans << endl;
-}
-
-signed main(){
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    #endif
-
-    ios::sync_with_stdio(false); cin.tie(NULL);
-
-    solve();
 }

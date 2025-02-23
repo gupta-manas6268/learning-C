@@ -47,13 +47,14 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-// 
+// These 2-functions gives us the Ans. pair. by taking input 'Max. Subarray Sum'.
 pair<int,int> any_Subarray_With_Positive_Sum(vector<long double>& arr, int d, int n){
     vector<long double> prefix(n);
     prefix[0] = arr[0];
     for(int i=1; i<n; i++){
         prefix[i] = (arr[i] + prefix[i-1]);
     }
+
     long double ans = -1e18;
     long double min_So_Far = 0;
     int best_Left_Index_So_Far = -1;
@@ -84,7 +85,7 @@ pair<int,int> best_Subarray(long double x, vector<long double>& arr,int d, int n
     return any_Subarray_With_Positive_Sum(transformed_Array, d, n);
 }
 
-// 
+// These 2-functions gives us the max. Subarray Average.
 long double max_Sum(vector<long double>& arr, int d, int n){
     vector<long double> prefix(n);
     prefix[0] = arr[0];
@@ -140,6 +141,14 @@ signed main(){
         }
     }
 
+    // left = max. Subarray average.
+    // cout << setprecision(10) << fixed << left << endl;
+    // Above line prints the max. subarray avg.
     pair<int,int> ans = best_Subarray(left, a, d, n);
     cout << (ans.first + 1) << " " << (ans.second + 1) << endl;
 }
+
+
+// In this code, we firstly find 'Max. Subarray Avg.'
+//  by using Binary-Search, then we find the Subarray
+//  by taking that 'Max. Subarray Avg.' as input.
