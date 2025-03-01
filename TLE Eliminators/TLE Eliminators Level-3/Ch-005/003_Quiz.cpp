@@ -7,6 +7,7 @@
 
 
 // Correct.
+// This is Mentor's code.
 
 // I thought about it's Solution correctly.
 //  So, don't write it in Note-book.
