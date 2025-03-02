@@ -1,8 +1,13 @@
-// TLE
 // 
+// Solve it by using Hints.
 
 // A. Row GCD
 // https://codeforces.com/problemset/problem/1458/A
+
+
+
+
+
 
 
 
@@ -30,25 +35,5 @@ signed main(){
     for(int i=0; i<m; i++){ cin >> b[i];}
 
     // O/P
-    vector<int> ans(m);
-    for(int j=0; j<m; j++){
-        int temp_ans = 1;
-        bool first = true;
-        for(int i=0; i<n; i++){
-            int val = (a[i] + b[j]);
-            if(first == true){
-                first = false;
-                temp_ans = val;
-            }
-            else{
-                temp_ans = __gcd(temp_ans, val);
-            }
-        }
-        ans[j] = temp_ans;
-    }
-
-    for(int j=0; j<m; j++){
-        cout << ans[j] << " ";
-    }
-    cout << endl;
+    
 }
