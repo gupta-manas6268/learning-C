@@ -1,8 +1,40 @@
-// 
-// I am Solving it With the Help of Hint.
+// Wrong (Gives me Wrong O/P.)
+// I Solved it with the Help of Hint.
 
 // C. Save the Nature
 // https://codeforces.com/problemset/problem/1223/C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -53,22 +85,27 @@ signed main(){
             
             int sum = 0;
             for(int i=1; i <= Common; i++){
-                sum += (p[i] * (x + y))/ 100;
+                // sum += (p[i] * (x + y))/ 100;
+                sum += (p[i]/ 100) * (x + y);
             }
             if(x >= y){
                 for(int i = Common + 1; i <= (Common + a_times); i++){
-                    sum += (p[i] * x)/ 100;
+                    // sum += (p[i] * x)/ 100;
+                    sum += (p[i]/ 100) * (x);
                 }
                 for(int i = Common + a_times + 1; i <= (Common + a_times + b_times); i++){
-                    sum += (p[i] * y)/ 100;
+                    // sum += (p[i] * y)/ 100;
+                    sum += (p[i]/ 100) * (y);
                 }
             }
             else{
                 for(int i = Common + 1; i <= (Common + b_times); i++){
-                    sum += (p[i] * y)/ 100;
+                    // sum += (p[i] * y)/ 100;
+                    sum += (p[i]/ 100) * (y);
                 }
                 for(int i = Common + b_times + 1; i <= (Common + a_times + b_times); i++){
-                    sum += (p[i] * x)/ 100;
+                    // sum += (p[i] * x)/ 100;
+                    sum += (p[i]/ 100) * (x);
                 }
             }
 
