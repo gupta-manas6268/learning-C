@@ -26,6 +26,7 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n; cin >> n;
     vector<pair<pair<int,int>, int>> vec;
     for(int i=0; i<n; i++){
