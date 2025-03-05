@@ -1,3 +1,6 @@
+// See this code in Chat-GPT for line-35.
+// (which is already in Chat-GPT, chat.)
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -29,7 +32,8 @@ int power(int base, int exp){
 // O(1).
 int combination(int n, int r, int mod, vector<int>& fact, vector<int>& i_fact){
     // return mod_mul(fact[n], mod_mul(i_fact[r], i_fact[n-r], mod), mod);
-    return (fact[n] * (i_fact[r] * i_fact[n-r]) % mod) % mod;
+    // return (fact[n] * (i_fact[r] * i_fact[n-r]) % mod) % mod;
+    return (((fact[n] * i_fact[r]) % MOD) * i_fact[n-r]) % mod;
     // mod_mul => mod_multiplication, (Explained in Slide-1, Page-16.)
 }
 
@@ -46,24 +50,20 @@ signed main(){
 
     // Solution
     vector<int> fact(n + 1);
-    vector<int> i_fact(n + 1); // inverse factorial
+    vector<int> inv_fact(n + 1); // inverse factorial
     fact[0] = 1;
 
-    // Pre-computation.
+    // Pre-computation of Factorial.
     for(int i=1; i <= n; i++){ // O(n)
-        // fact[i] = mod_mul(fact[i-1], i, MOD);
         fact[i] = (fact[i-1] * i) % MOD;
-        // i_fact[i] = mm_inv_prime(fact[n], MOD);
-        // mm_inv_prime => mod_inverse_prime
     }
-    // i_fact[n] = mm_inv_prime(fact[n], MOD); // O(log(M))
-    i_fact[n] = power(fact[n], MOD-2) % MOD; // O(log(M))
+    // Pre-computation of Inverse-Factorial.
+    inv_fact[n] = power(fact[n], MOD-2) % MOD; // O(log(M))
     for(int i = n-1; i >= 0; i--){ // O(n)
-        // i_fact[i] = mod_mul(i_fact[i+1], i+1, MOD);
-        i_fact[i] = (i_fact[i+1] * (i+1)) % MOD;
+        inv_fact[i] = (inv_fact[i+1] * (i+1)) % MOD;
     }
 
     // O/P
     // Pre-computation TC = O(n).
-    cout << combination(8, 6, MOD, fact, i_fact) << endl;
+    cout << combination(8, 6, MOD, fact, inv_fact) << endl;
 }
