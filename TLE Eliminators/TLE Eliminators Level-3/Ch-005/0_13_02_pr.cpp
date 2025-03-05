@@ -1,9 +1,9 @@
 // Correct.
 // This is My version of Mentor's code.
+//  (Hint: See Page-7 of Register Notes- Advanced No. Theory.)
 
 // A. Row GCD
 // https://codeforces.com/problemset/problem/1458/A
-
 
 
 
