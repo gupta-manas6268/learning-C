@@ -51,9 +51,24 @@ signed main(){
         int num = x[i];
         vector<pair<int,int>> temp;
         int power = 0;
+        int prev_num;
+        int j = 0;
         while(num > 1){
-            prime_factors.push_back(SPF[num]);
-            num /= SPF[num];
+            if(j == 0){
+                power++;
+                num /= SPF[num];
+                prev_num = SPF[num];
+            }
+            else{
+                if(prev_num == SPF[num]){
+                    power++;
+                    num /= SPF[num];
+                }
+                else{
+                    prime_factors.push_back(SPF[num]);
+
+                }
+            }
         }
     }
 }
