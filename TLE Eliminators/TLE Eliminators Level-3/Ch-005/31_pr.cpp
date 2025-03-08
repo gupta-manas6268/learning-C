@@ -68,11 +68,7 @@ signed main(){
                     prime_factors.insert(SPF[num]);
                     num /= SPF[num];
                 }
-                // vector<int> vec_prime_factors;
-                // for(int it = 0; it < prime_factors.size(); it++){
-                //     vec_prime_factors[it] = prime_factors[it];
-                // }
-                // for(auto it : prime_factors){
+                
                 for(auto it : prime_factors){
                     if(factors[it] != 0){
                         int conflict_num = Conflict[it];
@@ -107,13 +103,7 @@ signed main(){
                     prime_factors.insert(SPF[num]);
                     num /= SPF[num];
                 }
-                // vector<int> vec_prime_factors;
-                // for(int it = 0; it < prime_factors.size(); it++){
-                //     vec_prime_factors[it] = prime_factors[it];
-                // }
-
-                // for(auto it : prime_factors){
-                // for(int it = 0; it < prime_factors.size(); it++){
+                
                 for(auto it : prime_factors){
                     factors[it]--;
                     Conflict[it] = 0;

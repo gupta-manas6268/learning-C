@@ -1,7 +1,40 @@
-// 
+// Correct.
 
 // A. Vasya and Petya's Game
 // https://codeforces.com/problemset/problem/576/A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -49,7 +82,7 @@ vector<int> sieve(int n){
     vector<int> ans;
     for(int i=2; i <= n; i++){
         if(primes[i] == true){
-            cout << i << " ";
+            ans.push_back(i);
         }
     }
 
@@ -57,10 +90,10 @@ vector<int> sieve(int n){
 }
 
 signed main(){
-    // #ifndef ONLINE_JUDGE
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-    // #endif
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
@@ -74,13 +107,13 @@ signed main(){
     for(int i=0; i < prime_num.size(); i++){
         // for(int j=2; power(prime_num[i], j) <= n; j++){
         int j = 2;
-        while(pow(prime_num[i], j) <= n){
-            ans.push_back(pow(prime_num[i], j));
+        while(power(prime_num[i], j) <= n){
+            ans.push_back(power(prime_num[i], j));
             j++;
         }
     }
 
-    cout << ans.size() << "   " << endl << endl;
+    cout << ans.size() << endl;
     for(int i=0; i < ans.size(); i++){
         cout << ans[i] << " ";
     }
