@@ -1,7 +1,40 @@
-// 
+// Wrong.
 
 // Common Divisors
 // https://cses.fi/problemset/task/1081
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -50,25 +83,19 @@ signed main(){
     for(int i=0; i<n; i++){
         int num = x[i];
         vector<pair<int,int>> temp;
-        int power = 0;
-        int prev_num;
-        int j = 0;
+        int Power = 0;
         while(num > 1){
-            if(j == 0){
-                power++;
+            Power++;
+            if(SPF[num] == (num / SPF[num])){
                 num /= SPF[num];
-                prev_num = SPF[num];
             }
             else{
-                if(prev_num == SPF[num]){
-                    power++;
-                    num /= SPF[num];
-                }
-                else{
-                    prime_factors.push_back(SPF[num]);
-
-                }
+                temp.push_back({SPF[num],Power});
             }
         }
+
+        prime_factors.push_back(temp);
     }
+
+    
 }
