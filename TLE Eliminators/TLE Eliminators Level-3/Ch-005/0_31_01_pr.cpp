@@ -1,7 +1,40 @@
-// 
+// Wrong.
 
 // B. Colliders
 // https://codeforces.com/problemset/problem/154/B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -53,7 +86,6 @@ signed main(){
     vector<string> Ans(m);
     spf();
     int on_off[n+1] = {0};
-    int factors[n+1] = {0};
     int Conflict[m] = {0};
     for(int i=0; i<m; i++){
         if(Request[i].first == '+'){
@@ -62,15 +94,17 @@ signed main(){
                 Ans[i] = "Already on";
             }
             else{
-                set<int> prime_factors;
+                vector<int> prime_factors;
                 bool push = true;
                 while(num > 1){
-                    prime_factors.insert(SPF[num]);
+                    if(SPF[num] != (SPF[num / SPF[num]])){
+                        prime_factors.push_back(SPF[num]);
+                    }
                     num /= SPF[num];
                 }
                 
-                for(auto it : prime_factors){
-                    if(factors[it] != 0){
+                for(int it=0; it < prime_factors.size(); it++){
+                    if(Conflict[it] != 0){
                         int conflict_num = Conflict[it];
                         push = false;
                         Ans[i] = "Conflict with " + to_string(conflict_num);
@@ -79,13 +113,11 @@ signed main(){
                 }
                 if(push == true){
                     // for(auto it : prime_factors){
-                    // for(int it = 0; it < prime_factors.size(); it++){
-                    for(auto it : prime_factors){
-                        factors[it]++;
+                    for(int it = 0; it < prime_factors.size(); it++){
                         Conflict[it] = num;
                     }
                     Ans[i] = "Success";
-                    on_off[i] = 1;
+                    on_off[num] = 1;
                 }
             }
         }
@@ -97,18 +129,18 @@ signed main(){
             else{
                 Ans[i] = "Success";
                 
-                set<int> prime_factors;
-                bool push = true;
+                vector<int> prime_factors;
                 while(num > 1){
-                    prime_factors.insert(SPF[num]);
+                    if(SPF[num] != (SPF[num / SPF[num]])){
+                        prime_factors.push_back(SPF[num]);
+                    }
                     num /= SPF[num];
                 }
                 
                 for(auto it : prime_factors){
-                    factors[it]--;
                     Conflict[it] = 0;
                 }
-                on_off[i] = 0;
+                on_off[num] = 0;
             }
         }
     }
