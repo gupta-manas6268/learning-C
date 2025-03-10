@@ -1,4 +1,5 @@
-// 
+// Wrong.
+// This is My Version of Mentor's code.
 
 // E - Double Factorial 
 // https://atcoder.jp/contests/abc148/tasks/abc148_e
@@ -14,18 +15,18 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-int power(int base, int exp){
-    int result = 1;
+long long power(long long base, long long exp){
+    long long result = 1;
 
     while(exp > 0){
         if((exp % 2) == 1){
-            (result *= base) %= MOD;
+            result *= base;
 
-            (base *= base) %= MOD;
+            base *= base;
             exp /= 2;
         }
         else{
-            (base *= base) %= MOD;
+            base *= base;
             exp /= 2;
         }
     }
@@ -48,9 +49,13 @@ signed main(){
     // O/P
     long long ans = 0;
     if(n%2 == 0){ // even
-        for(int i=1; i <= 18; i++){
-            // cout << power(10,i) << " ";
-            ans += (n / power(10,i));
+        for(int i=1; i <= 19; i++){
+            int val = (n / power(10,i));
+            ans += val;
+
+            for(int j=1; j <= 19; j++){
+                ans += (val + power(5,j)) / (2 * power(5,j));
+            }
         }
     }
 
