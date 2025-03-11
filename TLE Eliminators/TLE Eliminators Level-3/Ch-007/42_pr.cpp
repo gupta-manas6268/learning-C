@@ -26,12 +26,15 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n, k; cin >> n >> k;
     vector<pair<int,int>> vec;
     for(int i=0; i<n; i++){
         int a, b; cin >> a >> b;
         vec.push_back({a, b});
     }
+
+    // Solution
     sort(vec.begin(), vec.end(), sortbysec);
 
     int ans = 0;
@@ -58,7 +61,7 @@ signed main(){
         }
         k--;
 
-        for(int i=0; i<second_N; i++){
+        for(int i = (second_N-1); i >= 0; i--){
             if(Erase[i] == true){
                 vec.erase(vec.begin() + i);
             }
@@ -66,5 +69,6 @@ signed main(){
         second_N = vec.size();
     }
 
+    // O/P
     cout << ans << endl;
 }
