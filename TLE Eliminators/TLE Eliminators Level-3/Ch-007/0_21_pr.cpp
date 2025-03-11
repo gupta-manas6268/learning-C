@@ -33,6 +33,8 @@ signed main(){
         int a, b; cin >> a >> b;
         vec.push_back({{a, b}, i});
     }
+
+    // Solution
     sort(vec.begin(), vec.end(), sortbysec);
 
     int ans = 0;
@@ -42,8 +44,14 @@ signed main(){
     while(second_N > 0){
         ans++;
         bool Erase[second_N] = {false};
+        
+        vector<int> End_Time;
+        for(int i=0; i < second_N; i++){
+            End_Time.push_back(vec[i].first.second);
+        }
 
-        for(int i=0; i<second_N; i++){
+        int i = 0;
+        while(i < second_N){
             if(i == 0){
                 end = vec[i].first.second;
 
@@ -51,6 +59,9 @@ signed main(){
                 Ans[index] = ans;
 
                 Erase[i] = true;
+
+                int next_Index = upper_bound(End_Time.begin(), End_Time.end(), end) - End_Time.begin();
+                i = (next_Index-1);
             }
             else{
                 if(end < vec[i].first.first){
@@ -60,11 +71,16 @@ signed main(){
                     Ans[index] = ans;
 
                     Erase[i] = true;
+
+                    int next_Index = upper_bound(End_Time.begin(), End_Time.end(), end) - End_Time.begin();
+                    i = (next_Index-1);
                 }
             }
+
+            i++;
         }
 
-        for(int i=0; i<second_N; i++){
+        for(int i = (second_N-1); i >= 0; i--){
             if(Erase[i] == true){
                 vec.erase(vec.begin() + i);
             }
@@ -72,6 +88,7 @@ signed main(){
         second_N = vec.size();
     }
 
+    // O/P
     cout << ans << endl;
     for(int i=0; i<n; i++){
         cout << Ans[i] << " ";
