@@ -1,4 +1,6 @@
 // Correct.
+// This is My code with help of Chat-GPT
+//  and 5-times failure in Codeforces.
 
 // A. Orac and LCM
 // https://codeforces.com/problemset/problem/1349/A
