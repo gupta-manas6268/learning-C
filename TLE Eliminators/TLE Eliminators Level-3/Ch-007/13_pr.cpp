@@ -1,7 +1,40 @@
-// 
+// Correct.
 
 // B. USB vs. PS/2
 // https://codeforces.com/contest/762/problem/B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -22,54 +55,74 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int a, b, c; cin >> a >> b >> c;
     int m; cin >> m;
-    vector<pair<int,int>> vec;
+    vector<int> A, B;
     for(int i=0; i<m; i++){
         int temp1; cin >> temp1;
         string temp2; cin >> temp2;
 
         if(temp2 == "USB"){
-            vec.push_back({temp1,0});
+            A.push_back(temp1);
         }
         else{
-            vec.push_back({temp1,1});
+            B.push_back(temp1);
         }
-    }
-    sort(vec.begin(), vec.end());
-
-    int num = 0, cost = 0;
-    for(int i=0; i<c; i++){
-        num++; 
-        cost += vec[i].first;
-        vec.erase(vec.begin() + i);
     }
 
-    vector<int> A, B;
-    for(int i=0; i < (m-c); i++){
-        if(vec[i].second == 0){
-            A.push_back(vec[i].first);
-        }
-        else{
-            B.push_back(vec[i].first);
-        }
-    }
+    // Solution
     sort(A.begin(), A.end());
     sort(B.begin(), B.end());
 
-    int A_Size = A.size();
-    A_Size = min(a, A_Size);
-    for(int i=0; i < A_Size; i++){
-        num++;
-        cost += A[i];
+    int num = 0, cost = 0;
+    if(A.size() >= a){
+        for(int i=0; i<a; i++){
+            num++;
+            cost += A[i];
+        }
+        A.erase(A.begin(), A.begin()+a);
+    }
+    else{
+        for(int i=0; i < A.size(); i++){
+            num++;
+            cost += A[i];
+        }
+        A.erase(A.begin(), A.end());
     }
 
-    int B_Size = B.size();
-    B_Size = min(b, B_Size);
-    for(int i=0; i < B_Size; i++){
-        num++;
-        cost += B[i];
+    if(B.size() >= b){
+        for(int i=0; i<b; i++){
+            num++;
+            cost += B[i];
+        }
+        B.erase(B.begin(), B.begin()+b);
+    }
+    else{
+        for(int i=0; i < B.size(); i++){
+            num++;
+            cost += B[i];
+        }
+        B.erase(B.begin(), B.end());
     }
 
+    A.insert(A.end(), B.begin(), B.end());
+    sort(A.begin(), A.end());
+    if(A.size() >= c){
+        for(int i=0; i<c; i++){
+            num++;
+            cost += A[i];
+        }
+        A.erase(A.begin(), A.begin()+c);
+    }
+    else{
+        for(int i=0; i < A.size(); i++){
+            num++;
+            cost += A[i];
+        }
+        A.erase(A.begin(), A.end());
+    }
+
+    // O/P
     cout << num << " " << cost << endl;
 }
