@@ -1,6 +1,11 @@
-2 1 1
 4
-5 USB
-6 PS/2
-3 PS/2
-7 PS/2
+3 2
+cba
+4 5
+fgde
+7 5
+gndcafb
+4 19
+ekyv
+5 25
+ekdio
