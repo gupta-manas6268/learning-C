@@ -1,7 +1,40 @@
-// 
+// Wrong.
 
 // Room Allocation
 // https://cses.fi/problemset/task/1164
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -41,6 +74,8 @@ signed main(){
     int Ans[n] = {-1};
     int end;
     int second_N = n;
+
+    // TLE by these 2-nested 'while' loops.
     while(second_N > 0){
         ans++;
         bool Erase[second_N] = {false};
@@ -73,7 +108,9 @@ signed main(){
                     Erase[i] = true;
 
                     int next_Index = upper_bound(End_Time.begin(), End_Time.end(), end) - End_Time.begin();
-                    i = (next_Index-1);
+                    if(next_Index != (End_Time.end() - End_Time.begin())){
+                        i = (next_Index-1);
+                    }
                 }
             }
 
