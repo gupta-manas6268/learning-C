@@ -1,5 +1,5 @@
 // Correct.
-// (This is My code don't Write it in Note-book.)
+// (This is My code. So, don't Write it in Note-book.)
 
 // C. Polycarp at the Radio
 // https://codeforces.com/problemset/problem/723/C
