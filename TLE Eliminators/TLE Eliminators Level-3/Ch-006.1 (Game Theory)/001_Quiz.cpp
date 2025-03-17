@@ -1,8 +1,40 @@
-// From [23:00] of this Lecture.
-// 
+// Correct.
 
 // Game of Piles Version 1
 // https://www.codechef.com/problems/GAMEOFPILES1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
