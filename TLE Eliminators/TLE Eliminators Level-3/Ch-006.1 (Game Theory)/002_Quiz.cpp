@@ -1,4 +1,4 @@
-// From [1:30:00] of this Lecture.
+// From [1:53:00] of this Lecture.
 // 
 
 // D. World is Mine
