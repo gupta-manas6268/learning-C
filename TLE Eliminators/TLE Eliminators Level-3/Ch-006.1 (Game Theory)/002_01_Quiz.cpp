@@ -1,8 +1,40 @@
-// From [1:53:00] of this Lecture.
-// 
+// Wrong. 
 
 // D. World is Mine
 // https://codeforces.com/problemset/problem/1987/D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
