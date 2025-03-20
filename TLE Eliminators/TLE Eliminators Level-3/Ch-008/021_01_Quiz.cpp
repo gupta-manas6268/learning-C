@@ -1,7 +1,44 @@
-// 
+// This is Part-02 of Lecture.
+
+// Wrong.(wrong OUTPUT)
 
 // C. K-Complete Word
 // https://codeforces.com/problemset/problem/1332/C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
