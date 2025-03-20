@@ -72,6 +72,7 @@ signed main(){
     // Solution
     int ans = 0;
 
+    // As, (pow(2,i) + pow(2,i) = pow(2, i+1))
     for(int i=0; i+1 < N; i++){
         freq[i+1] += (freq[i]/2);
         freq[i] %= 2;
