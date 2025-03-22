@@ -1,8 +1,40 @@
-// From [1:23:00] of this Lecture-2
-// (But Firstly Complete your code.)
+// Correct.
+//  (I don't know anything about this Problem Concept
+//    So, write Concept in Note-Book. But, it's my Code.)
+
+// This is My version of Mentor's code.
 
 // E. Arranging The Sheep
 // https://codeforces.com/problemset/problem/1520/E
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -38,18 +70,15 @@ signed main(){
             }
         }
 
-        int ans;
-        int Pos_Size = position.size();
-        if(Pos_Size%2 != 0){ // odd
-            int mid = position[Pos_Size/2];
-
-            int Plus_minus = Pos_Size/2;
-            for(int i=0; i < Pos_Size; i++){
-
-            }
+        int ans = 0;
+        int k = position.size(); // (k => No. of Sheeps.)
+        int Gap = (k-1);
+        for(int i=0; i < (k/2); i++){
+            ans += ((position[k-i-1] - position[i]) - Gap);
+            Gap -= 2;
         }
-        else{ // even
 
-        }
+        // O/P
+        cout << ans << endl;
     }
 }
