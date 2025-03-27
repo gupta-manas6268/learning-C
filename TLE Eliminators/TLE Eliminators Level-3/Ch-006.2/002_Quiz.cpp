@@ -1,7 +1,40 @@
-// 
+// Correct.
+// This is My code. So, don't Write it in 
+//  Register notes.
 
 // Creating Strings II
 // https://cses.fi/problemset/task/1715
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -21,9 +54,13 @@ int power(int base, int exp){
         if((exp % 2) == 1){
             (result *= base) %= MOD;
 
+            (base *= base) %= MOD;
+            exp /= 2;
         }
-        (base *= base) %= MOD;
-        exp /= 2;
+        else{
+            (base *= base) %= MOD;
+            exp /= 2;
+        }
     }
 
     return result;
@@ -40,11 +77,11 @@ signed main(){
     // I/P
     string s; cin >> s;
 
-    // O/P
+    // Solution
     int character[26] = {0};
     int n = s.length();
     for(int i=0; i<n; i++){
-        int val = (int)(s[i] - 97);
+        int val = (int)(s[i] - 'a');
         character[val]++;
     }
 
@@ -65,9 +102,10 @@ signed main(){
 
     int ans = fact[n];
     for(int i=0; i < 26; i++){
-        ans *= inv_fact[character[0]];
+        ans *= inv_fact[character[i]];
         ans %= MOD;
     }
 
+    // O/P
     cout << ans << endl;
 }
