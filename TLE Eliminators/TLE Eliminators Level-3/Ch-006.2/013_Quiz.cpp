@@ -1,12 +1,14 @@
-// This is Part-02 of this Lecture.
+// From [1:05:00] of this Lecture-2.
 
 // Correct.
+
 // This is My Concept & code. So, don't Write  
 //  it in Register notes.
+// (But, '*' Mark this code, because I made mistake
+//  of '% MOD' in this code, which Problem didn't ask.)
 
-// Distributing Apples
-// https://cses.fi/problemset/task/1716
-
+// C. Lucky Numbers
+// https://codeforces.com/problemset/problem/630/C
 
 
 
@@ -52,13 +54,13 @@ int power(int base, int exp){
 
     while(exp > 0){
         if((exp % 2) == 1){
-            (result *= base) %= MOD;
+            result *= base;
 
-            (base *= base) %= MOD;
+            base *= base;
             exp /= 2;
         }
         else{
-            (base *= base) %= MOD;
+            base *= base;
             exp /= 2;
         }
     }
@@ -75,22 +77,13 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     // I/P
-    int n, m; cin >> n >> m;
+    int n; cin >> n;
 
     // Solution
-    vector<int> fact((n+m-1) + 1);
-    for(int i=0; i <= n+m-1; i++){
-        if(i == 0){
-            fact[i] = 1;
-        }
-        else{
-            fact[i] = (fact[i-1] * i) % MOD; 
-        }
+    int ans = 0;
+    for(int i=1; i <= n; i++){
+        ans += power(2, i);
     }
-    int inv_fact_1 = power(fact[n-1], MOD-2) % MOD;
-    int inv_fact_2 = power(fact[m], MOD-2) % MOD;
-
-    int ans = (((fact[n+m-1] * inv_fact_1)%MOD) * inv_fact_2)%MOD;        
 
     // O/P
     cout << ans << endl;

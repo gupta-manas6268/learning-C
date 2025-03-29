@@ -1,6 +1,6 @@
 // Correct.
-// This is My code. So, don't Write it in 
-//  Register notes.
+// This is My Concept & code. So, don't Write  
+//  it in Register notes.
 
 // Creating Strings II
 // https://cses.fi/problemset/task/1715
