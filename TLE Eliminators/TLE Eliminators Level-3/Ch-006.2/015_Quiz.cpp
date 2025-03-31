@@ -1,18 +1,17 @@
 // Correct.
 // This is Mentor's code.
 
-// Combinatorics-Template is very useful. So,
-//  think about whether to write it or not.
-
-// Combinatorics-Template from line-53 to 92.
-
-// C. Array
-// https://codeforces.com/contest/57/problem/C
+// This is both Mentor's Concept and Mentor's code.
+//  So, Write it in Register Notes.
 
 
+// In Slide-2, Page-31, f  r     r (X)
+//     Above, 'f r r' is mistakenly written.
 
+//    result = aCi * bCi * (i)!   (From Slide-2, Page-36.)
 
-
+// C. The Intriguing Obsession
+// https://codeforces.com/problemset/problem/869/C
 
 
 
@@ -47,7 +46,7 @@ using namespace std;
 #define endl '\n'
 #define int long long 
 
-const int MOD = 1e9 + 7;
+const int MOD = 998244353;
 const int INF = LLONG_MAX >> 1;
 
 // Combinatorics Template
@@ -91,6 +90,20 @@ public:
     }
 };
 
+// Solution
+int solve(int x, int y){  // No. of ways for 'x' to 'y'.
+    Math<int> m(max(x, y) + 1);
+
+    int result = 0;
+    for(int i=0; i <= min(x, y); i++){
+        result = ((result + ((m.choose(x, i) * m.choose(y, i)) % MOD) * m.fact[i]) % MOD) % MOD;
+        // (Above line)↑          xCi               yCi                   (i)!
+        //    result = aCi * bCi * (i)!   (From Slide-2, Page-36.)
+    }
+
+    return result;
+}
+
 signed main(){
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
@@ -100,20 +113,9 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     // I/P
-    int n; cin >> n;
-
-    // Solution
-    int ans = 0;
-
-    const int N = 1e6;
-    // N = 1e6, because to have a sufficiently large 'N',
-    //  as, max(i + n - 1) = 2*n - 1.
-    Math<int> m(N);
-    for(int i=0; i <= n-1; i++){
-        // i = no. I want to distribute
-        ans = (ans + (2 * m.choose(i + n - 1, i))) % MOD;
-    }
+    int a, b, c; cin >> a >> b >> c;
 
     // O/P
-    cout << (ans - n + MOD) % MOD << endl;
+    int ans = ((solve(a, b) * solve(b, c)) % MOD * solve(c, a))% MOD;
+    cout << ans << endl;
 }
