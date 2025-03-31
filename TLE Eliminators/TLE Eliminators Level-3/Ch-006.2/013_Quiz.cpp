@@ -1,5 +1,3 @@
-// From [1:05:00] of this Lecture-2.
-
 // Correct.
 
 // This is My Concept & code. So, don't Write  
@@ -81,9 +79,10 @@ signed main(){
 
     // Solution
     int ans = 0;
-    for(int i=1; i <= n; i++){
-        ans += power(2, i);
-    }
+    // for(int i=1; i <= n; i++){  // O(n)
+    //     ans += power(2, i);
+    // }
+    ans = power(2, n+1) - 2;  // O(1).
 
     // O/P
     cout << ans << endl;
