@@ -1,9 +1,40 @@
 // These are H.W. Problems.
 
-// 
+// Correct.
+
+// This is My Concept & code. So, don't Write  
+//  it in Register notes.
 
 // 2514. Count Anagrams
 // https://leetcode.com/problems/count-anagrams/description/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -77,11 +108,13 @@ public:
 
         long long Max_Size = 0;
         long long size = 0;
+
+        string temp; 
         for(long long i=0; i<n; i++){
-            string temp; 
             if((s[i] == ' ') || (i == n-1)){
                 if((i == n-1) || (s[i] != ' ')){ temp += s[i]; size++;}
                 Words.push_back(temp);
+                temp.clear();
 
                 Max_Size = max(Max_Size, size);
                 size = 0;
