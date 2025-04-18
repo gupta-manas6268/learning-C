@@ -1,3 +1,28 @@
+// See 2-Page-Notes of this Tries in TLE-notebook
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // In Slide-1, Page-4
 //  "a queries with a string X"
 //   ↑             
