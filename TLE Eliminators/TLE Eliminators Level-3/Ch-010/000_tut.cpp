@@ -81,3 +81,68 @@
 //  Here, Compare initial trie in Page-25, and after deleting-"abd"
 //        in trie of Page-33, and Compare numbering of nodes(which
 //          gives no. of string with particular prefix) is also changed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Slide-2
+
+
+// In Slide-2, Page-2
+// (DB => Data-Base.)
+// 
+// you will be given a string X, you need to find whether there exist <= 2
+//                                                                       ↑ (Correct.)
+
+
+
+
+// In Slide-2, Page-8
+//   f(1e6, 40, 26) = [Σ(i=1 to k) of power(26, i)] + f(1e6, 40-k, 26)
+//                                                    ↑(See carefully.)
+
+
+
+
+// In Slide-2, Page-12
+//       (TN => Total no. of nodes in trie.)
+
+
+
+
+// In Slide-2, Page-20
+//     O(N * 32) + O(N * 32)   
+//           ↑(here, 32 = log2(1e9).)
+// 
+// Q. Given an array A of N integers (0 <= a[i] <= 1e9), find the max.
+//    XOR of 2 no.'s when one number is  X = 110010, (where, X => is in binary no.)
+//                   ↑(from here, see Q. properly.)
+
+
+
+// In Slide-2, Page-31
+//    for(int j=0; j<n; j++){
+//        if(valid[j] & (i'th bit is set)){ cnt++;}       // (where, cnt => count)
+//                             ↑
+//    }
