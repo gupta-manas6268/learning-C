@@ -1,5 +1,5 @@
 // Correct.
-// (This is My code. So, don't Write it in Note-book.)
+// (This is My code & My Concept. So, don't Write it in Note-book.)
 
 // D. Candy Box (easy version)
 // https://codeforces.com/problemset/problem/1183/D
