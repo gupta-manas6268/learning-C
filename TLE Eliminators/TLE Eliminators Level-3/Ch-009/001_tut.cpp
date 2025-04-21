@@ -58,4 +58,5 @@ signed main(){
 
     int l, r;
     pair<int,int> hash = a.get(l, r);
+    cout << hash.first << " " << hash.second << endl;
 }
