@@ -72,13 +72,19 @@ signed main(){
     string s; cin >> s;
     Hash a(s);
 
+    string rev_s = "";
+    for(int i = n-1; i >= 0; i--){
+        rev_s += s[i];
+    }
+    Hash b(rev_s);
+
     for(int i=0; i<m; i++){
         int choose; cin >> choose;
 
         if(choose == 1){
             int k; cin >> k;
             char X; cin >> X;
-
+            
             
         }
         else{
