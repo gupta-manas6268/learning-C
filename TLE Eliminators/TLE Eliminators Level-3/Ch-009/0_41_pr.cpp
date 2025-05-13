@@ -1,4 +1,5 @@
 // Correct. 
+// I solved it with the help of ChatGPT.
 
 // Finding Periods
 // https://cses.fi/problemset/task/1733/
@@ -137,6 +138,7 @@ signed main(){
         bool Yes = true;
         while(j < n){
             if((j+i) <= n){
+                // If remaining size = i.
                 pair<int,int> B = h1.get_hash(j+1, j+i);
                 if((A.first == B.first) && (A.second == B.second)){
                     j += i;
@@ -144,6 +146,7 @@ signed main(){
                 else{ Yes = false; break;}
             }
             else{
+                // If remaining size < i.
                 pair<int,int> B = h1.get_hash(j+1, n);
                 pair<int,int> A_dash = h1.get_hash(1, n-j);
                 if((A_dash.first == B.first) && (A_dash.second == B.second)){
