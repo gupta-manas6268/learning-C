@@ -1,30 +1,54 @@
-// 
+// Correct. 
 
-// 1392. Longest Happy Prefix
-// https://leetcode.com/problems/longest-happy-prefix/description/
+// Finding Periods
+// https://cses.fi/problemset/task/1733/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 #include<bits/stdc++.h>
 using namespace std;
 
-int main(){
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    #endif
+#define endl '\n'
+#define int long long 
 
-    
-    return 0;
-}
+const int MOD = 1e9 + 7;
+const int INF = LLONG_MAX >> 1;
 
-
-
-
-class Solution {
-public:
-    // This is Github, "String-Hashing" template.
-    const int N = 1e6 + 9;
+// This is Github, "String-Hashing" template.
+const int N = 1e6 + 9;
 
 int power(long long n, long long k, const int mod) {
   int ans = 1 % mod;
@@ -90,7 +114,50 @@ struct Hashing {
   }
 };
 // Github, "String-Hashing" template end.
-    string longestPrefix(string s) {
-        
+
+signed main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+
+    ios::sync_with_stdio(false); cin.tie(NULL);
+
+    prec();
+    // I/P
+    string s; cin >> s;
+
+    // Solution
+    int n = s.length();
+    struct Hashing h1 = Hashing(s);
+    vector<int> ans;
+    for(int i=1; i < n; i++){
+        pair<int,int> A = h1.get_hash(1, i);
+        int j = i;
+        bool Yes = true;
+        while(j < n){
+            if((j+i) <= n){
+                pair<int,int> B = h1.get_hash(j+1, j+i);
+                if((A.first == B.first) && (A.second == B.second)){
+                    j += i;
+                }
+                else{ Yes = false; break;}
+            }
+            else{
+                pair<int,int> B = h1.get_hash(j+1, n);
+                pair<int,int> A_dash = h1.get_hash(1, n-j);
+                if((A_dash.first == B.first) && (A_dash.second == B.second)){
+                    j += i;
+                }
+                else{ Yes = false; break;}
+            }
+        }
+
+        if(Yes == true){ ans.push_back(i);}
     }
-};
+    ans.push_back(n);
+
+    // O/P
+    for(int i=0; i < ans.size(); i++){ cout << ans[i] << " ";}
+    cout << endl;
+}
