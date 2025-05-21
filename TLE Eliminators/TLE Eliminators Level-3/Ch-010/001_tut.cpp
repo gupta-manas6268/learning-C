@@ -33,7 +33,7 @@ struct Trie{
         for(char c : x){
             int index = c - 'a';
             if(trie_tree[current_node].children[index] == -1){
-                trie_tree[current_node].children[index] == size_Of_Trie;
+                trie_tree[current_node].children[index] = size_Of_Trie;
                 trie_tree.emplace_back();
                 size_Of_Trie++;
             }
@@ -61,7 +61,7 @@ struct Trie{
             Node child = trie_tree[here.children[node.second]];
             if(child.string_going_below == 0){
                 // for this code, the child at index node.second has not
-                trie_tree[node.first].children[node.second] == -1;
+                trie_tree[node.first].children[node.second] = -1;
             }
         }
     }
@@ -82,6 +82,18 @@ struct Trie{
         }
         trie_tree[current_node].string_ending_here--;
     }
+
+    bool Search_Prefix(string &x) {
+        int current_node = 0;
+        for(char c : x){
+            int index = c - 'a';
+            if(trie_tree[current_node].children[index] == -1){
+                return false;
+            }
+            current_node = trie_tree[current_node].children[index];
+        }
+        return (trie_tree[current_node].string_going_below > 0) || (trie_tree[current_node].string_ending_here > 0);
+    }
 };
 
 signed main(){
@@ -93,4 +105,9 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     Trie t = Trie();
+    string T = "Push";
+    t.add_String(T);
+    bool ans = t.Search_String(T);
+    if(ans == true){cout << "Yes" << endl;}
+    else{cout << "No" << endl;}
 }
