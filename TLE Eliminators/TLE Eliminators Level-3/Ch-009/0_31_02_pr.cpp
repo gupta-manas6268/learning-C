@@ -1,19 +1,9 @@
-// This is Part-02 of this Lecture.
-
 // 
 
-// Minimal Rotation
-// https://cses.fi/problemset/task/1110/
+// D. Good Substrings
+// https://codeforces.com/contest/271/problem/D
 
 
-
-
-
-// In Page-7, Slide-2
-//  To get cyclic shift of string-s, We can take Sliding-Window of 
-//  Size = n, of string - s+s = 2*s. (As, Size of String-s = n.)
-//  i.e. Here, abacabac = string 2*s. 
-//       So, string s = abac
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -102,41 +92,62 @@ signed main(){
 
     prec();
     // I/P
-    string s; cin >> s;
+    string s, t; cin >> s >> t;
+    int k; cin >> k;
 
     // Solution
-    int n = s.length();
-    s += s;
     struct Hashing h1 = Hashing(s);
-    string ans = s;
-    pair<int,int> A = h1.get_hash(1, n);
-    int l_1 = 1, r_1 = n;
-    for(int l_2=2; l_2 <= n; l_2++){
-        int r_2 = n+l_2-1;
-        pair<int,int> B = h1.get_hash(l_2, r_2);
-
-        if((A.first != B.first) || (A.second != B.second)){
-            int left = 1, right = n;
-            while(left <= right){
-                int mid = (left + right)/ 2;
-
-                int right_1 = (mid + l_1 - 1);
-                int right_2 = (mid + l_2 - 1);
-
-                pair<int,int> A_2 = h1.get_hash(l_1, right_1);
-                pair<int,int> B_2 = h1.get_hash(l_2, right_2);
-
-                // Binary-Search
-                if((A_2.first == B_2.first) && (A_2.second == B_2.second)){
-                  right = (right + mid)/2;
-                }
-                else{
-                  
-                }
-            }
+    int n = s.length();
+    int pref_S[n+1] = {0};
+    for(int i=1; i <= n; i++){
+        int index = (s[i-1]-'a');
+        if(t[index] == '0'){
+            pref_S[i] = pref_S[i-1] + 1;
+        }
+        else{
+            pref_S[i] = pref_S[i-1];
         }
     }
+    int i=1, j=1;
+    set<pair<int,int>> Hashes;
+    while((i <= j) && (j <= n)){
+        int val = (pref_S[j] - pref_S[i-1]);
+        if(val <= k){
+            int max_Size = (j-i+1);
+            int size = 1;
+            while(size <= max_Size){
+                for(int left = i; left <= j-size+1; left++){
+                    int right = (size + left -1);
+                    pair<int,int> A = h1.get_hash(left, right);
+                    Hashes.insert(A);
+                }
+                size++;
+            }
 
+            i++;
+        }
+        else if(j == n){
+            int max_Size = (j-i+1);
+            int size = 1;
+            while(size <= max_Size){
+                for(int left = i; left <= j-size+1; left++){
+                    int right = (size + left -1);
+                    pair<int,int> A = h1.get_hash(left, right);
+                    Hashes.insert(A);
+                }
+                size++;
+            }
+
+            i++;
+        }
+        else{
+
+        }
+        j++;
+    }
+    cout << i<< j << endl;
+    
     // O/P
+    int ans = Hashes.size();
     cout << ans << endl;
 }

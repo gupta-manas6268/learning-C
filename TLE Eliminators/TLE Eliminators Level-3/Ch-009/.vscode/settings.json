@@ -66,6 +66,10 @@
     "utility": "cpp",
     "deque": "cpp",
     "string": "cpp",
-    "vector": "cpp"
+    "vector": "cpp",
+    "bitset": "cpp",
+    "initializer_list": "cpp",
+    "regex": "cpp",
+    "valarray": "cpp"
   }
 }
