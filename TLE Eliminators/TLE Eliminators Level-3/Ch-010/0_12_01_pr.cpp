@@ -1,7 +1,40 @@
-// 
+// Wrong.
 
 // Phone directory
 // https://www.geeksforgeeks.org/problems/phone-directory4628/1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -116,7 +149,7 @@ public:
                 }
 
                 if(trie_tree[current_node].children[index] == -1){
-                    ans.push_back("0"); break;
+                    continue;
                 }
                 current_node = trie_tree[current_node].children[index];
             }
