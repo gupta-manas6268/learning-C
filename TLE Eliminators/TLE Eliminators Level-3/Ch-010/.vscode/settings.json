@@ -58,6 +58,7 @@
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
     "regex": "cpp",
-    "new": "cpp"
+    "new": "cpp",
+    "type_traits": "cpp"
   }
 }
