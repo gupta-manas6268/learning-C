@@ -18,8 +18,13 @@ int recursion(int n){  // SC = O(pow(2, N) * N).
 }
 
 signed main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     int n; cin >> n;
-    recursion(n);  // Space Complexity = O(pow(n,2)).
+    cout << recursion(n) << endl;  // Space Complexity = O(pow(n,2)).
 }

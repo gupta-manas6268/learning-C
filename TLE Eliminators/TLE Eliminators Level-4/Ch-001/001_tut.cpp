@@ -1,1 +1,1 @@
-// From Lecture-1, [01:19:00].
+// Lecture-1 Completed.
