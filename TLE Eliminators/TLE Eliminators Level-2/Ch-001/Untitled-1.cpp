@@ -15,21 +15,17 @@ int main(){
 
 class Solution {
 public:
-    vector<vector<int>> ans;
-    vector<int> vec;
-    void My_Subsets(int i, vector<int> nums){
-        int n = nums.size();
-        if(i == n){
-            ans.push_back(vec);
-            return;
+    int ans = 0;
+    void solve(int i, int n){
+        if(i > n){ return;}
+        else if(i == n){ ans++; return;}
+        else{
+            solve(i+1, n);
+            solve(i+2, n);
         }
-        vec.push_back(nums[i]);
-        My_Subsets(i+1, nums);
-        vec.pop_back();
-        My_Subsets(i+1, nums);
     }
-    vector<vector<int>> subsets(vector<int>& nums) {
-        My_Subsets(0, nums);
+    int climbStairs(int n) {
+        solve(0, n);
         return ans;
     }
 };
