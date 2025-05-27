@@ -1,5 +1,5 @@
-// Correct.
-// This is Mentor's code.
+// Correct. (Easy)
+// This is My code.
 
 // 1545. Find Kth Bit in Nth Binary String
 // https://leetcode.com/problems/find-kth-bit-in-nth-binary-string/description/

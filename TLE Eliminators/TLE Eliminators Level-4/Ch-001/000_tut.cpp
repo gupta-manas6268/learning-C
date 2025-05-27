@@ -109,3 +109,40 @@
 //          dp[i][j] => (It depends on dp[i+1][j] & dp[i][j+1].)
 // 
 // 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// This is Lecture-3.
+
+
+// In Slide-3, Page-6
+// 2) if a[i] = X & we have decided to pick up a[i] as the 
+//     first element in a block then we need x-more elements to be
+//       ↑                  ↑                           ↑
+//     picked -> we should pick up
+// 
+//    a[i + 1], a[i + 2], ...., a[i + X - 1] as our next X-elements.
+
+
+
+
+// In Slide-3, Page-10
+//  State: dp[i] = max. no. of elements we can retain from
+//                 [i to n-1] in the array s.t. all new blocks
+//                will be formed from this range.
+// 
+// Transition: dp[i] => 1) start a block
+//                      2) skip
+// 
+//  final subProblem -> (n - dp[0]).
