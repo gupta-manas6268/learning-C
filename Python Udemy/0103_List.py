@@ -14,6 +14,7 @@ todo_2 = input(user_prompt_2)
 todo_3 = input(user_prompt_3)
 
 # List
+# List => 0-based indexing.
 todos = [todo_1, todo_2, todo_3, "Hello"]  
 print(todos)
 
