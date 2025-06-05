@@ -8,6 +8,8 @@ todos = ["clean", "throw", "do"]
 # todos = ["clean", "throw", "do"] + "\n" # Error
 
 file = open('0601_main.txt', 'w') # 'w' => write
+#  If file '0601_main.txt' didn't exist, then it will make then file 
+#   & then Write in that file.
 file.writelines((todos))
 
 file.writelines(("\n"))
