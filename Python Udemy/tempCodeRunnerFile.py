@@ -1,4 +1,3 @@
-products = ['table', 'chair', 'door']
-var = "Product:"
-for product in products:
-    print(var, product)
+file = open('0601_main.txt', 'r')
+todos = file.readlines()
+print(todos)
