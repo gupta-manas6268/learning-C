@@ -1,4 +1,3 @@
-clean
-throw
-do
-mine
+cleanthrowdo
+clean throw do 
+ Hey there

@@ -20,6 +20,14 @@ for todo in todos:
 file.write("\n Hey there\n")
 
 # Read
+
+# When should I use read() and when readlines()?
+# Ans: If you want to get all the text as one single string, use read().
+#       If you want to get separate strings for each line, use readlines().
+# 
+#       read()      => gives us single string.
+#       readlines() => List => gives us separate strings for each line.
+
 file = open('0601_main.txt', 'r') # 'r' => read
 Read_1 = file.read()
 print(Read_1)

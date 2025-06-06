@@ -49,4 +49,6 @@ existing_members.append("\n" + member)
 file = open("0604_members.txt", 'w')
 # existing_members = file.writelines(existing_members)  # Both lines 
 file.writelines(existing_members)                       #  work well.
+# In above Line, we over-write '0604_members.txt' again 'existing_members'
+#  list & initial content in '0604_members.txt' will get lost.
 file.close()
