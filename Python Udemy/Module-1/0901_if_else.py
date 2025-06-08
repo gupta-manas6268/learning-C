@@ -21,6 +21,8 @@
 
 
 
+# This code has Bug, which I fix in '1001_bugs.py'
+# See code '1001_bugs.py' also before writing notes.
 todos = []
 
 while True:
