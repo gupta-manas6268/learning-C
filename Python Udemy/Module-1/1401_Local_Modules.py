@@ -1,5 +1,7 @@
 # import functions_1401  # => if 'functions_1401.py' is in same folder as '1401_modules.py'
-from modules import functions_1401 
+from modules import functions_1401 # Local Module.
+# Local Module => Modules which I make.
+
 # when a file is imported it's functions and 'main' block 
 #  is run automatically.
 
