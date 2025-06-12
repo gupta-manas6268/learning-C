@@ -6,3 +6,6 @@ promise
 val
 prepare that table
 clean the code
+
+show the delete
+

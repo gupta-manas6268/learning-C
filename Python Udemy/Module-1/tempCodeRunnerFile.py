@@ -1,10 +1,15 @@
-import random
+import FreeSimpleGUI as sq
 
-a = int(input("Enter the lower bound: "))
-b = int(input("Enter the upper bound: "))
-ans = int(random.randint(a, b))
-print(ans)
+label_1 = sq.Text("Enter feet:")
+input_1 = sq.Input()
 
-low = 1
-upp = 2
-Ans = {"low": low, "upp": upp}
+label_2 = sq.Text("Enter inches:")
+input_2 = sq.Input()
+
+choose_Button = sq.Button("Convert")
+
+window = sq.Window("Convertor", layout=[[label_1, input_1], [label_2, input_2], [choose_Button]])
+window.read()
+window.close()
+
+
