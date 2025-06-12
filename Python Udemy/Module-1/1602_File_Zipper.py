@@ -12,6 +12,6 @@ compress_Button = sq.Button("Compress")
 window = sq.Window("File Compressor", 
                    layout=[[label_1, input_1, choose_Button_1], 
                            [label_2, input_2, choose_Button_2],
-                           [compress_Button]])
+                           [compress_Button]])   # Mutliple-line 'sq.Window'.
 window.read()
 window.close()

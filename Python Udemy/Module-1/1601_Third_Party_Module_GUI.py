@@ -3,6 +3,7 @@
 #                        by some Third-Party users.
 
 # https://pypi.org/ => Link to get Third-Party Module.
+#       Ex: 'pip install FreeSimpleGUI' to install 'FreeSimpleGUI'.
 
 
 # https://docs.pysimplegui.com/en/latest/cookbook/
