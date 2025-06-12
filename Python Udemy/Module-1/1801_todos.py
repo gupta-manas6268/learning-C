@@ -1,13 +1,5 @@
-# This is Mentor's code.
-
-# UR (Uncomment & Run.)
-
-
-
-
-
-
-
+# Error Fixing from '1701_todos.py'
+# It uses same 'functions_1701.py' & '1701_todos.txt' files.
 
 
 
@@ -25,7 +17,11 @@
 import FreeSimpleGUI.window
 import functions_1701
 import FreeSimpleGUI as sg   # i.e. we can only type 'sg' in place of 'FreeSimpleGUI'
+import time
 
+sg.theme("Purple")
+
+clock_label = sg.Text('', key='clock')
 label = sg.Text("Type in a To-Do")              #  line 'sg' is simple to type than
                                                 #  than 'FreeSimpleGUI'
 
@@ -38,7 +34,8 @@ edit_button = sg.Button("Edit")
 delete_button = sg.Button("Delete")
 exit_button = sg.Button("Exit")
 
-Layout = [[label], 
+Layout = [[clock_label],
+          [label], 
           [input_box, add_button], 
           [list_Box, edit_button, delete_button],
           [exit_button]]
@@ -51,13 +48,9 @@ window = sg.Window('My To-Do App',
 # print(event) # In terminal. # Uncomment & run.
 
 while True:
-    event, values = window.read()
-    # event => key of widget that was just clicked. Ex: button, etc.
-    # values => Dictionary
-
-    print(1, event)                 # To understand Program
-    print(2, values)                # To understand Program
-    print(3, values['todos_List'])  # To understand Program
+    event, values = window.read(timeout=200) 
+    # (timeout=200) => Every 200-milisecond, time will change accodingly.
+    window["clock"].update(value=time.strftime("%b %d, %Y %H:%M:%S"))
 
     match event:
         case "Add":
@@ -68,23 +61,29 @@ while True:
             window['todos_List'].update(values=todos)
 
         case "Edit":
-            todo_to_edit = values['todos_List'][0]
-            new_todo = values['todo']
+            try:
+                todo_to_edit = values['todos_List'][0]
+                new_todo = values['todo']
 
-            todos = functions_1701.get_todos()
-            index = todos.index(todo_to_edit)
-            todos[index] = new_todo
-            functions_1701.write_todos(todos)
-            window['todos_List'].update(values=todos)
+                todos = functions_1701.get_todos()
+                index = todos.index(todo_to_edit)
+                todos[index] = new_todo
+                functions_1701.write_todos(todos)
+                window['todos_List'].update(values=todos)
+            except IndexError:
+                sg.popup("Please select an item first.", font=("Helvetica", 20))
 
         case "Delete":
-            todo_to_delete = values['todos_List'][0]
-            todos = functions_1701.get_todos()
-            todos.remove(todo_to_delete)
+            try:
+                todo_to_delete = values['todos_List'][0]
+                todos = functions_1701.get_todos()
+                todos.remove(todo_to_delete)
 
-            functions_1701.write_todos(todos)
-            window['todos_List'].update(values=todos)
-            window['todo'].update(value='')
+                functions_1701.write_todos(todos)
+                window['todos_List'].update(values=todos)
+                window['todo'].update(value='')
+            except IndexError:
+                sg.popup("Please select an item first.", font=("Helvetica", 20))
 
         case "Exit":
             break
