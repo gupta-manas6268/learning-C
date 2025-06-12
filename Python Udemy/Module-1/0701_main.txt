@@ -1,0 +1,4 @@
+clean
+throw
+do
+mine
