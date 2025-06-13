@@ -1,5 +1,3 @@
-# This is Mentor's code.
-
 # UR (Uncomment & Run.)
 
 
