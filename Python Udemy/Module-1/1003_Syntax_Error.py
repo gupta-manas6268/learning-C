@@ -1,5 +1,5 @@
 a = "505"
-
+# Try-except does not syntax errors.
 # Python => when running it firstly compiles code & then 
 #            runs it.
 #           So, in Syntax-Error it gives error in compile time

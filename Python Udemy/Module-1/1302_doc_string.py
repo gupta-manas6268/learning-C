@@ -18,3 +18,5 @@ text_3 = """But in triple quote
             string, multiple line string
             will not convert to single line."""
 print(text_3)
+with open("1302_file.txt", 'w') as file:
+    file.write(text_3) # write's in mutltiple lines in file.

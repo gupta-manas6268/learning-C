@@ -15,3 +15,5 @@
 # Type, 'import builtins'
 # Then, 'dir(builtins)'
 #           ↑ (It gives us all builtin functions.)
+
+# Methods => 'Attribute' (same)

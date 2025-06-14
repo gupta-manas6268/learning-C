@@ -1,0 +1,3 @@
+But in triple quote 
+            string, multiple line string
+            will not convert to single line.
