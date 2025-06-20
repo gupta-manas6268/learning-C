@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Data API</title>
+</head>
+<body>
+    <h1>Weather Data API.</h1>
+    <p>URL format: http://127.0.0.1:5000/api/v1/station/date</p>
+    <!--                                     (↑) (v1 => version-1) -->
+    <p>URL Example for one station for one dates: http://127.0.0.1:5000/api/v1/10/1988-10-25</p>
+    <!--                                             (↑) (19881025 => 1988:10:25 => 1988 October 25.) -->
+    
+    <p>URL format: http://127.0.0.1:5000/api/v1/station</p>
+    <p>URL Example for one station for all dates: http://127.0.0.1:5000/api/v1/10/</p>
+
+    <p>URL format: http://127.0.0.1:5000/api/v1/yearly/station/year</p>
+    <p>URL Example for one station for all dates: http://127.0.0.1:5000/api/v1/yearly/10/1988</p>
+    
+                                                 
+    <!-- <p>{{data}}</p> -->   <!-- Didn't give O/P properly.-->
+    <p>{{data|safe}}</p>
+    <!-- (↑) data => From line-15, (data=stations.to...)  -->
+    <!-- (↑) safe => Renders data in Table. As, without '|safe'
+                data will be rendered in plain 'html'  -->
+</body>
+</html>

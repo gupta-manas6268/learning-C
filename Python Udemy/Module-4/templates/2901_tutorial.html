@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Webpage</title>
+</head>
+<body>
+    <nav>  <!-- nav => navigation  -->
+        <a href="/about">About</a>
+        <a href="/home/">Home</a>
+        <a href="/store/">Store</a>
+    </nav>
+    <h1>Welcome</h1>
+    <p>Hello</p>
+
+    <!-- <img src="../static/2901_cat.png" style="width: 500px;"> -->        <!-- Both lines -->
+    <img src="{{url_for('static', filename='2901_cat.png')}}" style="width: 500px;">  <!--  work well.-->
+    <!-- (↑) 'cat.png' goes in 'static' folder. -->
+    <!-- (↑)'style' will adjust height with ratio of 'width' according to image dimensions.-->
+
+    <br>
+    <a href="https://google.com">Google Page</a>
+</body>
+</html>

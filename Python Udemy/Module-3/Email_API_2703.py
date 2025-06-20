@@ -18,7 +18,7 @@ def send_email(Username, Password, Receiver, message): # message => String.
     host = "smtp.gmail.com"
     port = 465
 
-    username = f"{Username}" # Type your email address
+    sender_username = f"{Username}" # Type your email address
     password = f"{Password}" # Type App Password for 'Mail'.
     # 'App Password'(↑), I made for 'Mail' & saved it in Bitwarden Folders. 
 
@@ -26,5 +26,5 @@ def send_email(Username, Password, Receiver, message): # message => String.
     context = ssl.create_default_context()
 
     with smtplib.SMTP_SSL(host, port, context=context) as server:
-        server.login(username, password)
-        server.sendmail(username, receiver, message)
+        server.login(sender_username, password)
+        server.sendmail(sender_username, receiver, message)
