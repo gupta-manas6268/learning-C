@@ -1,7 +1,11 @@
 # Don't commit 'API_KEY'.
 
 import requests
+from dotenv import load_dotenv  
+# Used for Password-Protection in '.env' file, which is 
+#  ignored by '.gitignore' file.
 
+load_dotenv()
 
 API_KEY = ""
 def get_data(place, forecast_days=None, option=None):
