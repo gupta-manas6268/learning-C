@@ -1,5 +1,7 @@
 # Folder
 git rm --cached data_small
+git commit -m
+git push origin master
 
 # File
 .env
