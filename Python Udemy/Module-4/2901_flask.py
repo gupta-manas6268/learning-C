@@ -1,6 +1,6 @@
 # flask => Used for Web-Devlopnment.
 #           All flask-apps by default runs on port-5000.
-import flask   
+import flask  
 
 app = flask.Flask("Website")                               # (↓) Port-5000 from Line-2.
 @app.route("/")  # Decorator => @. Route => http://127.0.0.1:5000 in Browser.

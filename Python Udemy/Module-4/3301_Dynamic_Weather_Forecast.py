@@ -1,14 +1,8 @@
-# See y-axis of Graph carefully, every-time you change the slider of 
-#   Forecast Days. (It will also multiply by that date. (Line-27))
+# Updated from '3201_Static_Weather_Forecast.py'.
 
 import streamlit as st
-import plotly.express as px # px => plotly.express
-# '.express' => function of 'plotly'.
-
-import bokeh
-# bokeh & plotly are for same purpose of plotting graphs.
-# plotly is > (more) famous than bokeh.
-
+import plotly.express as px 
+import Backend_3301
 
 st.title("Weather Forecast for the Next Days")
 place = st.text_input("Place: ")
@@ -19,15 +13,7 @@ option = st.selectbox("Select data to view", ("Tempearture", "Sky"))
 
 st.subheader(f"Temperature for the next {days} days in {place.capitalize()}")
 
-def get_data(days):
-    dates = ["2022-25-10", "2022-26-10", "2022-27-10"]  # Fake Data in both lines 
-    temperatures = [10, 11, 15]                         #  for understanding.
-
-    temperatures = [days * i for i in temperatures]
-    # (↑) if days = 2, then it will plot (y="temperatures" - axis),
-    #                   for (days * max.(i => temperatures)) = (2 * 15).
-
-    return dates, temperatures
+data = Backend_3301.get_data(place, days, option)
 
 Dates, Temperatures = get_data(days)
 figure_1 = px.line(x=Dates, y=Temperatures, labels={"x": "Date", "y": "Temperature (Celsius)"})

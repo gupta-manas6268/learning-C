@@ -1,0 +1,5 @@
+# Folder
+git rm --cached data_small
+
+# File
+.env
