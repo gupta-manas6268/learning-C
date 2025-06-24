@@ -19,6 +19,7 @@ for todo in todos:
 
 file.write("\n Hey there\n")
 
+
 # Read
 
 # When should I use read() and when readlines()?
@@ -47,4 +48,13 @@ for index, item in enumerate(new_todos):
     print(row)  # Two break lines => One break line because of 'new_todos'
                 #                   & second becasue of existing '\n' break line in file.
 
+
+# Append
+file = open('0601_main.txt', 'a')
+# "a"(append) => i.e. add element in file in List, not 
+#              over-write elements in "data.txt" file.
+file.write("\n" + "Hi there append" + "\n")
+
+
+# Close
 file.close() # Always close after use.
