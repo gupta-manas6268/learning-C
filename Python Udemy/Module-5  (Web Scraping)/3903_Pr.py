@@ -1,4 +1,4 @@
-# Q.1: Take Temperature from https://programmer100.pythonanywhere.com 
+# Q.2: Take Temperature from https://programmer100.pythonanywhere.com 
 #      & write Date + Temperature in 'database.db' inside 
 #       'date-temperature' Table.
 
