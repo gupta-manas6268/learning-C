@@ -23,7 +23,7 @@ def scrape(url):
     return source
 
 def extract(source):
-    extractor = selectorlib.Extractor.from_yaml_file("extract.yaml")
+    extractor = selectorlib.Extractor.from_yaml_file("3801_extract.yaml")
     value = extractor.extract(source)["tours"]
     # ["tours"] => In 'extract.yaml', "tours" Dictionary-Key
     #               is there.

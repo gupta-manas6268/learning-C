@@ -5,6 +5,10 @@
 import requests
 import selectorlib
 import smtplib, ssl
+import os
+import time
+from dotenv import load_dotenv
+load_dotenv()
 
 URL = "https://programmer100.pythonanywhere.com/tours/"
 
@@ -19,7 +23,7 @@ def scrape(url):
     return source
 
 def extract(source):
-    extractor = selectorlib.Extractor.from_yaml_file("extract.yaml")
+    extractor = selectorlib.Extractor.from_yaml_file("3801_extract.yaml")
     value = extractor.extract(source)["tours"]
     return value
 
@@ -37,27 +41,33 @@ def read():
         return file.read() 
         # '.read()' => Reads data in file as String.
 
-def send_email(Username, Password, Receiver, message): 
+def send_email(message): 
     host = "smtp.gmail.com"
     port = 465
 
-    sender_username = f"{Username}" # Type your email address
-    password = f"{Password}" # Type App Password for 'Mail'.
+    sender_username = os.getenv("GMAIL") # Type your email address
+    password = os.getenv("APP_PASSWORD") # Type App Password for 'Mail'.
     # 'App Password'(↑), I made for 'Mail' & saved it in Bitwarden Folders. 
 
-    receiver = f"{Receiver}" # receiver & sender email address can be same.
+    receiver = os.getenv("GMAIL") # receiver & sender email address can be same.
     context = ssl.create_default_context()
 
     with smtplib.SMTP_SSL(host, port, context=context) as server:
         server.login(sender_username, password)
         server.sendmail(sender_username, receiver, message)
 
-if __name__ == "__main__":
-    scraped = scrape(URL)
-    extracted = extract(scraped)
 
-    content = read()
-    if extracted != "No upcoming tours":
-        if extracted not in content:
-            store(extracted)
-            send_email()
+
+if __name__ == "__main__":
+    while True: # Runs after 2-seconds again.
+        scraped = scrape(URL)
+        extracted = extract(scraped)
+
+        content = read()
+        if extracted != "No upcoming tours":
+            if extracted not in content:
+                store(extracted)
+                send_email(extracted)
+                print("Email Sent")
+
+        time.sleep(2) # 2-sec.
