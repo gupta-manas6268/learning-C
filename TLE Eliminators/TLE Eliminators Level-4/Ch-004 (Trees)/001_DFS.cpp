@@ -1,3 +1,7 @@
+// From Lecture-2, [10:00].
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -8,7 +12,7 @@ const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
 void DFS(int current_Node, vector<vector<int>>& adjacency_List, int parent, vector<int>& ans){
-    ans.push_back(current_Node);
+    ans.push_back(current_Node + 1); // Converting 0-based to 1-based indexing.
     for(int neighbour : adjacency_List[current_Node]){
         if(neighbour != parent){
             DFS(neighbour, adjacency_List, current_Node, ans);
@@ -31,12 +35,19 @@ signed main(){
         int u, v; cin >> u >> v; // 'u' & 'v' => Edge List.
         u--; v--; // Converting 'u' & 'v' to 0-based indexing for 
                   //  adding them in Vector.
-        Adjacency_List[u].push_back(v);
-        Adjacency_List[v].push_back(u);
+
+        Adjacency_List[u].push_back(v); // Both lines convert Uni-directional
+        Adjacency_List[v].push_back(u); // tree to bi-directional.
     }
 
     // Solution
     int root = 0;
     vector<int> DFS_traversal;
     DFS(root, Adjacency_List, -1, DFS_traversal);
+
+    // O/P
+    for(auto item : DFS_traversal){
+        cout << item << " ";
+    }
+    cout << endl;
 }
