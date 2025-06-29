@@ -7,11 +7,22 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-void DFS(int current_Node, vector<vector<int>>& adjacency_List, int parent, vector<int>& ans){
-    ans.push_back(current_Node); 
-    for(int neighbour : adjacency_List[current_Node]){ // 1-based indexing.
-        if(neighbour != parent){
-            DFS(neighbour, adjacency_List, current_Node, ans);
+void BFS(int root, vector<vector<int>>& adjacency_List, vector<int>& ans){
+    int n = (adjacency_List.size() + 1);
+
+    queue<int> qu;
+    vector<bool> visited(n, false);
+    qu.push(root);
+    visited[root] = true;
+    while(!(qu.empty())){
+        int current_Node = qu.front();
+        qu.pop();
+        ans.push_back(current_Node);
+        for(int neighour : adjacency_List[current_Node]){
+            if(!visited[neighour]){
+                visited[neighour] = true;
+                qu.push(neighour);
+            }
         }
     }
 }
@@ -37,12 +48,12 @@ signed main(){
 
     // Solution
     int root = 1;
-    vector<int> DFS_traversal; // 0-based indexing.
-    DFS(root, Adjacency_List, -1, DFS_traversal);
+    vector<int> BFS_traversal; // 0-based indexing.
+    BFS(root, Adjacency_List, BFS_traversal);
 
     // O/P
-    for(int i=1; i <= n; i++){
-        cout << DFS_traversal[i] << endl;
+    for(int i=0; i < n; i++){
+        cout << BFS_traversal[i] << endl;
     }
     cout << endl;
 

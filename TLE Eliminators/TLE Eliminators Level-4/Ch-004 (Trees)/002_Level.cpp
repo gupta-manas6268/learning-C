@@ -1,3 +1,6 @@
+// Q.1: Find the level of each node assuming level of root = 0 ?
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -7,11 +10,17 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-void DFS(int current_Node, vector<vector<int>>& adjacency_List, int parent, vector<int>& ans){
-    ans.push_back(current_Node); 
-    for(int neighbour : adjacency_List[current_Node]){ // 1-based indexing.
-        if(neighbour != parent){
-            DFS(neighbour, adjacency_List, current_Node, ans);
+void Level(int current_Node, vector<vector<int>>& adjacency_List, int parent, vector<int>& level){
+    if(parent == -1){
+        level[current_Node] = 0; 
+    }
+    else{
+        level[current_Node] = level[parent] + 1;
+    }
+
+    for(int neighour : adjacency_List[current_Node]){
+        if(neighour != parent){
+            Level(neighour, adjacency_List, current_Node, level);
         }
     }
 }
@@ -37,12 +46,12 @@ signed main(){
 
     // Solution
     int root = 1;
-    vector<int> DFS_traversal; // 0-based indexing.
-    DFS(root, Adjacency_List, -1, DFS_traversal);
+    vector<int> level(n+1, -1); // 1-based indexing.
+    Level(root, Adjacency_List, -1, level);
 
     // O/P
     for(int i=1; i <= n; i++){
-        cout << DFS_traversal[i] << endl;
+        cout << level[i] << endl;
     }
     cout << endl;
 
