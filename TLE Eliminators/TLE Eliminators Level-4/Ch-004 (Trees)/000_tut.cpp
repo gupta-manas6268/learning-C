@@ -47,3 +47,27 @@
 // (Page-21) 
 // x,y -> LCA(x, y) = x
 // (↑ here, x is ancestor of y.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// (Slide-3)
+
+// (Page-8)
+// ( x=4 ) -> written below tree in Left side of Page.
