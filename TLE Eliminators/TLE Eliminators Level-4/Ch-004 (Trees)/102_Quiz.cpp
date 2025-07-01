@@ -1,12 +1,36 @@
-// From Lecture-3, [1:07:00].
-// 
-
-
-
-
+// Correct.
+// This is Mentor's code.
 
 // C. Tree Cutting
 // https://codeforces.com/problemset/problem/1946/C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -23,33 +47,50 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-vector<int> in_Time(1e6), out_Time(1e6);
-int global_Time = 0;
-void Subtree_Size_and_In_Out_Time(int current_Node, vector<vector<int>>& adjacency_List, int parent, vector<int>& subtree_Size){
+void Number_edges_removed(int current_Node, vector<vector<int>>& adjacency_List, int parent, vector<int>& subtree_Size, int &num_egdes_removed, int x){ // O(n)
     subtree_Size[current_Node] = 1; // 1-based indexing.
 
-    global_Time++;
-    in_Time[current_Node] = global_Time;
-
-    for(int neighour : adjacency_List[current_Node]){
-        if(neighour != parent){
-            Subtree_Size_and_In_Out_Time(neighour, adjacency_List, current_Node, subtree_Size);
-            subtree_Size[current_Node] += subtree_Size[neighour];
+    for(int child : adjacency_List[current_Node]){
+        if(child != parent){
+            Number_edges_removed(child, adjacency_List, current_Node, subtree_Size, num_egdes_removed, x);
+            subtree_Size[current_Node] += subtree_Size[child];
         }
     }
-    global_Time++;
-    out_Time[current_Node] = global_Time;
-}
 
-bool is_Ancestor(int node_A, int node_B){
-    if((in_Time[node_A] <= in_Time[node_B]) && (out_Time[node_A] >= out_Time[node_B])){
-    // Here, ( <= & >= ) -> '=' is used because if 'x' is
-    //   direct child of 'y' i.e. node_A & node_B are same.
-        return true;
+    if(current_Node == 1){ // i.e. current_Node = root.
+        if(subtree_Size[current_Node] < x){
+            num_egdes_removed--;
+        }
     }
     else{
-        return false;
+        if(subtree_Size[current_Node] >= x){
+            num_egdes_removed++;
+            subtree_Size[current_Node] = 0;
+        }
     }
+}
+
+int binary_Search(int n, int k, vector<vector<int>>& adjacency_List, vector<int>& subtree_Size){ // O(log(n))
+    int left = 1, right = n;
+
+    int ans = 1;
+    while(left <= right){
+        int mid = (left + right)/ 2;
+
+        int root = 1;
+        int num_edges_removed = 0;
+        Number_edges_removed(root, adjacency_List, -1, subtree_Size, num_edges_removed, mid);
+
+        if(num_edges_removed >= k){
+            ans = mid;
+            left = (mid + 1);
+        }
+        else{
+            right = (mid - 1);
+        }
+    }
+
+    return ans;
 }
 
 signed main(){
@@ -75,18 +116,12 @@ signed main(){
         }
 
         // Solution
-        int left = 1, right = n;
-        int ans = 1;
-        while(left <= right){
-            int mid = (left + right)/ 2;
-
-
-        }
+        vector<int> subtree_Size(n+1);
+        int ans = binary_Search(n, k, Adjacency_List, subtree_Size);
         
         // O/P
+        cout << ans << endl;
 
-        // TC = O(n).
-        // SC = O(n).
-    }
-    
+        // TC = O(n * log(n)).
+    }    
 }

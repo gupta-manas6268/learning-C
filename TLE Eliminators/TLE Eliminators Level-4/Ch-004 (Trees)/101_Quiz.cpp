@@ -1,5 +1,6 @@
 // Correct.
-// This is Mentor's code.
+// This is Mentor's code, but I know the concept
+//  behind Problem.
 
 // C. Kuro and Walking Route
 // https://codeforces.com/contest/979/problem/C
