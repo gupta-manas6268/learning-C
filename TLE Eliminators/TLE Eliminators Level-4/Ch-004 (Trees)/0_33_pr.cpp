@@ -1,5 +1,5 @@
 // Correct.
-// See line-55 to 61.
+// This is My code. (See line-55 to 61.)
 
 // C. Valera and Elections
 // https://codeforces.com/problemset/problem/369/C
