@@ -1,5 +1,5 @@
 // Correct.
-// See line-55 to 58.
+// See line-55 to 61.
 
 // C. Valera and Elections
 // https://codeforces.com/problemset/problem/369/C
@@ -51,6 +51,9 @@ const int INF = LLONG_MAX >> 1;
 map<int,int> Problem_Roads;
 vector<int> current_Problems;
 vector<int> ans;
+
+// 'Problem_Roads' map is outside function, because inside of function
+//  it's values aren't changing.
 
 // Here, in 'DFS' function I make only 3-Parameters in function & all
 //     other Parameters I make Global-Variables, because it reduces SC,
