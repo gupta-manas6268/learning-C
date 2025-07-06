@@ -72,18 +72,21 @@ signed main(){
     }
 
     vector<int> ans(n+1);
+    // for(int i=1; i <= n; i++){
+    //     if(i == y){
+    //         ans[i] = (diameter + 1);
+    //     }
+    //     else{
+    //         ans[i] = diameter;
+    //     }
+    // }
+
     for(int i=1; i <= n; i++){
-        if(i == y){
+        if((level_2[i] == diameter) || (level_2[i] == 0)){
             ans[i] = (diameter + 1);
         }
         else{
             ans[i] = diameter;
-        }
-    }
-
-    for(int i=1; i <= n; i++){
-        if(level_2[i] == diameter){
-            ans[i] = (diameter + 1);
         }
     }
 
