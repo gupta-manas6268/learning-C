@@ -50,3 +50,19 @@
 // 
 //  Here, Edges goes from one set to another
 //  but Edges doesn't go into same set, in Bipartite-Graphs.
+
+
+
+
+
+
+
+
+
+
+
+
+// Slide-3
+
+// In Page-3
+//  {w, b} => {white, black}
