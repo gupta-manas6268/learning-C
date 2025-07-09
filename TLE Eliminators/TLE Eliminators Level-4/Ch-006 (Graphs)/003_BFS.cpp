@@ -20,7 +20,7 @@ void BFS(int node, vector<vector<int>>& adj_List_1, vector<int>& ans){ // O(n + 
         ans.push_back(u);
         for(auto &v : adj_List_1[u]){
             if(visited[v] == 0){
-                visited[v] == 1;
+                visited[v] = 1;
                 q.push(v);
             }
         }
