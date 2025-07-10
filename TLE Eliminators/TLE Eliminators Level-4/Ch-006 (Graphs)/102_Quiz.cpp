@@ -47,6 +47,13 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
+
+const int N = 2e5 + 5;
+vector<int> index(N);
+bool comparator(int a, int b){
+    return index[a] < index[b];
+}
+
 vector<int> BFS(int n, vector<vector<int>> adj_List_1){
     queue<int> q;
     q.push(1);
@@ -72,14 +79,6 @@ vector<int> BFS(int n, vector<vector<int>> adj_List_1){
 
     return ans;
 }
-
-
-const int N = 2e5 + 5;
-vector<int> index(N);
-bool comparator(int a, int b){
-    return index[a] < index[b];
-}
-
 
 signed main(){
     #ifndef ONLINE_JUDGE

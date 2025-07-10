@@ -92,6 +92,6 @@ signed main(){
         int max_Cycles = (count_Cycles + count_Branches);
         cout << min_Cycles << " " << max_Cycles << endl;
 
-        // TC = O(n * n)   => (TLE)
+        // TC = O(n)   => (TLE)
     }
 }
