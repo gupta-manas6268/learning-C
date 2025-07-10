@@ -70,7 +70,7 @@ signed main(){
         // count_Cycles   => No. of Connected components 
         //                  which are Cycle.
         for(int i = 1; i <= n; i++){
-            if(Visited[i]){
+            if(Visited[i] == 1){
                 continue;
             }
 

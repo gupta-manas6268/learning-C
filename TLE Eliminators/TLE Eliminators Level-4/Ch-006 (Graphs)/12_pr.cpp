@@ -14,34 +14,47 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
+
+int Length = -1;
 string ans;
 bool is_Ans = false;
-void Path(int n, int m, vector<string>& grid, vector<vector<int>>& Visited, pair<int,int>& Coordinates, string temp_ans){
+void Path(int n, int m, vector<string>& grid, vector<vector<int>>& Visited, pair<int,int>& Coordinates, string &temp_ans){
+    cout << temp_ans << " ";
     Visited[Coordinates.first][Coordinates.second] = 1; // Visited
+
     if(grid[Coordinates.first][Coordinates.second] == 'B'){
-        ans = temp_ans;
+        Visited[Coordinates.first][Coordinates.second] = 0; // Not-Visited
+        if(Length == -1){
+            Length = temp_ans.length();
+            ans = temp_ans;
+        }
+        else{
+            if(temp_ans.length() < Length){
+                Length = temp_ans.length();
+                ans = temp_ans;
+            }
+        }
         is_Ans = true;
     }
 
-    if(is_Ans != true){
-        int dx[] = {-1, 1, 0, 0};
-        int dy[] = {0, 0, -1, 1};
-        char step[] = {'U', 'D', 'L', 'R'};
+    int dx[] = {-1, 1, 0, 0};
+    int dy[] = {0, 0, -1, 1};
+    char step[] = {'U', 'D', 'L', 'R'};
 
-        for(int i=0; i < 4; i++){
-            if(is_Ans == true){ break;}
+    for(int i=0; i < 4; i++){
+        if(is_Ans == true){ break;}
 
-            pair<int,int> New_Coor = {Coordinates.first + dx[i], Coordinates.second + dy[i]};
-            if((Coordinates.first < n) && (Coordinates.second < m)){
-                if(Visited[New_Coor.first][New_Coor.second] == 0){
-                    if((grid[New_Coor.first][New_Coor.second] == '.') || ((grid[New_Coor.first][New_Coor.second] == 'B'))){
-                        string Temp_ans = (temp_ans + step[i]);
-                        Path(n, m, grid, Visited, New_Coor, Temp_ans);
-                    }
+        pair<int,int> New_Coor = {Coordinates.first + dx[i], Coordinates.second + dy[i]};
+        if((Coordinates.first < n) && (Coordinates.second < m)){
+            if(Visited[New_Coor.first][New_Coor.second] == 0){
+                if((grid[New_Coor.first][New_Coor.second] == '.') || ((grid[New_Coor.first][New_Coor.second] == 'B'))){
+                    string Temp_ans = (temp_ans + step[i]);
+                    Path(n, m, grid, Visited, New_Coor, Temp_ans);
                 }
             }
         }
     }
+    cout << temp_ans << " ";
 }
 
 signed main(){
@@ -69,18 +82,17 @@ signed main(){
     // Solution
     vector<vector<int>> Visited;
     for(int i=0; i < n; i++){
-        vector<int> temp(m);
-        for(int j=0; j < m; j++){
-            temp[j] = 0;
-        }
+        vector<int> temp(m, 0);
         Visited.push_back(temp);
     }
-    Path(n, m, grid, Visited, A, "");
+    string temp_ans = "";
+    Path(n, m, grid, Visited, A, temp_ans);
 
     // O/P
+    cout << endl;
     if(is_Ans == true){
         cout << "YES" << endl;
-        cout << ans.length() << endl;
+        cout << Length << endl;
         cout << ans << endl;
     }
     else{ cout << "NO" << endl;}

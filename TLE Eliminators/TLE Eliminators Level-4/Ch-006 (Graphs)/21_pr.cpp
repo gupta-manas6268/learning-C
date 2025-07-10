@@ -1,7 +1,40 @@
-// 
+// Correct. 
 
 // ADACYCLE - Ada and Cycle
 // https://www.spoj.com/problems/ADACYCLE/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -23,21 +56,21 @@ void BFS(int node, vector<vector<int>>& adj_List_1){ // O(n + m)
     int length = 0;
     queue<int> temp_q;
     while(!q.empty()){
-        // cout << "a" << endl;
         int u = q.front();
         q.pop();
         
+        bool Break = false;
         for(auto &v : adj_List_1[u]){
             if(visited[v] == 0){
                 visited[v] = 1;
                 temp_q.push(v);
-                cout << v << " ";
             }
             if(v == node){
-                Ans = (length + 1); break;
-                cout << v << " " << endl;
+                Ans = (length + 1); 
+                Break = true; break;
             }
         }
+        if(Break == true){ break;}
         
         if(q.empty() == true){
             length++;
@@ -47,9 +80,6 @@ void BFS(int node, vector<vector<int>>& adj_List_1){ // O(n + m)
             }
         }
     }
-    // TC = O(n + m)
-    // SC = O(n)
-    //      (n => no. of nodes, m => no. of edges (max.(m) = n*(n-1) ))
 }
 
 signed main(){
@@ -87,7 +117,6 @@ signed main(){
         ans[i] = -1;
         BFS(i, adj_List_1);
         ans[i] = Ans;
-        cout << ans[i] << endl;
         Ans = -1;
     }
 
