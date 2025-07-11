@@ -30,5 +30,14 @@ signed main(){
     }
 
     // Solution
+    vector<set<int>> Letters(n+1);
+    for(int i=1; i <= n; i++){
+        int Size = s[i].length();
+        for(int j=0; j < Size; j++){
+            int temp = (s[i][j] - 'a') + 1;
+            Letters[i].insert(temp);
+        }
+    }
+
     
 }
