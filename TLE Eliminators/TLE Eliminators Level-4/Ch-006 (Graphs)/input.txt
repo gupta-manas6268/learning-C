@@ -1,5 +1,4 @@
-4 4
-YYYR
-BYBY
-BBBY
-BBBY
+3
+ab
+bc
+abc
