@@ -1,9 +1,8 @@
-// Wrong (Memory Limit Exceeded.)
+// This is Mentor's code.
+// Correct.
 
 // N. Sum of a Matrix
 // https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/N
-
-
 
 
 
@@ -48,22 +47,17 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-void sum(vector<vector<int>> A, vector<vector<int>> B, int row, int col, int i, int j){
-    int ans = A[i][j] + B[i][j];
-    cout << ans << " ";
-    
-    if(j == (col - 1)){
-        if(i == (row - 1)){
-            return;
-        }
-        else{
-            cout << endl;
-            sum(A, B, row, col, i+1, 0);
-        }
+void sum(int row, int col, int maxRow, int maxCol, vector<vector<int>> &a, vector<vector<int>> &b){
+    if(row >= maxRow){
+        return;
     }
-    else{
-        sum(A, B, row, col, i, j+1);
+    if(col == (maxCol-1)){
+        cout << (a[row][col] + b[row][col]) << endl;
+        sum(row+1, 0, maxRow, maxCol, a, b);
+        return;
     }
+    cout << (a[row][col] + b[row][col]) << " ";
+    sum(row, col+1, maxRow, maxCol, a, b);
 }
 
 signed main(){
@@ -74,25 +68,18 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
-    int R, C; cin >> R >> C;
-    vector<vector<int>> A, B;
-    for(int i=0; i<R; i++){
-        vector<int> temp;
-        for(int j=0; j<C; j++){
-            int Temp; cin >> Temp;
-            temp.push_back(Temp);
+    int r, c; cin >> r >> c;
+    vector<vector<int>> a(r, vector<int>(c)), b(r, vector<int>(c));
+    for(int i=0; i<r; i++){
+        for(int j=0; j<c; j++){
+            cin >> a[i][j];
         }
-        A.push_back(temp);
     }
-    for(int i=0; i<R; i++){
-        vector<int> temp;
-        for(int j=0; j<C; j++){
-            int Temp; cin >> Temp;
-            temp.push_back(Temp);
+    for(int i=0; i<r; i++){
+        for(int j=0; j<c; j++){
+            cin >> b[i][j];
         }
-        B.push_back(temp);
     }
 
-    sum(A, B, R, C, 0, 0);
-
+    sum(0, 0, r, c, a, b);
 }

@@ -1,7 +1,40 @@
-// 
+// Correct.
+// (This is My code with the Claude-AI.)
 
 // 70. Climbing Stairs
 // https://leetcode.com/problems/climbing-stairs/description/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -19,56 +52,25 @@ int main(){
 }
 
 
-// class Solution {
-// public:
-//     int ans = 0;
-//     void func(int n){
-//         if(n == 0){ ans++;}
-//         else if(n == 1){ func(n-1);}
-//         else{
-//             func(n-1);
-//             func(n-2);
-//         }
-//     }
-//     int climbStairs(int n) {
-//         func(n);
-//         return ans;
-//     }
-// };
-
-
 class Solution {
 public:
-    // long long int fact(long long int n){
-    //     // return n * fact(n-1);
-    //     int ans = 1;
-    //     for(int i=1; i<=n; i++){
-    //         ans *= i;
-    //     }
-    //     return ans;
-    // }
-    int nCr(int n, int r){
-        // long long int Ans = (fact(n)/ (fact(n-r) * fact(r)));
-        int maxi = max(r, n-r);
-        int mini = min(r, n-r);
-        int Ans = 1;
-
-        int j = 1;
-        for(int i = (maxi+1); i <= n; i++){
-            Ans *= (i/j);
-            j++;
+    void solve(int i, int n, vector<int>& arr){
+        if(arr[i] == 0){ 
+            arr[i] = (arr[i+1] + arr[i+2]);
         }
-        return Ans;
+        if(i == 0){ return;}
+        solve(i-1, n, arr);
     }
     int climbStairs(int n) {
-        int ans = 0;
-        for(int i=n; i>0; i++){
-            if(i < (n-i)){ break;}
-            if(i == n){ ans++;}
-            else{
-                ans += nCr(i, (n-i));
-            }
+        int ans;
+        vector<int> arr(n, 0);
+        if(n == 1){ ans = 1;}
+        else{
+            arr[n-1] = 1; arr[n-2] = 2;
+            solve(n-1, n, arr);
+            ans = arr[0];
         }
+
         return ans;
     }
 };
