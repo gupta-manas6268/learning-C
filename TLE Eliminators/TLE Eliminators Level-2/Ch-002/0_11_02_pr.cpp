@@ -1,4 +1,5 @@
-// Wrong.
+// Correct.
+// (This is My code.)
 
 // 39. Combination Sum
 // https://leetcode.com/problems/combination-sum/description/
@@ -51,33 +52,27 @@ int main(){
 }
 
 
+
 class Solution {
 public:
     vector<vector<int>> ans;
-    // vector<int> vec;
-    int sum = 0;
-    bool Return = false;
-
-    void solve(int i, vector<int> vec, vector<int>& candidates, int target){
-        vec.push_back(candidates[i]);
-        sum += candidates[i];
-        if(sum == target){
-            sum -= candidates[i];
-            ans.push_back(vec);
+    void solve(vector<int>& candidates, int target, int index, vector<int>& current){
+        if(target == 0){ 
+            ans.push_back(current); 
             return;
         }
-        else if(sum > target){
-            sum -= candidates[i];
-            return;
+        for(int i = index; i < candidates.size(); i++){
+            if(target >= candidates[i]){
+                current.push_back(candidates[i]);
+                solve(candidates, target-candidates[i], i, current);
+                current.pop_back();
+            }
         }
-        solve(i, vec, candidates, target);
-        solve(i+1, vec, candidates, target);
     }
-    
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        // vector<int> vec;
-        solve(0, {}, candidates, target);
-
+        sort(candidates.begin(), candidates.end());
+        vector<int> current;
+        solve(candidates, target, 0, current);
         return ans;
     }
 };

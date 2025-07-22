@@ -1,9 +1,10 @@
-// Run this code in Leetcode again.
-
-// Wrong.
+// Correct.
+// This is Mentor's code.
 
 // 40. Combination Sum II
 // https://leetcode.com/problems/combination-sum-ii/description/
+
+
 
 
 
@@ -54,36 +55,36 @@ int main(){
 
 class Solution {
 public:
-    // int sum = 
-    vector<vector<int>> ans;
+    vector<vector<int>> combinations;
+    vector<int> current_Subset;
 
-    void solve(int i, vector<int> current, int sum, vector<int> candidates, int target){
-        if((i > 0) && (candidates[i] == candidates[i-1])){
-            solve(i+1, current, sum, candidates, target);
-        }
-
-        int m = candidates.size();
-        if(i == m){ return;}
-        if(sum == target){
-            sort(current.begin(), current.end());
-            sort(ans.begin(), ans.end());
-
-            ans.push_back(current);            
-        }
-        else if(sum > target){
+    void backtrack(int index, int target, vector<int>& freq){
+        if(target == 0){
+            combinations.push_back(current_Subset);
             return;
         }
 
-        solve(i+1, current, sum, candidates, target);
-        current.push_back(candidates[i]);
-        sum += candidates[i];
-        solve(i+1, current, sum, candidates, target);
+        if((index == freq.size()) || (target < 0)){
+            return;
+        }
+
+        // Not Choosing the Element.
+        backtrack(index + 1, target, freq);
+
+        // Choosing the Element.
+        if(freq[index] > 0){
+            freq[index]--;
+            current_Subset.push_back(index);
+            backtrack(index, target - index, freq);
+            current_Subset.pop_back();
+            freq[index]++;
+        }
     }
 
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
-        sort(candidates.begin(), candidates.end());
-        solve(0, {}, 0, candidates, target);
-
-        return ans;
+        vector<int> freq(51, 0); // Size = 51, and initialize value from 0.
+        for(auto &i : candidates){ freq[i]++;}
+        backtrack(1, target, freq);
+        return combinations;
     }
 };

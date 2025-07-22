@@ -1,8 +1,8 @@
-// Wrong. (Runtime Error.)
+// Correct.
+// This is Mentor's code.
 
 // 17. Letter Combinations of a Phone Number
 // https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/
-
 
 
 
@@ -55,57 +55,28 @@ int main(){
 
 class Solution {
 public:
+    vector<string> number_Pad{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
     vector<string> ans;
-    string current;
 
-    void backtrack(int index, string digits){
-        if(index == digits[digits.size() - 1]){
+    void backtrack(int index, string &digits, string current){
+        if(index == digits.size()){
             ans.push_back(current);
+            return;
         }
 
-        int val = (int)(digits[index] - 48);
-        char a = (digits[index] + 47 + (3 * (val - 2)));
-        if(val == 8){ a += 1;}
+        // '0', '1', '2', ... '9'
+        // '9' - '0' = 9
+        // '2' - '0' = 2
 
-        if((val <= 6) || (val == 8)){
-            int n = current.length();
-
-            current += a;
-            backtrack(index + 1, digits);
-            current.erase(current.begin() + n-1);
-
-            current += (a + 1);
-            backtrack(index + 1, digits);
-            current.erase(current.begin() + n-1);
-
-            current += (a + 2);
-            backtrack(index + 1, digits);
-            current.erase(current.begin() + n-1);
-        }
-        else if((val == 7) || (val == 9)){
-            int n = current.length();
-
-            current += a;
-            backtrack(index + 1, digits);
-            current.erase(current.begin() + n-1);
-
-            current += (a + 1);
-            backtrack(index + 1, digits);
-            current.erase(current.begin() + n-1);
-
-            current += (a + 2);
-            backtrack(index + 1, digits);
-            current.erase(current.begin() + n-1);
-
-            current += (a + 3);
-            backtrack(index + 1, digits);
-            current.erase(current.begin() + n-1);
+        for(auto &letter : number_Pad[digits[index] - '0']){
+            backtrack(index + 1, digits, current + letter);
         }
     }
 
     vector<string> letterCombinations(string digits) {
-        backtrack(0, digits);
-
+        if(digits.empty()){ return {};}
+        backtrack(0, digits, "");
+        
         return ans;
     }
 };
