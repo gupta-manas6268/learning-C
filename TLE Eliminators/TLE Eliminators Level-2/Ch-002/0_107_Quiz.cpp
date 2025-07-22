@@ -52,24 +52,23 @@ int main(){
 }
 
 
+
 class Solution {
 public:
     vector<vector<int>> ans;
-    vector<int> vec;
-
-    void solve(int i, int n, int k) {
-        if (vec.size() == k) {
-            ans.push_back(vec);
-            return;
+    void solve(int maxi, int n, int k, vector<int>& current){
+        if(current.size() == k){
+            ans.push_back(current); return;
         }
-        for (int j = i; j <= n; j++) {
-            vec.push_back(j);
-            solve(j+1, n, k);
-            vec.pop_back();
+        for(int i = maxi + 1; i <= n; i++){
+            current.push_back(i);
+            solve(i, n, k, current);
+            current.pop_back();
         }
     }
     vector<vector<int>> combine(int n, int k) {
-        solve(1, n, k);
+        vector<int> current;
+        solve(0, n, k, current);
         return ans;
     }
 };
