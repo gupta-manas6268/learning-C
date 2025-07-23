@@ -1,7 +1,9 @@
-// Wrong.
+// Correct.
+// This is Mentor's code.
 
 // 51. N-Queens
 // https://leetcode.com/problems/n-queens/description/
+
 
 
 
@@ -53,40 +55,53 @@ int main(){
 
 class Solution {
 public:
-    vector<vector<string>> ans;
-    vector<int> Queens;
-    vector<string> temp;
+    vector<vector<string>> combinations;
+    vector<string> current;
 
-    bool isValid(int i, int j, vector<vector<string>> current, int n){
-        
-    }
-    
-    bool No_Position(int i, vector<int> Queens, int n){
-        
-    }
-
-    void backtrack(int i, int queens, int n){
-
-        for(int j=0; j<n; j++){
-            int index = 0;
-
-            for(int k=0; k<j; k++){
-                temp.push_back(".");
-                index++;
+    bool freeColumn(int col, int n){
+        for(int i=0; i<n; i++){
+            if(current[i][col] == 'Q'){
+                return false;
             }
-            temp.push_back("Q");
-            Queens.push_back(index);
+        }
 
-            for(int k = (j+1); k<n; k++){
-                temp.push_back(".");
-                index++;
+        return true;
+    }
+
+    bool freeDiag(int row, int col, int n){
+        for(int i = row, j = col; i >= 0 && j >= 0; i--, j--){
+            if(current[i][j] == 'Q'){
+                return false;
             }
+        }
 
-            isValid(i, j, ans, n);
+        for(int i = row, j = col; i >= 0 && j < n; i--, j++){
+            if(current[i][j] == 'Q'){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    void backtrack(int index, int n){
+        if(index == n){
+            combinations.push_back(current);
+            return;
+        }
+
+        for(int i=0; i<n; i++){
+            if((freeColumn(i, n) == true) && (freeDiag(index, i, n) == true)){
+                current[index][i] = 'Q';
+                backtrack(index + 1, n);
+                current[index][i] = '.';
+            }
         }
     }
 
     vector<vector<string>> solveNQueens(int n) {
-        backtrack(0, 0, 0, n);
+        current.assign(n, string(n, '.'));
+        backtrack(0, n);
+        return combinations;
     }
 };

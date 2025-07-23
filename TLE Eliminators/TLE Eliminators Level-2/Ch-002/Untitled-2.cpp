@@ -15,14 +15,7 @@ int main(){
 
 class Solution {
 public:
-    void solve(string &s, vector<int> v, int index){
-        int n = s.length();
-        for(int i=0; i < n/2; i++){
-            
-        }
-    }
-    bool isSumString(string &s){
-        reverse(s.begin(), s.end());
+    vector<int> diffWaysToCompute(string expression) {
         
     }
 };
