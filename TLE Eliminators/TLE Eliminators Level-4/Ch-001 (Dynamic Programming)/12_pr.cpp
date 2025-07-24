@@ -22,6 +22,7 @@ void solve(vector<int>& candidates, int target, int index){
                 solve(candidates, target-candidates[i], i);
                 Target[target] += Target[target-candidates[i]];
             }
+            Target[target] %= MOD;
         }
     }
 }

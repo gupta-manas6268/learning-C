@@ -161,3 +161,8 @@
 //                 from (i to 'n-1') index in Red s.t. k-characters
 //                 from (i'th to 'i + k - 1'th index are already colored.
 
+
+
+// In Slide-3, Page-20
+//     if k > n-i, then dp[i][k] = inf
+//                                 (↑)(infinity)
