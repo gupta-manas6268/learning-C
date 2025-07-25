@@ -1,7 +1,40 @@
-// 
+// Correct.
 
 // Grid Paths I
 // https://cses.fi/problemset/task/1638
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -14,7 +47,7 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-vector<vector<int>> dp(1010, vector<int> (1010, 0));
+vector<vector<int>> dp(1010, vector<int> (1010, -1));
 int num_Paths(int i, int j, vector<string>& grid){
     int n = grid.size();
 
@@ -24,7 +57,7 @@ int num_Paths(int i, int j, vector<string>& grid){
     if(grid[i][j] == '*'){
         return 0;
     }
-    if(dp[i][j] != 0){
+    if(dp[i][j] != -1){
         return dp[i][j];
     }
     if((i == (n-1)) && (j == (n-1))){

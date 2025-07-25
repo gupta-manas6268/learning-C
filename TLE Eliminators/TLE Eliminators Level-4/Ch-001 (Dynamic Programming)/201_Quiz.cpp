@@ -73,20 +73,20 @@ signed main(){
 
         for(int i = n-1; i >= 0; i--){
             // Start a block with the i'th element being the 1st element of the block.
-            int pick = 0;
+            int pick_i_index = 0;
             if((i + a[i]) <= (n-1)){
-                pick = 1 + a[i];
+                pick_i_index = 1 + a[i];
                 if((i + 1 + a[i]) <= (n-1)){
-                    pick += dp[i + 1 + a[i]];
+                    pick_i_index += dp[i + 1 + a[i]];
                 }
             }
 
             // skip
-            int skip = 0;
+            int skip_i_index = 0;
             if((i + 1) <= (n - 1)){
-                skip += dp[i + 1];
+                skip_i_index += dp[i + 1];
             }
-            dp[i] = max(skip, pick);
+            dp[i] = max(skip_i_index, pick_i_index);
         }
         
         // O/P

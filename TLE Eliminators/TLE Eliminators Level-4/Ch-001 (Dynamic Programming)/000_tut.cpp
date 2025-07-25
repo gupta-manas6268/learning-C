@@ -19,7 +19,7 @@
 //             keys
 // 
 //  Here, DV => Default Values. (To check whether we solved that Sub-Problem before or not.)
-//   DV(Default Values) should be any value outside the range of the function.
+//   DV(Default Values) should always be any value outside the range of the function.
 
 // In Slide-1, Page-15
 //  output -> {-inf to inf}
