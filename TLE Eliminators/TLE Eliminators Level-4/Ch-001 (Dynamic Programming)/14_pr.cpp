@@ -1,13 +1,13 @@
 // Correct.
-// (See Line-64 to 68.)
-// 
-// (I solved it with the help of Claude-AI,
-//   it gives me hint about using Iterative-DP,
-//   as my initial code in Recursive-DP, which 
-//   gives me TLE & is harder to code.)
 
-// Coin Combinations I
-// https://cses.fi/problemset/task/1635/
+// Minimizing Coins
+// https://cses.fi/problemset/task/1634
+
+
+
+
+
+
 
 
 
@@ -62,18 +62,19 @@ signed main(){
 
     // Solution
     vector<int> dp(x+10, -1);
-    // int dp[x+10] = {-1};
-    //  (Always use vectors to store dp-values, because
-    //    arrays can give wrong O/P for Default-Values,
-    //    which will give me overall wrong O/P.)
-    dp[0] = 1;
+    dp[0] = 0;
     // Iterative DP
     for(int i=1; i <= x; i++){
-        dp[i] = 0;
         for(int j=0; j < n; j++){
             if((i - c[j]) >= 0){
-                dp[i] += dp[i - c[j]];
-                dp[i] %= MOD;
+                if(dp[i - c[j]] != -1){
+                    if(dp[i] == -1){
+                        dp[i] = (dp[i - c[j]] + 1);
+                    }
+                    else{
+                        dp[i] = min(dp[i], dp[i - c[j]] + 1);
+                    }
+                }
             }
         }
     }
@@ -81,5 +82,4 @@ signed main(){
     // O/P
     int ans = dp[x];
     cout << ans << endl;
-    // TC = O(n * x)
 }
