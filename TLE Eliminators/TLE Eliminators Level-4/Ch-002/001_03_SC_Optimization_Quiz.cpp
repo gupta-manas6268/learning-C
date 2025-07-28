@@ -1,7 +1,40 @@
-// 
+// Correct.
 
 // Book Shop
 // https://cses.fi/problemset/task/1158
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -24,35 +57,39 @@ signed main(){
 
     // I/P
     int n, x; cin >> n >> x;
-    vector<vector<int>> dp(n + 1, vector<int>(x + 1, 0));
-    // dp[i][b] = max. no. of pages we can read from i'th book to n'th
-    //             book s.t. allowed budget is 'b'.
-
-    // dp[0][x] = max. pages we can read from whole array s.t. budget i
-    //             is 'X'.
-
-    // Base Case:  dp[n][anything] = 0, (i.e. we have exhausted the array.)
-
     vector<int> Price(n), Pages(n);
     for(int i=0; i < n; i++){ cin >> Price[i];}
     for(int i=0; i < n; i++){ cin >> Pages[i];}
 
     // Solution
+    vector<int> current(x + 1), next(x + 1, 0);
+    // When filling (n-1)'th row, I need answers
+    //  of n'th row. So, make only 2 => 1-D with SC = O(x),
+    //  instead of 2-D array with SC = O(n * x).
+
     for(int i = (n-1); i >= 0; i--){
         for(int b = 0; b <= x; b++){
+            // With space optimization
             int pick_i_index = 0, skip_i_index = 0;
             if(b >= Price[i]){
-                pick_i_index = (Pages[i] + dp[i + 1][b - Price[i]]);
+                pick_i_index = (Pages[i] + next[b - Price[i]]);
             }
-            skip_i_index = dp[i + 1][b];
-            dp[i][b] = max(pick_i_index, skip_i_index);
+            skip_i_index = next[b];
+            current[b] = max(pick_i_index, skip_i_index);
         }
+        next = current;
     }
-    // dp[i][j] = min. price we need to buy j-pages starting from 'i' to 'n-1'.
 
     // O/P
-    cout << dp[0][x] << endl;       // (TT => Transition Time)
-    // TC = (no. of states) * (TT per state)
-    // TC = O(n * x) * O(1) 
+    cout << current[x] << endl;       
+    // TC => (Remains same.)
     // TC = O(n * x) => O(1e8) => (TLE)
+
+    // SC = O(x) => O(1e5) => (Correct.)
+
+    // Codeforces, Codechef -> 256 MB, 512 MB (Space Constraint)
+    //          (i.e. can't store more than 10^7 integers.)
+    //  So, Space Optimization is useful here.
+    // 
+    // CSES, Google competitions -> 1GB
 }
