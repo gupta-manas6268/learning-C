@@ -1,3 +1,5 @@
+// (Slide-2, Page-6)
+
 // Quiz-1: Given an array of N (input) 3s, 5s and 
 //          ?s. Evey index with contains a 3 will
 //          have a score of X (given in input) and 

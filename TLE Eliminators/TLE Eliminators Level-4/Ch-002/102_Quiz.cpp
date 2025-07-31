@@ -1,3 +1,5 @@
+// (Slide-2, Page-21)
+
 // Quiz-2: Given a positive integer N <= 1e6, at every 
 //       step the following 3 things can happen to N 
 //       with equal probability.
