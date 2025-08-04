@@ -39,6 +39,7 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
+// Solution
 vector<int> sliding_window_minimum(vector<int> &a, int k){
     int n = a.size();
     vector<int> ans;
@@ -75,6 +76,7 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n, k; cin >> n >> k;
     vector<int> a;
     for(int i=0; i<n; i++){
@@ -82,6 +84,7 @@ signed main(){
         a.push_back(temp);
     }
 
+    // O/P
     vector<int> ans = sliding_window_minimum(a, k);
     for(int i=0; i < ans.size(); i++){
         cout << ans[i] << " ";

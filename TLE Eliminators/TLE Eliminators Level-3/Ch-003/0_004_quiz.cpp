@@ -53,6 +53,7 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n, k; cin >> n >> k;
     vector<int> a;
     for(int i=0; i<n; i++){
@@ -60,6 +61,7 @@ signed main(){
         a.push_back(temp);
     }
 
+    // Solution
     map<int,int> mp;
     int sum = 0;
     int ans = INT_MIN;
@@ -79,5 +81,6 @@ signed main(){
         if(mp[a[i-k]] == 0){ mp.erase(a[i-k]);}
     }
 
+    // O/P
     cout << ans << endl;
 }
