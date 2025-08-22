@@ -57,6 +57,7 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n, t; cin >> n >> t;
     vector<int> k;
     for(int i=0; i<n; i++){
@@ -64,6 +65,7 @@ signed main(){
         k.push_back(temp);
     }
 
+    // Solution
     int right = 1e18;
     int left = 1;
     int ans;
@@ -88,5 +90,6 @@ signed main(){
         }
     }
 
+    // O/P
     cout << ans << endl;
 }

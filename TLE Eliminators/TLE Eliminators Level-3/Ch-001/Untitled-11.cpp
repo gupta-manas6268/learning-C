@@ -16,34 +16,24 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     // I/P
-    int n, k; cin >> n >> k;
-    vector<int> x(n);
-    int sum = 0;
-    for(int i=0; i < n; i++){ 
-        cin >> x[i];
-        sum += x[i];
-    }
+    int n, t; cin >> n >> t;
+    vector<int> k(n);
+    for(int i=0; i < n; i++){ cin >> k[i];}
 
     // Solution
-    int left = *max_element(x.begin(), x.end()), right = sum;
+    int left = 1, right = 1e18;
     int ans;
     while(left <= right){
         int mid = (left + right) / 2;
 
-        int Current_Sum = 0;
-        int Partitions = 0;
+        int temp = 0;
         for(int i=0; i < n; i++){
-            Current_Sum += x[i];
-            if(Current_Sum > mid){
-                Partitions++;
-                Current_Sum = x[i];
-            }
-            if(i == (n-1)){
-                Partitions++;
-            }
+            temp += (mid / k[i]);
+
+            if(temp >= t){ break;}
         }
 
-        if(Partitions <= k){
+        if(temp >= t){
             ans = mid;
             right = mid - 1;
         }
