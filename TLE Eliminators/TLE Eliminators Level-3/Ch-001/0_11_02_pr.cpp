@@ -57,6 +57,7 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n, k; cin >> n >> k;
     vector<int> x; 
     vector<int> prefix_sum;
@@ -69,6 +70,7 @@ signed main(){
         prefix_sum.push_back(Sum);
     }
 
+    // Solution
     int left = *max_element(x.begin(), x.end());
     int right = Sum;
 
@@ -91,6 +93,7 @@ signed main(){
         }
     }
 
+    // O/P
     int ans = (left + right)/ 2;
     cout << ans << endl;
 }

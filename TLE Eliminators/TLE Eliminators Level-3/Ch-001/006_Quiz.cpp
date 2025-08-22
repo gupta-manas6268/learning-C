@@ -80,12 +80,14 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n; cin >> n;
     vector<pair<double,double>> people(n);
     for(int i=0; i<n; i++){
         cin >> people[i].first >> people[i].second;
     }
 
+    // Solution
     long double error = 1e-7;
     long double left = 0, right = 1e9;
     // Search Space = (10 ^ 16).
@@ -104,5 +106,6 @@ signed main(){
         }
     }
 
+    // O/P
     cout << setprecision(7) << fixed << ans << endl;
 }

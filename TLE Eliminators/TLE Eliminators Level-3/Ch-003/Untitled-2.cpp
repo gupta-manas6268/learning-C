@@ -15,34 +15,26 @@ int main(){
 
 class Solution {
 public:
-    bool checkInclusion(string s1, string s2) {
-        int n = s2.length(), k = s1.length();
-        bool ans = false;
-        
-        if(n >= k){
-            map<char,int> mp_1, mp_2;
-            for(int i=0; i < k; i++){
-                mp_1[s1[i]]++;
-            }
+    int minKBitFlips(vector<int>& nums, int k) {
+        int n = nums.size();
 
-            for(int i=0; i < k; i++){
-                mp_2[s2[i]]++;
-            }
-
-            for(int i=k; i <= n; i++){
-                if(mp_1 == mp_2){
-                    ans = true; break;
+        int ans = 0;
+        bool Ans = true;
+        for(int i=0; i <= (n-k); i++){
+            if(nums[i] == 0){
+                for(int j = i; j <= (i+k-1); j++){
+                    nums[j] = (nums[j] ^ 1); // Flip-bits.
                 }
-                if(i < n){
-                    mp_2[s2[i]]++; mp_2[s2[i-k]]--;
-                    if(mp_2[s2[i-k]] == 0){
-                        mp_2.erase(s2[i-k]);
-                    }
-                }
+                ans++;
             }
-
         }
-        
+        for(int i = (n-k+1); i < n; i++){
+            if(nums[i] == 0){ Ans = false; break;}
+        }
+
+        if(Ans == false){ ans = -1;}
+
         return ans;
+        // TC = O(n * k).
     }
 };

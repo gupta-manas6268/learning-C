@@ -59,6 +59,7 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n, k; cin >> n >> k;
     vector<int> a; 
     int sum = 0;
@@ -68,6 +69,7 @@ signed main(){
         a.push_back(temp);
     }
 
+    // Solution
     int left = *max_element(a.begin(), a.end()), right = sum;
     int ans;
     while(left <= right){
@@ -96,5 +98,6 @@ signed main(){
         }
     }
 
+    // O/P
     cout << ans << endl;
 }
