@@ -1,4 +1,5 @@
-// Wrong.
+// Correct.
+// (This is My code in 2nd Revision time.)
 
 // 878. Nth Magical Number
 // https://leetcode.com/problems/nth-magical-number/description/
@@ -55,37 +56,32 @@ int main(){
 
 class Solution {
 public:
-    long long power(long long base, long long exp){
-        long long result = 1;
+    int nthMagicalNumber(int n, int a, int b) {
+        long long  mini = min(a, b), maxi = max(a, b);
+        long long A = (long long)(mini), B = (long long)(maxi);
+        long long  LCM = (A * B) / (__gcd(A, B));
 
-        while(exp > 0){
-            if((exp % 2) == 1){
-                result *= base;
+        long long  left = 1, right = (B * n);
+        long long ans;
+        while(left <= right){
+            long long mid = (left + right) / 2;
 
-                base *= base;
-                exp /= 2;
+            long long temp = 0;
+            temp += (mid / A);
+            temp += (mid / B);
+            temp -= (mid / LCM);
+
+            if(temp >= n){
+                ans = mid;
+                right = mid - 1;
             }
             else{
-                base *= base;
-                exp /= 2;
+                left = mid + 1;
             }
         }
 
-        return result;
-    }
+        int Final_Ans = (int)(ans % (long long)(1e9+7));
 
-    int nthMagicalNumber(int n, int a, int b) {
-        set<long long> s;
-        for(int i=1; i<=n; i++){
-            long long mod = (power(10,9)+7);
-            s.insert(((a%mod)*(i%mod)) % mod);
-            s.insert(((b%mod)*(i%mod)) % mod);
-        }
-
-        auto it = (s.begin());
-        advance(it, n-1);
-        long long ans = *it;
-
-        return ans;
+        return Final_Ans;
     }
 };
