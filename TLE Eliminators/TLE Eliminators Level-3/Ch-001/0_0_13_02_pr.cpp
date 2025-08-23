@@ -56,8 +56,10 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n; cin >> n;
     
+    // Solution
     int left = 1, right = (n*n);
     int ans;
     while(left <= right){
@@ -79,5 +81,6 @@ signed main(){
         }
     }
 
+    // O/P
     cout << ans << endl;
 }
