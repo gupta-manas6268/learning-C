@@ -56,6 +56,7 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n, m; cin >> n >> m;
     vector<int> a, b;
     for(int i=0; i<n; i++){
@@ -69,6 +70,7 @@ signed main(){
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
 
+    // Solution
     vector<int> r;
     for(int i=0; i<n; i++){
         int index2 = upper_bound(b.begin(), b.end(), a[i])-b.begin();
@@ -91,6 +93,7 @@ signed main(){
         }
     }
 
+    // O/P
     int ans = *max_element(r.begin(), r.end());
     cout << ans << endl;
 }

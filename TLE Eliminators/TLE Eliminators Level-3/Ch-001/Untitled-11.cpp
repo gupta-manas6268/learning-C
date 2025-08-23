@@ -16,32 +16,33 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     // I/P
-    int n, t; cin >> n >> t;
-    vector<int> k(n);
-    for(int i=0; i < n; i++){ cin >> k[i];}
+    int n, m; cin >> n >> m;
+    vector<int> a(n), b(m);
+    for(int i=0; i < n; i++){ cin >> a[i];}
+    for(int i=0; i < m; i++){ cin >> b[i];}
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
 
     // Solution
-    int left = 1, right = 1e18;
-    int ans;
-    while(left <= right){
-        int mid = (left + right) / 2;
-
-        int temp = 0;
-        for(int i=0; i < n; i++){
-            temp += (mid / k[i]);
-
-            if(temp >= t){ break;}
-        }
-
-        if(temp >= t){
-            ans = mid;
-            right = mid - 1;
+    int ans = 0;
+    for(int i=0; i < n; i++){
+        int index = lower_bound(b.begin(), b.end(), a[i]) - b.begin();
+        int temp = -1;
+        if((index >= 0) && (index < m)){
+            if(index == 0){
+                temp = abs(a[i]-b[index]);
+            }
+            else{
+                temp = min(abs(a[i]-b[index]), abs(a[i]-b[index-1]));
+            }
         }
         else{
-            left = mid + 1;
+            temp = abs(a[i]-b[index-1]);
         }
+        ans = max(ans, temp);
     }
 
     // O/P
     cout << ans << endl;
+    // TC = O(n * log(n))
 }
