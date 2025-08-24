@@ -9,7 +9,8 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-void solve(vector<int> v, int n){
+// Solution
+vector<int> solve(int n, vector<int> v){
     vector<int> ans(n);
     stack<int> st;
 
@@ -27,20 +28,30 @@ void solve(vector<int> v, int n){
         }
         st.push(v[i]);
     }
-    for(auto it:ans){
-        cout << it << " ";
-    }
-    cout << endl;
-
+    
+    return ans;
     // TC = O(n).
 }
 
 signed main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+    
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n; cin >> n;
     vector<int> v(n);
     for(auto &it:v){ cin >> it;}
 
-    solve(v, n);
+    // Solution
+    vector<int> ans = solve(n, v);
+
+    // O/P
+    for(int i=0; i < ans.size(); i++){
+        cout << ans[i] << " ";
+    }
+    cout << endl;
 }

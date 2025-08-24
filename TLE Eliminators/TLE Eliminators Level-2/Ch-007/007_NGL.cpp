@@ -14,7 +14,7 @@ void solve(vector<int> v, int n){
     stack<int> st;
 
     // NGL
-    for(int i=0; i < n-1; i++){
+    for(int i=0; i <= n-1; i++){
         while(!st.empty() && st.top() <= v[i]){
             st.pop();
         }
@@ -36,6 +36,11 @@ void solve(vector<int> v, int n){
 }
 
 signed main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     int n; cin >> n;

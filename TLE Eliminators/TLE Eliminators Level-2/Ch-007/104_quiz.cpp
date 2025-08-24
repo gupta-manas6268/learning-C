@@ -28,6 +28,11 @@ public:
 };
 
 signed main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     vector <Student> v;
@@ -36,14 +41,18 @@ signed main(){
     v.push_back(s2);
     v.push_back(s1);
     sort(v.begin(), v.end(), Compare());
+    for(auto &it : v){
+        cout << it.roll << " " << it.name << endl;
+    }
+    // cout << endl;
 
     // Min Priority Queue.
     priority_queue<Student, vector<Student>, Compare> pq;
     // Priority is in increasing order.
-    pq.push({1,8});  // Priority - 1
-    pq.push({1,9});  // Priority - 2
-    pq.push({2,1});  // Priority - 3
-    cout << pq.top() << endl;
+    pq.push({1,"manas"});  // Priority - 1
+    pq.push({1,"harry"});  // Priority - 2
+    pq.push({2,"weasly"});  // Priority - 3
+    cout << pq.top().roll << " " << pq.top().name << endl;
     pq.pop();
-    cout << pq.top() << endl;
+    cout << pq.top().roll << " " << pq.top().name << endl;
 }
