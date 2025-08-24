@@ -22,7 +22,10 @@ public:
 
 class Compare{
 public:
-    bool operator()(Student &s1, Student & s2){
+    bool operator()(Student &s1, Student & s2){ // Increasing Order.
+        if(s1.roll == s2.roll){
+            return s1.name < s2.name;
+        }
         return s1.roll < s2.roll;
     }
 };
@@ -37,14 +40,16 @@ signed main(){
 
     vector <Student> v;
     Student s1(1, "ved");
+    Student s3(1, "manas");
     Student s2(3, "paras");
     v.push_back(s2);
     v.push_back(s1);
+    v.push_back(s3);
     sort(v.begin(), v.end(), Compare());
     for(auto &it : v){
         cout << it.roll << " " << it.name << endl;
     }
-    // cout << endl;
+    cout << endl;
 
     // Min Priority Queue.
     priority_queue<Student, vector<Student>, Compare> pq;

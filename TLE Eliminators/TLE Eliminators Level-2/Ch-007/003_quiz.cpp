@@ -1,6 +1,5 @@
 // Code this Stack yourself immediate by using 1-Queue.
 
-
 // 
 
 // 225. Implement Stack using Queues
