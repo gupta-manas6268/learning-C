@@ -1,7 +1,9 @@
 // Correct.
+// (This is Mentor's code.)
 
 // 85. Maximal Rectangle
 // https://leetcode.com/problems/maximal-rectangle/description/
+
 
 
 
@@ -29,7 +31,7 @@ int main(){
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
     #endif
-    
+
     
     return 0;
 }
