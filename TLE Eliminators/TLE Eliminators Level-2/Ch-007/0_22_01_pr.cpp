@@ -1,4 +1,5 @@
-// Wrong (Runtime error)
+// Correct.
+// (This is My code in 2nd Revision time.)
 
 // 946. Validate Stack Sequences
 // https://leetcode.com/problems/validate-stack-sequences/description/
@@ -21,39 +22,24 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
-
-class Solution {
-public:
-    bool validateStackSequences(vector<int>& pushed, vector<int>& popped) {
-        deque<int> Pop;
-        for(int i=0; i < popped.size(); i++){
-            Pop.push_back(popped[i]);
-        }
-
-        stack<int> st;
-        vector<int> temp;
-        bool Ans = true;
-        for(int i=0; i < pushed.size(); i++){
-            st.push(pushed[i]);
-            temp.push_back(pushed[i]);
-            
-            while(Pop[0] == st.top()){
-                st.pop();
-                Pop.pop_front();
-            }
-
-            int search = Pop[0];
-            vector<int> :: iterator it;
-            it = find(temp.begin(), temp.end(), search);
-
-            if(it != temp.end()){ Ans = false; break;}
-        }
-
-        return Ans;
-    }
-};
 
 int main(){
     #ifndef ONLINE_JUDGE
@@ -61,24 +47,40 @@ int main(){
     freopen("output.txt", "w", stdout);
     #endif
 
-    int n; cin >> n;
-    vector<int> pushed, popped;
-    for(int i=0; i<n; i++){
-        int a; cin >> a;
-        pushed.push_back(a);
-    }
-    for(int i=0; i<n; i++){
-        int a; cin >> a;
-        popped.push_back(a);
-    }
-
-    Solution sol;
-    bool ans = sol.validateStackSequences(pushed, popped);
     
-    if(ans == true){ cout << "true" << endl;}
-    else{ cout << "false" << endl;}
-
     return 0;
 }
 
 
+
+class Solution {
+public:
+    bool validateStackSequences(vector<int>& pushed, vector<int>& popped) {
+        int n = pushed.size();
+
+        stack<int> st;
+        bool ans = true;
+        int i = 0, j = 0;
+        while((i < n) || (j < n)){
+            while(st.empty() != true){
+                if((st.top() == popped[j])){
+                    st.pop();
+                    j++;
+                }
+                else{ break;}
+            }
+
+            if((i == n) && (st.empty() != true)){
+                if(st.top() != popped[j]){
+                    ans = false; break;
+                }
+            }
+            else if(i < n){
+                st.push(pushed[i]);
+                i++;
+            }
+        }
+
+        return ans;
+    }
+};
