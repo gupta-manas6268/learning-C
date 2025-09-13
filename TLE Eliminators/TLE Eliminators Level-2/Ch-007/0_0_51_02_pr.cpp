@@ -39,11 +39,13 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     long long n; cin >> n;
     vector<long long> v(n);
     for(int i=0; i<n; i++){ cin >> v[i];}
     cout << endl;
 
+    // Solution
     map<long long, char> m;
     m[1] = '(';
     m[2] = ')';
@@ -101,5 +103,6 @@ signed main(){
         maxDepth = max(maxDepth, Alternate_Depth.top());
     }
 
+    // O/P
     cout << maxDepth << " " << max_Round << " " << max_Square << " " << endl;
 }

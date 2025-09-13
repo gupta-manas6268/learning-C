@@ -1,3 +1,45 @@
+// Wrong.
+// (I write this Code in 2nd-time, but it
+//   failed in Hidden Test-Cases.)
+
+// Matched Brackets 2
+// https://www.codechef.com/practice/course/zco-inoi-problems/ZCOPRAC/problems/ZCO12003
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
 

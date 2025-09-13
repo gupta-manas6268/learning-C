@@ -6,7 +6,7 @@
 #  then Run in Terminal.
 # 
 # Then, type 'jupyter-lab' in Command-Prompt.
-#  It runs '.ipynb' files which multiple window-shells.
+#  It runs '.ipynb' files with multiple window-shells.
 #  Ex: '2904_Jupyter_Lab.ipynb' file.
 
 # Esc + b => Make another window-shell in bottom.

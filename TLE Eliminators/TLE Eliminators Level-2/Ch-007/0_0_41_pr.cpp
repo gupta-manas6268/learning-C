@@ -1,14 +1,23 @@
-// Watch this Video-Solution one more time for Clearity.
-// https://www.youtube.com/watch?v=V28fuTzNbag
-
-
-
-
+// Correct. 
 // This is Mentor's code.
-// Wrong (Runtime error in line-45) 
 
 // 150. Evaluate Reverse Polish Notation
 // https://leetcode.com/problems/evaluate-reverse-polish-notation/description/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -48,8 +57,7 @@ public:
     int evalRPN(vector<string>& tokens) {
         stack<string> s;
         for(int i=0; i < tokens.size(); i++){
-            s.push(to_string(tokens[i]));
-            // Above line is giving me error.
+            s.push(tokens[i]);
             
             if((tokens[i] == "+") || (tokens[i] == "-") || (tokens[i] == "*") || (tokens[i] == "/")){
                 int first_No, second_No;
