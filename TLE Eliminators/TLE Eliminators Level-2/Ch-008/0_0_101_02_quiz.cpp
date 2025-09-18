@@ -40,6 +40,7 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n; cin >> n;
     vector<int> a;
     // vector<int> a(n);  // This line will give me wrong OUTPUT. 
@@ -49,6 +50,7 @@ signed main(){
     }
     sort(a.begin(), a.end());
 
+    // Solution
     int median_1, median_2;
     int ans_1 = 0;
     int ans_2 = 0;
@@ -71,5 +73,6 @@ signed main(){
         }
     }
 
+    // O/P
     cout << ans << endl;
 }

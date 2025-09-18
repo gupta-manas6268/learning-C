@@ -1,3 +1,22 @@
+// See Code '0_42_pr.cpp', in which I used 
+//  Difference-Array properly instead of this code.
+
+
+// (This code isn't good, don't See this code, 
+//   instead, see '0_42_pr.cpp' code.)
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -15,10 +34,12 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n; cin >> n;
     vector<int> v(n);
     for(auto &it:v){ cin >> it;}
 
+    // Solution
     int query; cin >> query;
     vector<int> difference_array(n, 0);
     while(query--){
@@ -36,12 +57,13 @@ signed main(){
         v[i] += difference_array[i];  // now this 'v' contains new values.
     }
 
-    // OUTPUT values.
+    // O/P
     for(int i=0; i<n; i++){
-        cout << difference_array[i] << endl;
+        cout << difference_array[i] << " ";
     }
     cout << endl;
     for(int i=0; i<n; i++){
-        cout << v[i] << endl;
+        cout << v[i] << " ";
     }
+    cout << endl;
 }

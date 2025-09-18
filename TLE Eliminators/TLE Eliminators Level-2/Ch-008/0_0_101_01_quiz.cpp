@@ -31,6 +31,7 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
+// Solution
 int solve(vector<long long> arr, int n){
     sort(arr.begin(), arr.end());
     long long temp = arr[n/2];
@@ -45,9 +46,12 @@ int solve(vector<long long> arr, int n){
 signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n; cin >> n;
     vector<long long> arr(n);
     for(auto &it:arr){ cin >> it;}
+    
+    // O/P
     int ans = solve(arr, n);
     cout << ans << endl;
 }
