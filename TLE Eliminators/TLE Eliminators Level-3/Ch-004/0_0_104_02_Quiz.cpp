@@ -1,4 +1,6 @@
 // Correct.
+// (I write it Myself, So, you can avoid to solve this Question Now.)
+
 // This is Mentor's code.
 
 // G. Not Very Rude Substring

@@ -1,10 +1,10 @@
 // Correct.
 // This is Mentor's code.
 
+// (See Line-68.)
+
 // 862. Shortest Subarray with Sum at Least K
 // https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/description/
-
-
 
 
 
@@ -65,6 +65,7 @@ public:
         }
 
         int ans = n+1;
+        // Right-Pointer => i, Left-Pointer => deq.front()
         for(int i=0; i <= n; i++){
             while((deq.empty() != true) && ((prefix_Sum[i] - prefix_Sum[deq.front()]) >= k)){
                 ans = min(ans, i-deq.front());

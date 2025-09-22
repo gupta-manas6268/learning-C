@@ -1,31 +1,23 @@
-# Don't commit it has your API key.
-
-
-
-
-
-
-
-
-
-
-
-
-
 import requests
 import Email_API_2703
+import os
+from dotenv import load_dotenv
 
-api_key = "" # Type 'api_key' from 'https://newsapi.org/' & login by Bitwarden.
+# Load environment variables from '.env' file
+load_dotenv()
+
+# api_key = "" # Type 'api_key' from 'https://newsapi.org/' & login by Bitwarden.
 # url = "https://newsapi.org/v2/everything?
 #         "q=tesla&from=2025-05-16&" \
 #         "sortBy=publishedAt&" \
 #         f"apiKey={api_key}"
 # (language parameter isn't set here, so, it gives each language 'article.' (↑))
+api_key = os.getenv("NEWS_API_KEY") 
 
 topic = "tesla" # You can change topic.
 
 url = "https://newsapi.org/v2/everything?" \
-        f"q={topic}&from=2025-05-16&" \
+        f"q={topic}&from=2025-09-16&" \
         "sortBy=publishedAt&" \
         f"apiKey={api_key}" \
         "&language=en"

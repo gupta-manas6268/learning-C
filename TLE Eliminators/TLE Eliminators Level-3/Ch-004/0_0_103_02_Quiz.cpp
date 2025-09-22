@@ -1,5 +1,7 @@
 // Correct.
-// This is Mentor's code.
+// (I write it Myself, So, you can avoid to solve this Question Now.)
+
+// (This is My code in 2nd time.)
 
 // F. Card Substrings
 // https://codeforces.com/edu/course/2/lesson/9/3/practice/contest/307094/problem/F
@@ -55,31 +57,31 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
-    // In Slide-02, Page-20 & Page-22 => (F => Frequency.)
-
     // I/P
     int n, m; cin >> n >> m;
     string s, t; cin >> s >> t;
 
-    // O/P
-    int ans = 0;
-    vector<int> freq(26);
-    // O(m).
-    for(auto &i:t){ freq[i - 'a']++;}
-
-    // O(n)
-    for(int left = 0, right = 0; right < n; right++){
-        freq[s[right] - 'a']--;
-
-        // O(26).
-        while(*min_element(freq.begin(), freq.end()) < 0){
-            freq[s[left] - 'a']++;
-            left++;
-        }
-
-        ans += (right - left + 1);
+    // Solution
+    map<int,int> mp;
+    for(int i=0; i < m; i++){
+        mp[t[i]-'a']++;
     }
 
+    int ans = 0;
+    int i=0, j=0;
+    while((i <= j) && (j < n)){
+        mp[s[j]-'a']--;
+        while(mp[s[j]-'a'] < 0){
+            mp[s[i]-'a']++;
+            i++;
+        }
+        if(mp[s[j]-'a'] >= 0){
+            ans += (j-i+1);
+        }
+        j++;
+    }
+
+    // O/P
     cout << ans << endl;
-    // TC = O(n + m).
+    // TC = O(m + (n * log(26))).
 }

@@ -1,7 +1,14 @@
 import streamlit as st  
 import requests
+import os
+from dotenv import load_dotenv
 
-api_key = "" # Take it from Bitwarden of 'NASA'.
+# Load environment variables from '.env' file
+load_dotenv()
+
+# api_key = "" # Take it from Bitwarden of 'NASA'.
+api_key = os.getenv("NASA_API_KEY") 
+
 url = "https://api.nasa.gov/planetary/apod?" \
         f"api_key={api_key}"
 
