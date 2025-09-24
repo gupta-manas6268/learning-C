@@ -21,7 +21,8 @@ image_url = data["url"]
 explanation = data["explanation"]
 
 # Download image
-image_filepath = "image_2.png"
+image_filepath = "image_2.jpg"
+# image_filepath = "image_2.png"
 response_2 = requests.get(image_url)
 with open(image_filepath, "wb") as file:
     file.write(response_2.content)
