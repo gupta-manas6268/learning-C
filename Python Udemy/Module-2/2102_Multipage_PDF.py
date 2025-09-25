@@ -50,5 +50,4 @@ for index, row in df.iterrows(): # .iterrows() => Iterate rows.
         pdf.cell(w=0, h=10, txt=row["Topic"], align="R")
 
 
-
 pdf.output("output-2.pdf")
