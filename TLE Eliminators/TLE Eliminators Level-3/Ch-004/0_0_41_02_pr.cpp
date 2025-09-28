@@ -73,6 +73,7 @@ signed main(){
     int start = -1, count = INT_MAX;
     for(int i=0; i<n; i++){
         int sum = 0;
+        // i => Left Pointer, j => Right Pointer.
         int j = i;
         int taken = 0;
         while(sum < p){
@@ -88,5 +89,7 @@ signed main(){
 
     int left = (start + 1);
     int ans = (count + (temp * n));
+
+    // O/P
     cout << left << " " << ans << endl;
 }

@@ -37,7 +37,6 @@ signed main(){
 
         // O/P
         for(int left = 0, right = 0; right < s.size(); right++){
-            
         }
     }
 }
