@@ -1,4 +1,6 @@
 // Correct.
+// (I solved it in '61_pr.cpp' in 'Ch-004' => TLE-Eliminators Level-03)
+
 // This is Mentor's code.
 
 // Sum of Three Values
