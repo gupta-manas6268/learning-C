@@ -1,8 +1,25 @@
-// This is Mentor's code.
 // Correct.
+// (This is Mentor's code.)
 
 // C. Fadi and LCM
 // https://codeforces.com/problemset/problem/1285/C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -39,7 +56,10 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int x; cin >> x;
+
+    // Solution
     pair<int, int> ans = {-1,-1};
     for(int a=1; a*a <= x; a++){
         if(x%a == 0){
@@ -51,7 +71,7 @@ signed main(){
         }
     }
 
-    // TC = O(sqrt(x) * log(power(10, 12))).
-
+    // O/P
     cout << ans.first << " " << ans.second << endl;
+    // TC = O(sqrt(x) * log(power(10, 12))).
 }

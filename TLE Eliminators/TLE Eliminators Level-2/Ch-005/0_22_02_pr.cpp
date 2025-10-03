@@ -1,7 +1,24 @@
-// Wrong.
+// Correct.
+// (This is My 2nd-time code.)
 
 // B. Prime Matrix
 // https://codeforces.com/contest/271/problem/B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -30,27 +47,22 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-vector<int> Sieve(int n){
-    bool is_primes[n+1];
-    fill(is_primes, is_primes+n+1, true);
-
-    is_primes[0] = is_primes[1] = false;
+vector<int> Primes;
+void sieve(int n){
+    bool primes[n+1];
+    fill(primes, primes+n+1, true);
+    primes[0] = primes[1] = false;
     for(int i=2; i*i <= n; i++){
-        if(is_primes[i] == true){
-            for(int j=i*i; j <= n; j += i){
-                is_primes[j] = false;
+        if(primes[i]){
+            for(int j = i*i; j <= n; j += i){
+                primes[j] = false;
             }
         }
     }
 
-    vector<int> primes;
     for(int i=2; i <= n; i++){
-        if(is_primes[i] == true){
-            primes.push_back(i);
-        }
+        if(primes[i]){ Primes.push_back(i);}
     }
-
-    return primes;
 }
 
 signed main(){
@@ -61,20 +73,38 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
-    vector<int> primes = Sieve(100100);  // Here, a[i][j] <= pow(10, 5).
-    
+    // I/P
     int n, m; cin >> n >> m;
-    int arr[n][m];
-    for(int i=0; i<n; i++){
-        for(int j=0; j<m; j++){
-            cin >> arr[i][j];
+    vector<vector<int>> vec(n, vector<int>(m));
+    for(int i=0; i < n; i++){
+        for(int j=0; j < m; j++){ 
+            cin >> vec[i][j];
+        }
+    }
+    
+    // Solution
+    sieve(1e5+1e3);
+    vector<vector<int>> Min_Distance(n, vector<int>(m));
+    for(int i=0; i < n; i++){
+        for(int j=0; j < m; j++){ 
+            int temp = vec[i][j];
+            int Lower = lower_bound(Primes.begin(), Primes.end(), temp) - Primes.begin();
+            Min_Distance[i][j] = Primes[Lower]-vec[i][j];
         }
     }
 
-    int left = 0, right = (primes.size()-1);
-    while(left < right){
-        int mid = (left + right)/ 2;
-
-        if()
+    int ans = INT_MAX;
+    for(int i=0; i < n; i++){
+        int temp = 0;
+        for(int j=0; j < m; j++){ temp += Min_Distance[i][j];}
+        ans = min(ans, temp);
     }
+    for(int i=0; i < m; i++){
+        int temp = 0;
+        for(int j=0; j < n; j++){ temp += Min_Distance[j][i];}
+        ans = min(ans, temp);
+    }
+
+    // O/P
+    cout << ans << endl;
 }

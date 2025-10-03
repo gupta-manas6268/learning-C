@@ -1,23 +1,10 @@
+// (Don't Solve Now, Already know Concept.)
+
 // Good Question.
-// Wrong.
+// Correct.
 
 // B. Square Difference
 // https://codeforces.com/problemset/problem/1033/B
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -67,9 +54,16 @@ signed main(){
 
     while (tc--){
         long long a, b; cin >> a >> b;
-        long long  area = ((a*a) - (b*b));
-
-        if(is_prime(area) == true){ cout << "YES" << endl;}
-        else{ cout << "NO" << endl;}
+        
+        // As, (pow(a,2) - pow(b,2)) = (a - b) * (a + b).
+        if(a-b != 1){
+            cout << "NO" << endl;
+        }
+        else if(is_prime(a+b) == true){
+            cout << "YES" << endl;
+        }
+        else{
+            cout << "NO" << endl;
+        }
     }
 }

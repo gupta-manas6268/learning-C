@@ -1,8 +1,26 @@
-// This is Mentor's code.
 // Correct.
+// (This is Mentor's code.)
 
 // B. Longest Divisors Interval
 // https://codeforces.com/contest/1855/problem/B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -45,12 +63,8 @@ signed main(){
 
         // Here, always longest divisor interval will start from 1.
         for(long long i=2; i <= n; i++){
-            if(n%i == 0){
-                ans++;
-            }
-            else{
-                break;
-            }
+            if(n%i == 0){ ans++;}
+            else{ break;}
         }
 
         cout << ans << endl;

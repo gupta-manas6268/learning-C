@@ -1,8 +1,25 @@
-// This is Mentor's code.
 // Correct.
+// (This is Mentor's code.)
 
 // D. Divide and Equalize
 // https://codeforces.com/contest/1881/problem/D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -53,6 +70,7 @@ signed main(){
     int tc; cin >> tc;
 
     while (tc--){
+        // I/P
         int n; cin >> n;
         vector<int> a(n);
         map<int, int> factor;
@@ -61,6 +79,7 @@ signed main(){
             add_factor(a[i], factor);
         }
 
+        // Solution
         bool ans = true;
         for(auto it: factor){
             if(it.second%n != 0){
@@ -69,6 +88,7 @@ signed main(){
             }
         }
 
+        // O/P
         if(ans == true){ cout << "YES" << endl;}
         else{ cout << "NO" << endl;}
     }

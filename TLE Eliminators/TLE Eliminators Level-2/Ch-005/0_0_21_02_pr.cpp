@@ -1,8 +1,25 @@
-// This is my version of Mentor' code. (Complete this code.)
-// Wrong.
+// Correct.
+// (This is Mentor' code. (Complete this code.))
 
 // HS08PAUL - A conjecture of Paul Erdős
 // https://www.spoj.com/problems/HS08PAUL/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -30,21 +47,9 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-const int n = 10000007;   // N = pow(10,7).
+const int n = 10000007;  // n <= pow(10, 7)
 bool sieve[n];
 int ans[n];
-
-void Sieve(){
-    memset(sieve, 0, sizeof(sieve));  
-    // fill all values in sieve with false.
-    for(int i=2; i<n; i++){
-        if(!sieve[i]){
-            for(int j = 2*i; j < n; j += i){
-                sieve[j] = 1;
-            }
-        }
-    }
-}
 
 signed main(){
     #ifndef ONLINE_JUDGE
@@ -52,10 +57,19 @@ signed main(){
     freopen("output.txt", "w", stdout);
     #endif
 
-    
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    memset(sieve, 0, sizeof(sieve));  
+    // fill all values in sieve with false.
     memset(ans, 0, sizeof(ans));
+
+    for(int i=2; i<n; i++){
+        if(!sieve[i]){
+            for(int j = 2*i; j < n; j += i){
+                sieve[j] = 1;
+            }
+        }
+    }
     for(int x=1; x <= 5000; x++){
         for(int y=1; y <= 90; y++){
             int result = x*x + y*y*y*y;
