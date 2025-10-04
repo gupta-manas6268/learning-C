@@ -1,7 +1,24 @@
-// Wrong (TLE => Time Limit Exceeded.)
+// Correct.
+// (This is My code in 2nd-time.)
 
 // M. Minimum LCM
 // https://codeforces.com/contest/1765/problem/M
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -30,11 +47,6 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-long long LCM(long long a, long long b){
-    long long ans = (a * b)/ __gcd(a, b);
-    return ans;
-}
-
 signed main(){
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
@@ -46,24 +58,20 @@ signed main(){
     int tc; cin >> tc;
 
     while (tc--){
-        long long n; cin >> n;
+        // I/P
+        int n; cin >> n;
 
-        long long a, b;
-        if(n%2 == 0){
-            a = n/2; 
-            b = n/2;
-        }
-        else{
-            int j;
-            for(int i = (n/2); i; i++){
-                j = (n - i);
-                if(LCM(i, j) < n){
-                    a = i; b = j;
-                    break;
-                }
+        // Solution
+        int a = 1, b = n-1;
+        for(int i=2; i*i <= n; i++){
+            if((n%i) == 0){
+                a = (n/i);
+                b = (n/i)*(i-1);
+                break;
             }
         }
 
+        // O/P
         cout << a << " " << b << endl;
     }
 }

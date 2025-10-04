@@ -1,6 +1,5 @@
-// This is Mentor's code.
-
 // Correct.
+// This is Mentor's code.
 
 // 372. Super Pow
 // https://leetcode.com/problems/super-pow/description/
@@ -12,6 +11,26 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// (Hint: 1337 => Is Not-Prime no.)
 
 
 
