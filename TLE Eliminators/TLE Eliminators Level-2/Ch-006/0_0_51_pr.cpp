@@ -1,5 +1,5 @@
-// This is Mentor's code.
 // Correct.
+// (This is Mentor's code.)
 
 // C. Kuroni and Impossible Calculation
 // https://codeforces.com/problemset/problem/1305/C
@@ -17,6 +17,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// (Hint: Pigeonhole Principle)
 
 
 
@@ -55,10 +72,12 @@ signed main(){
     //      1 <= m <= 1000
     //      0 <= a[i] <= (10 ^ 9).
 
+    // I/P
     int n, m; cin >> n >> m;
     int a[n];
     for(int i=0; i<n; i++){ cin >> a[i];}
 
+    // Solution
     int ans;
     if(n > m){
         ans = 0;
@@ -73,5 +92,6 @@ signed main(){
         }
     }
 
+    // O/P
     cout << ans << endl;
 }
