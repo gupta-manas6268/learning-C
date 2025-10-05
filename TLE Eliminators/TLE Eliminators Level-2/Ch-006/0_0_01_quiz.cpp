@@ -1,9 +1,40 @@
-// This is Mentor's code.
-
 // Correct.
+// This is Mentor's code.
 
 // Digit Space
 // https://www.codechef.com/problems/DSP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
