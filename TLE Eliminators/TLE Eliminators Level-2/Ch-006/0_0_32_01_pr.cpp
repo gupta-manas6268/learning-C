@@ -1,14 +1,40 @@
-// Watch this Video-Solution one more time for clearity.
-//  https://www.youtube.com/watch?v=2S7VLAkMK5g
-
-
-
-
-// This is my version Mentor's code.
 // Wrong.
+// (This is my version Mentor's code.)
 
 // C - Factors of Factorial
 // https://atcoder.jp/contests/abc052/tasks/arc067_a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
