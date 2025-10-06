@@ -3,3 +3,14 @@
 # See From Lecture Screenshots which I didn't take.
 
 # Also, See Students-Notes from Github.
+
+
+
+
+
+
+
+
+
+# Lecture-2.4
+# [00:00] => Train | Validation | Test

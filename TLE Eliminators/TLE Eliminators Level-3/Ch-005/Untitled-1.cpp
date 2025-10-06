@@ -1,3 +1,7 @@
+// '0_12_pr.cpp'
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -6,26 +10,6 @@ using namespace std;
 
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
-
-// Power
-int power(int base, int exp, int mod){
-    int result = 1;
-
-    while(exp > 0){
-        if((exp % 2) == 1){
-            (result *= base) %= mod;
-
-            (base *= base) %= mod;
-            exp /= 2;
-        }
-        else{
-            (base *= base) %= mod;
-            exp /= 2;
-        }
-    }
-
-    return result;
-}
 
 signed main(){
     #ifndef ONLINE_JUDGE
@@ -36,25 +20,56 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     // I/P
-    int n; cin >> n; 
-    vector<int> x(n), k(n);
-    for(int i=0; i < n; i++){ cin >> x[i] >> k[i];}
-
-    // Solution
-    int num = 1, sum = 1, prod = 1;
+    int n, k, m; cin >> n >> k >> m;
+    multiset<int> a;
+    cout << n << endl;
     for(int i=0; i < n; i++){
-        num *= (k[i]+1);
-        sum *= (power(x[i], k[i]+1, MOD)-1)/(x[i]-1);
-        num %= MOD; sum %= MOD;
+        int temp; cin >> temp;
+        cout << temp << " " << i << endl;
+        a.insert(temp);
     }
-    for(int i=0; i < n; i++){
-        int exp = ((k[i] * (k[i]+1))/2) % (MOD-1);
-        exp *= (num / (k[i]+1));
-        exp %= (MOD-1);
-        prod *= power(x[i], exp, MOD);
-        prod %= MOD;
+    
+    // Solution
+    bool ans = false;
+    vector<int> Final_Ans;
+    while(a.size() > 0){
+        cout << "Hi" << endl;
+        int index = 0;
+        stack<int> st;
+        int Size = a.size();
+        for(auto it:a){
+            if((index == 0) && (st.size() == 0)){
+                st.push(it);
+                cout << it << endl;
+                a.erase(it);
+            }
+            else{
+                if(((st.top() - it) % m) == 0){
+                    st.push(it);
+                    cout << it << endl;
+                    a.erase(it);
+                }
+            }
+            index++;
+        }
+        if(st.size() >= k){
+            for(int i=0; i < k; i++){
+                Final_Ans.push_back(st.top());
+                st.pop();
+            }
+            reverse(Final_Ans.begin(), Final_Ans.end());
+            ans = true; break;
+        }
+        if(Size == a.size()){ break;}
     }
 
     // O/P
-    cout << num << " " << sum << " " << prod << endl;
+    if(ans == true){
+        cout << "Yes" << endl;
+        for(int i=0; i < Final_Ans.size(); i++){
+            cout << Final_Ans[i] << " ";
+        }
+        cout << endl;
+    }
+    else{ cout << "No" << endl;}
 }
