@@ -1,8 +1,40 @@
 // Correct.
-// This is Mentor's code.
+// (This is Mentor's code.)
 
 // Divisor Analysis
 // https://cses.fi/problemset/task/2182
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
