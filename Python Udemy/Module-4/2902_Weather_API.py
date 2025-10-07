@@ -16,6 +16,7 @@ def Home():
 # <station> & <date> => <> because, user can change it. 
 def about(station, date):
     temperature = 23
+    station.upper()
     return {"station": station,
             "date": date,
             "temperature": temperature}  
