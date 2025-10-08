@@ -1,5 +1,5 @@
-import cv2
-import streamlit as st
+import cv2 # pyright: ignore
+import streamlit as st # pyright: ignore
 from datetime import datetime
 
 st.title("Motion Detector")

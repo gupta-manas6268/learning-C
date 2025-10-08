@@ -5,7 +5,7 @@
 
 
 
-import cv2
+import cv2 # pyright: ignore
 import time
 
 video = cv2.VideoCapture(0)

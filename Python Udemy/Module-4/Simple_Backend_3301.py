@@ -15,11 +15,11 @@
 # Don't commit 'API_KEY'.
 
 import os
-from dotenv import load_dotenv  
+from dotenv import load_dotenv # pyright: ignore 
 # (↑) Used for Password-Protection in '.env' file, which is 
 #  ignored by '.gitignore' file.
 
-import requests
+import requests # pyright: ignore
 
 load_dotenv()
 API_KEY = os.getenv('API_KEY')

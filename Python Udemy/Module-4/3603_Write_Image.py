@@ -1,5 +1,5 @@
-import numpy
-import cv2
+import numpy # pyright: ignore
+import cv2 # pyright: ignore
 
 array = numpy.array(
     [[[255,  0,  0],

@@ -1,11 +1,11 @@
 # See y-axis of Graph carefully, every-time you change the slider of 
 #   Forecast Days. (It will also multiply by that date. (Line-27))
 
-import streamlit as st
-import plotly.express as px # px => plotly.express
+import streamlit as st                                                # pyright: ignore
+import plotly.express as px # px => plotly.express                    # pyright: ignore
 # '.express' => function of 'plotly'.
 
-import bokeh
+import bokeh                                                          # pyright: ignore
 # bokeh & plotly are for same purpose of plotting graphs.
 # plotly is > (more) famous than bokeh.
 

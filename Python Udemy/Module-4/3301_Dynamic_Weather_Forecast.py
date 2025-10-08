@@ -5,9 +5,9 @@
 
 # Updated from '3201_Static_Weather_Forecast.py'.
 
-import streamlit as st
-import plotly.express as px 
-import Final_Backend_3301
+import streamlit as st # pyright: ignore
+import plotly.express as px # pyright: ignore
+import Final_Backend_3301 # pyright: ignore
 
 st.title("Weather Forecast for the Next Days")
 place = st.text_input("Place: ")

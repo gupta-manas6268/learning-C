@@ -1,7 +1,7 @@
 # Same of '3605_01_Video.py', with 'time.sleep(1)'
 #  outside while-loop.
 
-import cv2
+import cv2 # pyright: ignore
 import time
 
 video = cv2.VideoCapture(0)

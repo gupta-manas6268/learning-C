@@ -20,7 +20,7 @@
 
 
 
-import cv2
+import cv2 # pyright: ignore
 
 array = cv2.imread("3601_01_image.png")
 print(array.shape) # => (3, 4, 3), 3-colour Combination & 4x3 Matrix.

@@ -2,7 +2,7 @@
 #  have only one value [GrayScale]. So, it saves Memory. (for Algorithms)
 
 
-import cv2
+import cv2 # pyright: ignore
 import time
 
 video = cv2.VideoCapture(0)

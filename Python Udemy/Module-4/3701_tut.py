@@ -1,14 +1,15 @@
-# Updated with 'send_email' from '3607_Detect_Moving_Objects.py'.
-
 import cv2 # pyright: ignore
 import time
-from emailing_3608 import send_email
+import glob
+from emailing_3701 import send_email
 
 video = cv2.VideoCapture(0)
 time.sleep(1)
 
 first_frame = None
 status_list = []
+
+count = 1
 while True:
     status = 0 # 0 => No object enters frame.
     check, frame = video.read()
@@ -49,6 +50,12 @@ while True:
 
             status = 1 # 1 => object enters frame.
 
+            cv2.imwrite(f"images/{count}.png", frame)
+            count = count + 1
+            all_images = glob.glob("images/*.png")
+            index = int(len(all_images) / 2)
+            image_with_object = all_images[index] # Middle image
+
     status_list.append(status)
     status_list = status_list[-2:]
     # [-2:] => Gives only Last-2 'status_list' values.
@@ -56,7 +63,7 @@ while True:
     
     if status_list[0] == 1 and status_list[1] == 0:
     # i.e. when object removes from the frame.
-        send_email()
+        send_email(image_with_object)
 
     cv2.imshow("5.Webcam detecting moving Objects in Rectangle", frame)
 

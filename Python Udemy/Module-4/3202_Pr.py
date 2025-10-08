@@ -1,8 +1,8 @@
 # Connected to 'happy.csv'.
 
-import streamlit as st
-import pandas as pd
-import plotly.express as px 
+import streamlit as st # pyright: ignore
+import pandas as pd # pyright: ignore
+import plotly.express as px # pyright: ignore
 
 
 st.title("In Search for Happiness")
