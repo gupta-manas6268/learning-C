@@ -1,13 +1,22 @@
 import cv2 # pyright: ignore
 import time
 import glob
+import os
 from emailing_3701 import send_email
+
 
 video = cv2.VideoCapture(0)
 time.sleep(1)
 
 first_frame = None
 status_list = []
+
+
+def clean_folder(): # clean 'image' folder.
+    images = glob.glob("images/*.png")
+    for image in images:
+        os.remove(image)
+
 
 count = 1
 while True:
@@ -62,8 +71,9 @@ while True:
     print(status_list)
     
     if status_list[0] == 1 and status_list[1] == 0:
-    # i.e. when object removes from the frame.
+    # i.e. when object just removes from the frame.
         send_email(image_with_object)
+        clean_folder()
 
     cv2.imshow("5.Webcam detecting moving Objects in Rectangle", frame)
 

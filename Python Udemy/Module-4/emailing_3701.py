@@ -1,5 +1,8 @@
 import smtplib
-import imghdr                          # pyright: ignore
+# import imghdr                          # pyright: ignore
+# imghdr => Doesn't work after python-version 3.13, so
+#          use it's replacement 'filetype' package.
+import filetype                          # pyright: ignore
 from email.message import EmailMessage
 import os
 from dotenv import load_dotenv         # pyright: ignore
@@ -18,7 +21,20 @@ def send_email(image_path):
     with open(image_path, "rb") as file: 
     # "rb" => read-binary, because it is an image.
         content = file.read()
-    email_message.add_attachment(content, maintype="image", subtype=imghdr.what(None, content))
+
+    # Detect image type (replaces imghdr.what)
+    kind = filetype.guess(content)
+    if kind is None:
+        raise ValueError("Cannot determine image type for attachment")
+    
+    # email_message.add_attachment(content, maintype="image", subtype=imghdr.what(None, content))
+    
+    # Add attachment
+    email_message.add_attachment(
+        content,
+        maintype="image",
+        subtype=kind.extension # same purpose as imghdr.what(None, content)
+    )
 
     gmail = smtplib.SMTP("smtp.gmail.com", 587) # 587 => Port of gmail
     gmail.ehlo()
