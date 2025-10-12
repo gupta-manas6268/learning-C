@@ -100,6 +100,8 @@ agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 # response = chain.invoke({"input":user_input}) # UR
 #  
 # response = agent_executor.invoke({"input": user_input})
+# print(type(response))
+# print(type(response["output"]))
 # print(response)       
 # print("\n\n")                        
 # print(response["output"])    
