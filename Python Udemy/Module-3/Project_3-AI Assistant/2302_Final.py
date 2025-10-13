@@ -34,45 +34,38 @@ llm = ChatGoogleGenerativeAI(
 # With History: Using LangChain (↓)
 prompt = ChatPromptTemplate.from_messages([
     ("system", system_prompt),
-    (MessagesPlaceholder(variable_name="history")), # history => from Line - 'A-1'
+    (MessagesPlaceholder(variable_name="history")), 
     ("user", "{input}"),
 ])
 chain = prompt | llm | StrOutputParser()
 # With History: Using LangChain (↑)
 
 
-history = []            # Line - A-1
+# Chatbot
 print("Hi, I am Albert, how can I help you today?")
-while True:
-    user_input = input("You: ")
-    if user_input == "exit":
-        break
+def chat(user_input, history):
+    print(user_input, history)
+
+    langchain_history = []  
+    for item in history:
+        if item['role'] == 'user':
+            langchain_history.append(HumanMessage(content=item['content']))
+        elif item['role'] == 'assistant':
+            langchain_history.append(AIMessage(content=item['content']))
+
+    response = chain.invoke({"input": user_input, "history": langchain_history})
+
+
+    # return "AAA",       [{'role':'user', 'content':user_input},       # UR
+    #                      {'role':'assistant', 'content':response}]    # UR
+    #       (↑)Textbox              (↑)Chatbot => Shown there.
     
-    # Without History:
-    # response = llm.invoke([                         # UR
-    #     {"role":"system", "content":system_prompt}, # UR
-    #     {"role":"user", "content":user_input}       # UR
-    # ])                                              # UR
-    # 
-    # print(type(response))         #                 # UR
-    # print(response.content)       # 'str'           # UR
-    # print(f"Albert: {response.content}")            # UR
+    return "",          history + [{'role':'user', 'content':user_input},
+                                   {'role':'assistant', 'content':response}]
 
-
-    # With History: Using Python
-    # history.append({"role": "user", "content": user_input})                           # UR
-    # print("History: ", history)                                                       # UR
-    # 
-    # response = llm.invoke([{"role": "system", "content": system_prompt}] + history)   # UR
-    # print(f"Albert: {response.content}")                                              # UR
-    # history.append({"role": "assistant", "content": response.content})                # UR
-
-
-    # With History: Using LangChain 
-    response = chain.invoke({"input": user_input, "history": history})
-    print(f"Albert: {response.content}")
-    history.append(HumanMessage(content=user_input))
-    history.append(AIMessage(content=response))
+def clear_chat():
+    return "", []
+    #      (↑) (↑) => i.e. it gives empty string & list for message & chatbot.
 
 
 # Front-End
@@ -89,10 +82,20 @@ with page:
         """
     )
 
-    chatbot = gr.Chatbot()
-    msg = gr.Textbox() # msg => message
-    clear = gr.Button() # By default it is "Run" button.
+    chatbot = gr.Chatbot(type='messages', 
+                         avatar_images=[None, 'einstein.png'],
+                         show_label=False)    
+                        #  show_label=True)   # UR
+    
+    msg = gr.Textbox(placeholder="Ask Einstein anything...",  # msg => message
+                     show_label=False) 
+    
+    msg.submit(chat, [msg, chatbot], [msg, chatbot])
+    #                   (↑) I/P         (↑)O/P => for 'chat()' function. 
+
+    # clear = gr.Button() # By default it is "Run" button.
     clear = gr.Button("Clear Chat")
+    clear.click(clear_chat, outputs=[msg, chatbot])
 
 
 # page.launch()           # Gives only local URL.

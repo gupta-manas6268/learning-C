@@ -36,6 +36,7 @@ chain = prompt | llm | StrOutputParser()
 # With History: Using LangChain (↑)
 
 
+# Chatbot
 history = []            # Line - A-1
 print("Hi, I am Albert, how can I help you today?")
 while True:
