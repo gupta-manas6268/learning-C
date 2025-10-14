@@ -1,7 +1,7 @@
 # 3-Types of Recommedation System:
 # 1. Popularity Based Recommendation System
-# 2. Collaborative Filtering
-# 3. Content Based Filtering
+# 2. Content Based Filtering
+# 3. Collaborative Filtering
 
 
 
