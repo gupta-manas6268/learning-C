@@ -1,19 +1,26 @@
-# See All 5-Video Frames carefully & understand them.
-
-
-
-
-
-
-import cv2
+import cv2 # pyright: ignore
 import time
-import Email_Sent
+import glob
+import os
+from emailing_3701 import send_email
+
 
 video = cv2.VideoCapture(0)
 time.sleep(1)
 
 first_frame = None
+status_list = []
+
+
+def clean_folder(): # clean 'image' folder.
+    images = glob.glob("images/*.png")
+    for image in images:
+        os.remove(image)
+
+
+count = 1
 while True:
+    status = 0 # 0 => No object enters frame.
     check, frame = video.read()
 
     # 1.
@@ -21,7 +28,6 @@ while True:
     Gray_Frame_Gau = cv2.GaussianBlur(Gray_Frame, (21, 21), 0)
     # cv2.imshow("1.Gray-Scale Blur Video", Gray_Frame_Gau)
 
-    # if first_frame == None: # Error
     if first_frame is None:
         first_frame = Gray_Frame_Gau
 
@@ -31,12 +37,6 @@ while True:
     
     # 3.
     Threshold_Frame = cv2.threshold(Delta_Frame, 60, 255, cv2.THRESH_BINARY)[1]
-    # [1] => because, It is a List & we want to access from 2nd-item     (↑)
-    #         of List, because 'first_frame' is static.
-    # 
-    # (60, 255) => Min. value '60' in Matrix 'Delta_Frame' to detect Change 
-    #               in Image & then Change it [255, 255, 255] = [B:G:R],
-    #           i.e. Change it to White colour.
     # cv2.imshow("3.Threshold Video", Threshold_Frame)
 
     # 4.
@@ -51,9 +51,29 @@ while True:
         #       is changed in Video.
             continue
         x, y, width, height = cv2.boundingRect(countour)
-        cv2.rectangle(frame, (x, y), (x + width, y + height), (0, 255, 0), 3)
-        # '.rectangle()' => Puts Rectangle in 'frame' Video, from (x, y) to 
-        #               (x + width, y + height).
+        rectangle = cv2.rectangle(frame, (x, y), (x + width, y + height), (0, 255, 0), 3)
+
+        if rectangle.any():
+            # .any() => Because 'rectangle' is 2-Dimensional Matrix, so
+            #            we use it for both checking any dimension of rectangle.
+
+            status = 1 # 1 => object enters frame.
+
+            cv2.imwrite(f"images/{count}.png", frame)
+            count = count + 1
+            all_images = glob.glob("images/*.png")
+            index = int(len(all_images) / 2)
+            image_with_object = all_images[index] # Middle image
+
+    status_list.append(status)
+    status_list = status_list[-2:]
+    # [-2:] => Gives only Last-2 'status_list' values.
+    print(status_list)
+    
+    if status_list[0] == 1 and status_list[1] == 0:
+    # i.e. when object just removes from the frame.
+        send_email(image_with_object)
+        clean_folder()
 
     cv2.imshow("5.Webcam detecting moving Objects in Rectangle", frame)
 
