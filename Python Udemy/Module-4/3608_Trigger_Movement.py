@@ -16,22 +16,22 @@ while True:
     # 1.
     Gray_Frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     Gray_Frame_Gau = cv2.GaussianBlur(Gray_Frame, (21, 21), 0)
-    # cv2.imshow("1.Gray-Scale Blur Video", Gray_Frame_Gau)
+    cv2.imshow("1.Gray-Scale Blur Video", Gray_Frame_Gau)
 
     if first_frame is None:
         first_frame = Gray_Frame_Gau
 
     # 2.
     Delta_Frame = cv2.absdiff(first_frame, Gray_Frame_Gau)
-    # cv2.imshow("2.Delta Video", Delta_Frame)
+    cv2.imshow("2.Delta Video", Delta_Frame)
     
     # 3.
     Threshold_Frame = cv2.threshold(Delta_Frame, 60, 255, cv2.THRESH_BINARY)[1]
-    # cv2.imshow("3.Threshold Video", Threshold_Frame)
+    cv2.imshow("3.Threshold Video", Threshold_Frame)
 
     # 4.
     dil_frame = cv2.dilate(Threshold_Frame, None, iterations=2)
-    # cv2.imshow("4.Dil video", dil_frame)
+    cv2.imshow("4.Dil video", dil_frame)
 
     # 5.
     countours, check = cv2.findContours(dil_frame, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
