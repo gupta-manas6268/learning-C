@@ -77,7 +77,7 @@ signed main(){
         for(int j = i; j <= Maxi; j += i){
             count += frequency[j];
         }
-        if(count > 1){
+        if(count >= 2){
             cout << i << endl;
             break;
         }
