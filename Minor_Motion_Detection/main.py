@@ -1,15 +1,63 @@
+# Capture Image
 import cv2 # pyright: ignore
 import time
 import glob
+
+
+# Send-Email
+import smtplib
+import filetype                          # pyright: ignore
+from email.message import EmailMessage
 import os
-from emailing_3701 import send_email
+from dotenv import load_dotenv         # pyright: ignore
 
+
+load_dotenv()
+PASSWORD = os.getenv("Email_API_Key")
+SENDER = os.getenv("SENDER_Email_Address")
+RECEIVER = os.getenv("RECEIVER_Email_Address")
+
+def Gmailing(Image_Location):
+    print("Email function is started")
+
+    Message = EmailMessage()
+    Message["Subject"] = "Intruder is in frame"
+    Message.set_content("Intruder is in frame1.")
+
+    with open(Image_Location, "rb") as file: 
+    # "rb" => read-binary, because it is an image.
+        content = file.read()
+
+    # Detect image type (replaces imghdr.what)
+    kind = filetype.guess(content)
+    if kind is None:
+        raise ValueError("Can't give image file")
+    
+    # Add file
+    Message.add_attachment(
+        content,
+        maintype="image",
+        subtype=kind.extension 
+    )
+
+    gmail = smtplib.SMTP("smtp.gmail.com", 587) # 587 => Port of gmail
+    gmail.ehlo()
+    gmail.starttls()
+    gmail.login(SENDER, PASSWORD)
+    gmail.sendmail(SENDER, RECEIVER, Message.as_string())
+    gmail.quit()
+
+    print("Email function ended")
+
+
+
+# Capture Image
 video = cv2.VideoCapture(0)
-time.sleep(1)
+time.sleep(5)
 
-first_frame = None
+init_frame = None # init => initial
 status_list = []
-sent = False  # NEW
+sent_Email = False  
 
 def clean_folder(): # clean 'image' folder.
     images = glob.glob("images/*.png")
@@ -18,57 +66,50 @@ def clean_folder(): # clean 'image' folder.
 
 count = 1
 while True:
-    status = 0 # 0 => No object enters frame.
-    check, frame = video.read()
+    object = 0 # 0 => No object enters frame.
+    is_object, frame = video.read()
 
     # 1.
-    Gray_Frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    Gray_Frame_Gau = cv2.GaussianBlur(Gray_Frame, (21, 21), 0)
-    cv2.imshow("1.Gray-Scale Blur Video", Gray_Frame_Gau)  # blurred grayscale image
+    Gray_Scale_Frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    Gray_Gaussian = cv2.GaussianBlur(Gray_Scale_Frame, (21, 21), 0)
+    cv2.imshow("1.Blurred Gray-Scale", Gray_Gaussian)  # blurred grayscale image
 
-    if first_frame is None:
-        first_frame = Gray_Frame_Gau
+    if init_frame is None:
+        init_frame = Gray_Gaussian
 
     # 2.
-    Delta_Frame = cv2.absdiff(first_frame, Gray_Frame_Gau)
-    cv2.imshow("2.Delta Video", Delta_Frame)  # difference from first static frame
+    Difference_Frame = cv2.absdiff(init_frame, Gray_Gaussian) # difference from first static frame
+    Max_Change = cv2.threshold(Difference_Frame, 60, 255, cv2.THRESH_BINARY)[1] # threshold mask showing motion as white
+    dilated_frame = cv2.dilate(Max_Change, None, iterations=2) # dilated mask for stronger motion region
 
     # 3.
-    Threshold_Frame = cv2.threshold(Delta_Frame, 60, 255, cv2.THRESH_BINARY)[1]
-    cv2.imshow("3.Threshold Video", Threshold_Frame)  # threshold mask showing motion as white
-
-    # 4.
-    dil_frame = cv2.dilate(Threshold_Frame, None, iterations=2)
-    cv2.imshow("4.Dil video", dil_frame)  # dilated mask for stronger motion region
-
-    # 5.
-    countours, check = cv2.findContours(dil_frame, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    countours, is_object = cv2.findContours(dilated_frame, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     for countour in countours:
         if cv2.contourArea(countour) < 5000:
             continue
         x, y, width, height = cv2.boundingRect(countour)
-        rectangle = cv2.rectangle(frame, (x, y), (x + width, y + height), (0, 255, 0), 3)
+        rectangle = cv2.rectangle(frame, (x, y), (x + width, y + height), (0, 270, 0), 3)
 
         if rectangle.any():
-            status = 1
+            object = 1
 
-            if not sent:    # ✅ send instantly on entry
-                cv2.imwrite("object.png", frame)
-                send_email("object.png")
-                sent = True 
+            if not sent_Email:    # Send Email when Object enters
+                cv2.imwrite("new_object.png", frame)
+                Gmailing("new_object.png")
+                sent_Email = True 
                 print("Email sent!")
 
-    status_list.append(status)
+    status_list.append(object)
     status_list = status_list[-2:]
 
-    # reset for next entry
-    if status == 0:
-        sent = False
+    # Object reseting
+    if object == 0:
+        sent_Email = False
 
-    cv2.imshow("5.Webcam detecting moving Objects in Rectangle", frame)  # final output feed
+    cv2.imshow("3.Object Detection", frame)  
 
     key = cv2.waitKey(1)
-    if key == ord("q"):
+    if key == ord("B"):
         break
 
 video.release()
