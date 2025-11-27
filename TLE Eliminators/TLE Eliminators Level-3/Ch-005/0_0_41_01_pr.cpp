@@ -1,6 +1,9 @@
 // Correct.
 // This is Mentor's code.
 
+// (This is a Very-Simple, compared to my 2nd-time
+//  code, which is complex & still gives Wrong Answer.)
+
 // E - Double Factorial 
 // https://atcoder.jp/contests/abc148/tasks/abc148_e
 

@@ -1,5 +1,5 @@
-// Wrong.
-// This is My Version of Mentor's code.
+// Wrong (Answer).
+// (This is My 2nd-time code.)
 
 // E - Double Factorial 
 // https://atcoder.jp/contests/abc148/tasks/abc148_e
@@ -47,8 +47,12 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-long long power(long long base, long long exp){
-    long long result = 1;
+// Power
+// Wrong O/P, because as n <= 1e18. So,
+//  it may give integer-overflow & 
+//  wrong answer.
+int power(int base, int exp){
+    int result = 1;
 
     while(exp > 0){
         if((exp % 2) == 1){
@@ -66,7 +70,6 @@ long long power(long long base, long long exp){
     return result;
 }
 
-
 signed main(){
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
@@ -76,20 +79,26 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     // I/P
-    long long n; cin >> n;
+    int n; cin >> n;
 
-    // O/P
-    long long ans = 0;
-    if(n%2 == 0){ // even
-        for(int i=1; i <= 19; i++){
-            int val = (n / power(10,i));
-            ans += val;
-
-            for(int j=1; j <= 19; j++){
-                ans += (val + power(5,j)) / (2 * power(5,j));
-            }
+    // Solution
+    int ans = 0;
+    if(n%2 == 0){ // Even
+        int i=1;
+        while((i <= 18) && (n >= power(10, i))){
+            int num = n;
+            ans += (num / power(10, i));
+            i++;
+        }
+        int j = 1;
+        while((j <= 18) && (n >= (power(5, j)))){
+            int num_1 = n, num_2 = n;
+            ans += ((num_1 / (power(5, j) * 2)) - (num_2 / power(10, j)));
+            j++;
         }
     }
+    else{ ans = 0;} // Odd
 
+    // O/P
     cout << ans << endl;
 }

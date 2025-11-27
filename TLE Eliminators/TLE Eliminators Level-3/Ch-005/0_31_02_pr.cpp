@@ -1,5 +1,5 @@
 // Correct.
-// This is Mentor's code.
+// (This is My 2nd time code.)
 
 // B. Colliders
 // https://codeforces.com/problemset/problem/154/B
@@ -47,34 +47,22 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-const int val = 1e5;
-int SPF[val+1];
-void spf(){  // O(1e5 * log(log(1e5))).
-    for(int i=0; i <= val; i++){
+// Prime Factors Sieve
+const int num = 1e5+5;  // You put 'num' according to Problem.
+int SPF[num];
+void Prime_Factors_Sieve(){ // O(n * log(log(n)))
+    for(int i=0; i < num; i++){
         SPF[i] = i;
     }
-    for(int i=2; i <= val; i++){
+    for(int i=2; i < num; i++){
         if(SPF[i] == i){
-            for(int j = i*i; j <= val; j += i){
+            for(int j = i*i; j < num; j += i){
                 if(SPF[j] == j){
                     SPF[j] = i;
                 }
             }
         }
     }
-}
-
-vector<int> Prime_Factors(int n){ // O(log(n)).
-    vector<int> primes;
-    while(n > 1){
-        int x = SPF[n];
-        while(n%x == 0){ 
-            n /= x;
-        }
-        primes.push_back(x);
-    }
-
-    return primes;
 }
 
 signed main(){
@@ -87,62 +75,69 @@ signed main(){
 
     // I/P
     int n, m; cin >> n >> m;
-    vector<pair<char,int>> Request(m);
-    for(int i=0; i<m; i++){ 
-        char temp; cin >> temp;
-        int val; cin >> val;
-        Request[i] = {temp, val};
-    }
+    string sign[m];
+    vector<int> requests(m);
+    for(int i=0; i < m; i++){ cin >> sign[i] >> requests[i];}
 
     // Solution
-    spf();
-    int Occupied[n+1] = {0};
-    int is_Active[n+1] = {0};
+    Prime_Factors_Sieve();
+    vector<pair<int,int>> factor_freq(1e5+5, {0,-1});
+    vector<int> On_Off(1e5+5, 0);
 
-    for(int i=0; i<m; i++){
-        int num = Request[i].second;
-        vector<int> primes = Prime_Factors(num);
-
-        if(Request[i].first == '+'){
-            if(is_Active[num] != 0){
+    for(int i=0; i < m; i++){
+        if(sign[i] == "+"){ // On
+            if(On_Off[requests[i]] == 1){
                 cout << "Already on" << endl;
             }
             else{
-                int collision = 0;
-
-                for(auto &i : primes){
-                    if(Occupied[i] != 0){
-                        collision = Occupied[i];
-                    }
+                int num = requests[i];
+                int temp = requests[i];
+                vector<int> prime_factors;
+                while(temp > 1){
+                    prime_factors.push_back(SPF[temp]);
+                    temp /= SPF[temp];
                 }
 
-                if(collision != 0){
-                    cout << "Conflict with " << collision << endl;
+                bool Fill = true;
+                int conflict = -1;
+                for(int j=0; j < prime_factors.size(); j++){
+                    if(factor_freq[prime_factors[j]].first != 0){
+                        Fill = false;
+                        conflict = factor_freq[prime_factors[j]].second;
+                        break;
+                    }
+                }
+                if(Fill == true){
+                    for(int j=0; j < prime_factors.size(); j++){
+                        factor_freq[prime_factors[j]] = {1, num};
+                    }
+                    On_Off[num] = 1;
+                }
+
+                if(Fill == true){
+                    cout << "Success" << endl;
                 }
                 else{
-                    cout << "Success" << endl;
-
-                    for(auto &i : primes){
-                        Occupied[i] = num;
-                    }
-                    is_Active[num] = 1;
+                    cout << "Conflict with " << conflict << endl;
                 }
             }
         }
-        else{
-            if(is_Active[num] == 0){
-                cout << "Already off" << endl;
-            }
-            else{
-                cout << "Success" << endl;
-                is_Active[num] = 0;
-
-                for(auto &i : primes){
-                    Occupied[i] = 0;
+        else{ // Off
+            if(On_Off[requests[i]] == 1){
+                int temp = requests[i];
+                vector<int> prime_factors;
+                while(temp > 1){
+                    prime_factors.push_back(SPF[temp]);
+                    temp /= SPF[temp];
                 }
+                for(int j=0; j < prime_factors.size(); j++){
+                    factor_freq[prime_factors[j]] = {0,-1};
+                }
+
+                On_Off[requests[i]] = 0;
+                cout << "Success" << endl;
             }
+            else{ cout << "Already off" << endl;}
         }
     }
-
-    // TC = O(1e5 * log(log(1e5)) + (m * log(n))).
 }
