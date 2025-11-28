@@ -1,8 +1,8 @@
-// Wrong.
+// Correct.
+// (This is Mentor's code.)
 
 // Divisor Analysis
 // https://cses.fi/problemset/task/2182
-
 
 
 
@@ -47,24 +47,20 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-int power(int base, int exp){
-    int result = 1;
-
-    while(exp > 0){
-        if((exp % 2) == 1){
-            (result *= base) %= MOD;
-
-            (base *= base) %= MOD;
-            exp /= 2;
+int expo(int base, int pow){
+    int ans = 1;
+    while(pow){
+        if(pow & 1){
+            ans = ans * base % MOD;
         }
-        else{
-            (base *= base) %= MOD;
-            exp /= 2;
-        }
+        base = base * base % MOD;
+        pow /= 2;
     }
 
-    return result;
+    return ans;
 }
+
+int x[100001], k[100001];
 
 signed main(){
     #ifndef ONLINE_JUDGE
@@ -76,32 +72,18 @@ signed main(){
 
     // I/P
     int n; cin >> n;
-    vector<int> x(n), k(n);
     for(int i=0; i<n; i++){
-        cin >> x[i];
-        cin >> k[i];
+        cin >> x[i] >> k[i];
     }
 
     // O/P
-    int number = 1, sum = 1, multiplication = 1;
-    int power_MOD_minus_1 = 1;
+    int count = 1, sum = 1, product = 1, count_2 = 1;
     for(int i=0; i<n; i++){
-        number *= (k[i] + 1);
-        number %= MOD;
-
-        power_MOD_minus_1 *= (k[i] + 1);
-        power_MOD_minus_1 %= (MOD - 1);
-    }
-    for(int i=0; i<n; i++){
-        int x_inverse = power(x[i] - 1, MOD - 2) % MOD; // By Fermat's theorem.
-        sum *= (power(x[i], k[i]+1) - 1) * x_inverse;
-        sum %= MOD;
-    }
-    for(int i=0; i<n; i++){
-        int exponent = (k[i] * power_MOD_minus_1 / 2) % (MOD - 1);
-        multiplication *= power(x[i], exponent);
-        multiplication %= MOD;
+        count = (count * (k[i] + 1)) % MOD;
+        sum = sum * (expo(x[i], k[i]+1) - 1) % MOD * expo(x[i]-1, MOD - 2) % MOD;
+        product = expo(product, k[i]+1) * expo(expo(x[i], (k[i] * (k[i] + 1)/ 2)), count_2) % MOD;
+        count_2 = count_2 * (k[i] + 1) % (MOD - 1);
     }
 
-    cout << number << " " << sum << " " << multiplication << endl;
+    cout << count << " " << sum << " " << product << endl;
 }
