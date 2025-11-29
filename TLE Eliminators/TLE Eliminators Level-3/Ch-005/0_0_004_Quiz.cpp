@@ -64,7 +64,7 @@ signed main(){
         vector<int> a(n);
         for(auto &i : a){ cin >> i;}
 
-        // O/P
+        // Solution
         set<int> current, factors;
         for(int i=1; i*i <= x; i++){
             if(x%i == 0){
@@ -79,7 +79,6 @@ signed main(){
             if(x % a[i] == 0){
                 new_Inserts.insert(a[i]);
             }
-
             for(auto &j : factors){
                 if((j % a[i] == 0) && (current.count(j / a[i]))){
                     new_Inserts.insert(j);
@@ -98,6 +97,7 @@ signed main(){
             }
         }
 
+        // O/P
         cout << segments << endl;
         // TC = O(n*log(n)*power(n, 1/3)).
     }
