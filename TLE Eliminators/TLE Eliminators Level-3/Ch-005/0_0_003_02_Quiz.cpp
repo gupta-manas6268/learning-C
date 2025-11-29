@@ -1,4 +1,41 @@
-// '003_Quiz.cpp'
+// Wrong.
+// (This is My 2nd-time code, but it is wrong
+//  because of Line-125, 131.)
+
+// C. Reducing Fractions
+// https://codeforces.com/contest/222/problem/C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #include<bits/stdc++.h>
@@ -85,11 +122,15 @@ signed main(){
         Factors_2[Pair.first] -= mini;
         if(Factors_1[Pair.first] == 0){
             auto it = Factors_1.find(Pair.first);
-            Factors_1.erase(it);
+            Factors_1.erase(it); 
+            // (↑) Wrong, because as we are iterating, through loop
+            //  it will give Error or Unexpected OUTPUT.
         }
         if(Factors_2[Pair.first] == 0){
             auto it = Factors_2.find(Pair.first);
             Factors_2.erase(it);
+            // (↑) Wrong, because as we are iterating, through loop
+            //  it will give Error or Unexpected OUTPUT.
         }
     }
 
@@ -99,6 +140,8 @@ signed main(){
         int num = (log(1e7) / log(Pair.first));
         while(exp > 0){
             int exp_final = (exp % num);
+            if(exp_final == 0){ exp_final = num;}
+
             int Number = power(base, exp_final);
             ans_1.push_back(Number);
             exp -= exp_final;
@@ -109,6 +152,8 @@ signed main(){
         int num = (log(1e7) / log(Pair.first));
         while(exp > 0){
             int exp_final = (exp % num);
+            if(exp_final == 0){ exp_final = num;}
+            
             int Number = power(base, exp_final);
             ans_2.push_back(Number);
             exp -= exp_final;
