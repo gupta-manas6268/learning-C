@@ -1,12 +1,3 @@
-// Write it in 'Register-Notes' immediately, gadhe.
-
-// I think about it's Solution, but write it in 
-//  'Register-Notes' because it is Hard-Question.
-
-
-
-
-
 // Correct.
 // This is Mentor's code.
 
