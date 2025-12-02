@@ -57,18 +57,18 @@ signed main(){
 
     // I/P
     int n; cin >> n;
-    vector<int> arr(n);
-    for(auto &i:arr){ cin >> i;}
+    vector<int> a(n);
+    for(auto &i:a){ cin >> i;}
 
     // Solution
     map<int,int> mp;
     for(int i=0; i<n; i++){
-        mp[arr[i]] = i;
+        mp[a[i]] = i;
     }
 
     int ans = 1, index = 0;
     for(int i=0; i < n-1; i++){
-        index = max(index, mp[arr[i]]);
+        index = max(index, mp[a[i]]);
         if(i == index){
             ans *= 2;
             ans %= MOD;

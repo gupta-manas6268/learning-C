@@ -1,6 +1,10 @@
 // Correct.
 // This is Mentor's code.
 
+// Write this Code/Concept in Register.
+
+
+
 // Combinatorics-Template is very useful. So,
 //  think about whether to write it or not.
 
