@@ -1,3 +1,12 @@
+// Write in Register from Page-41 & 42 & 43, Slide-3
+
+
+
+
+
+
+
+
 // Expectation-Code.
 
 // In Page-28, Slide-3,  Σ => E(Expected Value).
