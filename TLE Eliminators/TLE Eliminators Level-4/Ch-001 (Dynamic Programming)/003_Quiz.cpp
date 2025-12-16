@@ -19,16 +19,17 @@ const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
 // Solution
+int n;
 vector<int> a;
 vector<int> dp(1e6+10, -INF);
 int func(int index){
-    if(index < 0){
+    if(index >= n){
         return 0;
     }
     if(dp[index] != -INF){
         return dp[index];
     }
-    dp[index] = max(a[index] + func(index - 2), func(index - 1));
+    dp[index] = max(a[index] + func(index + 2), func(index + 1));
     return dp[index];
 }
 
@@ -41,7 +42,7 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     // I/P
-    int n; cin >> n;
+    cin >> n;
     // (1 <= n <= 1e6)
     for(int i=0; i < n ; i++){
         int temp; cin >> temp;
@@ -49,6 +50,6 @@ signed main(){
     }
 
     // O/P
-    int ans = func(n-1);
+    int ans = func(0);
     cout << ans << endl;
 }

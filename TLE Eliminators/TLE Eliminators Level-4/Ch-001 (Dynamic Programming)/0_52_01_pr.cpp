@@ -1,7 +1,40 @@
-// 
+// Wrong (Wrong O/P.)
+// (My approach is Wrong.)
 
 // Rectangle Cutting
 // https://cses.fi/problemset/task/1744
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -14,6 +47,23 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
+int ans = 0;
+void solve(int a, int b){
+    if(a == b){ return;}
+
+    int maxi = max(a, b);
+    int mini = min(a, b);
+    a = maxi; b = mini;
+    if(a%b == 0){
+        ans += ((a/b)-1);
+        return;
+    }
+    else{
+        ans += (a/b);
+        solve(a%b, b);
+    }
+}
+
 signed main(){
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
@@ -25,17 +75,7 @@ signed main(){
     // I/P
     int a, b; cin >> a >> b;
 
-    // Solution
-    int moves = 0;
-    while(a != b){
-        int Maxi = max(a, b);
-        int Mini = min(a, b);
-
-        a = Maxi, b = Mini;
-        a -= b;
-        moves++;
-    }
-
     // O/P
-    cout << moves << endl;
+    solve(a, b);
+    cout << ans << endl;
 }

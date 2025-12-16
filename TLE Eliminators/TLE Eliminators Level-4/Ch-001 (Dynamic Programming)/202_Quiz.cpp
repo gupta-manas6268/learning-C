@@ -28,7 +28,7 @@ signed main(){
 
     while (tc--){
         string t; cin >> t;
-        int n = sz(t);
+        int n = t.length();
         int m; cin >> m;
         vector<string> patterns(m);
         for(int i=0; i < m; i++){
@@ -77,7 +77,7 @@ signed main(){
                     //  matches the j'th string completely.
 
                     bool can_Color = false;
-                    int string_len = sz(patterns[j]);
+                    int string_len = patterns[j].length();
 
                     if(((i + string_len) <= n) && (t.substr(i, string_len) == patterns[j])){
                         int colorings = 1 + dp[i + 1][max(k - 1, string_len - 1)];

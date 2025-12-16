@@ -8,8 +8,9 @@ const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
 // Solution
+int n, m;
 vector<vector<int>> dp(1e5+10, vector<int> (1e5+10, -1));
-int min_Path(int i, int j, vector<vector<int>>& grid, int n, int m){
+int min_Path(int i, int j, vector<vector<int>>& grid){
     if((i >= n) || (j >= m)){ // moving outside grid
         return INF;
     }
@@ -20,7 +21,7 @@ int min_Path(int i, int j, vector<vector<int>>& grid, int n, int m){
         return dp[i][j];
     }
 
-    dp[i][j] = grid[i][j] + min(min_Path(i, j + 1, grid, n, m), min_Path(i + 1, j, grid, n, m));
+    dp[i][j] = grid[i][j] + min(min_Path(i, j + 1, grid), min_Path(i + 1, j, grid));
     return dp[i][j];
 }
 
@@ -33,7 +34,7 @@ signed main(){
     ios::sync_with_stdio(false); cin.tie(NULL);
 
     // I/P
-    int n, m; cin >> n >> m;
+    cin >> n >> m;
     // (1 <= n, m <= 1e5)
     vector<vector<int>> grid(n);
     for(int i=0; i < n; i++){
@@ -43,6 +44,6 @@ signed main(){
     }
 
     // O/P
-    int ans = min_Path(0, 0, grid, n, m);
+    int ans = min_Path(0, 0, grid);
     cout << ans << endl;
 }

@@ -2,10 +2,10 @@
 
 
 
+// Ex-1: https://math.stackexchange.com/questions/306371/simple-proof-of-showing-the-harmonic-number-h-n-theta-log-n
+
+// Ex-2: https://t5k.org/howmany.html
+
+// Ex-3: https://codeforces.com/blog/entry/651
 
 
-
-
-
-
-//  Understand why in Ex.-2. in Slide-2, Page-8. (T.T/state = n/2)

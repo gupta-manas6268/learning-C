@@ -69,7 +69,7 @@ signed main(){
         //        all the blocks are formed with elements from [i to 'n-1']
 
         // dp[i] = max(dp[i + 1], 1 + a[i] + dp[i + 1 + a[i]]).
-        // dp[i + 1] = max(dp[i + 2], 1 + a[i + 1], dp[i + 1 + 1 + a[i + 1]]).
+        // dp[i + 1] = max(dp[i + 2], 1 + a[i + 1] + dp[i + 1 + 1 + a[i + 1]]).
 
         for(int i = n-1; i >= 0; i--){
             // Start a block with the i'th element being the 1st element of the block.
