@@ -1,7 +1,40 @@
-// 
+// Correct.
 
 // B. Mashmokh and ACM
 // https://codeforces.com/contest/414/problem/B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -13,24 +46,6 @@ using namespace std;
 
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
-
-vector<int> temp;
-int ans = 0;
-void solve(int n, int k){
-    if(temp.size() == k){
-        ans++;
-        ans %= MOD;
-        return;
-    }
-    int top = temp[temp.size()-1];
-    int j = top;
-    while(j <= n){
-        temp.push_back(j);
-        solve(n, k);
-        temp.pop_back();
-        j += top;
-    }
-}
 
 signed main(){
     #ifndef ONLINE_JUDGE
@@ -44,12 +59,25 @@ signed main(){
     int n, k; cin >> n >> k;
 
     // Solution
+    vector<vector<int>> dp(n+10, vector<int> (k+10, 0));
+    for(int i=1; i <= n; i++){ dp[i][1] = 1;}
+
+    for(int j=1; j <= k; j++){
+        for(int i=1; i <= n; i++){
+            for(int i_dash = i; i_dash <= n; i_dash += i){
+                dp[i_dash][j+1] += dp[i][j];
+                dp[i_dash][j+1] %= MOD;
+            }
+        }
+    }
+    int ans = 0;
     for(int i=1; i <= n; i++){
-        temp.push_back(i);
-        solve(n, k);
-        temp.pop_back();
+        ans += dp[i][k];
+        ans %= MOD;
     }
 
     // O/P
     cout << ans << endl;
+    // TC = O(n * k * log(n))
+    // SC = O(n * k)
 }
