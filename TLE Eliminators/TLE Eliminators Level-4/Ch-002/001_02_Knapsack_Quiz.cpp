@@ -7,10 +7,10 @@
 // 
 // (See line-91 to 97.)
 
+// (Choose whether to write this code or not.)
+
 // Book Shop
 // https://cses.fi/problemset/task/1158
-
-
 
 
 
