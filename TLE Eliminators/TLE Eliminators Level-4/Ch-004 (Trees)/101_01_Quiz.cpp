@@ -2,6 +2,8 @@
 // This is Mentor's code, but I know the concept
 //  behind Problem.
 
+// No need to write in Register anything.
+
 // C. Kuro and Walking Route
 // https://codeforces.com/contest/979/problem/C
 

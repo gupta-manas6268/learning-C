@@ -1,6 +1,9 @@
 // Correct.
 // This is My version of Mentor's code.
 
+// (I don't get logic. So, write logic in Register
+//   but don't write code as it is mine.)
+
 // D. 13th Labour of Heracles
 // https://codeforces.com/problemset/problem/1466/D
 

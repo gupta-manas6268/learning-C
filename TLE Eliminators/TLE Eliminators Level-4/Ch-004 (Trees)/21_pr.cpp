@@ -1,7 +1,40 @@
-// 
+// Correct.
 
 // E. Gardener and Tree
 // https://codeforces.com/problemset/problem/1593/E
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -27,73 +60,50 @@ signed main(){
     while (tc--){
         // I/P
         int n, k; cin >> n >> k;
-        vector<vector<int>> adjacency_List(n+1);
-        vector<int> node_key(n+1, 0);
-        map<int, pair<int,int>> key_edges;
+        vector<set<int>> adjacency_List(n+1);
         for(int i=0; i < n-1; i++){
             int u, v; cin >> u >> v;
-
-            adjacency_List[u].push_back(v);
-            adjacency_List[v].push_back(u);
-
-            int key_1 = u + (v * (1e6 + 1));
-            key_edges[key_1] = {u, v};
-            int key_2 = v + (u * (1e6 + 1));
-            key_edges[key_2] = {v, u};
-
-            node_key[u] += key_1;
-            node_key[v] += key_2;
+            adjacency_List[u].insert(v);
+            adjacency_List[v].insert(u);
         }
 
         // Solution
-        int ans;
-        if(n == 1){
-            ans = 0;
+        queue<int> Leaf;
+        for(int i=1; i <= n; i++){
+            if(adjacency_List[i].size() <= 1){ Leaf.push(i);}
         }
-        else{
-            vector<pair<int,int>> Size_node;
-            for(int i=1; i <= n; i++){
-                Size_node.push_back({adjacency_List[i].size(), i});
-            }
+
+        int ans = n;
+        while(k != 0){
+            if(Leaf.size() == 0){ break;}
             
-            while(k > 0){
-                int Size = Size_node.size();
-                ans = Size;
-                if(Size == 0){
-                    break;
-                }
-                sort(Size_node.begin(), Size_node.end(), greater<int>());
+            queue<int> Leaf_2;
+            while(Leaf.size() != 0){
+                int node = Leaf.front();
+                Leaf.pop();
+                ans--;
 
-                vector<int> node_index(n+1);
-                for(int i=0; i < Size; i++){
-                    int node = Size_node[i].second;
-                    node_index[node] = i;
-                }
-
-                if((Size == 1) || (Size == 2)){
-                    Size_node.clear();
-                }
-                else{
-                    for(int i = Size_node.size()-1; i >= 0; i--){
-                        if(Size_node[i].first <= 1){
-                            int first_node = Size_node[i].second;
-                            int key_11 = node_key[first_node];
-                            int second_node = key_edges[key_11].second;
-
-                            int key_12 = second_node + (first_node * (1e6 + 1));
-                            node_key[first_node] = 0;
-                            node_key[second_node] -= key_12;
-                            int index = node_index[second_node];
-
-                            Size_node[index].first--;
-                        }
+                if(adjacency_List[node].size() == 1){
+                    auto it = adjacency_List[node].begin();
+                    int Node_2;
+                    for(auto &it : adjacency_List[node]){
+                        Node_2 = it;
+                    }
+                    auto it_2 = adjacency_List[Node_2].find(node);
+                    adjacency_List[Node_2].erase(it_2);
+                    if(adjacency_List[Node_2].size() <= 1){
+                        Leaf_2.push(Node_2);
                     }
                 }
-                k--;
             }
+            Leaf = Leaf_2;
+            k--;
         }
 
         // O/P
+        if(ans <= 0){ ans = 0;}
         cout << ans << endl;
+        // TC = O(tc * (n * log(n)))
+        // SC = O(n)
     }
 }

@@ -1,6 +1,9 @@
 // Correct.
 // This is Mentor's code.
 
+// (I don't get it's logic. So, write logic & think
+//   about whether to write code or not.)
+
 // C. Tree Cutting
 // https://codeforces.com/problemset/problem/1946/C
 
