@@ -53,7 +53,7 @@ const int N = 2e5 + 1, M = 20;
 vector<int> adjacency_List[N];
 int depth[N], Parent[N][M];
 
-void dfs(int cur, int par){
+void dfs(int cur, int par){ // O(n*log(n))
     depth[cur] = depth[par] + 1;
     Parent[cur][0] = par;
     for(int j=1; j < M; j++){
@@ -64,7 +64,7 @@ void dfs(int cur, int par){
     }
 }
 
-int Kth_Parent(int u, int k){
+int Kth_Parent(int u, int k){ // O(log(n))
     for(int i = M-1; i >= 0; i--){   // Both lines  (MSB to LSB)
     // for(int i = 0; i <= M-1; i--){ // work well. (LSB to MSB)
     // (MSB => Most Significant Bit)

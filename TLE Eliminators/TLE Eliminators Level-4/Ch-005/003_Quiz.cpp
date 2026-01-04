@@ -4,7 +4,7 @@
 // (This is My code, only Formula of Page-17 is taken
 //  from Mentor.)
 
-// (So, don't write code but write Formula.)
+// (So, don't write code but write Formula only.)
 
 // Distance Queries
 // https://cses.fi/problemset/task/1135

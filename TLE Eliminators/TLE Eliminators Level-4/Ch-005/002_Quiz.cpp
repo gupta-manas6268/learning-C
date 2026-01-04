@@ -54,7 +54,7 @@ const int N = 2e5 + 1, M = 20;
 vector<int> adjacency_List[N];
 int depth[N], Parent[N][M];
 
-void dfs(int cur, int par){ // O(n)
+void dfs(int cur, int par){ // O(n*log(n))
     depth[cur] = depth[par] + 1;
     Parent[cur][0] = par;
     for(int j=1; j < M; j++){
