@@ -1,7 +1,40 @@
-// 
+// Correct.
 
 // Labyrinth
 // https://cses.fi/problemset/task/1193
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -14,47 +47,95 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
+// Solution
+string Path = "";
+int BFS(pair<int,int> node, vector<string>& grid, int n, int m){ // O(n + m)
+    queue<pair<int,int>> q;
+    q.push({node.first, node.second});
+    map<pair<int,int>, pair<char, pair<int,int>>> mp;
+        
+    int ans = 0;
+    bool is_Ans = false;
 
-int Length = -1;
-string ans;
-bool is_Ans = false;
-void Path(int n, int m, vector<string>& grid, vector<vector<int>>& Visited, pair<int,int>& Coordinates, string &temp_ans){
-    cout << temp_ans << " ";
-    Visited[Coordinates.first][Coordinates.second] = 1; // Visited
+    int i_dash = -1, j_dash = -1;
+    while(!q.empty()){
+        queue<pair<int,int>> temp;
+        ans++;
+        while(!q.empty()){
+            pair<int,int> u = q.front();
+            q.pop();
 
-    if(grid[Coordinates.first][Coordinates.second] == 'B'){
-        Visited[Coordinates.first][Coordinates.second] = 0; // Not-Visited
-        if(Length == -1){
-            Length = temp_ans.length();
-            ans = temp_ans;
-        }
-        else{
-            if(temp_ans.length() < Length){
-                Length = temp_ans.length();
-                ans = temp_ans;
-            }
-        }
-        is_Ans = true;
-    }
-
-    int dx[] = {-1, 1, 0, 0};
-    int dy[] = {0, 0, -1, 1};
-    char step[] = {'U', 'D', 'L', 'R'};
-
-    for(int i=0; i < 4; i++){
-        if(is_Ans == true){ break;}
-
-        pair<int,int> New_Coor = {Coordinates.first + dx[i], Coordinates.second + dy[i]};
-        if((Coordinates.first < n) && (Coordinates.second < m)){
-            if(Visited[New_Coor.first][New_Coor.second] == 0){
-                if((grid[New_Coor.first][New_Coor.second] == '.') || ((grid[New_Coor.first][New_Coor.second] == 'B'))){
-                    string Temp_ans = (temp_ans + step[i]);
-                    Path(n, m, grid, Visited, New_Coor, Temp_ans);
+            int i = u.first, j = u.second;
+            if(i+1 < n){
+                if(grid[i+1][j] == 'B'){
+                    is_Ans = true; 
+                    i_dash = i+1, j_dash = j;
+                    mp[{i+1, j}] = {'D', {i, j}};
+                    break;
+                }
+                else if(grid[i+1][j] == '.'){
+                    temp.push({i+1, j});
+                    grid[i+1][j] = '#';
+                    mp[{i+1, j}] = {'D', {i, j}};
+                }
+            }                    
+            if(i-1 >= 0){
+                if(grid[i-1][j] == 'B'){
+                    is_Ans = true; 
+                    i_dash = i-1, j_dash = j;
+                    mp[{i-1, j}] = {'U', {i, j}};
+                    break;
+                }
+                else if(grid[i-1][j] == '.'){
+                    temp.push({i-1, j});
+                    grid[i-1][j] = '#';
+                    mp[{i-1, j}] = {'U', {i, j}};
+                }
+            } 
+            if(j+1 < m){
+                if(grid[i][j+1] == 'B'){
+                    is_Ans = true; 
+                    i_dash = i, j_dash = j+1;
+                    mp[{i, j+1}] = {'R', {i, j}};
+                    break;
+                }
+                else if(grid[i][j+1] == '.'){
+                    temp.push({i, j+1});
+                    grid[i][j+1] = '#';
+                    mp[{i, j+1}] = {'R', {i, j}};
+                }
+            } 
+            if(j-1 >= 0){
+                if(grid[i][j-1] == 'B'){
+                    is_Ans = true; 
+                    i_dash = i, j_dash = j-1;
+                    mp[{i, j-1}] = {'L', {i, j}};
+                    break;
+                }
+                else if(grid[i][j-1] == '.'){
+                    temp.push({i, j-1});
+                    grid[i][j-1] = '#';
+                    mp[{i, j-1}] = {'L', {i, j}};
                 }
             }
         }
+        if(is_Ans == true){ break;}
+        swap(q, temp);
     }
-    cout << temp_ans << " ";
+
+    if(is_Ans == false){ ans = -1;}
+    else{
+        while((i_dash != node.first) || (j_dash != node.second)){
+            pair<char, pair<int, int>> Pair = mp[{i_dash, j_dash}];
+            char c = Pair.first;
+            Path += c;
+            i_dash = Pair.second.first;
+            j_dash = Pair.second.second;
+        }
+    }
+    reverse(Path.begin(), Path.end());
+
+    return ans;
 }
 
 signed main(){
@@ -67,33 +148,21 @@ signed main(){
 
     // I/P
     int n, m; cin >> n >> m;
-    vector<string> grid;
-    pair<int,int> A;
+    vector<string> adj(n);
+    pair<int,int> node;
     for(int i=0; i < n; i++){
-        string temp_Vec; cin >> temp_Vec;
+        cin >> adj[i];
         for(int j=0; j < m; j++){
-            if(temp_Vec[j] == 'A'){
-                A = {i, j};
-            }
+            if(adj[i][j] == 'A'){ node = {i, j};}
         }
-        grid.push_back(temp_Vec);
     }
-
-    // Solution
-    vector<vector<int>> Visited;
-    for(int i=0; i < n; i++){
-        vector<int> temp(m, 0);
-        Visited.push_back(temp);
-    }
-    string temp_ans = "";
-    Path(n, m, grid, Visited, A, temp_ans);
 
     // O/P
-    cout << endl;
-    if(is_Ans == true){
-        cout << "YES" << endl;
-        cout << Length << endl;
-        cout << ans << endl;
+    int ans = BFS(node, adj, n, m);
+    if(ans != -1){
+        cout << "YES" << endl << ans << endl << Path << endl;
     }
     else{ cout << "NO" << endl;}
+    // TC = O(power(n, 2))
+    // SC = O(power(n, 2))
 }

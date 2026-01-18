@@ -1,6 +1,8 @@
 // Correct.
 // This is Mentor's code.
 
+// (No need to write code & logic.)
+
 // 994. Rotting Oranges
 // https://leetcode.com/problems/rotting-oranges/description/
 

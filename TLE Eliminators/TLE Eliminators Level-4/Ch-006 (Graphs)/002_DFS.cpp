@@ -7,7 +7,7 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-void DFS(int node, vector<vector<int>>& adj_List_1, vector<int>& visited, vector<int>& ans){ // O(n)
+void DFS(int node, vector<vector<int>>& adj_List_1, vector<int>& visited, vector<int>& ans){ // O(n+m)
     visited[node] = 1;
     ans.push_back(node);
     
@@ -16,7 +16,7 @@ void DFS(int node, vector<vector<int>>& adj_List_1, vector<int>& visited, vector
             DFS(neighour, adj_List_1, visited, ans);
         }
     }
-    // TC = O(n)
+    // TC = O(n+m)
     // SC = O(n)
 }
 

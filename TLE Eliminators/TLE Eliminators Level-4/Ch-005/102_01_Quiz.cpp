@@ -4,7 +4,54 @@
 // https://cses.fi/problemset/task/1133
 
 
-//   dp[new_root] = dp[parent] - sz[new_root] + (n - sz[new_root])
+// (Hint given below.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// (Hint: dp[new_root] = dp[parent] - sz[new_root] + (n - sz[new_root]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #include<bits/stdc++.h>
 using namespace std;

@@ -36,7 +36,7 @@
 // ans[node] = ans[parent] + ((a[node] ^ a[parent]) * (n - (2 * sz[node])))
 
 // if(x != y){ x^c != y^c} 
-// if(x == y){ x^c == y^c}
+// if(x == y){ x^c == y^c} 
 // 
 // So, if I take a subtree then all values in it are equal
 //  only they are equal previously.    
@@ -68,7 +68,7 @@ signed main(){
     freopen("output.txt", "w", stdout);
     #endif
 
-    // ios::sync_with_stdio(false); cin.tie(NULL);
+    ios::sync_with_stdio(false); cin.tie(NULL);
 
     int tc; cin >> tc;
 

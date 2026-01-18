@@ -1,6 +1,8 @@
 // Correct.
 // This is Mentor's code.
 
+// (Write logic & Formula. But don't write code.)
+
 // B. Mahmoud and Ehab and the bipartiteness
 // https://codeforces.com/problemset/problem/862/b
 
