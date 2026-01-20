@@ -1,10 +1,10 @@
 // Correct.
 // This is Mentor's code.
 
+// (No need to write code & logic.)
+
 // D. Beautiful Graph
 // https://codeforces.com/contest/1093/problem/D
-
-
 
 
 

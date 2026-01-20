@@ -8,7 +8,7 @@ const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
 void BFS(int node, vector<vector<int>>& adj_List_1, vector<int>& ans){ // O(n + m)
-    // BFS => Stores in order of min. distance of node from starting node.
+// BFS => Stores in order of min. distance of node from starting node.
     vector<int> visited(adj_List_1.size());
     queue<int> q;
     q.push(node); visited[node] = 1;

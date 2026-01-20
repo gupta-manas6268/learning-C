@@ -1,10 +1,10 @@
 // Correct.
 // This is Mentor's code.
 
+// (No need to write code & logic.)
+
 // D. Valid BFS?
 // https://codeforces.com/contest/1037/problem/D
-
-
 
 
 

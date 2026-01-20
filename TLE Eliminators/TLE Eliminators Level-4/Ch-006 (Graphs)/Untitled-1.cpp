@@ -1,54 +1,21 @@
-// Solve Quizzes firstly.
-
-// Solve '101_Quiz.cpp' firstly, & then '102_Quiz.cpp', '103_Quiz.cpp' & '104_Quiz.cpp'
-
-
-
-
 #include<bits/stdc++.h>
 using namespace std;
 
 #define endl '\n'
 #define int long long 
 
-const int MOD = 998244353;
+const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-// Power
-int power(int base, int exp){
-    int result = 1;
-
-    while(exp > 0){
-        if((exp % 2) == 1){
-            (result *= base) %= MOD;
-
-            (base *= base) %= MOD;
-            exp /= 2;
-        }
-        else{
-            (base *= base) %= MOD;
-            exp /= 2;
-        }
-    }
-
-    return result;
-}
-
-bool is_Ans = true;
-void DFS(int node, vector<vector<int>>& adj_List_1, int parent, vector<int>& visited, vector<int>& ans){ // O(n+m)
-    if(parent == -1){ visited[node] = 1;}
-    else if(visited[parent] == 2){ visited[node] = 1;}
-    else if(visited[parent] == 1){ visited[node] = 2;}
+void DFS(int node, vector<vector<int>>& adj_List_1, vector<int>& visited, vector<int>& ans){ // O(n+m)
+    visited[node] = 1;
     ans.push_back(node);
     
     for(auto & neighour : adj_List_1[node]){
-        if(visited[neighour] == visited[node]){ is_Ans = false; break;}
         if(visited[neighour] == 0){ // Not Visited
-            DFS(neighour, adj_List_1, node, visited, ans);
+            DFS(neighour, adj_List_1, visited, ans);
         }
     }
-    // TC = O(n+m)
-    // SC = O(n)
 }
 
 signed main(){
@@ -63,40 +30,68 @@ signed main(){
 
     while (tc--){
         // I/P
-        int n, m; cin >> n >> m;
-        vector<vector<int>> adj(n+1);
-        for(int i=1; i <= m; i++){
-            int u, v; cin >> u >> v;
-            adj[u].push_back(v);
-            adj[v].push_back(u);
-        }
+        int n; cin >> n;
+        vector<int> a(n+1);
+        for(int i=1; i <= n; i++){ cin >> a[i];}
 
         // Solution
-        int ans = 1;
-        vector<int> visited(n+1, 0);
+        vector<vector<int>> adj(n+1);
         for(int i=1; i <= n; i++){
-            vector<int> Path;
-            if(visited[i] == 0){
-                DFS(i, adj, -1, visited, Path);
-                if(is_Ans == false){ ans = 0; break;}
+            if((i > a[i]) && (a[a[i]] == i)){
+                continue;
+            }
+            adj[i].push_back(a[i]);
+            adj[a[i]].push_back(i);
+        }
 
-                int x = 0, y = 0;
-                for(int i=0; i < Path.size(); i++){
-                    if(visited[Path[i]] == 1){ x++;}
-                    else{ y++;}
+        vector<int> visited(n+1, 0);
+        vector<int> Degree;
+        for(int i=1; i <= n; i++){
+            if(visited[i] == 0){
+                vector<int> Path;
+                DFS(i, adj, visited, Path);
+
+                int temp_degree = 0;
+                for(int j=0; j < Path.size(); j++){
+                    if(adj[Path[j]].size() == 1){
+                        temp_degree++;
+                    }
                 }
-                // ans += power(2, x);
-                // ans %= MOD;
-                // ans += power(2, y);
-                // ans %= MOD;
-                ans *= ((power(2, x) + power(2, y)) % MOD);
-                ans %= MOD;
+                Degree.push_back(temp_degree);
             }
         }
 
-        // O/P
-        cout << ans << endl;
-        // TC = O(n)
+        int maxi = Degree.size();
+        int mini = 0;
+        sort(Degree.begin(), Degree.end());
+        stack<int> st;
+        for(int i=0; i < Degree.size(); i++){
+            st.push(Degree[i]);
+        }
+
+        bool Break = false;
+        while(Break != true){
+            if(st.top() >= 1){
+                int top_1 = st.top();
+                st.pop();
+                if((st.empty() != true) && (st.top() >= 1)){
+                    int top_2 = st.top();
+                    st.pop();
+                    int top = (top_1 + top_2 - 2);
+                    st.push(top);
+                }
+                else{ 
+                    st.push(top_1);
+                    Break = true;
+                }
+            }
+            else{ Break = true;}
+        }
+        mini = st.size();
+
+        // // O/P
+        cout << mini << " " << maxi << endl;
+        // TC = O(n*log(n))
         // SC = O(n)
     }
 }

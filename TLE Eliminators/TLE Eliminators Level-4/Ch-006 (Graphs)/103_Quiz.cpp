@@ -1,8 +1,40 @@
-// Wrong (TLE)
-// This is Mentor's code.
+// Correct.
+// (This is My code in 2nd-time.)
+
+// (No need to write code & logic.)
 
 // E. Round Dance
 // https://codeforces.com/contest/1833/problem/E
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -15,17 +47,14 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
-void DFS(int node, vector<vector<int>> adj_List_1, vector<int> &visited, bool &has_Leaf_Node){
-    if(adj_List_1[node].size() == 1){
-        has_Leaf_Node = true;
-    }
+void DFS(int node, vector<vector<int>>& adj_List_1, vector<int>& visited, vector<int>& ans){ // O(n+m)
     visited[node] = 1;
-
-    for(auto child : adj_List_1[node]){
-        if(visited[child]){
-            continue;
+    ans.push_back(node);
+    
+    for(auto & neighour : adj_List_1[node]){
+        if(visited[neighour] == 0){ // Not Visited
+            DFS(neighour, adj_List_1, visited, ans);
         }
-        DFS(child, adj_List_1, visited, has_Leaf_Node);
     }
 }
 
@@ -42,56 +71,67 @@ signed main(){
     while (tc--){
         // I/P
         int n; cin >> n;
-        vector<vector<int>> adj_List_1(n+1);
-        for(int i=1; i <= n; i++){
-            int a; cin >> a;
-
-            adj_List_1[i].push_back(a);
-            adj_List_1[a].push_back(i);
-        }
+        vector<int> a(n+1);
+        for(int i=1; i <= n; i++){ cin >> a[i];}
 
         // Solution
+        vector<vector<int>> adj(n+1);
         for(int i=1; i <= n; i++){
-            if(adj_List_1[i].size() == 0){
+            if((i > a[i]) && (a[a[i]] == i)){
                 continue;
             }
-
-            sort(adj_List_1[i].begin(), adj_List_1[i].end());
-            adj_List_1[i].resize(unique(adj_List_1[i].begin(), adj_List_1[i].end()) - adj_List_1[i].begin());
-            // unique => Removes duplicate element from Vector.
-            // [1 2 2 2 3 3 4] -> [1 2 3 4 - - -] -> [1 2 3 4]
+            adj[i].push_back(a[i]);
+            adj[a[i]].push_back(i);
         }
 
-        vector<int> Visited(n+1);
+        vector<int> visited(n+1, 0);
+        vector<int> Degree;
+        for(int i=1; i <= n; i++){
+            if(visited[i] == 0){
+                vector<int> Path;
+                DFS(i, adj, visited, Path);
 
-        int count_Cycles = 0, count_Branches = 0;
-        // count_Branches => No. of Connected components 
-        //                  with atleast 1-leaf node.
-        // count_Cycles   => No. of Connected components 
-        //                  which are Cycle.
-        for(int i = 1; i <= n; i++){
-            if(Visited[i] == 1){
-                continue;
-            }
-
-            bool has_Leaf_Node = false;
-            DFS(i, adj_List_1, Visited, has_Leaf_Node);
-
-            if(has_Leaf_Node){
-                count_Branches++;
-            }
-            else{
-                count_Cycles++;
+                int temp_degree = 0;
+                for(int j=0; j < Path.size(); j++){
+                    if(adj[Path[j]].size() == 1){
+                        temp_degree++;
+                    }
+                }
+                Degree.push_back(temp_degree);
             }
         }
 
-        // O/P
-        int One = 1;
-        // int min_Cycles = (count_Cycles + min(count_Branches, 1)); // Error
-        int min_Cycles = (count_Cycles + min(count_Branches, One));
-        int max_Cycles = (count_Cycles + count_Branches);
-        cout << min_Cycles << " " << max_Cycles << endl;
+        int maxi = Degree.size();
+        int mini = 0;
+        sort(Degree.begin(), Degree.end());
+        stack<int> st;
+        for(int i=0; i < Degree.size(); i++){
+            st.push(Degree[i]);
+        }
 
-        // TC = O(n)   => (TLE)
+        bool Break = false;
+        while(Break != true){
+            if(st.top() >= 1){
+                int top_1 = st.top();
+                st.pop();
+                if((st.empty() != true) && (st.top() >= 1)){
+                    int top_2 = st.top();
+                    st.pop();
+                    int top = (top_1 + top_2 - 2);
+                    st.push(top);
+                }
+                else{ 
+                    st.push(top_1);
+                    Break = true;
+                }
+            }
+            else{ Break = true;}
+        }
+        mini = st.size();
+
+        // // O/P
+        cout << mini << " " << maxi << endl;
+        // TC = O(n*log(n))
+        // SC = O(n)
     }
 }

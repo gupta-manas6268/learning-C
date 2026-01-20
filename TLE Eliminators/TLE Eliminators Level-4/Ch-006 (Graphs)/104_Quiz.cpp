@@ -1,6 +1,8 @@
 // Correct.
 // This is fully My code.  
 
+// (No need to write code & logic.)
+
 // Message Route
 // https://cses.fi/problemset/task/1667
 
