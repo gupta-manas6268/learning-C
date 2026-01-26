@@ -18,3 +18,12 @@
 
 // In Page-30
 //   O(α(n)) => (α -> Ackerman function, 4 upto n = power(10, 100) )
+
+
+// In Page-32
+//   DSU.unionSet(a, b)
+//   O(α(n)) ≈ O(1) (α -> Ackerman function)
+
+
+// In Page-40
+//   No. of choices => No. of Connected Components
