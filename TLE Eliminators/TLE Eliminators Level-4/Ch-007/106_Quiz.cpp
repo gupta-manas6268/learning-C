@@ -70,7 +70,7 @@ class UnionFind{
     private: vector<int> parent, rank;
     public:
         UnionFind(int n){
-            rank.assign(n, 0); parent.assign(n, 0);
+            rank.assign(n+1, 0); parent.assign(n+1, 0);
             iota(parent.begin(), parent.end(), 0);
         }
 
