@@ -2,11 +2,11 @@
 // (I solved it correctly Myself, but there is a  
 //   minor bug which I get through Claude in Line-126.)
 
+// (Write about that bug in Register, about Importance
+//   of correct indexing in array/vector.)
+
 // C. Experience
 // https://codeforces.com/edu/course/2/lesson/7/1/practice/contest/289390/problem/C
-
-
-
 
 
 
