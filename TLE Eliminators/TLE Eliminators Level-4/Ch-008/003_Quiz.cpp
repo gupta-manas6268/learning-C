@@ -114,6 +114,7 @@ signed main(){
     vector<int> stations;
     vector<array<int, 2>> connections;
 
+    // Using kruskal's algo.
     for(auto edge : edges){
         int u = edge.first[0], v = edge.first[1], weight = edge.second;
         if(DSU.isSameSet(u, v)){ continue;}
