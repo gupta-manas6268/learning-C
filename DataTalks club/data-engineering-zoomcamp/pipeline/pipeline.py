@@ -1,5 +1,5 @@
 import sys
-import pandas as pd
+import pandas as pd # pyright: ignore
 
 print('arguments', sys.argv)
 

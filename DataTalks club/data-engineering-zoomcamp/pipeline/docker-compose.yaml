@@ -1,0 +1,38 @@
+# From [02:03:00] of this Lecture.
+
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: pgdatabase
+    env_file:
+      - .env
+    volumes:
+      - ny_taxi_postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - pg-network
+
+  ingest:
+    image: taxi_ingest:v001
+    depends_on:
+      - postgres
+    networks:
+      - pg-network
+    command: >
+      --pg-user=postgres
+      --pg-pass=root
+      --pg-host=pgdatabase
+      --pg-port=5432
+      --pg-db=ny_taxi
+      --target-table=yellow_taxi_trips_2021_1
+      --chunksize=10000
+
+networks:
+  pg-network:
+    external: true
+
+volumes:
+  ny_taxi_postgres_data:
