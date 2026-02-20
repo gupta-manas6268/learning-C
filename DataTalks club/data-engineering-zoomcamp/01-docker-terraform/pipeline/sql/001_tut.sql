@@ -2,12 +2,20 @@
 -- Watch GCP-Lecture & then Terraform 2nd Lecture.
 
 
+
+
+
+
+
+
 -- Open Docker
 -- To go to Postgres in browser, in VScode:
 -- docker compose up -d
 -- docker start pgadmin
 -- Run in browser: http:localhost:8085/browser/
 -- email: admin@admin.com, password: root
+-- 
+-- In 'sqltools' extension, put password from Password-Manager of postgresql.
 
 
 -- @block

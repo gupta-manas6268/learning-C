@@ -8,7 +8,8 @@
             "driver": "PostgreSQL",
             "name": "local postgres",
             "database": "ny_taxi",
-            "username": "postgres"
+            "username": "postgres",
+            "password": "%Xv3hw%!g^uYH*xxA9"
         }
     ]
 }
