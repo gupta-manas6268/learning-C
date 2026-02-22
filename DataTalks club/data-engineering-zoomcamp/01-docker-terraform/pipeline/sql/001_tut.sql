@@ -10,6 +10,7 @@
 
 -- Open Docker
 -- To go to Postgres in browser, in VScode:
+-- Go in 'pipeline' folder in Terminal.
 -- docker compose up -d
 -- docker start pgadmin
 -- Run in browser: http:localhost:8085/browser/
