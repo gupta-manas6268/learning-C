@@ -1,10 +1,3 @@
-# From Week-2, Lecture-06, [04:00].
-#  Because, when I execute this in kestra in mine Ouputs,
-#  query it is giving me only 2-items but in Mentor it is
-#  giving 4-items.
-
-
-
 id: 03_getting_started_data_pipeline
 namespace: zoomcamp
 

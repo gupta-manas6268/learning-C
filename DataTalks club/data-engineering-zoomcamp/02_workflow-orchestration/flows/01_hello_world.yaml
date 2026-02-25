@@ -1,3 +1,9 @@
+# Run 'docker compose up -d' in this '02_workflow-orchestration',
+#  folder in terminal to start kestra. But, firstly start docker
+#  engine.
+
+
+
 id: getting_started
 # id: 01_hello_world
 namespace: zoomcamp
