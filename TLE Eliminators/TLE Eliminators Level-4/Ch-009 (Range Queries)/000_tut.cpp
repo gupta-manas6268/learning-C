@@ -6,3 +6,7 @@
 // Given an array-A of N-elements filled with 0's initially
 //  & q-queries.
 //   (↑)     (q <= 1e5, N <= 1e5)
+
+
+// Page-37
+//  Retum => Return
