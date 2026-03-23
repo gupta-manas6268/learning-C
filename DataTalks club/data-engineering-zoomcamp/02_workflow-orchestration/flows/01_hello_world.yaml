@@ -2,6 +2,8 @@
 #  folder in terminal to start kestra. But, firstly start docker
 #  engine.
 
+# Kestra link => http://localhost:8081/ui
+
 
 
 id: getting_started

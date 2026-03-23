@@ -1,0 +1,38 @@
+# This is local version of code which uses local postgresSQL.
+
+id: 07_gcp_setup
+namespace: zoomcamp
+
+tasks:
+  # Create table in Postgres
+  - id: create_table
+    type: io.kestra.plugin.jdbc.postgresql.Query
+    url: "jdbc:postgresql://{{kv('DB_HOST')}}:{{kv('DB_PORT')}}/{{kv('DB_NAME')}}"
+    username: "{{kv('DB_USER')}}"
+    password: "{{kv('DB_PASSWORD')}}"
+    sql: |
+      CREATE TABLE IF NOT EXISTS taxi_data (
+        id SERIAL PRIMARY KEY,
+        name TEXT,
+        value INT
+      );
+
+  # Insert sample data
+  - id: insert_data
+    type: io.kestra.plugin.jdbc.postgresql.Query
+    url: "jdbc:postgresql://{{kv('DB_HOST')}}:{{kv('DB_PORT')}}/{{kv('DB_NAME')}}"
+    username: "{{kv('DB_USER')}}"
+    password: "{{kv('DB_PASSWORD')}}"
+    sql: |
+      INSERT INTO taxi_data (name, value)
+      VALUES ('test1', 100), ('test2', 200);
+
+  # Query data
+  - id: read_data
+    type: io.kestra.plugin.jdbc.postgresql.Query
+    url: "jdbc:postgresql://{{kv('DB_HOST')}}:{{kv('DB_PORT')}}/{{kv('DB_NAME')}}"
+    username: "{{kv('DB_USER')}}"
+    password: "{{kv('DB_PASSWORD')}}"
+    fetch: true
+    sql: |
+      SELECT * FROM taxi_data;

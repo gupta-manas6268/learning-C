@@ -1,0 +1,35 @@
+# This is local version of code which uses local postgresSQL.
+
+id: 06_gcp_kv
+namespace: zoomcamp
+
+tasks:
+  - id: db_host
+    type: io.kestra.plugin.core.kv.Set
+    key: DB_HOST
+    kvType: STRING
+    value: pgdatabase
+
+  - id: db_port
+    type: io.kestra.plugin.core.kv.Set
+    key: DB_PORT
+    kvType: STRING
+    value: "5432"
+
+  - id: db_name
+    type: io.kestra.plugin.core.kv.Set
+    key: DB_NAME
+    kvType: STRING
+    value: ny_taxi
+
+  - id: db_user
+    type: io.kestra.plugin.core.kv.Set
+    key: DB_USER
+    kvType: STRING
+    value: postgres
+
+  - id: db_password
+    type: io.kestra.plugin.core.kv.Set
+    key: DB_PASSWORD
+    kvType: STRING
+    value: postgres
