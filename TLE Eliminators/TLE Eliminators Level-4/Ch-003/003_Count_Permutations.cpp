@@ -27,7 +27,7 @@ signed main(){
         if(dp[index][mask] != -1){ return dp[index][mask];}
 
         int ways = 0;
-        for(int i=0; i < n; i++){
+        for(int i=0; i < n; i++){ // O(n)
             if(((1 << i) & mask) == 0){
                 ways += F(index + 1, mask | (1 << i), F);
             }
@@ -38,4 +38,5 @@ signed main(){
 
     cout << f(0, 0, f) << endl;
     // TC = O(n * pow(2, n))
+    // SC = O(pow(2, n))
 }

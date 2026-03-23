@@ -28,7 +28,7 @@ signed main(){
             return;
         }
 
-        for(int i=0; i < n; i++){
+        for(int i=0; i < n; i++){ // O(n)
             if(((1 << i) & mask) == 0){
                 // i'th element is free to be taken
                 v.push_back(i + 1);
@@ -40,6 +40,7 @@ signed main(){
 
     f(0, 0, {}, f);
     // TC = O(n * pow(2, n))
+    // SC = O(pow(2, n))
 
     // (n * pow(2, n)) <<< (fact(n) * n)
 }

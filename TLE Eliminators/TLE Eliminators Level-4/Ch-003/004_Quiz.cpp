@@ -1,11 +1,40 @@
-// From Lecture-01, [01:17:00].
-
-
 // Correct.
 // (This is my code.)
 
 // O - Matching 
 // https://atcoder.jp/contests/dp/tasks/dp_o
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -55,4 +84,6 @@ signed main(){
 
     // O/P
     cout << f(0, 0, f) << endl;
+    // TC = O(n * pow(2, n))
+    // SC = O(pow(2, n))
 }
