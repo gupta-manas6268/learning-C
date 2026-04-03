@@ -1,7 +1,7 @@
 // Range minimum
 // update -> a[i] = gcd(a[i], x)
 
-// See Line-82, 87 & 97.
+// See Line-82, 87 & 97 & 118-132.
 
 #include<bits/stdc++.h>
 using namespace std;

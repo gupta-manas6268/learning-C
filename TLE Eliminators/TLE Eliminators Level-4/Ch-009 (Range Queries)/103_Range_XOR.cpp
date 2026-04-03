@@ -1,7 +1,7 @@
 // Range xor
 // update -> a[i] = ((a[i] * x) + y)
 
-// See Line-70, 71, 88 & 93-100.
+// See Line-70, 71, 88 & 93-100, & 119-133
 
 #include<bits/stdc++.h>
 using namespace std;

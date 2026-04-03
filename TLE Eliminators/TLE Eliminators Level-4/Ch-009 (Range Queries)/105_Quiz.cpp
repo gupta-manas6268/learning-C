@@ -1,7 +1,10 @@
-// Range gcd
+// Quiz: Find 2nd-min. in an array.
+
+
+// Range second min.
 // update -> a[i] = x
 
-// See Line-70, 71, 88 & 93-100 & 118-132.
+// See Lines-82 to 107.
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -77,15 +80,19 @@ struct SegTree {
 };
 
 struct Node1 {
-    int val; // may change
+    int min_1, min_2; // changed (←)
 	Node1() { // Identity element
-		val = 0;	// may change
+		min_1 = 1e9;	// changed (←)
+		min_2 = 1e9;	// changed (←)
 	}
 	Node1(int p1) {  // Actual Node
-		val = p1; // may change
+		min_1 = p1; // changed (←)
+        min_2 = 1e9;	// changed (←)
 	}
 	void merge(Node1 &l, Node1 &r) { // Merge two child nodes
-		val = __gcd(l.val, r.val);  // changed (←)
+		vector<int> v = {l.min_1, l.min_2, r.min_1, r.min_2};  // changed (←)
+        sort(v.begin(), v.end()); // changed (←)
+        min_1 = v[0], min_2 = v[1]; // changed (←)
 	}
 };
 
@@ -95,7 +102,7 @@ struct Update1 {
 		x = x1; // changed (←)
 	}
 	void apply(Node1 &a) { // apply update to given node
-		a.val = x; // changed (←)
+		a.min_1 = x; // changed (←)
 	}
 };
 // Segment-Tree Template (↑)

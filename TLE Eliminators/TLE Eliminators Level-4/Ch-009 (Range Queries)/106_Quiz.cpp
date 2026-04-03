@@ -1,7 +1,10 @@
-// Range gcd
+// Quiz: 1st-element > X, in range.
+
+
+// Max. range
 // update -> a[i] = x
 
-// See Line-70, 71, 88 & 93-100 & 118-132.
+// See Lines-82 to 103 & 121 to 157.
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -77,15 +80,15 @@ struct SegTree {
 };
 
 struct Node1 {
-    int val; // may change
+    int val; // changed (←)
 	Node1() { // Identity element
-		val = 0;	// may change
+		val = -1e9;	// changed (←)
 	}
 	Node1(int p1) {  // Actual Node
-		val = p1; // may change
+		val = p1; // changed (←)
 	}
 	void merge(Node1 &l, Node1 &r) { // Merge two child nodes
-		val = __gcd(l.val, r.val);  // changed (←)
+		val = max(l.val, r.val); // changed (←)
 	}
 };
 
@@ -95,7 +98,7 @@ struct Update1 {
 		x = x1; // changed (←)
 	}
 	void apply(Node1 &a) { // apply update to given node
-		a.val = x; // changed (←)
+		a.min_1 = x; // changed (←)
 	}
 };
 // Segment-Tree Template (↑)
@@ -126,8 +129,32 @@ signed main(){
             sg.make_update(i, x);
         }
         else{
-            int l, r; cin >> l >> r;
-            cout << sg.make_query(l, r).val << endl;
+            int l, r, x; cin >> l >> r >> x;
+
+            // Find out 1st-'i' s.t. a[i] > x in the range from l to r.
+            int start = l, end = r;
+            int ans = -1;
+
+            // [1, 2, 3, 4], l = 0, r = 3, x = 3
+
+            // mid = 1 [0, 1] -> No -> l = 2, r = 3
+            // mid = 2 [0, 2] -> No -> l = 3, r = 3
+            // mid = 3 [0, 3] -> Yes -> ans = mid = 3
+            
+            while(start <= end){ // log(n)
+                int mid = (start + end)/ 2;
+                int max_from_l_to_mid = sg.make_query(l, mid).val; // log(n)
+                if(max_from_l_to_mid > x){
+                    ans = mid;
+                    end = (mid - 1);
+                }
+                else{
+                    start = (mid + 1);
+                }
+            }
+
+            // O/P
+            // Complete it.
         }
     }
 }
