@@ -19,7 +19,7 @@ int left_Child(int index){
 int right_Child(int index){
     return (2 * index) + 1;
 }
-int combine_Children(int left, int right){
+int combine_Child(int left, int right){
     return left + right;
 }
 
@@ -34,7 +34,7 @@ void build(int s, int e, int index){ // O(n)
     build(s, mid, left_Child(index));
     build(mid + 1, e, right_Child(index));
 
-    sgt[index] = combine_Children(sgt[left_Child(index)], sgt[right_Child(index)]);
+    sgt[index] = combine_Child(sgt[left_Child(index)], sgt[right_Child(index)]);
 }
 
 void update(int s, int e, int index, int update_index, int update_value){ // O(log(n))
@@ -52,7 +52,7 @@ void update(int s, int e, int index, int update_index, int update_value){ // O(l
         update(mid + 1, e, right_Child(index), update_index, update_value);
     }
     
-    sgt[index] = combine_Children(sgt[left_Child(index)], sgt[right_Child(index)]);
+    sgt[index] = combine_Child(sgt[left_Child(index)], sgt[right_Child(index)]);
 }
 
 int query(int s, int e, int index, int l, int r){ // O(log(n))
@@ -71,7 +71,7 @@ int query(int s, int e, int index, int l, int r){ // O(log(n))
     int left_Contrib = query(s, mid, left_Child(index), l, r); // left_Contrib => left_Contribution
     int right_Contrib = query(mid + 1, e, right_Child(index), l, r);
 
-    return combine_Children(left_Contrib, right_Contrib);
+    return combine_Child(left_Contrib, right_Contrib);
 }
 
 signed main(){
