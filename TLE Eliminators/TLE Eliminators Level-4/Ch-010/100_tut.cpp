@@ -10,3 +10,11 @@
 
 // In Page-12,
 //  (CD => Common Difference)
+
+
+// In Page-19,
+//  There is no Straight-forward relation b/w XOR & Sum.
+
+// In Page-28,
+//  (after that blue-apple pencil line, code is)
+//  ans += (1 << b) * cnt;
