@@ -1,3 +1,7 @@
+# This code is same as '1701_todos.py', '2010_01_ending.py'
+#  , etc. codes which are next level of this code.
+
+
 # See, 'edit' and 'delete', try-except block.
 # 
 # try-except => if try-block isn't working (i.e. giving me error),

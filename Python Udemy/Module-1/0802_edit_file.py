@@ -16,11 +16,6 @@ with open('0802_main.txt', 'w') as file:
 print(todos)
 
 
-
-
-
-
-
 # delete => delete from file.
 
 index = int(input("Index of todo to delete: "))

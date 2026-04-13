@@ -1,3 +1,7 @@
+# See, '1002_try_except.py' file.
+
+
+
 # Here, I use 'user_action.startswith('add')' or something,
 #        because initial code in '0901_if_else.py' has bug.
 todos = []

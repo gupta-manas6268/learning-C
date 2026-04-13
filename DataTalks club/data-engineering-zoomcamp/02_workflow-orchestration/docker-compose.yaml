@@ -1,0 +1,109 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: pgdatabase
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ny_taxi
+    volumes:
+      - ny_taxi_postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ny_taxi"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - pg-network
+
+  ingest:
+    image: taxi_ingest:v001
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: >
+      --pg-user=postgres
+      --pg-pass=postgres
+      --pg-host=pgdatabase
+      --pg-port=5432
+      --pg-db=ny_taxi
+      --target-table=yellow_taxi_trips_2021_1
+      --chunksize=10000
+    networks:
+      - pg-network
+
+  kestra_postgres:
+    image: postgres:16
+    container_name: kestra_postgres
+    environment:
+      POSTGRES_DB: kestra
+      POSTGRES_USER: kestra
+      POSTGRES_PASSWORD: k3str4
+    volumes:
+      - kestra_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kestra -d kestra"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - pg-network
+
+  kestra:
+    image: kestra/kestra:latest
+    container_name: kestra
+    user: "0:0"
+    command: server standalone
+    depends_on:
+      kestra_postgres:
+        condition: service_healthy
+    ports:
+      - "8081:8080"
+    volumes:
+      - kestra_data:/app/storage
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      KESTRA_CONFIGURATION: |
+        datasources:
+          postgres:
+            url: jdbc:postgresql://kestra_postgres:5432/kestra
+            driverClassName: org.postgresql.Driver
+            username: kestra
+            password: k3str4
+
+        kestra:
+          repository:
+            type: postgres
+          storage:
+            type: local
+            local:
+              basePath: /app/storage
+          queue:
+            type: postgres
+          tasks:
+            tmpDir:
+              path: /app/storage/tmp
+    networks:
+      - pg-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    ports:
+      - "8085:80"
+    networks:
+      - pg-network
+
+networks:
+  pg-network:
+    driver: bridge
+
+volumes:
+  ny_taxi_postgres_data:
+  kestra_postgres_data:
+  kestra_data:

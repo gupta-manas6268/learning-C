@@ -10,14 +10,15 @@ todos = ["clean", "throw", "do"]
 file = open('0601_main.txt', 'w') # 'w' => write
 #  If file '0601_main.txt' didn't exist, then it will make then file 
 #   & then Write in that file.
-file.writelines((todos))
+file.writelines(todos)
 
-file.writelines(("\n"))
+file.writelines("\n")
 
 for todo in todos:
     file.write(todo + " ")
 
-file.write("\n Hey there\n")
+file.write("\n Write Completed \n")
+
 
 # Read
 
@@ -44,7 +45,16 @@ new_todos = file.readlines() # new_todos => List with each line as elements.
 
 for index, item in enumerate(new_todos):
     row = f"{index + 1}-{item}"
-    print(row)  # Two break lines => One break line because of 'new_todos'
+    print(row)  # Two break lines => One break line because of 'new_todos' List
                 #                   & second becasue of existing '\n' break line in file.
 
+
+# Append
+file = open('0601_main.txt', 'a')
+# "a"(append) => i.e. add element in file in List, not 
+#              over-write elements in "data.txt" file.
+file.write("\n" + "Append items." + "\n")
+
+
+# Close
 file.close() # Always close after use.

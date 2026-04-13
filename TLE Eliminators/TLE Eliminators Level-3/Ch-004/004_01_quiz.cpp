@@ -1,7 +1,7 @@
 // Correct.
 
 // Q.2: Given an array find the length of longest
-//       subarray with not more than K distinct elements
+//       subarray with not more than K-distinct elements
 
 
 
@@ -61,7 +61,7 @@ int longest_subarray(vector<int> a, int k){
     while(j < n){
         // include the jth element in your segment.
         freq[a[j]]++;
-        while((i <= j) && (freq.size() < k)){  // move left pointer 1-step left.
+        while((i <= j) && (freq.size() < k)){  // move left pointer 1-step right.
             freq[a[i]]--;
             if(freq[a[i]] == 0){
                 freq.erase(a[i]);

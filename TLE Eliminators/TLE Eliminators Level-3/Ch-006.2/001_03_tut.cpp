@@ -10,6 +10,7 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX >> 1;
 
+// Power
 int power(int base, int exp){
     int result = 1;
 
@@ -29,8 +30,7 @@ int power(int base, int exp){
     return result;
 }
 
-// O(1).
-int combination(int n, int r, int mod, vector<int>& fact, vector<int>& i_fact){
+int combination(int n, int r, int mod, vector<int>& fact, vector<int>& i_fact){ // O(1)
     // return mod_mul(fact[n], mod_mul(i_fact[r], i_fact[n-r], mod), mod);
     // return (fact[n] * (i_fact[r] * i_fact[n-r]) % mod) % mod;
     return (((fact[n] * i_fact[r]) % MOD) * i_fact[n-r]) % mod;

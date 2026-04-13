@@ -1,8 +1,9 @@
-// This is Mentor's code.
 // Correct.
+// (This is My code.)
 
 // 51. N-Queens
 // https://leetcode.com/problems/n-queens/description/
+
 
 
 
@@ -54,53 +55,52 @@ int main(){
 
 class Solution {
 public:
-    vector<vector<string>> combinations;
-    vector<string> current;
+    vector<vector<string>> ans;
+    void solve(int n, int x, set<int>& y, vector<pair<int,int>>& X_Y){
+        if(x == n){
+            string Temporary = "";
+            for(int j=0; j < n; j++){
+                Temporary += '.';
+            }
 
-    bool freeColumn(int col, int n){
-        for(int i=0; i<n; i++){
-            if(current[i][col] == 'Q'){
-                return false;
+            vector<string> temp(n);
+            for(int i=0; i < n; i++){
+                temp[i] = Temporary;
+            }
+            for(int i=0; i < X_Y.size(); i++){
+                int X = X_Y[i].first;
+                int Y = X_Y[i].second;
+                temp[X][Y] = 'Q';
+            }
+
+            ans.push_back(temp);
+        }
+        for(int i=0; i < n; i++){
+            auto it = y.find(i);
+            if(it == y.end()){ // Not found
+                bool Condition = true;
+                for(auto &Pair : X_Y){ // Diagonal condition
+                    int dx = (x - Pair.first);
+                    int dy = (i - Pair.second);
+                    if(abs(dx) == abs(dy)){ Condition = false; break;}
+                }
+                if(Condition == true){
+                    y.insert(i);
+                    X_Y.push_back({x, i});
+                    solve(n, x+1, y, X_Y);
+
+                    // Pop those values.
+                    auto it_1 = y.find(i);
+                    y.erase(it_1);
+                    X_Y.pop_back();
+                }
             }
         }
-
-        return true;
     }
-
-    bool freeDiag(int row, int col, int n){
-        for(int i = row, j = col; i >= 0 && j >= 0; i--, j--){
-            if(current[i][j] == 'Q'){
-                return false;
-            }
-        }
-
-        for(int i = row, j = col; i >= 0 && j < n; i--, j++){
-            if(current[i][j] == 'Q'){
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    void backtrack(int index, int n){
-        if(index == n){
-            combinations.push_back(current);
-            return;
-        }
-
-        for(int i=0; i<n; i++){
-            if((freeColumn(i, n) == true) && (freeDiag(index, i, n) == true)){
-                current[index][i] = 'Q';
-                backtrack(index + 1, n);
-                current[index][i] = '.';
-            }
-        }
-    }
-
     vector<vector<string>> solveNQueens(int n) {
-        current.assign(n, string(n, '.'));
-        backtrack(0, n);
-        return combinations;
+        set<int> y;
+        vector<pair<int,int>> X_Y;
+        solve(n, 0, y, X_Y);
+        return ans;
     }
 };

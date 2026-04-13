@@ -1,0 +1,4 @@
+tours:
+  css: '#displaytimer'
+  # Gives value in 'id=displaytimer', which is in 'h1-Header',
+  #  in HTML-code.

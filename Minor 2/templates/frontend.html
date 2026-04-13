@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Prediction</title>
+    <style>
+        *{
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            background:linear-gradient(135deg, #eef2ff, #f8fafc);
+            padding:30px;
+        }
+
+        .main-container{
+            display:flex;
+            gap:25px;
+            max-width:1400px;
+            margin:auto;
+        }
+
+        .sidebar{
+            width:320px;
+            background:white;
+            padding:25px;
+            border-radius:20px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.08);
+            height:fit-content;
+        }
+
+        .container{
+            flex:1;
+            background:white;
+            border-radius:24px;
+            padding:40px;
+            box-shadow:0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .field{
+            margin-bottom:15px;
+        }
+
+        input, select{
+            width:100%;
+            padding:12px;
+            border:1px solid #cbd5e1;
+            border-radius:10px;
+        }
+
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(2, 1fr);
+            gap:18px;
+        }
+
+        button{
+            padding:12px 24px;
+            background:#2563eb;
+            color:white;
+            border:none;
+            border-radius:10px;
+            cursor:pointer;
+        }
+
+        .btn-wrap{
+            text-align:center;
+            margin-top:20px;
+        }
+
+        .result{
+            margin-top:20px;
+            padding:16px;
+            border-radius:12px;
+            text-align:center;
+            font-weight:700;
+        }
+
+        .result-churn{
+            background:#fef2f2;
+            color:#b91c1c;
+        }
+
+        .result-stay{
+            background:#f0fdf4;
+            color:#15803d;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+
+    <div class="sidebar">
+        <h2>User Save Panel</h2>
+        
+        <div class="field">
+            <label>Name</label>
+            <input
+                type="text"
+                name="user_name"
+                form="mainForm"
+                required
+            >
+        </div>
+    
+        <div class="field">
+            <label>Status</label>
+            <select
+                name="user_status"
+                form="mainForm"
+                required
+            >
+                <option value="Churn">Churn</option>
+                <option value="Stay">Stay</option>
+            </select>
+        </div>
+    
+        {% if sidebar_message %}
+            <p style="margin-top:10px;">
+                {{ sidebar_message }}
+            </p>
+        {% endif %}
+    </div>
+
+    <div class="container">
+        <h1>Customer Churn Prediction</h1>
+
+        <form method="POST" id="mainForm">
+            <div class="grid">
+                {% for field in fields %}
+                <div class="field">
+                    <label>{{ field.name }}</label>
+
+                    {% if field.type == 'select' %}
+                        <select name="{{ field.name }}" required>
+                            {% for option in field.options %}
+                                <option value="{{ option }}">{{ option }}</option>
+                            {% endfor %}
+                        </select>
+                    {% else %}
+                        <input
+                            type="number"
+                            step="any"
+                            name="{{ field.name }}"
+                            value="{{ field.value }}"
+                            required
+                        >
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="btn-wrap">
+                <button type="submit">Predict + Save User</button>
+            </div>
+        </form>
+
+        {% if prediction %}
+            <div class="result {{ result_class }}">
+                {{ prediction }}
+            </div>
+        {% endif %}
+
+        {% if top_features %}
+            <div class="result" style="margin-top:20px;">
+                <h3>Top 5 Important Features</h3>
+            
+                <table style="width:100%; margin-top:10px; border-collapse:collapse;">
+                    <tr>
+                        <th style="padding:8px; border:1px solid #ddd;">Feature</th>
+                        <th style="padding:8px; border:1px solid #ddd;">Importance</th>
+                    </tr>
+                
+                    {% for item in top_features %}
+                    <tr>
+                        <td style="padding:8px; border:1px solid #ddd;">
+                            {{ item.Feature }}
+                        </td>
+                        <td style="padding:8px; border:1px solid #ddd;">
+                            {{ "%.4f"|format(item.Importance) }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endif %}
+    </div>
+
+</div>
+
+</body>
+</html>

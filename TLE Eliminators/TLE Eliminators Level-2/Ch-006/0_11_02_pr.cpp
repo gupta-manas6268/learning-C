@@ -1,9 +1,24 @@
-// This is Mentor's code.
-
 // Correct.
+// (This is Mentor's code.)
 
 // M. Minimum LCM
 // https://codeforces.com/contest/1765/problem/M
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

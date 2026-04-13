@@ -9,5 +9,11 @@ while True:  # Infinite loop.
     # capitalize => Capitalize first letter in only 1st word & others will be small.
     #       (Ex: 'clean the Room' => 'Clean the room'.)
     #                       ↑                   ↑
+
+    # print(todo.title) # Didn't work without '()' but didn't give error.
+    print(todo.title()) 
+    # title => Capitalize first letter in each word.
+    #       (Ex: 'clean the room' => 'Clean The Room'.)
+    
     todos.append(todo) # Add element in List.
     print(todos)

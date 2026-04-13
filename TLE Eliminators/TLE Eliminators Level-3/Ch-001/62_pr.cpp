@@ -1,7 +1,40 @@
-// 
+// Correct.
 
 // C. Sagheer and Nubian Market
 // https://codeforces.com/problemset/problem/812/C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -24,38 +57,36 @@ signed main(){
 
     // I/P
     int n, S; cin >> n >> S;
-    int a[n];
-    for(int i=0; i<n; i++){ cin >> a[i];}
+    vector<int> a(n);
+    for(int i=0; i < n; i++){ cin >> a[i];}
 
-    // O/P
-    int left = 0, right = n;
-    int k, T;
-    while(left <= right){
-        int mid = (left + right)/2;
+    // Solution
+    int left = 1, right = n;
+    int k = 0, T = 0;
+    while(left <= right){ // O(log(n))
+        int mid = (left + right) / 2;
 
-        if(mid == 0){
-            k = 0; T = 0;
+        vector<int> new_a(n);
+        for(int i=0; i < n; i++){ // O(n)
+            new_a[i] = (a[i] + (mid * (i+1)));
+        }
+        sort(new_a.begin(), new_a.end()); // O(n * log(n))
+
+        int cost = 0;
+        for(int i=0; i < mid; i++){
+            cost += new_a[i];
+        }
+
+        if(cost <= S){
+            k = mid; T = cost;
+            left = mid + 1;
         }
         else{
-            vector<int> temp;
-            for(int i=0; i<n; i++){
-                temp[i] = (a[i] + ((i+1) * mid));
-            }
-            sort(temp.begin(), temp.end());
-            T = 0;
-            for(int i=0; i<mid; i++){
-                T += temp[i];
-            }
-
-            if(T <= S){
-                k = mid;
-                left = mid+1;
-            }
-            else{
-                right = mid-1;
-            }
+            right = mid - 1;
         }
-    } 
+    }
 
+    // O/P
     cout << k << " " << T << endl;
+    // TC = O(n * power(log(n), 2))
 }

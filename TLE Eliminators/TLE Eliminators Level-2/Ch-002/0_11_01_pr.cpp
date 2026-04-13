@@ -1,8 +1,8 @@
-// Wrong.
+// Correct.
+// This is Mentor's code.
 
 // 39. Combination Sum
 // https://leetcode.com/problems/combination-sum/description/
-
 
 
 
@@ -54,47 +54,30 @@ int main(){
 
 class Solution {
 public:
-    vector<vector<int>> ans;
-    vector<int> vec;
-    int sum = 0;
-    bool Return = false;
+    vector<vector<int>> combinations;
+    vector<int> current_Subset;
 
-    void solve(int i, vector<int>& candidates, int target){
-        vec.push_back(candidates[i]);
-        sum += candidates[i];
-        int n = candidates.size();
-
-        if(Return == true){
-            Return = false;
-            return;
-        }
-        if(i == (n-1)){ 
-            Return = true;
-            // return;
-        }
-
-        if(sum == target){
-            ans.push_back(vec);
-            sum -= candidates[i];
-            return;
-        }
-        else if(sum > target){
-            // vec.erase(vec.begin()+i);
-            sum -= candidates[i];
+    void backtrack(int index, int target, vector<int>& candidates){
+        if(target == 0){
+            combinations.push_back(current_Subset);
             return;
         }
 
-        for(int j=i; j<n; j++){
-            solve(j, candidates, target);
+        if((index == candidates.size()) || (target < 0)){
+            return;
         }
+
+        // Not Choosing the Element.
+        backtrack(index + 1, target, candidates);
+
+        // Choosing the Element.
+        current_Subset.push_back({candidates[index]});
+        backtrack(index, target - candidates[index], candidates);
+        current_Subset.pop_back();
     }
-    
-    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        int n = candidates.size();
-        for(int i=0; i<n; i++){
-            solve(i, candidates, target);
-        }
 
-        return ans;
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        backtrack(0, target, candidates);
+        return combinations;
     }
 };

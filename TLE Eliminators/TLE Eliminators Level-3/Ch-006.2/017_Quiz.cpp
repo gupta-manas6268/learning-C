@@ -1,7 +1,40 @@
-// 
+// Correct.
+
+// This is My Concept & code. So, don't Write  
+//  it in Register notes.
 
 // 3128. Right Triangles
 // https://leetcode.com/problems/right-triangles/description/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -25,25 +58,25 @@ public:
     long long numberOfRightTriangles(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
 
-        vector<int> Row, Col;
+        vector<int> Row(m), Col(n);
         for(int i=0; i<m; i++){
             int temp = 0;
             for(int j=0; j<n; j++){
                 if(grid[i][j] == 1){ temp++;}
             }
-            Row.push_back(temp); // m, i
+            Row[i] = temp; // m, i
         }
         for(int j=0; j<n; j++){
             int temp = 0;
             for(int i=0; i<m; i++){
                 if(grid[i][j] == 1){ temp++;}
             }
-            Col.push_back(temp); // n, j
+            Col[j] = temp; // n, j
         }
 
         long long ans = 0;    
-        for(int i=0; i<n; i++){
-            for(int j=0; j<m; j++){
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
                 if(grid[i][j] == 1){
                     int a = (Row[i]-1);
                     int b = (Col[j]-1);

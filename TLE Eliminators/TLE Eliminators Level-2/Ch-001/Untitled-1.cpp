@@ -13,19 +13,16 @@ int main(){
 
 
 
+
 class Solution {
 public:
-    int ans = 0;
-    void solve(int i, int n){
-        if(i > n){ return;}
-        else if(i == n){ ans++; return;}
-        else{
-            solve(i+1, n);
-            solve(i+2, n);
-        }
+    vector<vector<string>> ans;
+    
+    void is_Palindrome()
+    void backtrack(string s, int index){
+
     }
-    int climbStairs(int n) {
-        solve(0, n);
-        return ans;
+    vector<vector<string>> partition(string s) {
+        
     }
 };

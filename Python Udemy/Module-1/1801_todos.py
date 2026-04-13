@@ -18,6 +18,11 @@ import FreeSimpleGUI.window
 import functions_1701
 import FreeSimpleGUI as sg   # i.e. we can only type 'sg' in place of 'FreeSimpleGUI'
 import time
+import os
+
+if not os.path.exists("1701_todos.txt"):  # If '1701_todos.txt' file didn't exists,
+    with open("1701_todos.txt", 'w') as file: # then it will make '1701_todos.txt' file
+        pass
 
 sg.theme("Purple")
 

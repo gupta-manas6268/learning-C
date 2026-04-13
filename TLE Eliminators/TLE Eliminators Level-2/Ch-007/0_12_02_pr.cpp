@@ -1,7 +1,24 @@
-// Wrong. (Runtime error)
+// Correct.
+// (This is My code in 2nd Revision time.)
 
 // 155. Min Stack
 // https://leetcode.com/problems/min-stack/description/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -35,63 +52,44 @@ int main(){
 }
 
 
+
 class MinStack {
 public:
-    // approach -> to maintain a monotonic stack which stores the 
-    //              minimum of all the elements in the stack at 
-    //              it's top.
-
-    // push = [4, 3, 5, 1, 2]
-    // stack =            [4, 3, 5, 1, 2]
-    // monotonic stack -> [4, 3, 3, 1, 1] -> top() -> getMin()
-
-    // getMin()
-    // after 1st insertion :- 4
-    // after 2nd insertion :- 3
-    // after 3rd insertion :- 3
-    // after 4th insertion :- 1
-    // after 5th insertion :- 1
-
-    vector<int> st;
-    int count = 0;
-    int mini;
-    vector<int> Mini;
-
+    stack<int> st, mini;
     MinStack() {
-
+        
     }
     
     void push(int val) {
-        if(count == 0){
-            mini = val;
+        st.push(val);
+        if(mini.empty() == true){
+            mini.push(val);
         }
         else{
-            mini = min(mini, val);
+            if(mini.top() >= val){
+                mini.push(val);
+            }
         }
-
-        st.push_back(val);
-        Mini.push_back(mini);
-        count++;
     }
-    
+
     void pop() {
-        st.pop_back();
-        Mini.pop_back();
-        mini = Mini[Mini.size()-1];
-        count--;
+        if((mini.empty() != true) && (st.empty() != true)){
+            if(st.top() == mini.top()){
+                mini.pop();
+            }
+        }
+        st.pop();
     }
     
     int top() {
-        int ans = st[st.size()-1];
-        return ans;
+        return st.top();
     }
     
     int getMin() {
-        int ans = Mini[Mini.size()-1];
-        return ans;
+        return mini.top();
     }
 };
-
+    
 /**
  * Your MinStack object will be instantiated and called as such:
  * MinStack* obj = new MinStack();

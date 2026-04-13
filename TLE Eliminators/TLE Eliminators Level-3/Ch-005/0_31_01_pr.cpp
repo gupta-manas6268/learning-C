@@ -1,8 +1,8 @@
-// Wrong.
+// Correct.
+// (This is Mentor's code.)
 
 // B. Colliders
 // https://codeforces.com/problemset/problem/154/B
-
 
 
 
@@ -49,7 +49,7 @@ const int INF = LLONG_MAX >> 1;
 
 const int val = 1e5;
 int SPF[val+1];
-void spf(){
+void spf(){  // O(1e5 * log(log(1e5))).
     for(int i=0; i <= val; i++){
         SPF[i] = i;
     }
@@ -64,6 +64,18 @@ void spf(){
     }
 }
 
+vector<int> Prime_Factors(int n){ // O(log(n)).
+    vector<int> primes;
+    while(n > 1){
+        int x = SPF[n];
+        while(n%x == 0){ 
+            n /= x;
+        }
+        primes.push_back(x);
+    }
+
+    return primes;
+}
 
 signed main(){
     #ifndef ONLINE_JUDGE
@@ -83,70 +95,54 @@ signed main(){
     }
 
     // Solution
-    vector<string> Ans(m);
     spf();
-    int on_off[n+1] = {0};
-    int Conflict[m] = {0};
+    int Occupied[n+1] = {0};
+    int is_Active[n+1] = {0};
+
     for(int i=0; i<m; i++){
+        int num = Request[i].second;
+        vector<int> primes = Prime_Factors(num);
+
         if(Request[i].first == '+'){
-            int num = Request[i].second;
-            if(on_off[num] == 1){
-                Ans[i] = "Already on";
+            if(is_Active[num] != 0){
+                cout << "Already on" << endl;
             }
             else{
-                vector<int> prime_factors;
-                bool push = true;
-                while(num > 1){
-                    if(SPF[num] != (SPF[num / SPF[num]])){
-                        prime_factors.push_back(SPF[num]);
-                    }
-                    num /= SPF[num];
-                }
-                
-                for(int it=0; it < prime_factors.size(); it++){
-                    if(Conflict[it] != 0){
-                        int conflict_num = Conflict[it];
-                        push = false;
-                        Ans[i] = "Conflict with " + to_string(conflict_num);
-                        break;
+                int collision = 0;
+
+                for(auto &i : primes){
+                    if(Occupied[i] != 0){
+                        collision = Occupied[i];
                     }
                 }
-                if(push == true){
-                    // for(auto it : prime_factors){
-                    for(int it = 0; it < prime_factors.size(); it++){
-                        Conflict[it] = num;
+
+                if(collision != 0){
+                    cout << "Conflict with " << collision << endl;
+                }
+                else{
+                    cout << "Success" << endl;
+
+                    for(auto &i : primes){
+                        Occupied[i] = num;
                     }
-                    Ans[i] = "Success";
-                    on_off[num] = 1;
+                    is_Active[num] = 1;
                 }
             }
         }
         else{
-            int num = Request[i].second;
-            if(on_off[num] == 0){
-                Ans[i] = "Already off";
+            if(is_Active[num] == 0){
+                cout << "Already off" << endl;
             }
             else{
-                Ans[i] = "Success";
-                
-                vector<int> prime_factors;
-                while(num > 1){
-                    if(SPF[num] != (SPF[num / SPF[num]])){
-                        prime_factors.push_back(SPF[num]);
-                    }
-                    num /= SPF[num];
+                cout << "Success" << endl;
+                is_Active[num] = 0;
+
+                for(auto &i : primes){
+                    Occupied[i] = 0;
                 }
-                
-                for(auto it : prime_factors){
-                    Conflict[it] = 0;
-                }
-                on_off[num] = 0;
             }
         }
     }
 
-    // O/P
-    for(int i=0; i<m; i++){
-        cout << Ans[i] << endl;
-    }
+    // TC = O(1e5 * log(log(1e5)) + (m * log(n))).
 }

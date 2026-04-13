@@ -1,8 +1,24 @@
-// This is Mentor's code.
 // Correct.
+// (This is Mentor's code.)
 
 // 946. Validate Stack Sequences
 // https://leetcode.com/problems/validate-stack-sequences/description/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,5 +1,33 @@
 # Q1: Can Python open other types of files rather than .txt files?
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Ans: First, you should know that there are two types of files, 
 #       binary and non-binary. Non-binary files are files such as
 #       .txt, .csv, .py, .html, .json, and any other file whose 

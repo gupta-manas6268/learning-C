@@ -1,8 +1,24 @@
-// This is Mentor's code.
 // Correct.
+// (This is Mentor's code.)
 
 // A. Valeriy and Deque
 // https://codeforces.com/problemset/problem/1179/A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -51,12 +67,14 @@ signed main(){
     // (where, n = size of deque.)
 
 
+    // I/P
     int n, q; cin >> n >> q;
     deque<int> a(n);
     for(int i=0; i<n; i++){
         cin >> a[i];
     }
 
+    // Solution
     vector<pair<int, int>> ans(n-1);
     for(int i=0; i < n-1; i++){
         int first = a[0];
@@ -72,6 +90,7 @@ signed main(){
         int m; cin >> m;
         m--;
 
+        // O/P
         if(m >= n-1){
             int position = (m - n + 1) % (n - 1);
             cout << a[0] << " " <<  a[position + 1] << endl;

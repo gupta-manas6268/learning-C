@@ -1,7 +1,36 @@
-// Wrong.
+// Correct.
 
 // Static Range Sum Queries
 // https://cses.fi/problemset/task/1646
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -26,26 +55,34 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n, q; cin >> n >> q;
-    int arr[n];
-    for(int i=0; i<n; i++){ cin >> arr[i];}
-    vector<pair<int, int>> query(n);
-    for(int i=0; i<q; i++){
+    vector<int> x(n);
+    for(int i=0; i < n; i++){ cin >> x[i];}
+
+    // Solution
+    vector<int> Prefix_Sum(n);
+    for(int i=0; i < n; i++){
+        if(i == 0){
+            Prefix_Sum[i] = x[i];
+        }
+        else{
+            Prefix_Sum[i] = (Prefix_Sum[i-1] + x[i]);
+        }
+    }
+    for(int i=0; i < q; i++){
         int a, b; cin >> a >> b;
-        query[i].first = a;
-        query[i].second = b;
-    }
 
-    vector<int> prefix_Sum(n+1);
-    prefix_Sum[0] = 0;
-    for(int i=1; i<=n; i++){
-        prefix_Sum[i] = (arr[i-1] + prefix_Sum[i-1]);
-    }
+        a--; b--;
+        int ans;
+        if((a-1) >= 0){
+            ans = (Prefix_Sum[b] - Prefix_Sum[a-1]);
+        }
+        else{
+            ans = Prefix_Sum[b];
+        }
 
-    vector<int> ans(q);
-    for(int i=0; i<q; i++){
-        ans[i] = (prefix_Sum[query[i].second] - prefix_Sum[query[i].first - 1]);
+        // O/P
+        cout << ans << endl;
     }
-
-    for(int i=0; i<q; i++){ cout << ans[i] << endl;}
 }

@@ -31,7 +31,7 @@ signed main(){
     }
     sort(a.begin(), a.end());
 
-    // O/P
+    // Solution
     vector<int> ans;
     int val = 1;
     while(a.empty() != true){
@@ -54,6 +54,7 @@ signed main(){
         }
     }
 
+    // O/P
     cout << Ans << endl;
     for(int i=0; i<n; i++){
         cout << ans[i] << " ";

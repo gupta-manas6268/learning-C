@@ -1,8 +1,7 @@
 # List Length
 todos = ["clean", "throw", "do", "done", 'movie']
 for index, item in enumerate(todos):
-    row = f"{index + 1}-{item}"
-    print(row)
+    print(f"{index + 1}-{item}")
     
 # for-loop elements can be used outside loop also.
 print("Hello", index, item)

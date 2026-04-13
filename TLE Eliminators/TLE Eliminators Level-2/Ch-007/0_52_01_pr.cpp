@@ -1,7 +1,23 @@
-// Wrong.
+// Correct.
+// (This is My code in 2nd Revision time.)
 
 // A. Valeriy and Deque
 // https://codeforces.com/problemset/problem/1179/A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -39,49 +55,66 @@ signed main(){
 
     ios::sync_with_stdio(false); cin.tie(NULL);
 
+    // I/P
     int n, q; cin >> n >> q;
-    deque<int> arr;
-    for(int i=0; i<n; i++){
-        int a; cin >> a;
-        arr.push_back(a);
+    int maxi = -1;
+    deque<int> deq;
+    for(int i=0; i < n; i++){ 
+        int temp; cin >> temp;
+        deq.push_back(temp);
+        maxi = max(maxi, temp);
     }
-    vector<int> query;
-    if(q == 0){
-        cout << endl;
+    vector<int> m(q);
+    for(int i=0; i < q; i++){ cin >> m[i];}
+
+    // Solution
+    vector<pair<int,int>> query;
+    while(deq.front() != maxi){
+        int A = deq.front();
+        deq.pop_front();
+        int B = deq.front();
+        deq.pop_front();
+        
+        if(A > B){
+            deq.push_front(A);
+            deq.push_back(B);
+        }
+        else{
+            deq.push_front(B);
+            deq.push_back(A);
+        }
+        query.push_back({A, B});
+        // cout << "Query: " << A << " " << B << endl;
     }
-    else{
-        for(int i=0; i<q; i++){
-            int a; cin >> a;
-            query.push_back(a);
+    int Size_1 = query.size();
+
+    vector<pair<int,int>> loop;
+    for(int i=0; i < n-1; i++){
+        int A = deq.front();
+        deq.pop_front();
+        int B = deq.front();
+        deq.pop_front();
+        
+        deq.push_front(A);
+        deq.push_back(B);
+
+        loop.push_back({A, B});
+        // cout << "Loop: " << A << " " << B << endl;
+    }
+    
+    vector<pair<int,int>> ans(q);
+    for(int i=0; i < q; i++){
+        if(m[i] <= Size_1){
+            ans[i] = query[m[i]-1];
         }
-
-        vector<pair<int, int>> ans;
-
-        int max_Query = *max_element(query.begin(), query.end());
-        for(int i=1; i <= max_Query; i++){
-            int a = arr[0];
-            int b = arr[1];
-
-            ans.push_back({a, b});
-
-            if(a > b){
-                arr.pop_front();
-                arr.pop_front();
-
-                arr.push_front(a);
-                arr.push_back(b);
-            }
-            else{
-                arr.pop_front();
-                arr.push_back(a);
-            }
+        else{
+            m[i] -= Size_1;
+            ans[i] = loop[(m[i]-1) % (n-1)];
         }
-
-        for(int i=0; i<q; i++){
-            int a = ans[query[i]-1].first;
-            int b = ans[query[i]-1].second;
-
-            cout << a << " " << b << endl;
-        }
+    }
+    
+    // O/P
+    for(int i=0; i < q; i++){
+        cout << ans[i].first << " " << ans[i].second << endl;
     }
 }

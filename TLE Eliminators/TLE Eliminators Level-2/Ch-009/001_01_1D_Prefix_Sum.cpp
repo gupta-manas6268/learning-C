@@ -17,7 +17,7 @@ signed main(){
 
     int n; cin >> n;
     vector<int> v(n);
-    for(auto &it:v){ cin >> v;}
+    for(auto &it:v){ cin >> it;}
 
     vector<int> prefix_sum(n);
     for(int i=0; i<n; i++){
